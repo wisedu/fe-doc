@@ -17,26 +17,28 @@ Vue.component(TabItem.name, TabItem);
 
 搭配 <router-link :to="{ path:'/' + $route.meta.language + '/tab-container' }">tab-container</router-link> 组件使用
 
+::: demo
 ```html
 <mt-tabbar v-model="selected">
   <mt-tab-item id="外卖">
-    <img slot="icon" src="../assets/100x100.png">
+    <img slot="icon" src="">
     外卖
   </mt-tab-item>
   <mt-tab-item id="订单">
-    <img slot="icon" src="../assets/100x100.png">
+    <img slot="icon" src="">
     订单
   </mt-tab-item>
   <mt-tab-item id="发现">
-    <img slot="icon" src="../assets/100x100.png">
+    <img slot="icon" src="">
     发现
   </mt-tab-item>
   <mt-tab-item id="我的">
-    <img slot="icon" src="../assets/100x100.png">
+    <img slot="icon" src="">
     我的
   </mt-tab-item>
 </mt-tabbar>
 ```
+:::
 
 ## API
 

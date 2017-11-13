@@ -15,6 +15,7 @@ Vue.component(Radio.name, Radio);
 ## 例子
 
 基本用法
+::: demo
 ```html
 <mt-radio
   title="单选框列表"
@@ -22,6 +23,7 @@ Vue.component(Radio.name, Radio);
   :options="['选项A', '选项B', '选项C']">
 </mt-radio>
 ```
+:::
 
 设置禁用选项
 
@@ -43,6 +45,7 @@ this.options = [
 ];
 ```
 
+::: demo
 ```html
 <mt-radio
   title="单选框列表"
@@ -50,8 +53,10 @@ this.options = [
   :options="options">
 </mt-radio>
 ```
+:::
 
 单选框右对齐
+::: demo
 ```html
 <mt-radio
   align="right"
@@ -60,6 +65,7 @@ this.options = [
   :options="options">
 </mt-radio>
 ```
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

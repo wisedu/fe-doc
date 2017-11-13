@@ -15,6 +15,7 @@ Vue.component(Checklist.name, Checklist);
 ## 例子
 
 基本用法
+::: demo
 ```html
 <mt-checklist
   title="复选框列表"
@@ -22,6 +23,7 @@ Vue.component(Checklist.name, Checklist);
   :options="['选项A', '选项B', '选项C']">
 </mt-checklist>
 ```
+:::
 
 设置禁用选项
 ```javascript
@@ -47,14 +49,17 @@ this.options = [
 ];
 ```
 
+::: demo
 ```html
 <mt-checklist
   v-model="value"
   :options="options">
 </mt-checklist>
 ```
+:::
 
 设置最大可选数
+::: demo
 ```html
 <mt-checklist
   :max="2"
@@ -62,8 +67,10 @@ this.options = [
   :options="options">
 </mt-checklist>
 ```
+:::
 
 选择框右对齐
+::: demo
 ```html
 <mt-checklist
   align="right"
@@ -72,6 +79,7 @@ this.options = [
   :options="options">
 </mt-checklist>
 ```
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

@@ -15,24 +15,30 @@ Vue.component(Badge.name, Badge);
 ## 例子
 
 指定尺寸
+::: demo
 ```html
 <mt-badge size="small">30</mt-badge>
 <mt-badge size="normal">10</mt-badge>
 <mt-badge size="large">10</mt-badge>
 ```
+:::
 
 指定类型
+::: demo
 ```html
 <mt-badge type="primary">30</mt-badge>
 <mt-badge type="error">10</mt-badge>
 <mt-badge type="success">10</mt-badge>
 <mt-badge type="warning">10</mt-badge>
 ```
+:::
 
 指定颜色
+::: demo
 ```html
 <mt-badge size="small" color="#888">自定义颜色</mt-badge>
 ```
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

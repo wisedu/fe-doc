@@ -49,6 +49,7 @@ components.forEach(item => {
 let template = `import Vue from 'vue'
 import Router from 'vue-router'
 import PcView from './pages/pc-view'
+import MobileView from './pages/mobile-view'
 ${jsImport.join("\r\n")}
 
 Vue.use(Router)
@@ -70,7 +71,7 @@ function buildRouter(components) {
   components.map(item => {
     let route = routes.find(r => r.path === ('/' + item.route))
     if (!route) {
-      route = { path: '/' + item.route, component: '@PcView@', children: [] }
+      route = { path: '/' + item.route, component: '@' + item.route.replace(/^\w/, val => val.toUpperCase()) + 'View@', children: [] }
       routes.push(route)
     }
     route.children.push({ name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute})

@@ -16,12 +16,15 @@ Vue.component(Header.name, Header);
 
 固定在页面顶部
 
+::: demo
 ```html
 <mt-header fixed title="固定在顶部"></mt-header>
 ```
+:::
 
 设置 `left` 或 `right` slot
 
+::: demo
 ```html
 <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
   <router-link to="/" slot="left">
@@ -30,9 +33,11 @@ Vue.component(Header.name, Header);
   <mt-button icon="more" slot="right"></mt-button>
 </mt-header>
 ```
+:::
 
 设置多个按钮
 
+::: demo
 ```html
 <mt-header title="多个按钮">
   <router-link to="/" slot="left">
@@ -42,6 +47,7 @@ Vue.component(Header.name, Header);
   <mt-button icon="more" slot="right"></mt-button>
 </mt-header>
 ```
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

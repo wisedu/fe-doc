@@ -18,12 +18,14 @@ Vue.component(Actionsheet.name, Actionsheet);
 
 将 `v-model` 绑定到一个本地变量，通过操作这个变量即可控制 `actionsheet` 的显示与隐藏。
 
+::: demo
 ```html
 <mt-actionsheet
   :actions="actions"
   v-model="sheetVisible">
 </mt-actionsheet>
 ```
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

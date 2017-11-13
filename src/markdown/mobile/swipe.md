@@ -17,6 +17,7 @@ Vue.component(SwipeItem.name, SwipeItem);
 
 基础用法
 
+::: demo
 ```html
 <mt-swipe :auto="4000">
   <mt-swipe-item>1</mt-swipe-item>
@@ -24,9 +25,11 @@ Vue.component(SwipeItem.name, SwipeItem);
   <mt-swipe-item>3</mt-swipe-item>
 </mt-swipe>
 ```
+:::
 
 隐藏 indicators
 
+::: demo
 ```html
 <mt-swipe :show-indicators="false">
   <mt-swipe-item>1</mt-swipe-item>
@@ -34,9 +37,11 @@ Vue.component(SwipeItem.name, SwipeItem);
   <mt-swipe-item>3</mt-swipe-item>
 </mt-swipe>
 ```
+:::
 
 取消自动播放
 
+::: demo
 ```html
 <mt-swipe :auto="0">
   <mt-swipe-item>1</mt-swipe-item>
@@ -44,11 +49,13 @@ Vue.component(SwipeItem.name, SwipeItem);
   <mt-swipe-item>3</mt-swipe-item>
 </mt-swipe>
 ```
+:::
 
 `change` 事件
 
 轮播图切换时会触发 `change` 事件，参数为切入轮播图的索引
 
+::: demo
 ```html
 <mt-swipe @change="handleChange">
   <mt-swipe-item>1</mt-swipe-item>
@@ -56,6 +63,7 @@ Vue.component(SwipeItem.name, SwipeItem);
   <mt-swipe-item>3</mt-swipe-item>
 </mt-swipe>
 ```
+:::
 
 ```javascript
 methods: {

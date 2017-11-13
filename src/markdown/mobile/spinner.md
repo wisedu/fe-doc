@@ -15,6 +15,7 @@ Vue.component(Spinner.name, Spinner);
 ## 例子
 
 指定类型
+::: demo
 ```html
 <mt-spinner type="snake"></mt-spinner>
 <mt-spinner type="double-bounce"></mt-spinner>
@@ -27,18 +28,23 @@ Vue.component(Spinner.name, Spinner);
 <mt-spinner :type="2"></mt-spinner>
 <mt-spinner :type="3"></mt-spinner>
 ```
+:::
 
 指定颜色
+::: demo
 ```html
 <mt-spinner color="#26a2ff"></mt-spinner>
 <mt-spinner color="rgb(100, 100, 100)"></mt-spinner>
 <mt-spinner color="yellow"></mt-spinner>
 ```
+:::
 
 指定尺寸
+::: demo
 ```html
 <mt-spinner :size="60"></mt-spinner>
 ```
+:::
 
 
 ## API

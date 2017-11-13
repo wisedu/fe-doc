@@ -17,29 +17,37 @@ Vue.component(icon.name, icon);
 
 基础用法
 
+::: demo
 ```html
 <mt-icon  type="icon-pinglun"></mt-icon>
 ```
+:::
 
 `type` 是字体图标库的图标class。图标地址是：http://res.wisedu.com/fe_components/iconfont_mobile/demo_fontclass.html
 
 设置图标颜色
 
+::: demo
 ```html
 <mt-icon type="icon-pinglun" color="green"></mt-icon>
 ```
+:::
 
 设置字体图标点击之后的颜色
+::: demo
 ```html
 <mt-icon type="icon-pinglun" changeColor="red"></mt-icon>
 ```
+:::
 `changeColor` 是字体图标点击之后的颜色。
 
 设置图标点击事件
 
+::: demo
 ```html
 <mt-icon type="icon-pinglun" @click="doSome"></mt-icon>
 ```
+:::
 ```javascript
 methods:{
   doSome () {
@@ -48,9 +56,11 @@ methods:{
 }
 ```
 设置字体图标点击时的动画
+::: demo
 ```html
 mt-icon type="icon-pinglun" animate="animated shake"></mt-icon>
 ```
+:::
 `animate` 是给字体图标设置点击动画样式。动画由Animate.css提供：https://daneden.github.io/animate.css/?
 
 

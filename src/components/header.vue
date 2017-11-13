@@ -3,9 +3,13 @@
     <div class="header-container">
       <img class="logo" src="../assets/logo.png" alt="">
       <ul class="list">
-        <li>移动组件</li>
-        <li class="active">PC组件</li>
-        <li>资源下载</li>
+        <router-link to="/mobile">
+          <li>移动组件</li>
+        </router-link>
+        <router-link to="/pc">
+          <li class="active">PC组件</li>
+        </router-link>
+        <!-- <li>资源下载</li> -->
       </ul>
     </div>
   </div>
@@ -50,6 +54,10 @@ export default {
       }
 
     }
+  }
+
+  & a {
+    color: inherit;
   }
 }
 </style>

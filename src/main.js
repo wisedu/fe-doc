@@ -9,15 +9,15 @@ import 'highlight.js/styles/color-brewer.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
-// import Mint from 'bh-mint-ui2'
-// import 'bh-mint-ui2/lib/style.css'
+import Mint from 'bh-mint-ui2'
+import 'bh-mint-ui2/lib/style.css'
 
 import Components from './components'
 
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
-// Vue.use(Mint)
+Vue.use(Mint)
 Vue.use(Components)
 
 Vue.component('demo-block', DemoBlock)
