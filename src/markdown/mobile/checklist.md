@@ -15,6 +15,7 @@ Vue.component(Checklist.name, Checklist);
 ## 例子
 
 基本用法
+
 ::: demo
 ```html
 <mt-checklist
@@ -59,6 +60,7 @@ this.options = [
 :::
 
 设置最大可选数
+
 ::: demo
 ```html
 <mt-checklist
@@ -70,6 +72,7 @@ this.options = [
 :::
 
 选择框右对齐
+
 ::: demo
 ```html
 <mt-checklist

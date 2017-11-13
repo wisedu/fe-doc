@@ -94,7 +94,7 @@ Vue.component(Steps.name, Steps);
 
 | Name | 说明 |
 |-----------|-----------|
-| N/A | 默认区域 |
+| - | 默认区域 |
 | left | 垂直时，左侧区域 |
 
 如：

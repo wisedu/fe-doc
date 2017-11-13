@@ -16,18 +16,16 @@ Vue.component(Cell.name, Cell);
 ## 例子
 
 基础用法
-:::demo
+
 ::: demo
 ```html
 <mt-cell title="标题文字"></mt-cell>
 <mt-cell title="标题文字" value="说明文字"></mt-cell>
 ```
 :::
-:::
 
 可点击的链接
 
-:::demo 
 ::: demo
 ```html
 <mt-cell
@@ -38,19 +36,17 @@ Vue.component(Cell.name, Cell);
 </mt-cell>
 ```
 :::
-:::
 
 带图标
-:::demo 
+
 ::: demo
 ```html
 <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
 ```
 :::
-:::
 
 带自定义图标
-:::demo 
+
 ::: demo
 ```html
 <mt-cell title="标题文字">
@@ -59,10 +55,9 @@ Vue.component(Cell.name, Cell);
 </mt-cell>
 ```
 :::
-:::
 
 自定义内容
-:::demo 
+
 ::: demo
 ```html
 <mt-cell title="标题文字" is-link>
@@ -70,15 +65,13 @@ Vue.component(Cell.name, Cell);
 </mt-cell>
 ```
 :::
-:::
 
 带备注信息
-:::demo 
+
 ::: demo
 ```html
 <mt-cell title="标题" label="描述信息" is-link></mt-cell>
 ```
-:::
 :::
 
 

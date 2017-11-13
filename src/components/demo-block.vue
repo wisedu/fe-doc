@@ -44,6 +44,7 @@
     border-radius: 3px;
     transition: .2s;
     position: relative;
+    margin-bottom: 24px;
 
     &.hover {
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
