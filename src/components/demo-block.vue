@@ -129,7 +129,7 @@
       color: #d3dce6;
       cursor: pointer;
       position: relative;
-    
+
       &.is-fixed {
         position: absolute;
         left: 0!important;
@@ -165,7 +165,7 @@
         opacity: 0;
         transform: translateX(10px);
       }
-      
+
       .control-button {
         line-height: 26px;
         position: absolute;
