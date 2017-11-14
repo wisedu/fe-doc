@@ -18,13 +18,15 @@ export default {
   components: { MdSideNav },
   data () {
     return {
-      ceils: []
+      combination: [],
+      template: []
     }
   },
   computed: {
     menuData () {
       return {
-        combination: this.ceils
+        combination: this.combination,
+        template: this.template
       }
     }
   },
@@ -38,20 +40,25 @@ export default {
           first.children.push(item)
         }
       })
-      this.ceils = result
+      return result
+      
+    },
+    getCeilsList (type) {
+       axios.post(this.$SITE_URL + '/mobile/getClassifyCategory', {
+        type: type
+      }).then(({data: resp}) => {
+        if (!resp.first || resp.first.length === 0) {
+          alert('ceils无数据')
+          return
+        }
+        this[type] = this.sortCeilList(resp)
+      })
     }
   },
   created () {
-    axios.post(this.$SITE_URL + '/mobile/getClassifyCategory', {
-      type: 'combination'
-    }).then(({data: resp}) => {
-      console.log(resp)
-      if (!resp.first || resp.first.length === 0) {
-        alert('ceils无数据')
-        return
-      }
-      this.sortCeilList(resp)
-    })
+    this.getCeilsList('combination')
+    this.getCeilsList('template')
+    
   }
 }
 </script>
