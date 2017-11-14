@@ -2,62 +2,58 @@
   <div class="side-nav">
     
      <el-menu default-active="2" class="el-menu-vertical-demo">
-       <div class="search">
+       <!-- <div class="search">
         <input type="text">
-      </div>  
-      <router-link v-for="item in navs" :key="item.name" :to="{name: item.name}">
-        <el-menu-item :index="item.name" >{{item.name}}</el-menu-item>
-      </router-link>
-
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
+      </div>   -->
+      <el-submenu index="components">
+        <template slot="title">组件</template>
+        <router-link v-for="item in navs" :key="item.name" :to="{name: item.name}">
+          <el-menu-item :index="item.name" >{{item.name}}</el-menu-item>
+        </router-link>
       </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item> -->
+      <el-submenu v-for="(value, key) in menuData" :key="key" :index="key">
+        <template slot="title">{{key}}</template>
+        <el-menu-item-group v-for="item in value">
+          <template slot="title">{{item.name}}</template>
+          <el-menu-item v-for="subItem in item.children" :index="subItem.id" @click="handleMenuClick(subItem.id, key)">{{subItem.name}}</el-menu-item>
+        </el-menu-item-group>
+      </el-submenu>
     </el-menu>
   </div>  
 </template>
 <script>
-// import router from '../components.js'
+import axios from 'axios';
 export default {
   props: {
-    type: { default: 'pc', type: String }
+    type: { default: "pc", type: String },
+    menuData: { type: Object, default: {} }
   },
-  data () {
+  data() {
     return {
       routes: []
-    }
+    };
   },
   computed: {
-    navs () {
-      return this.routes.find(r => r.path.replace('/', '') === this.type).children
+    navs() {
+      return this.routes.find(r => r.path.replace("/", "") === this.type).children;
     }
   },
-  created () {
-    this.routes = this.$router.options.routes
+  methods: {
+    handleMenuClick (id, type) {
+      console.log(id)
+      this.$router.push({
+        name: 'CeilsMobile',
+        query: {
+          type: type,
+          categoryId: id
+        }
+      })
+    }
+  },
+  created() {
+    this.routes = this.$router.options.routes;
   }
-}
+};
 </script>
 <style lang="scss">
 .side-nav {

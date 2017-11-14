@@ -5,6 +5,9 @@ import App from './App'
 // import router from './router'
 import DemoBlock from './components/demo-block'
 import 'highlight.js/styles/color-brewer.css'
+import VueHighlightJS from 'vue-highlightjs'
+
+
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -19,8 +22,13 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(Mint)
 Vue.use(Components)
+Vue.use(VueHighlightJS)
 
 Vue.component('demo-block', DemoBlock)
+
+Vue.prototype.$SITE_URL = 'http://res.wisedu.com:9900'
+// Vue.prototype.$SITE_URL = 'http://172.16.121.201:9900'
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

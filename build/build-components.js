@@ -50,6 +50,7 @@ let template = `import Vue from 'vue'
 import Router from 'vue-router'
 import PcView from './pages/pc-view'
 import MobileView from './pages/mobile-view'
+import Ceils from './pages/ceils'
 ${jsImport.join("\r\n")}
 
 Vue.use(Router)
@@ -75,6 +76,12 @@ function buildRouter(components) {
       routes.push(route)
     }
     route.children.push({ name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute})
+  })
+
+  routes.find(r => r.path.replace('/', '') === 'mobile').children.push({
+    "name": "CeilsMobile",
+    "component": '@Ceils@',
+    "path": "ceils"
   })
     return `const router = new Router({
       routes: ${JSON.stringify(routes).replace(/(\'|\")?@(\'|\")?/g, '')}

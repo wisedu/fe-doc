@@ -220,6 +220,7 @@ textarea {
 .page-component {
   box-sizing: border-box;
   height: 100%;
+  max-width: calc(100% - 240px);
 
   &.page-container {
     padding: 0;
