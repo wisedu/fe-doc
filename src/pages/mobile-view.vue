@@ -23,7 +23,7 @@ export default {
     return {
       combination: [],
       template: [],
-      demoUrl: "../../static/demo/index.html",
+      demoUrl: "./static/demo/index.html",
       active: ""
     }
   },
@@ -85,7 +85,7 @@ export default {
 
 .phone {
     margin: 20px 20px 0;
-    background-image: url(../../static/phone.5909f66.png);
+    background-image: url(../assets/phone.5909f66.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 100%;
