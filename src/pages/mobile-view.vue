@@ -41,7 +41,7 @@ export default {
         }
       })
       return result
-      
+
     },
     getCeilsList (type) {
        axios.post(this.$SITE_URL + '/mobile/getClassifyCategory', {
@@ -58,8 +58,13 @@ export default {
   created () {
     this.getCeilsList('combination')
     this.getCeilsList('template')
-    
+
   }
 }
 </script>
-
+<style>
+.demo-block.demo-mobile .source{
+  width: 375px;
+  border-right: 1px solid #ddd;
+}
+</style>

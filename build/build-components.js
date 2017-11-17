@@ -75,7 +75,7 @@ function buildRouter(components) {
       route = { path: '/' + item.route, component: '@' + item.route.replace(/^\w/, val => val.toUpperCase()) + 'View@', children: [] }
       routes.push(route)
     }
-    route.children.push({ name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute})
+    route.children.push({ name: item.subRoute, component: '@' + item.vueClassName + '@', path: item.subRoute})
   })
 
   routes.find(r => r.path.replace('/', '') === 'mobile').children.push({
