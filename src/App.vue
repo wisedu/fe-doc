@@ -220,7 +220,7 @@ textarea {
 .page-component {
   box-sizing: border-box;
   height: 100%;
-  width: 912px;
+  width: 800px;
 
   &.page-container {
     padding: 0;
@@ -347,7 +347,7 @@ textarea {
 
 .page-container {
   background: #fff;
-  width: 1176px;
+  width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,.28);
   display: flex;
   padding: 24px;

@@ -1,11 +1,14 @@
 <template>
 <div>
     <div class="page-container">
-      <md-side-nav type="mobile" :menu-data="menuData" ></md-side-nav>
+      <md-side-nav type="mobile" :menu-data="menuData" :active="active" @navchange="navChanged"></md-side-nav>
       <div class="page-component">
         <div class="content">
           <router-view></router-view>
         </div>
+      </div>
+      <div class="phone">
+        <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
       </div>
     </div>
   </div>
@@ -19,7 +22,9 @@ export default {
   data () {
     return {
       combination: [],
-      template: []
+      template: [],
+      demoUrl: "../../static/demo/index.html",
+      active: ""
     }
   },
   computed: {
@@ -28,6 +33,9 @@ export default {
         combination: this.combination,
         template: this.template
       }
+    },
+    realDemoUrl (){
+      return this.demoUrl + "#/" + this.active;
     }
   },
   methods: {
@@ -53,12 +61,19 @@ export default {
         }
         this[type] = this.sortCeilList(resp)
       })
+    },
+    navChanged (id){
+      // console.log(id);
+      this.active = id;
     }
   },
   created () {
     this.getCeilsList('combination')
     this.getCeilsList('template')
-
+    let r = window.location.hash.substring(1).split("/");
+    if (r[1] === "mobile"){
+      this.active = r[2]
+    }
   }
 }
 </script>
@@ -66,5 +81,21 @@ export default {
 .demo-block.demo-mobile .source{
   width: 375px;
   border-right: 1px solid #ddd;
+}
+
+.phone {
+    margin: 20px 20px 0;
+    background-image: url(../../static/phone.5909f66.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100%;
+    padding: 100px 16px;
+    box-sizing: border-box;
+    width: 365px;
+}
+.demo-page {
+    width: 100%;
+    height: 580px;
+    background-color: #fff;
 }
 </style>

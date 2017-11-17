@@ -1,6 +1,6 @@
 <template>
 <div>
-  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item">
+  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item" :key="item.name">
     <div class="source" slot="source">
       <component :is="item.name"></component>
     </div>
