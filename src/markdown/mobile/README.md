@@ -81,3 +81,14 @@ npm i mint-ui -S
 ```
 :::
 但是对于其他组件，还是需要添加 `.native` 修饰符。
+<script>
+  export default {
+    methods:{
+      handleClick:function() {
+
+      },
+      handleButtonClick:function(){
+      }
+    }
+  };
+</script>

@@ -66,3 +66,23 @@ Vue.component(Field.name, Field);
 | name | 描述 |
 |------|--------|
 | - | 显示的 HTML 内容|
+
+<script>
+  export default {
+    data: function(){
+      return {
+        username:"",
+        email:"",
+        password:"",
+        phone:"",
+        website:"",
+        number:"",
+        birthday:"",
+        introduction:"",
+        captcha:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>

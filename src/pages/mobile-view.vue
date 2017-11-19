@@ -85,13 +85,13 @@ export default {
 
 .phone {
     margin: 20px 20px 0;
-    background-image: url(../assets/phone.5909f66.png);
+    background-image: url(../assets/phone.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 100%;
     padding: 100px 16px;
     box-sizing: border-box;
-    width: 365px;
+    width: 407px;
 }
 .demo-page {
     width: 100%;

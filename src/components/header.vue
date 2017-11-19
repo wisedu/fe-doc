@@ -4,10 +4,10 @@
       <img class="logo" src="../assets/logo.png" alt="">
       <ul class="list">
         <router-link to="/mobile">
-          <li>移动组件</li>
+          <li :class="mobile_active">移动组件</li>
         </router-link>
         <router-link to="/pc">
-          <li class="active">PC组件</li>
+          <li :class="pc_active">PC组件</li>
         </router-link>
         <!-- <li>资源下载</li> -->
       </ul>
@@ -16,7 +16,26 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return {
+      mobile_active:"active",
+      pc_active:""
+    }
+  },
+  mounted() {
+    this.changeStatus()
+  },
+  methods: {
+    changeStatus() {
+      if (window.location.hash.indexOf("mobile") > -1) {
+        this.mobile_active = "active"
+        this.pc_active = ""
+      } else {
+        this.mobile_active = ""
+        this.pc_active = "active"
+      }
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -47,18 +66,15 @@ export default {
       padding: 0 16px;
       height: 100%;
       line-height: 80px;
-
-      &.active,
-      &:hover {
-        border-bottom: 4px solid #3892FF;
-      }
-
     }
   }
 
   & a {
     color: inherit;
   }
+}
+.router-link-active {
+  border-bottom: 4px solid #3892FF;
 }
 </style>
 

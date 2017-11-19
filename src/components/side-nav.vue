@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     navs() {
-      return this.routes.find(r => r.path.replace("/", "") === this.type).children;
+      return this.routes.find(r => r.path.replace("/", "") === this.type).children.filter(i => i.path !== "/");
     }
   },
   methods: {

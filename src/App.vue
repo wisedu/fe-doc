@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="">
     <md-header></md-header>
-    <router-view></router-view>
+    <div class="container"><router-view></router-view></div>
   </div>
 </template>
 
@@ -114,7 +114,7 @@ textarea {
 
 .container,
 .page-container {
-  width: 1140px;
+  width: 100%;
   padding: 0;
   margin: 0 auto;
 }
@@ -190,21 +190,23 @@ textarea {
 .demo {
   margin: 20px 0;
 }
-@media (max-width: 1140px) {
-  .container,
-  .page-container {
+@media (max-width: 1620px) {
+  .container {
     width: 100%;
+    padding: 0 24px;
+  }
+  .page-component .content{
+    width: 800px;
   }
 }
 
-@media (max-width: 768px) {
-  .container,
-  .page-container {
-    padding: 0 20px;
+@media (max-width: 1366px) {
+  .container {
+    width: 100%;
+    padding: 0;
   }
-
-  #app.is-component .headerWrapper .container {
-    padding: 0 12px;
+  .page-component .content{
+    width: 598px;
   }
 }
 
@@ -220,7 +222,6 @@ textarea {
 .page-component {
   box-sizing: border-box;
   height: 100%;
-  width: 800px;
 
   &.page-container {
     padding: 0;
@@ -347,10 +348,9 @@ textarea {
 
 .page-container {
   background: #fff;
-  width: 100%;
   box-shadow: 0 2px 8px rgba(0,0,0,.28);
   display: flex;
-  padding: 24px;
+  padding: 24px 0 24px 24px;
 }
 
 .side-nav {

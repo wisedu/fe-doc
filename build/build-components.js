@@ -48,6 +48,7 @@ components.forEach(item => {
 
 let template = `import Vue from 'vue'
 import Router from 'vue-router'
+import Home from './pages/home'
 import PcView from './pages/pc-view'
 import MobileView from './pages/mobile-view'
 import Ceils from './pages/ceils'
@@ -75,7 +76,11 @@ function buildRouter(components) {
       route = { path: '/' + item.route, component: '@' + item.route.replace(/^\w/, val => val.toUpperCase()) + 'View@', children: [] }
       routes.push(route)
     }
-    route.children.push({ name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute})
+    let ri = { name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute}
+    if (item.subRoute === "README") {
+      ri.path = "/";
+    }
+    route.children.push(ri)
   })
 
   routes.find(r => r.path.replace('/', '') === 'mobile').children.push({
@@ -83,7 +88,14 @@ function buildRouter(components) {
     "component": '@Ceils@',
     "path": "ceils"
   })
-    return `const router = new Router({
-      routes: ${JSON.stringify(routes).replace(/(\'|\")?@(\'|\")?/g, '')}
-    })`
+
+  routes.push({
+    "name": "home",
+    "component": "@Home@",
+    "path": "/"
+  })
+
+  return `const router = new Router({
+    routes: ${JSON.stringify(routes).replace(/(\'|\")?@(\'|\")?/g, '')}
+  })`
 }

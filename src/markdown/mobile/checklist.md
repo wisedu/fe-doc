@@ -20,7 +20,7 @@ Vue.component(Checklist.name, Checklist);
 ```html
 <mt-checklist
   title="复选框列表"
-  v-model="value"
+  v-model="value1"
   :options="['选项A', '选项B', '选项C']">
 </mt-checklist>
 ```
@@ -53,7 +53,7 @@ this.options = [
 ::: demo
 ```html
 <mt-checklist
-  v-model="value"
+  v-model="value2"
   :options="options">
 </mt-checklist>
 ```
@@ -65,7 +65,7 @@ this.options = [
 ```html
 <mt-checklist
   :max="2"
-  v-model="value"
+  v-model="value3"
   :options="options">
 </mt-checklist>
 ```
@@ -78,7 +78,7 @@ this.options = [
 <mt-checklist
   align="right"
   title="右对齐"
-  v-model="value"
+  v-model="value4"
   :options="options">
 </mt-checklist>
 ```
@@ -92,3 +92,39 @@ this.options = [
 |title | 标题，显示在列表上方 | string | | |
 |max| 最多可选个数，超过后其他未选择的选项变成禁用状态 | Number | | |
 |align| 复选框对其位置| String | left, right | left |
+
+
+<script>
+  export default {
+    data: function(){
+      return {
+        value1:[],
+        value2:[],
+        value3:[],
+        value4:[],
+        options:[
+          {
+            label: '被禁用',
+            value: '值F',
+            disabled: true
+          },
+          {
+            label: '选中禁用',
+            value: '选中禁用的值',
+            disabled: true
+          },
+          {
+            label: '选项A',
+            value: '值A'
+          },
+          {
+            label: '选项B',
+            value: '值B'
+          }
+        ]
+      }
+    },
+    methods:{
+    }
+  };
+</script>
