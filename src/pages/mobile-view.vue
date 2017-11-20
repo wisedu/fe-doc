@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="page-container">
-      <md-side-nav type="mobile" :menu-data="menuData" :active="active" @navchange="navChanged"></md-side-nav>
+      <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component">
         <div class="content">
           <router-view></router-view>
@@ -36,6 +36,12 @@ export default {
     },
     realDemoUrl (){
       return this.demoUrl + "#/" + this.active;
+    },
+    categoryId () {
+      return this.$route.query.categoryId || ''
+    },
+    categoryType () {
+      return this.$route.query.type || ''
     }
   },
   methods: {
@@ -72,7 +78,11 @@ export default {
     this.getCeilsList('template')
     let r = window.location.hash.substring(1).split("/");
     if (r[1] === "mobile"){
-      this.active = r[2]
+      if (this.categoryId) {
+        this.active = this.categoryId
+      } else {
+        this.active = r[2]
+      }
     }
   }
 }
@@ -92,6 +102,8 @@ export default {
     padding: 100px 16px;
     box-sizing: border-box;
     width: 407px;
+    max-width: 407px;
+    min-width: 407px;
 }
 .demo-page {
     width: 100%;
