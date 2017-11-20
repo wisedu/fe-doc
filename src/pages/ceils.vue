@@ -53,7 +53,7 @@ export default {
     initComponents (ceilsInfo) {
       ceilsInfo.content.forEach(item => {
         const jsfiddle = {
-          html: '<div>' + item.run.html + '</div>',
+          html: item.run.html,
           sctipt: 'export default {}',
           style: item.run.style,
           name: 'c-' + item.id
