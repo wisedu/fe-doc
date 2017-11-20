@@ -28,7 +28,7 @@ export default {
     type: { default: "pc", type: String },
     menuData: { type: Object, default: {} },
     active: String,
-    defaultOpeneds: String
+    defaultOpeneds: Array
   },
   data() {
     return {

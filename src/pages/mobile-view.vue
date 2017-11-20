@@ -41,7 +41,7 @@ export default {
       return this.$route.query.categoryId || ''
     },
     categoryType () {
-      return this.$route.query.type || ''
+      return this.$route.query.type ? [this.$route.query.type] : ['components']
     }
   },
   methods: {
