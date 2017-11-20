@@ -39,6 +39,7 @@ export default {
       if (!this.categoryId) return
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         type: this.categoryType,
+        getType:"previewRun",
         categoryId: this.categoryId
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
@@ -54,11 +55,11 @@ export default {
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
-          style: '',
+          style: item.run.style,
           name: 'c-' + item.id
         }
         Vue.component('c-' + item.id, {
-          template: '<div>' + item.html + '</div>'
+          template: '<div>' + item.preview.html + '</div>'
         })
         this.ceilsCompoonents.push(jsfiddle)
 
