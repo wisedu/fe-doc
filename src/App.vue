@@ -222,6 +222,7 @@ textarea {
 .page-component {
   box-sizing: border-box;
   height: 100%;
+  flex-grow: 1;
 
   &.page-container {
     padding: 0;

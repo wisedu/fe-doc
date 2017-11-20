@@ -1,6 +1,6 @@
 <template>
 <div>
-  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item" :key="item.name">
+  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item" :key="item.id">
     <div class="source" slot="source">
       <component :is="item.name"></component>
     </div>
@@ -39,7 +39,6 @@ export default {
       if (!this.categoryId) return
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         type: this.categoryType,
-        getType:"previewRun",
         categoryId: this.categoryId
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
@@ -55,11 +54,11 @@ export default {
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
-          style: item.run.style,
+          style: '',
           name: 'c-' + item.id
         }
         Vue.component('c-' + item.id, {
-          template: '<div>' + item.preview.html + '</div>'
+          template: '<div>' + item.html + '</div>'
         })
         this.ceilsCompoonents.push(jsfiddle)
 

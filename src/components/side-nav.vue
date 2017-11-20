@@ -1,7 +1,7 @@
 <template>
   <div class="side-nav">
 
-     <el-menu :default-active="active" class="el-menu-vertical-demo">
+     <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
        <!-- <div class="search">
         <input type="text">
       </div>   -->
@@ -27,7 +27,8 @@ export default {
   props: {
     type: { default: "pc", type: String },
     menuData: { type: Object, default: {} },
-    active: String
+    active: String,
+    defaultOpeneds: String
   },
   data() {
     return {
@@ -44,7 +45,6 @@ export default {
       this.$emit("navchange", id)
     },
     handleMenuClick (id, type) {
-      console.log(id)
       this.$router.push({
         name: 'CeilsMobile',
         query: {
