@@ -74,3 +74,8 @@ this.options = [
 |value | 绑定值 | String | | |
 |title | 标题，显示在列表上方 | string | | |
 |align| 单选框对其位置| String | left, right | left |
+
+## Slot
+| name | 描述 |
+|------|--------|
+| textarea | 显示补充的文本域|
