@@ -67,7 +67,7 @@
     }
 
     .source {
-      padding: 24px;
+      // padding: 24px;
       width: 375px;
       border-right: 1px solid #ddd;
       display: inline-block;
