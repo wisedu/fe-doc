@@ -1,13 +1,13 @@
 <template>
 <div>
-  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item" :key="item.id">
-    <div class="source" slot="source">
-      <component :is="item.name"></component>
-    </div>
-    <div class="highlight" slot="highlight">
-      <pre v-highlightjs><code class="html">{{item.html}}</code></pre>
-    </div>
-  </demo-block>
+  <template v-for="item in ceilsCompoonents">
+    <h4 :key="item.id">编号：{{item.id}}</h4>
+    <demo-block  :jsfiddle="item" :key="item.id">
+      <component slot="source" :is="item.name"></component>
+      <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+      <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button>
+    </demo-block>
+  </template>
 </div>
 </template>
 <script>
@@ -39,6 +39,7 @@ export default {
       if (!this.categoryId) return
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         type: this.categoryType,
+        getType:"previewRun",
         categoryId: this.categoryId
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
@@ -54,15 +55,27 @@ export default {
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
-          style: '',
-          name: 'c-' + item.id
+          style: item.run.style,
+          name: 'c-' + item.id,
+          id: item.showId
         }
         Vue.component('c-' + item.id, {
-          template: '<div>' + item.html + '</div>'
+          template: '<div>' + item.preview.html + '</div>'
         })
         this.ceilsCompoonents.push(jsfiddle)
 
         // this.ceilsCompoonents.push(item.id)
+      })
+    },
+    handleDownload (name) {
+      const id = name.replace(/^c\-/, '')
+      const type = this.categoryType
+      if (!type || !id) return
+      axios.post(this.$SITE_URL + '/mobile/downloadClassifyItem', `type=${type}&id=${id}`).then(({data: resp}) => {
+        console.log(resp)
+        if (resp.type === 'success') {
+          window.open(this.$SITE_URL + resp.path)
+        }
       })
     }
   },
@@ -71,4 +84,5 @@ export default {
   }
 }
 </script>
+
 
