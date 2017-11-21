@@ -1,12 +1,13 @@
 <template>
 <div>
-  <div v-for="item in ceilsCompoonents" :key="item.id">
-    <h4>编号：{{item.id}}</h4>
-    <demo-block  :jsfiddle="item">
+  <template v-for="item in ceilsCompoonents">
+    <h4 :key="item.id">编号：{{item.id}}</h4>
+    <demo-block  :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+      <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button>
     </demo-block>
-  </div>
+  </template>
 </div>
 </template>
 <script>
@@ -65,6 +66,17 @@ export default {
 
         // this.ceilsCompoonents.push(item.id)
       })
+    },
+    handleDownload (name) {
+      const id = name.replace(/^c\-/, '')
+      const type = this.categoryType
+      if (!type || !id) return
+      axios.post(this.$SITE_URL + '/mobile/downloadClassifyItem', `type=${type}&id=${id}`).then(({data: resp}) => {
+        console.log(resp)
+        if (resp.type === 'success') {
+          window.open(this.$SITE_URL + resp.path)
+        }
+      })
     }
   },
   created () {
@@ -72,4 +84,5 @@ export default {
   }
 }
 </script>
+
 

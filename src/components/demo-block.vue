@@ -29,6 +29,7 @@
       <transition name="text-slide">
         <!-- <span v-show="hovering">{{ controlText }}</span> -->
       </transition>
+      <slot name="download"></slot>
       <!-- <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
           <el-button
