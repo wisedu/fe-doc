@@ -3,6 +3,7 @@
     <div class="page-container">
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component">
+        <search style="margin-left:24px;width: 400px;"></search>
         <div class="content">
           <router-view></router-view>
         </div>
@@ -17,12 +18,13 @@
 <script>
 import axios from 'axios'
 import MdSideNav from '../components/side-nav'
+import search from '../components/search'
 export default {
-  components: { MdSideNav },
+  components: { MdSideNav, search },
   data () {
     return {
-      combination: [],
-      template: [],
+      combination: {},
+      template: {},
       demoUrl: "./static/demo/index.html",
       active: ""
     }
@@ -30,8 +32,8 @@ export default {
   computed: {
     menuData () {
       return {
-        combination: this.combination,
-        template: this.template
+        combination: { items:this.combination, name:"Cells 组合" },
+        template: { items:this.template, name:"Templates 模板" }
       }
     },
     realDemoUrl (){
@@ -88,11 +90,6 @@ export default {
 }
 </script>
 <style>
-.demo-block.demo-mobile .source{
-  width: 375px;
-  border-right: 1px solid #ddd;
-}
-
 .phone {
     margin: 20px 20px 0;
     background-image: url(../assets/phone.png);

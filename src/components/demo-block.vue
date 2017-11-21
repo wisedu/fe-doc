@@ -4,12 +4,19 @@
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
-    <slot name="source"></slot>
+    <div class="source">
+      <slot name="source"></slot>
+    </div>
+    <div class="showdesc">
+      <slot name="showdesc"></slot>
+    </div>
     <div class="meta" ref="meta">
       <div class="description" v-if="$slots.default">
         <slot></slot>
       </div>
-      <slot name="highlight"></slot>
+      <div class="highlight">
+        <slot name="highlight"></slot>
+      </div>
     </div>
     <div
       class="demo-block-control"
@@ -60,6 +67,12 @@
 
     .source {
       padding: 24px;
+      width: 375px;
+      border-right: 1px solid #ddd;
+      display: inline-block;
+    }
+    .showdesc{
+      display: inline-block;
     }
 
     .meta {

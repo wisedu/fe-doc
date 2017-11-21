@@ -1,13 +1,12 @@
 <template>
 <div>
-  <demo-block v-for="item in ceilsCompoonents" :jsfiddle="item" :key="item.id">
-    <div class="source" slot="source">
-      <component :is="item.name"></component>
-    </div>
-    <div class="highlight" slot="highlight">
-      <pre v-highlightjs><code class="html">{{item.html}}</code></pre>
-    </div>
-  </demo-block>
+  <div v-for="item in ceilsCompoonents" :key="item.id">
+    <h4>编号：{{item.id}}</h4>
+    <demo-block  :jsfiddle="item">
+      <component slot="source" :is="item.name"></component>
+      <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+    </demo-block>
+  </div>
 </div>
 </template>
 <script>
@@ -56,7 +55,8 @@ export default {
           html: item.run.html,
           sctipt: 'export default {}',
           style: item.run.style,
-          name: 'c-' + item.id
+          name: 'c-' + item.id,
+          id: item.showId
         }
         Vue.component('c-' + item.id, {
           template: '<div>' + item.preview.html + '</div>'
