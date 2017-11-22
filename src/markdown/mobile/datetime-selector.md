@@ -24,7 +24,7 @@ Vue.component(DatetimeSelector.name, DatetimeSelector);
 ::: demo
 ```html
 <mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2017-08-02 09:01:01"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="请输入生日" type="date"></mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" @confirm="conf" @cancel="can"></mt-datetime-selector>
 <mt-datetime-selector label="时间" placeholder="请输入时间" type="time"></mt-datetime-selector>
 ```
 :::
@@ -49,6 +49,7 @@ field 控制参数
 | type | 组件的类型 | String | 'datetime', 'date', 'time' | 'datetime' |
 | label | 标题 | String | | '' |
 | placeholder | 占位文字 | String | | '' |
+| value | 绑定表单输入值 | String | | |
 | startDate | 日期的最小可选值 | Date | | 十年前的 1 月 1 日 |
 | endDate | 日期的最大可选值 | Date | | 十年后的 12 月 31 日 |
 | startHour | 小时的最小可选值 | Number | | 0 |
@@ -64,3 +65,19 @@ field 控制参数
 | 事件名称 | 说明 | 回调参数 |
 |------|-------|---------|
 | confirm | 点击确认按钮时的回调函数 | 目前的选择值 |
+| cancel | 点击取消按钮时的回调函数 |  |
+
+
+<script>
+import { Toast } from 'bh-mint-ui2';
+export default {
+  methods: {
+    conf(val){
+      Toast('提示信息' + val);
+    },
+    can(){
+      Toast('取消了');
+    }
+  }
+};
+</script>
