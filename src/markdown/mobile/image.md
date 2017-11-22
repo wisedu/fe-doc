@@ -48,6 +48,7 @@ Vue.component(Image.name, Image);
 </template>
 
 ```
+:::
 
 
 ## API
@@ -56,7 +57,7 @@ Vue.component(Image.name, Image);
 | src | 图片的地址 | String | | '' |
 | width | 图片的宽度 | String | | '' |
 | height | 图片的高度 | String | | '' |
-| watermark | 图片是否需要水印 | Boolean | | '' |
+| watermark | 图片是否需要水印 | Boolean | | false |
 | top | 图片的顶部位置 | String | | '' |
 | left | 图片的左侧位置 | String | | '' |
 

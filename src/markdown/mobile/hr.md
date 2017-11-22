@@ -23,14 +23,57 @@ Vue.component(Hr.name, Hr);
 
 
 :::
-primary类型
+类型
 ::: demo
 ```html
 <template>
-  <mt-hr height="4px" background="#06c1ae"></mt-hr>
+  <div class="item">
+      <div>normal</div>
+      <!--start
+      @name normal
+      -->
+      <mt-hr></mt-hr>
+      <!--end-->
+    </div>
+
+    <div class="item">
+      <div>weight 4px</div>
+      <!--start
+      @name height-4px
+      -->
+      <mt-hr height="4px"></mt-hr>
+      <!--end-->
+    </div>
+
+    <div class="item">
+      <div>primary</div>
+      <!--start
+      @name primary
+      -->
+      <mt-hr background="#06c1ae"></mt-hr>
+      <!--end-->
+    </div>
+
+    <div class="item">
+      <div>warning</div>
+      <!--start
+      @name warning
+      -->
+      <mt-hr background="#ffb200"></mt-hr>
+      <!--end-->
+    </div>
+
+    <div class="item">
+      <div>danger</div>
+      <!--start
+      @name danger
+      -->
+      <mt-hr background="#ef4f4f"></mt-hr>
+      <!--end-->
+    </div>
 </template>
 ```
-
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

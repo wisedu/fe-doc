@@ -46,7 +46,7 @@ Vue.component(SideNavbar.name, SideNavbar);
 </template>
 
 ```
-
+:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
@@ -55,3 +55,14 @@ Vue.component(SideNavbar.name, SideNavbar);
 | top | 侧边导航距离顶部位置 | String | | '' |
 | width | 侧边导航的宽度 | String | | '' |
 
+<style>
+  .mint-side-navbar .navbar.is-fixed {
+    position:absolute !important;
+  }
+  .demo-block .source {
+    position:relative !important;
+  }
+  .page-component .side-nav {
+    margin-left:0;
+  }
+</style>
