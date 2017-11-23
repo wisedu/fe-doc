@@ -21,59 +21,42 @@ Vue.component(Hr.name, Hr);
 `background` 属性为分割线的背景颜色。
 
 
-
-:::
-类型
+默认
 ::: demo
 ```html
-<template>
-  <div class="item">
-      <div>normal</div>
-      <!--start
-      @name normal
-      -->
-      <mt-hr></mt-hr>
-      <!--end-->
-    </div>
-
-    <div class="item">
-      <div>weight 4px</div>
-      <!--start
-      @name height-4px
-      -->
-      <mt-hr height="4px"></mt-hr>
-      <!--end-->
-    </div>
-
-    <div class="item">
-      <div>primary</div>
-      <!--start
-      @name primary
-      -->
-      <mt-hr background="#06c1ae"></mt-hr>
-      <!--end-->
-    </div>
-
-    <div class="item">
-      <div>warning</div>
-      <!--start
-      @name warning
-      -->
-      <mt-hr background="#ffb200"></mt-hr>
-      <!--end-->
-    </div>
-
-    <div class="item">
-      <div>danger</div>
-      <!--start
-      @name danger
-      -->
-      <mt-hr background="#ef4f4f"></mt-hr>
-      <!--end-->
-    </div>
-</template>
+<mt-hr></mt-hr>
 ```
 :::
+
+粗的线
+::: demo
+```html
+<mt-hr height="4px"></mt-hr>
+```
+:::
+
+颜色primary
+::: demo
+```html
+<mt-hr background="#06c1ae"></mt-hr>
+```
+:::
+
+颜色warning
+::: demo
+```html
+<mt-hr background="#ffb200"></mt-hr>
+```
+:::
+
+颜色danger
+::: demo
+```html
+<mt-hr background="#ef4f4f"></mt-hr>
+```
+:::
+
+
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
