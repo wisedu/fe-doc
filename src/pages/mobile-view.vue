@@ -2,8 +2,8 @@
 <div>
     <div class="page-container">
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
-      <div class="page-component">
-        <search style="margin-left:24px;width: 400px;"></search>
+      <div class="page-component"  v-if="!searchMode">
+        <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
         <div style="display: flex;">
           <div class="content">
             <router-view></router-view>
@@ -14,15 +14,29 @@
         </div>
         <!-- 组件样式展示 -->
         <div class="components-style">
-            <demo-block v-for="item in componentsStyle"  :key="item.id">
+          <template v-for="item in componentsStyle">
+            <h4 :key="item.id">编号：{{item.showId}}</h4>
+            <demo-block   :key="item.id">
               <component slot="source" :is="'c-' + item.id"></component>
               <template slot="highlight">
-                <pre slot="highlight" v-highlightjs><code class="html">{{item.run.html}}</code></pre>
-                <pre slot="highlight" v-highlightjs><code class="css">{{item.run.style}}</code></pre>
+                <pre  v-highlightjs><code class="html">{{item.run.html}}</code></pre>
+                <pre v-highlightjs><code class="css">{{item.run.style}}</code></pre>
               </template>
               <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
             </demo-block>
+          </template>
         </div>
+      </div>
+      <!-- search-result -->
+      <div class="page-component" v-if="searchMode">
+         <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
+        <h4 >编号：{{searchResult.showId}}</h4>
+            <demo-block >
+              <component v-if="searchResult.id" slot="source" :is="'s-' + searchResult.id"></component>
+              <!-- <p slot="highlight">{{searchResult.html}}</p> -->
+                <pre v-if="searchResult.html" slot="highlight" v-highlightjs><code class="html">{{searchResult.html}}</code></pre>
+              <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
+            </demo-block>
       </div>
     </div>
 </div>
@@ -31,23 +45,27 @@
 import Vue from 'vue'
 import axios from 'axios'
 import MdSideNav from '../components/side-nav'
-import search from '../components/search'
 export default {
-  components: { MdSideNav, search },
+  components: { MdSideNav },
   data () {
     return {
       combination: {},
       template: {},
+      project: {},
       demoUrl: "./static/demo/index.html",
       active: "",
-      componentsStyle: []
+      componentsStyle: [],
+      searchKey: '',
+      searchMode: false,
+      searchResult: {}
     }
   },
   computed: {
     menuData () {
       return {
         combination: { items:this.combination, name:"Cells 组合" },
-        template: { items:this.template, name:"Templates 模板" }
+        template: { items:this.template, name:"Templates 模板" },
+        project: { items:this.project, name:"Project 项目" }
       }
     },
     realDemoUrl (){
@@ -103,11 +121,28 @@ export default {
           })
         }
       })
+    },
+    handleSearch () {
+      const searchKey = this.searchKey
+      if (searchKey === '') return
+      this.searchMode = true
+      axios.post(this.$SITE_URL + '/mobile/searchDesignExtendByGuid', {
+        id: searchKey
+      }).then(({data: resp}) => {
+        if (resp.data && resp.data.length) {
+          const data = resp.data[0]
+          Vue.component('s-' + data.id, {
+            template: data.html
+          })
+          this.searchResult = data
+        }
+      })
     }
   },
   created () {
     this.getCeilsList('combination')
     this.getCeilsList('template')
+    this.getCeilsList('project')
     let r = window.location.hash.substring(1).split("/");
     if (r[1] === "mobile"){
       if (this.categoryId) {
@@ -123,6 +158,9 @@ export default {
     }
   },
   beforeRouteUpdate (to, from, next) {
+    this.searchKey = ''
+    this.searchMode = false
+    this.searchResult = {}
     this.getComponentsStyle(to.name.replace(/Mobile$/, ''))
     next()
   },
@@ -150,5 +188,9 @@ export default {
 .components-style {
   width: calc(100% - 424px);
   padding: 24px;
+}
+.page-search {
+  width: 280px;
+  margin-left: 24px;
 }
 </style>
