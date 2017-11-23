@@ -51,6 +51,15 @@ Vue.component(Textarea.name, Textarea);
 | disabled | disabled |Boolean | | false |
 | state | 校验状态 | String | error, success, warning | |
 | attr | 设置原生属性，例如 `:attr="{ maxlength: 10 }"` | Object | |
+| titlepaddingtop | 左边标题距顶边距 | String | `0px` | |
+| titlepaddingright | 左边标题距右边距 | String | `0px` | |
+| titlepaddingbottom | 左边标题距下边距 | String | `0px` | |
+| titlepaddingleft | 左边标题距左边距 | String | `0px` | |
+| areapaddingtop | 右边内容距顶边距 | String | `0px` | |
+| areapaddingright | 右边内容距右边距 | String | `0px` | |
+| areapaddingbottom | 右边内容距下边距 | String | `0px` | |
+| areapaddingleft | 右边内容距左边距 | String | `0px` | |
+
 
 ## Slot
 | name | 描述 |
