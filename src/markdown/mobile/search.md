@@ -45,6 +45,7 @@ Vue.component(Search.name, Search);
 <mt-search v-model="value">
   <mt-cell
     v-for="item in result"
+    :key="item.value"
     :title="item.title"
     :value="item.value">
   </mt-cell>

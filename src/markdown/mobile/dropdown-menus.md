@@ -15,20 +15,20 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 ## 例子
 
 `options` 属性为组件的绑定值。
-*  `label`: 按钮上显示的文字，`label` 值为一个 `string`类型 
+*  `label`: 按钮上显示的文字，`label` 值为一个 `string`类型
 *  `value`: 按钮的id，`value` 值为一个 `string` 类型
 *  `type`: 按钮的类型，`type` 值目前有四类，分别是'lv1':一级菜单，'lv2':二级菜单，'lv3':三级菜单，'filter':筛选菜单
 
-`dropDown` 监听此event，获取到被点击的按钮参数对象 
+`dropDown` 监听此event，获取到被点击的按钮参数对象
 
 `cancel` 监听此event，当触发此事件时，需要收起下拉菜单
 
 ::: demo
 ```html
 <template>
-  <mt-dropdown-menus 
-    :options="options" 
-    @dropDown="getSelectedButtons" 
+  <mt-dropdown-menus
+    :options="options"
+    @dropDown="getSelectedButtons"
     @cancel="cancel">
   </mt-dropdown-menus>
 </template>
@@ -59,7 +59,7 @@ Vue.component(DropdownMenus.name, DropdownMenus);
                 </mt-radio>
                 <div slot="menu" v-if="type==='lv2'" class="bh-ddm-two">
                     <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
+                        <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
                         </mt-cell>
                     </div>
                     <div class="bh-ddm-lv2-container">
@@ -69,11 +69,11 @@ Vue.component(DropdownMenus.name, DropdownMenus);
                 </div>
                 <div slot="menu" v-if="type==='lv3'" class="bh-ddm-three">
                     <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
+                        <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
                         </mt-cell>
                     </div>
                     <div class="bh-ddm-lv2-container">
-                        <mt-cell v-for=" item in subMenuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected(item)">
+                        <mt-cell v-for=" item in subMenuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected(item)">
                         </mt-cell>
                     </div>
                     <div class="bh-ddm-lv3-container">
