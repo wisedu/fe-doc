@@ -28,15 +28,18 @@
         </div>
       </div>
       <!-- search-result -->
-      <div class="page-component" v-if="searchMode">
-         <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
-        <h4 >编号：{{searchResult.showId}}</h4>
-            <demo-block >
-              <component v-if="searchResult.id" slot="source" :is="'s-' + searchResult.id"></component>
-              <!-- <p slot="highlight">{{searchResult.html}}</p> -->
-                <pre v-if="searchResult.html" slot="highlight" v-highlightjs><code class="html">{{searchResult.html}}</code></pre>
-              <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
-            </demo-block>
+      <div class="page-component page-search-result" v-if="searchMode">
+        <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
+        <div v-show="!searchResult.blank">
+          <h4 >编号：{{searchResult.showId}}</h4>
+          <demo-block >
+            <component v-if="searchResult.id" slot="source" :is="'s-' + searchResult.id"></component>
+            <!-- <p slot="highlight">{{searchResult.html}}</p> -->
+              <pre v-if="searchResult.html" slot="highlight" v-highlightjs><code class="html">{{searchResult.html}}</code></pre>
+            <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
+          </demo-block>
+        </div>
+        <h4 v-show="searchResult.blank">没有搜索结果</h4>
       </div>
     </div>
 </div>
@@ -135,6 +138,10 @@ export default {
             template: data.html
           })
           this.searchResult = data
+        } else {
+          this.searchResult = {
+            blank: true
+          }
         }
       })
     }
@@ -192,5 +199,12 @@ export default {
 .page-search {
   width: 280px;
   margin-left: 24px;
+}
+.page-search-result {
+  padding: 0 24px;
+}
+
+.page-search-result .page-search  {
+  margin-left: 0;
 }
 </style>
