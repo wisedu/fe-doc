@@ -20,7 +20,7 @@
               <component slot="source" :is="'c-' + item.id"></component>
               <template slot="highlight">
                 <pre  v-highlightjs><code class="html">{{item.run.html}}</code></pre>
-                <pre v-highlightjs><code class="css">{{item.run.style}}</code></pre>
+                <!-- <pre v-highlightjs><code class="css">{{item.run.style}}</code></pre> -->
               </template>
               <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
             </demo-block>
@@ -83,11 +83,17 @@ export default {
   },
   methods: {
     sortCeilList (data) {
+      let categoryCount = {};
+      data.count.map(function(item){
+        categoryCount[item.category] = item["count"]
+      })
+
       const result = data.first
       data.second.forEach(item => {
         const first = result.find(f => f.id === item.firstCategoryId)
         if (first) {
           first.children = first.children || []
+          item.badge = categoryCount[item.id]
           first.children.push(item)
         }
       })

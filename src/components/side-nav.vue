@@ -15,7 +15,9 @@
         <template slot="title">{{value.name}}</template>
         <el-menu-item-group v-for="item in value.items" :key="item.name">
           <template slot="title">{{item.name}}</template>
-          <el-menu-item v-for="subItem in item.children" :key="subItem.id" :index="subItem.id" @click="handleMenuClick(subItem.id, key)">{{subItem.name}}</el-menu-item>
+          <el-menu-item v-for="subItem in item.children" :key="subItem.id" :index="subItem.id" @click="handleMenuClick(subItem.id, key)">
+            <span>{{subItem.name}}</span> <span style="color:#FF4949">{{subItem.badge}}</span>
+          </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
