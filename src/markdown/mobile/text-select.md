@@ -75,7 +75,6 @@ field 控制参数
 | value | 绑定表单输入值 | String | | |
 | rows | 点击后的文本域行数 | Number | | 4 |
 | maxlength | 最大填写的字数 | Number | |  |
-| placeholder | 占位内容 |String | | |
 | readonly | readonly |Boolean | | false |
 | disabled | disabled |Boolean | | false |
 | attr | 设置原生属性，例如 `:attr="{ maxlength: 10 }"` | Object | |
