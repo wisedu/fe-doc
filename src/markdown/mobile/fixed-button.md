@@ -83,7 +83,7 @@ Vue.component(FixedButton.name, FixedButton);
 内容距离按钮顶部位置微调
 ::: demo
 ```html
-<mt-fixed-button contentMarginTop="10px">+</mt-fixed-button>
+<mt-fixed-button contentmargintop="10px">+</mt-fixed-button>
 ```
 :::
 
@@ -110,6 +110,6 @@ Vue.component(FixedButton.name, FixedButton);
 | right | 距离右侧位置 | String | | |
 | top | 距离顶部位置 | String | | |
 | buttom | 距离底部位置 | String | | |
-| contentMarginTop | 内容距离按钮顶部位置 | String | | |
+| contentmargintop | 内容距离按钮顶部位置 | String | | |
 
 
