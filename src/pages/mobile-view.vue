@@ -4,18 +4,31 @@
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component">
         <search style="margin-left:24px;width: 400px;"></search>
-        <div class="content">
-          <router-view></router-view>
+        <div style="display: flex;">
+          <div class="content">
+            <router-view></router-view>
+          </div>
+          <div v-if="!categoryId" class="phone">
+            <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
+          </div>
+        </div>
+        <!-- 组件样式展示 -->
+        <div class="components-style">
+            <demo-block v-for="item in componentsStyle"  :key="item.id">
+              <component slot="source" :is="'c-' + item.id"></component>
+              <template slot="highlight">
+                <pre slot="highlight" v-highlightjs><code class="html">{{item.run.html}}</code></pre>
+                <pre slot="highlight" v-highlightjs><code class="css">{{item.run.style}}</code></pre>
+              </template>
+              <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
+            </demo-block>
         </div>
       </div>
-      <div class="phone">
-        <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
-      </div>
     </div>
-  </div>
 </div>
 </template>
 <script>
+import Vue from 'vue'
 import axios from 'axios'
 import MdSideNav from '../components/side-nav'
 import search from '../components/search'
@@ -26,7 +39,8 @@ export default {
       combination: {},
       template: {},
       demoUrl: "./static/demo/index.html",
-      active: ""
+      active: "",
+      componentsStyle: []
     }
   },
   computed: {
@@ -73,6 +87,22 @@ export default {
     navChanged (id){
       // console.log(id);
       this.active = id;
+    },
+    getComponentsStyle (componentName) {
+      axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
+        categoryId: componentName,
+        type: 'style',
+        getType: 'previewRun'
+      }).then(({data: resp}) => {
+        if (resp.type === 'success') {
+          this.componentsStyle = resp.data.content.map(item => {
+            Vue.component('c-' + item.id, {
+              template: item.preview.html
+            })
+            return item
+          })
+        }
+      })
     }
   },
   created () {
@@ -86,7 +116,16 @@ export default {
         this.active = r[2]
       }
     }
-  }
+
+    // 组件页面加载组件样式示例
+    if (!this.categoryId) {
+      this.getComponentsStyle(this.$route.name.replace(/Mobile$/, ''))
+    }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.getComponentsStyle(to.name.replace(/Mobile$/, ''))
+    next()
+  },
 }
 </script>
 <style>
@@ -106,5 +145,10 @@ export default {
     width: 100%;
     height: 580px;
     background-color: #fff;
+}
+
+.components-style {
+  width: calc(100% - 424px);
+  padding: 24px;
 }
 </style>

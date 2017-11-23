@@ -190,26 +190,6 @@ textarea {
 .demo {
   margin: 20px 0;
 }
-@media (max-width: 1620px) {
-  .container {
-    width: 100%;
-    padding: 0 24px;
-  }
-  .page-component .content{
-    width: 800px;
-  }
-}
-
-@media (max-width: 1366px) {
-  .container {
-    width: 100%;
-    padding: 0;
-  }
-  .page-component .content{
-    width: 598px;
-  }
-}
-
 .page-component__scroll {
   height: calc(100% - 80px);
   margin-top: 80px;
@@ -222,7 +202,7 @@ textarea {
 .page-component {
   box-sizing: border-box;
   height: 100%;
-  max-width: calc(100% - 240px - 424px);
+  max-width: calc(100% - 240px);
   flex-grow: 1;
 
   &.page-container {
@@ -266,6 +246,8 @@ textarea {
   .content {
     padding: 24px;
     padding-right: 0;
+    flex-grow: 2;
+
     & {
       h3 {
         margin: 55px 0 20px;
@@ -353,6 +335,7 @@ textarea {
   box-shadow: 0 2px 8px rgba(0,0,0,.28);
   display: flex;
   padding: 24px 0 24px 24px;
+  flex-wrap: wrap;
 }
 
 .side-nav {
