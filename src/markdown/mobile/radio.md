@@ -49,7 +49,7 @@ this.options = [
 ```html
 <mt-radio
   title="单选框列表"
-  v-model="value"
+  v-model="value1"
   :options="options">
 </mt-radio>
 ```
@@ -61,7 +61,7 @@ this.options = [
 <mt-radio
   align="right"
   title="右对齐"
-  v-model="value"
+  v-model="value2"
   :options="options">
 </mt-radio>
 ```
@@ -79,3 +79,31 @@ this.options = [
 | name | 描述 |
 |------|--------|
 | textarea | 显示补充的文本域|
+
+<script>
+  export default {
+    data: function(){
+      return {
+        value1:"",
+        value2:"",
+        options:[
+          {
+            label: '被禁用',
+            value: '值F',
+            disabled: true
+          },
+          {
+            label: '选项A',
+            value: '值A'
+          },
+          {
+            label: '选项B',
+            value: '值B'
+          }
+        ]
+      }
+    },
+    methods:{
+    }
+  };
+</script>

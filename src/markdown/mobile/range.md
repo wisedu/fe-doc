@@ -62,3 +62,16 @@ Vue.component(Range.name, Range);
 |------|--------|
 | start | 滑块左侧 DOM |
 | end | 滑块右侧 DOM |
+
+
+<script>
+  export default {
+    data: function(){
+      return {
+        rangeValue:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>

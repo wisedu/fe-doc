@@ -12,8 +12,6 @@
 
 
 
-:::
-::: demo
 ```html
 <template>
   <div class="page-loadmore">
@@ -131,4 +129,3 @@
   };
 </script>
 ```
-:::

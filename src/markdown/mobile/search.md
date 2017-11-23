@@ -70,3 +70,17 @@ Vue.component(Search.name, Search);
 | name | 描述 |
 |------|--------|
 | - | 自定义搜索结果列表|
+
+
+<script>
+  export default {
+    data: function(){
+      return {
+        value:"",
+        result:[{value:"ok",title:"ok"}]
+      }
+    },
+    methods:{
+    }
+  };
+</script>

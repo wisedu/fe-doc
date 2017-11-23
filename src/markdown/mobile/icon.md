@@ -19,9 +19,11 @@ Vue.component(icon.name, icon);
 
 ::: demo
 ```html
-<mt-icon  name="icon-pinglun"></mt-icon>
+<mt-icon name="icon-pinglun"></mt-icon>
+<mt-icon name="icon-pinglun" size="24px"></mt-icon>
 ```
 :::
+
 
 `name` 是字体图标库的图标class。图标地址是：http://res.wisedu.com/fe_components/iconfont_mobile/demo_fontclass.html
 

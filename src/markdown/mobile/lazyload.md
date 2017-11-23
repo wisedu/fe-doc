@@ -16,7 +16,6 @@ Vue.use(Lazyload);
 
 为 `img` 元素添加 `v-lazy` 指令，指令的值为图片的地址。同时需要设置图片在加载时的样式。
 
-::: demo
 ```html
 <ul>
   <li v-for="item in list">
@@ -24,7 +23,6 @@ Vue.use(Lazyload);
   </li>
 </ul>
 ```
-:::
 
 ```css
 image[lazy=loading] {

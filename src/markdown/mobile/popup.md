@@ -18,7 +18,6 @@ Vue.component(Popup.name, Popup);
 
 将 `v-model` 绑定到一个本地变量，通过操作这个变量即可控制 `popup` 的显示与隐藏。
 
-::: demo
 ```html
 <mt-popup
   v-model="popupVisible"
@@ -26,11 +25,9 @@ Vue.component(Popup.name, Popup);
   ...
 </mt-popup>
 ```
-:::
 
 若省略 `position` 属性，则 `popup` 会相对于屏幕居中显示（若不想让其居中，可通过 CSS 对其重新定位）。此时建议将动效设置为 `popup-fade`，这样在显示/隐藏时会有淡入/淡出效果。
 
-::: demo
 ```html
 <mt-popup
   v-model="popupVisible"
@@ -38,7 +35,6 @@ Vue.component(Popup.name, Popup);
   ...
 </mt-popup>
 ```
-:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

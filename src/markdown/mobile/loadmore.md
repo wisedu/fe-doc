@@ -14,7 +14,6 @@ Vue.component(Loadmore.name, Loadmore);
 
 ## 例子
 
-::: demo
 ```html
 <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
   <ul>
@@ -22,7 +21,6 @@ Vue.component(Loadmore.name, Loadmore);
   </ul>
 </mt-loadmore>
 ```
-:::
 
 以列表顶部的下拉刷新为例：按住列表，下拉一定距离（通过 `topDistance` 配置）后释放，被指定为 `top-method` 的方法就会执行
 
@@ -50,7 +48,6 @@ loadBottom() {
 ## 自定义 HTML 模板
 
 可以为列表顶部和底部的加载提示区域提供自定义的 HTML 模板
-::: demo
 ```html
 <template>
   <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange">
@@ -81,7 +78,6 @@ loadBottom() {
   };
 </script>
 ```
-:::
 比如需要配置列表顶部的 HTML，则需要为自定义 HTML 模板的最外层标签设置 `slot` 属性为 `top`，类名为 `mint-loadmore-top`。当用户滑动组件时，组件会有以下几个状态：
 *  `pull`：组件已经被按下，但按下的距离未达到 `topDistance`，此时释放不会触发 `top-method`，列表会回到初始位置
 *  `drop`：按下的距离不小于 `topDistance`，此时释放会触发 `top-method`

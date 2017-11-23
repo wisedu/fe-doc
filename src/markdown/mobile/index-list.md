@@ -1,3 +1,11 @@
+<style>
+  ul.mint-indexlist-content{
+    list-style-type: none;
+    margin: 0!important;
+    padding: 0!important;
+  }
+</style>
+
 # Index List
 
 > 索引列表，可由右侧索引导航快速定位到相应的内容。
