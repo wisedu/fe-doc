@@ -64,3 +64,15 @@ Vue.component(SideNavbar.name, SideNavbar);
     margin-left:0;
   }
 </style>
+
+<script>
+  export default {
+    data: function(){
+      return {
+        selected:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>

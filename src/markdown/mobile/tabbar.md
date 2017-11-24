@@ -17,7 +17,6 @@ Vue.component(TabItem.name, TabItem);
 
 搭配 <router-link :to="{ path:'/' + $route.meta.language + '/tab-container' }">tab-container</router-link> 组件使用
 
-::: demo
 ```html
 <mt-tabbar v-model="selected">
   <mt-tab-item id="外卖">
@@ -38,7 +37,6 @@ Vue.component(TabItem.name, TabItem);
   </mt-tab-item>
 </mt-tabbar>
 ```
-:::
 
 ## API
 
@@ -66,3 +64,17 @@ Vue.component(TabItem.name, TabItem);
 |------|--------|
 | - | 显示文字|
 |icon | icon 图标|
+
+
+
+<script>
+  export default {
+    data: function(){
+      return {
+        selected:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>
