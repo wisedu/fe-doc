@@ -83,11 +83,11 @@ function buildRouter(components) {
     route.children.push(ri)
   })
 
-  // routes.find(r => r.path.replace('/', '') === 'mobile').children.push({
-  //   "name": "CeilsMobile",
-  //   "component": '@Ceils@',
-  //   "path": "ceils"
-  // })
+  routes.find(r => r.path.replace('/', '') === 'mobile').children.push({
+    "name": "CeilsMobile",
+    "component": '@Ceils@',
+    "path": "ceils"
+  })
 
   routes.push({
     "name": "home",
