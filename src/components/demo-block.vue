@@ -125,6 +125,7 @@
         max-height: none;
         border-radius: 0;
         padding-bottom: 50px;
+        white-space: normal;
 
         &::before {
           content: none;
