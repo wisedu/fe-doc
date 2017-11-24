@@ -17,7 +17,7 @@ Vue.component(TreeSelect.name, TreeSelect);
 单选
 ::: demo
 ```html
-<mt-tree-selector label="树形选择器" :options="options" v-model="value" placeholder="请选择" @selector-click="loadOptionsEmap"></mt-tree-selector>
+<mt-tree-selector label="树形选择器" :options="options" v-model="value" placeholder="请选择" ></mt-tree-selector>
 <p>{{value}}</p>
 ```
 :::
