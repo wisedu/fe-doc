@@ -17,7 +17,6 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 
 改变 ative 的值，与 `<tab-container-item>` 的 id 一致即显示对应页面。
 
-::: demo
 ```html
 <mt-tab-container v-model="active">
   <mt-tab-container-item id="tab-container1">
@@ -31,7 +30,6 @@ Vue.component(TabContainerItem.name, TabContainerItem);
   </mt-tab-container-item>
 </mt-tab-container>
 ```
-:::
 
 ## API
 ### tab-container
@@ -58,3 +56,16 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 | name | 描述 |
 |------|--------|
 | - | 内容 |
+
+
+<script>
+  export default {
+    data: function(){
+      return {
+        active:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>

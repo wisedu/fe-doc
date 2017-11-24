@@ -68,7 +68,7 @@ Vue.component(Range.name, Range);
   export default {
     data: function(){
       return {
-        rangeValue:""
+        rangeValue:0
       }
     },
     methods:{

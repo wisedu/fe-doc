@@ -24,9 +24,9 @@ Vue.component(Switcher.name, Switcher);
 ::: demo
 ```html
 <template>
-  <mt-switcher 
-    label="标题" 
-    v-model="value1" 
+  <mt-switcher
+    label="标题"
+    v-model="value1"
     @change="handleChange">
   </mt-switcher>
 </template>
@@ -55,3 +55,19 @@ Vue.component(Switcher.name, Switcher);
 | 事件名称 | 说明 | 回调参数 |
 |------|-------|---------|
 | change | 切换按钮变化时的回调函数 |  |
+
+<script>
+  export default {
+    data: function(){
+      return {
+        value1:""
+      }
+    },
+    methods:{
+      handleChange(event) {
+        //切换后的回调函数
+        console.log(event)
+      }
+    }
+  };
+</script>

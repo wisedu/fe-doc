@@ -61,8 +61,8 @@ field 控制参数
 
 ::: demo
 ```html
-<mt-text-select label="抄送人员" placeholder="只读" rows="5" maxlength="100" :readonly="true"></mt-text-select>
-<mt-text-select label="抄送人员" placeholder="禁用" rows="5" maxlength="100" :disabled="true"></mt-text-select>
+<mt-text-select label="抄送人员" placeholder="只读" rows="5" maxlength="100" :readonly="true" :options="singleSelectOptions"></mt-text-select>
+<mt-text-select label="抄送人员" placeholder="禁用" rows="5" maxlength="100" :disabled="true" :options="singleSelectOptions"></mt-text-select>
 ```
 :::
 

@@ -42,3 +42,15 @@ Vue.component(Switch.name, Switch);
 | name | 描述 |
 |------|--------|
 | - | 显示内容 |
+
+<script>
+  export default {
+    data: function(){
+      return {
+        value:""
+      }
+    },
+    methods:{
+    }
+  };
+</script>
