@@ -5,7 +5,7 @@
     <demo-block  :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
-      <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button>
+      <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
     </demo-block>
   </template>
 </div>

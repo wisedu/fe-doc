@@ -8,7 +8,7 @@
           <div class="content">
             <router-view></router-view>
           </div>
-          <div v-if="!categoryId" class="phone">
+          <div v-if="!categoryId" class="phone" style="background-image: url(./static/component-image/phone.png);">
             <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
           </div>
         </div>
@@ -182,7 +182,6 @@ export default {
 <style>
 .phone {
     margin: 20px 20px 0;
-    background-image: url(../assets/phone.png);
     background-repeat: no-repeat;
     background-size: 100%;
     height: 100%;

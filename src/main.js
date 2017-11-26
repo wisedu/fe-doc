@@ -26,7 +26,7 @@ Vue.use(VueHighlightJS)
 
 Vue.component('demo-block', DemoBlock)
 
-Vue.prototype.$SITE_URL = 'http://res.wisedu.com:9900'
+Vue.prototype.$SITE_URL = 'http://172.16.7.180:9900'
 // Vue.prototype.$SITE_URL = 'http://172.16.121.201:9900'
 
 /* eslint-disable no-new */
