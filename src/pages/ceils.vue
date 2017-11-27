@@ -60,7 +60,7 @@ export default {
           id: item.showId
         }
         Vue.component('c-' + item.id, {
-          template: '<div>' + item.preview.html + '</div>'
+          template: '<div>' + item.run.html + '</div>'
         })
         this.ceilsCompoonents.push(jsfiddle)
 
