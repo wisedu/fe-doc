@@ -90,5 +90,6 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 ## Events
 | 事件名称 | 说明 | 回调参数 |
 |------|-------|---------|
-| confirm | 点击确认按钮时的回调函数 | 目前的选择值 |
+| confirm | 点击确认按钮时的回调函数 | `目前的选择值` |
 | cancel | 点击取消按钮时的回调函数 |  |
+| input | 选中值变化时触发，可以使用v-model双向绑定 | `变化后的值` |

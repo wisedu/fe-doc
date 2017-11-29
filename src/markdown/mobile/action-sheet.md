@@ -33,3 +33,9 @@ Vue.component(Actionsheet.name, Actionsheet);
 | actions | 菜单项数组 | Array | | |
 | cancelText | 取消按钮的文本。若设为空字符串，则不显示取消按钮 | String | | '取消' |
 | closeOnClickModal | 是否可以通过点击 modal 层来关闭 `actionsheet` | Boolean | | true |
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| input  | 选中值变化时触发，可以使用v-model双向绑定 | `变化后的值`  |
+| click  | 点击项后触发 | `项`,`顺序值`,`原始dom事件`  |

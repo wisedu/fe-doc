@@ -41,9 +41,16 @@ Vue.component(ButtonList.name, ButtonList);
 | display | 字段的显示值 | String | - | "" |
 | options | 选项数据 | Array | - | [] |
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| change  | 按钮点击时触发 |  `返回选中值`,`原始dom事件`  |
+| input  | 按钮点击时触发，可以使用v-model双向绑定 |  `返回选中值`  |
+| update:display  | 按钮点击时触发 |  `返回选中名称`  |
+
 <script>
-  export default {
-    data: function() {
+export default {
+  data: function() {
     return {
       value: '',
       value_display: '',

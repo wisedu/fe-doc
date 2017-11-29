@@ -56,11 +56,11 @@ Vue.component(Cell.name, Cell);
 ```
 :::
 
-自定义内容
+自定义内容，监听cellClick事件
 
 ::: demo
 ```html
-<mt-cell title="标题文字" is-link>
+<mt-cell title="标题文字" is-link to="click" @cellClick="cellClick">
   <span style="color: green">这里是元素</span>
 </mt-cell>
 ```
@@ -84,6 +84,11 @@ Vue.component(Cell.name, Cell);
 | value | 内容 | * | | |
 | label | 备注信息，显示在标题下方 | String | | |
 | is-link | 链接，会显示箭头图标。搭配 to 属性使用 | Boolean | | |
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| cellClick  | 点击时触发，仅设置 to="click" 时才会触发 | `原始dom事件`,`组件所携带的所有属性`  |
 
 ## Slot
 | name | 描述 |

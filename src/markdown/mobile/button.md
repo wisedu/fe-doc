@@ -70,7 +70,7 @@ Vue.component(Button.name, Button);
 绑定 click 事件
 ::: demo
 ```html
-<mt-button @click.native="handleClick">点击触发 handleClick</mt-button>
+<mt-button @click="handleClick">点击触发 handleClick</mt-button>
 ```
 :::
 
@@ -83,6 +83,11 @@ Vue.component(Button.name, Button);
 | type | 按钮显示样式 | String |  default, primary, danger | default |
 | size | 尺寸 | String | small, normal, large | normal |
 | icon | 图标 | String | more, back | |
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 按钮点击时触发 | `原始dom事件`  |
 
 ## Slot
 | name | 描述 |
