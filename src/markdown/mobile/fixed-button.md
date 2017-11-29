@@ -129,3 +129,7 @@ Vue.component(FixedButton.name, FixedButton);
 | contentmargintop | 内容距离按钮顶部位置 | String | | |
 
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 按钮点击时触发 | `原始dom事件`  |

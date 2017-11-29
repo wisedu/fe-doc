@@ -65,7 +65,7 @@ Vue.component(Field.name, Field);
 ## Events
 | 事件名称 | 说明 | 回调参数 |
 |---------- |-------- |---------- |
-| change  | 输入变化时触发 |  `变更后的值`  |
+| change  | 输入变化时触发 |  `变更后的值`,`原始dom事件`  |
 | input  | 输入时触发，可以使用v-model双向绑定 |  `输入的值`  |
 
 ## Slot

@@ -434,8 +434,8 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 ## Events
 | 事件名称 | 说明 | 回调参数 |
 |------|-------|---------|
-| dropDown | 点击按钮时的回调函数 | 目前的选择值 |
-| cancel | 点击蒙版，取消下来时的回调函数 | 无 |
+| dropDown | 点击按钮时的回调函数 | `目前的选择值`,`原始dom事件` |
+| cancel | 点击蒙版，取消下来时的回调函数 | `原始dom事件` |
 
 
 

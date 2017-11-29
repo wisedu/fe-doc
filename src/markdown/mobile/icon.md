@@ -75,3 +75,8 @@ methods:{
 | color | 图标颜色 | String | | |
 | changecolor | 图标点击之后的颜色 | String | | |
 | animate | 图标点击时的动画效果 | String | | |
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 按钮点击时触发 | `原始dom事件`  |
