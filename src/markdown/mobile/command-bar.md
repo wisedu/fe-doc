@@ -44,6 +44,10 @@ Vue.component(CommandBar.name, CommandBar);
 | buttons | 平铺按钮 | Array |  | [] | [{name:"退回",id:"tuihui", type:"default"}] |
 | more-buttons | 更多按钮 | Array | | [] | [{name:"同意"}] |
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 点击项后触发 | `项`,`顺序值`,`原始dom事件`  |
 
 <script>
   export default {

@@ -94,6 +94,12 @@ this.options = [
 |align| 复选框对其位置| String | left, right | left |
 
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| input  | 输入值变化时触发，可以使用v-model双向绑定 | `变化后的值`  |
+
+
 <script>
   export default {
     data: function(){
