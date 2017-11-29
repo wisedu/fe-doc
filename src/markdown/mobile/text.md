@@ -57,3 +57,7 @@ Vue.component(Text.name, Text);
 | color | 自定义颜色值| String | `#ddd` |  |
 | size | 尺寸 | String | `12px` |  |
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 点击时触发 | `原始dom事件`  |

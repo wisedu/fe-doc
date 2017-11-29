@@ -84,3 +84,8 @@ Vue.component(Search.name, Search);
     }
   };
 </script>
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| canceled  | 取消搜索时触发 | `原始dom事件`  |

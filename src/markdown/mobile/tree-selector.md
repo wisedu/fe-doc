@@ -40,6 +40,11 @@ Vue.component(TreeSelect.name, TreeSelect);
 | options | 选项数据 | Array | - | [] |
 | selectType | 选择器类型 | String | 'select','multi-select','custom' | 'select' |
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| selector-click  | 点击选择器时触发/点击父节点触发 |  `父节点id`,`原始dom事件`  |
+
 <script>
   export default {
     methods: {

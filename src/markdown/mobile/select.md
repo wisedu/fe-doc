@@ -104,3 +104,8 @@ Vue.component(Select.name, Select);
   }
 };
 </script>
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| selector-click  | 点击选择器时触发 | `当前值`,`原始dom事件`  |

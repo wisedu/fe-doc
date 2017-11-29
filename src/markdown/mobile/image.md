@@ -62,3 +62,8 @@ Vue.component(Image.name, Image);
 | left | 图片的左侧位置 | String | | '' |
 
 
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 点击 | `原生dom事件` |

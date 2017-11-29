@@ -75,3 +75,8 @@ Vue.component(Range.name, Range);
     }
   };
 </script>
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| change  | 改变时触发 | `当前值`  |

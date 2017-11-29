@@ -85,3 +85,8 @@ Vue.component(Textarea.name, Textarea);
     }
   };
 </script>
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| change  | 输入内容改变时触发 |  `原始dom事件`  |
