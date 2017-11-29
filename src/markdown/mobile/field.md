@@ -62,6 +62,12 @@ Vue.component(Field.name, Field);
 | state | 校验状态 | String | error, success, warning | |
 | attr | 设置原生属性，例如 `:attr="{ maxlength: 10 }"` | Object | |
 
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| change  | 输入变化时触发 |  `变更后的值`  |
+| input  | 输入时触发，可以使用v-model双向绑定 |  `输入的值`  |
+
 ## Slot
 | name | 描述 |
 |------|--------|
