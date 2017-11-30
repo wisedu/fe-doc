@@ -5,6 +5,7 @@
     <demo-block  :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+      <pre v-if="categoryType === 'project'" slot="highlight" v-highlightjs><code class="css">{{item.style}}</code></pre>
       <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
     </demo-block>
   </template>
@@ -55,7 +56,7 @@ export default {
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
-          // style: item.run.style,
+          style: item.run.style,
           name: 'c-' + item.showId,
           id: item.showId
         }
