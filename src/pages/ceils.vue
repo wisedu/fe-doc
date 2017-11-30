@@ -55,7 +55,7 @@ export default {
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
-          style: item.run.style,
+          // style: item.run.style,
           name: 'c-' + item.id,
           id: item.showId
         }
