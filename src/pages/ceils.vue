@@ -56,10 +56,10 @@ export default {
           html: item.run.html,
           sctipt: 'export default {}',
           // style: item.run.style,
-          name: 'c-' + item.id,
+          name: 'c-' + item.showId,
           id: item.showId
         }
-        Vue.component('c-' + item.id, {
+        Vue.component('c-' + item.showId, {
           template: '<div>' + item.run.html + '</div>'
         })
         this.ceilsCompoonents.push(jsfiddle)
