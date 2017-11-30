@@ -63,10 +63,7 @@ export default {
         Vue.component('c-' + item.showId, {
           template: '<div>' + item.run.html + '</div>',
           data(){
-            return {
-              value:"",
-              value_0:""
-            }
+            return item.run.data;
           }
         })
         this.ceilsCompoonents.push(jsfiddle)
