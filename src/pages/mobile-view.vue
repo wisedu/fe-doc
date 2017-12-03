@@ -16,7 +16,7 @@
         <div class="components-style">
           <template v-for="item in componentsStyle">
             <h4 :key="item.id">编号：{{item.showId}}</h4>
-            <demo-block   :key="item.id">
+            <demo-block :key="item.id">
               <component slot="source" :is="'c-' + item.id"></component>
               <template slot="highlight">
                 <pre  v-highlightjs><code class="html">{{item.run.html}}</code></pre>

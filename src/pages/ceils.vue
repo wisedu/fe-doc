@@ -5,10 +5,12 @@
     <demo-block  :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
-      <pre v-if="categoryType === 'project'" slot="highlight" v-highlightjs><code class="css">{{item.style}}</code></pre>
       <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
     </demo-block>
   </template>
+  <div v-if="categoryType === 'project'">
+    <pre slot="highlight" v-highlightjs><code class="css">{{projectStyle}}</code></pre>
+  </div>
 </div>
 </template>
 <script>
@@ -18,7 +20,8 @@ import Vue from 'vue'
 export default {
   data () {
     return {
-      ceilsCompoonents: []
+      ceilsCompoonents: [],
+      projectStyle: ""
     }
   },
   computed: {
@@ -50,6 +53,16 @@ export default {
           alert('数据错误')
         }
       })
+    },
+    getProjectInfo() {
+      if (!this.categoryId) return
+      if (this.categoryType === 'project') {
+        axios.post(this.$SITE_URL + '/mobile/getProjectCss', {
+          categoryId: this.categoryId
+        }).then(({data: resp}) => {
+          this.projectStyle = resp.data
+        })
+      }
     },
     initComponents (ceilsInfo) {
       ceilsInfo.content.forEach(item => {
@@ -85,6 +98,7 @@ export default {
   },
   created () {
     this.getCeilsInfo()
+    this.getProjectInfo();
   }
 }
 </script>
