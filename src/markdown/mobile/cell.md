@@ -15,44 +15,31 @@ Vue.component(Cell.name, Cell);
 
 ## 例子
 
-基础用法
+将mt-cell-group组件看成一个容器即可
 
 ::: demo
 ```html
-<mt-cell title="标题文字"></mt-cell>
-<mt-cell title="标题文字" value="说明文字"></mt-cell>
+<mt-cell-group>
+  <mt-cell title="标题文字"></mt-cell>
+  <mt-cell title="标题文字" value="说明文字"></mt-cell>
+  <mt-cell title="标题文字" to="//github.com" is-link value="带链接 github.com"></mt-cell>
+  <mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
+  <mt-cell title="标题" label="描述信息" is-link></mt-cell>
+</mt-cell-group>
 ```
 :::
 
-可点击的链接
-
-::: demo
-```html
-<mt-cell
-  title="标题文字"
-  to="//github.com"
-  is-link
-  value="带链接">
-</mt-cell>
-```
-:::
-
-带图标
-
-::: demo
-```html
-<mt-cell title="标题文字" icon="more" value="带 icon"></mt-cell>
-```
-:::
 
 带自定义图标
-
+如以上用法不能满足你的需求，可以使用对应的slot来自定义显示的内容
 ::: demo
 ```html
-<mt-cell title="标题文字">
-  <span>icon 是图片</span>
-  <img slot="icon" src="" width="24" height="24">
-</mt-cell>
+<mt-cell-group>
+  <mt-cell title="标题文字">
+    <span>icon 是图片</span>
+    <img slot="icon" src="" width="24" height="24">
+  </mt-cell>
+</mt-cell-group>
 ```
 :::
 
@@ -60,19 +47,14 @@ Vue.component(Cell.name, Cell);
 
 ::: demo
 ```html
-<mt-cell title="标题文字" is-link to="click" @cellClick="cellClick">
-  <span style="color: green">这里是元素</span>
-</mt-cell>
+<mt-cell-group>
+  <mt-cell title="标题文字" is-link to="click" @cellClick="cellClick">
+    <span style="color: green">这里是元素</span>
+  </mt-cell>
+</mt-cell-group>
 ```
 :::
 
-带备注信息
-
-::: demo
-```html
-<mt-cell title="标题" label="描述信息" is-link></mt-cell>
-```
-:::
 
 
 ## API
