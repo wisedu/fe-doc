@@ -1,6 +1,6 @@
 <template>
   <div
-    class="demo-block"
+    class="demo-block" :style="{'max-width':maxWidth}"
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
@@ -205,7 +205,8 @@
         hovering: false,
         isExpanded: false,
         fixedControl: false,
-        scrollParent: null
+        scrollParent: null,
+        maxWidth: (window.innerWidth - 240 - 48) + "px"
       };
     },
 

@@ -9,7 +9,10 @@
     </demo-block>
   </template>
   <div v-if="categoryType === 'project'">
-    <pre slot="highlight" v-highlightjs><code class="css">{{projectStyle}}</code></pre>
+    <button id="cp" data-clipboard-action="copy" data-clipboard-target="#pStyle">
+        拷贝到剪贴板
+    </button>
+    <pre v-highlightjs="projectStyle"><code class="css" id="pStyle"></code></pre>
   </div>
 </div>
 </template>
@@ -35,7 +38,9 @@ export default {
   watch: {
     categoryId (val) {
       this.ceilsCompoonents = []
+      this.projectStyle = ""
       this.getCeilsInfo()
+      this.getProjectInfo()
     }
   },
   methods: {
@@ -60,7 +65,7 @@ export default {
         axios.post(this.$SITE_URL + '/mobile/getProjectCss', {
           categoryId: this.categoryId
         }).then(({data: resp}) => {
-          this.projectStyle = resp.data
+          this.projectStyle = resp.data;
         })
       }
     },
@@ -98,7 +103,8 @@ export default {
   },
   created () {
     this.getCeilsInfo()
-    this.getProjectInfo();
+    this.getProjectInfo()
+    new Clipboard('#cp');
   }
 }
 </script>
