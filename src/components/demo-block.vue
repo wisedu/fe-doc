@@ -5,7 +5,7 @@
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
     <div :class="{'mobile-border': isShowFullPage}">
-      <div class="source" :class="{'mobile-fullheight': isShowFullPage}" style="background-image: url(./static/mobile-title.png);">
+      <div class="source" :class="{'mobile-fullheight': isShowFullPage}" :style="styleObject">
         <slot name="source"></slot>
       </div>
     </div>
@@ -221,7 +221,10 @@
         isExpanded: false,
         fixedControl: false,
         scrollParent: null,
-        maxWidth: (window.innerWidth - 240 - 48) + "px"
+        maxWidth: (window.innerWidth - 240 - 48) + "px",
+        styleObject:{
+
+        }
       };
     },
 
@@ -316,7 +319,13 @@
         return this.$el.getElementsByClassName('highlight')[0].clientHeight;
       },
       isShowFullPage(){
-        return this.type === "project" || this.type === "template"
+        if (this.type === "project" || this.type === "template") {
+          this.styleObject.backgroundImage = "url(./static/mobile-title.p" + "ng)"
+          return true;
+        } else {
+          this.styleObject.backgroundImage = ""
+          return false;
+        }
       }
     },
 
