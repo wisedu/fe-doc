@@ -5,7 +5,7 @@
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
     <div :class="{'mobile-border': isShowFullPage}">
-      <div class="source" :class="{'mobile-fullheight': isShowFullPage}">
+      <div class="source" :class="{'mobile-fullheight': isShowFullPage}" style="background-image: url(./static/mobile-title.png);">
         <slot name="source"></slot>
       </div>
     </div>
@@ -74,7 +74,6 @@
       display: inline-block;
     }
     .mobile-fullheight {
-      background-image: url(../../static/mobile-title.png);
       background-size:375px 65px;
       background-repeat: no-repeat;
       background-origin:padding-box;
