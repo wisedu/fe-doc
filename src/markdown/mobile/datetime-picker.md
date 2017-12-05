@@ -27,14 +27,27 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 ```html
 <template>
   <mt-datetime-picker
-    ref="picker"
-    type="time"
-    v-model="pickerValue">
-  </mt-datetime-picker>
+  v-model="currentDate"
+  type="datetime"
+  ref="picker"
+  :minHour="minHour"
+  :maxHour="maxHour"
+  :minDate="minDate"
+  :maxDate="maxDate"
+/>
 </template>
 
 <script>
   export default {
+    data() {
+      return {
+        minHour: 10,
+        maxHour: 20,
+        minDate: new Date(),
+        maxDate: new Date(2019, 10, 1),
+        currentDate: new Date(2018, 0, 1)
+      };
+    },
     methods: {
       openPicker() {
         this.$refs.picker.open();
@@ -45,19 +58,36 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 ```
 :::
 
-可以为选项提供自定义模板。模板须为一个包含了 `{value}` 的字符串，`{value}` 会被解析为相应选项的值。
+
+选择日期
 
 ::: demo
 ```html
-<mt-datetime-picker
-  v-model="pickerVisible"
+<van-datetime-picker
+  v-model="currentDate"
   type="date"
-  year-format="{value} 年"
-  month-format="{value} 月"
-  date-format="{value} 日">
-</mt-datetime-picker>
+  :minHour="minHour"
+  :maxHour="maxHour"
+  :minDate="minDate"
+/>
 ```
 :::
+
+
+选择时间
+
+::: demo
+```html
+<van-datetime-picker
+  v-model="currentDate"
+  type="time"
+  :minHour="minHour"
+  :maxHour="maxHour"
+  :minDate="minDate"
+/>
+```
+:::
+
 
 当点击确认按钮时会触发 `confirm` 事件，参数为当前 value 的值。
 
@@ -74,18 +104,15 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| type | 组件的类型 | String | 'datetime', 'date', 'time' | 'datetime' |
-| cancelText | 取消按钮文本 | String | | '取消' |
-| confirmText | 确定按钮文本 | String | | '确定' |
-| startDate | 日期的最小可选值 | Date | | 十年前的 1 月 1 日 |
-| endDate | 日期的最大可选值 | Date | | 十年后的 12 月 31 日 |
-| startHour | 小时的最小可选值 | Number | | 0 |
-| endHour | 小时的最大可选值 | Number | | 23 |
-| yearFormat | 年份模板 | String | | '{value}' |
-| monthFormat | 月份模板 | String | | '{value}' |
-| dateFormat | 日期模板 | String | | '{value}' |
-| hourFormat | 小时模板 | String | | '{value}' |
-| minuteFormat | 分钟模板 | String | | '{value}' |
+| type | 组件的类型 | `String` | 'datetime', 'date', 'time' | 'datetime' |
+| cancelText | 取消按钮文本 | `String` | | '取消' |
+| confirmText | 确定按钮文本 | `String` | | '确定' |
+| minDate | 可选的最小日期 | `Date` | 十年前的 1 月 1 日 | - |
+| maxDate | 可选的最大日期 | `Date` | 十年后的 12 月 31 日 | - |
+| minHour | 可选的最小小时 | `Number` | `0` | - |
+| maxHour | 可选的最大小时 | `Number` | `23` | - |
+| visibileColumnCount | 每一列可见备选元素的个数 | `Number` | `5` | - |
+
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |
@@ -93,3 +120,37 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 | confirm | 点击确认按钮时的回调函数 | `目前的选择值` |
 | cancel | 点击取消按钮时的回调函数 |  |
 | input | 选中值变化时触发，可以使用v-model双向绑定 | `变化后的值` |
+| change | 当值变化时触发的事件 | picker 实例 |
+
+
+### change事件
+
+在`change`事件中，可以获取到`picker`实例，对`picker`进行相应的更新等操作：
+
+| 函数 | 说明 |
+|-----------|-----------|
+| getColumnValue(index) | 获取对应列中选中的值 |
+| setColumnValue(index, value) | 设置对应列中选中的值 |
+| getColumnValues(index) | 获取对应列中所有的备选值 |
+| setColumnValues(index, values) | 设置对应列中所有的备选值 |
+| getValues() | 获取所有列中被选中的值，返回一个数组 |
+| setValues(values) | `values`为一个数组，设置所有列中被选中的值 |
+
+<script>
+  export default {
+    data() {
+      return {
+        minHour: 10,
+        maxHour: 20,
+        minDate: new Date(),
+        maxDate: new Date(2019, 10, 1),
+        currentDate: new Date(2018, 0, 1)
+      };
+    },
+    methods: {
+      openPicker() {
+        this.$refs.picker.open();
+      }
+    }
+  };
+</script>

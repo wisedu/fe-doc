@@ -1,92 +1,153 @@
-# Picker
+## Picker 选择器
 
-> 选择器，支持多 slot 联动。
-
--------------
-
-## 引入
-
-```javascript
+### 使用指南
+``` javascript
 import { Picker } from 'mint-ui';
 
 Vue.component(Picker.name, Picker);
 ```
 
-## 例子
+### 代码演示
 
-传入 `slots`，当被选中的值发生变化时触发 `change` 事件。`change` 事件有两个参数，分别为当前 `picker` 的 vue 实例和各 slot 被选中的值组成的数组
+
+#### 基础用法
 
 ```html
-<mt-picker :slots="slots" @change="onValuesChange"></mt-picker>
+<mt-picker :columns="columns" @change="onChange" />
 ```
 
 ```javascript
 export default {
-  methods: {
-    onValuesChange(picker, values) {
-      if (values[0] > values[1]) {
-        picker.setSlotValue(1, values[0]);
-      }
-    }
-  },
   data() {
     return {
-      slots: [
-        {
-          flex: 1,
-          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
-          className: 'slot1',
-          textAlign: 'right'
-        }, {
-          divider: true,
-          content: '-',
-          className: 'slot2'
-        }, {
-          flex: 1,
-          values: ['2015-01', '2015-02', '2015-03', '2015-04', '2015-05', '2015-06'],
-          className: 'slot3',
-          textAlign: 'left'
-        }
+      columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
+    };
+  },
+  onChange(picker, value, index) {
+    Toast(`当前值：${value}, 当前索引：${index}`);
+  }
+};
+```
+
+#### 禁用选项
+选项可以为对象结构，通过设置 disabled 来禁用该选项
+
+```html
+<mt-picker :columns="columns" />
+```
+
+```javascript
+export default {
+  data() {
+    return {
+      columns: [
+        { text: '杭州', disabled: true },
+        { text: '宁波' },
+        { text: '温州' }
       ]
     };
   }
 };
 ```
 
-## `change` 事件
+#### 展示顶部栏
 
-在 `change` 事件中，可以使用注册到 `picker` 实例上的一些方法：
-*  getSlotValue(index)：获取给定 slot 目前被选中的值
-*  setSlotValue(index, value)：设定给定 slot 被选中的值，该值必须存在于该 slot 的备选值数组中
-*  getSlotValues(index)：获取给定 slot 的备选值数组
-*  setSlotValues(index, values)：设定给定 slot 的备选值数组
-*  getValues()：获取所有 slot 目前被选中的值（分隔符 slot 除外）
-*  setValues(values)：设定所有 slot 被选中的值（分隔符 slot 除外），该值必须存在于对应 slot 的备选值数组中
+```html
+<mt-picker
+  showToolbar
+  :title="标题"
+  :columns="columns"
+  @cancel="onCancel"
+  @confirm="onConfirm"
+/>
+```
 
-## `slots`
+```javascript
+export default {
+  data() {
+    return {
+      columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
+    }
+  },
+  methods: {
+    onConfirm(value, index) {
+      Toast(`当前值：${value}, 当前索引：${index}`);
+    },
+    onCancel() {
+      Toast('取消');
+    }
+  }
+};
+```
 
-绑定到 `slots` 属性的数组由对象组成，每个对象都对应一个 slot，它们有如下键名
+#### 多列联动
 
-| key | 描述 |
-|------|--------|
-| divider | 对应 slot 是否为分隔符 |
-| content | 分隔符 slot 的显示文本 |
-| values | 对应 slot 的备选值数组。若为对象数组，则需在 `mt-picker` 标签上设置 `value-key` 属性来指定显示的字段名 |
-| defaultIndex | 对应 slot 初始选中值，需传入其在 values 数组中的序号，默认为 0 |
-| textAlign | 对应 slot 的对齐方式 |
-| flex | 对应 slot CSS 的 flex 值|
-| className | 对应 slot 的类名 |
+```html
+<mt-picker :columns="columns" @change="onChange" />
+```
 
-## API
-| 参数 | 说明 | 类型 | 可选值 | 默认值 |
-|------|-------|---------|-------|--------|
-| slots | slot 对象数组 | Array | | [] |
-| valueKey | 当 values 为对象数组时，作为文本显示在 Picker 中的对应字段的字段名 | String | | '' |
-| showToolbar | 是否在组件顶部显示一个 toolbar，内容自定义 | Boolean | | false |
-| visibleItemCount | slot 中可见备选值的个数 | Number | | 5 |
-| itemHeight | 每个 slot 的高度 | Number | | 36 |
+```javascript
+const citys = {
+  '浙江': ['杭州', '宁波', '温州', '嘉兴', '湖州'],
+  '福建': ['福州', '厦门', '莆田', '三明', '泉州']
+};
 
-## Slot
-| name | 描述 |
-|------|--------|
-| - | 当 showToolbar 为 true 时，toolbar 中的内容|
+export default {
+  data() {
+    return {
+      columns: [
+        {
+          values: Object.keys(citys),
+          className: 'column1'
+        },
+        {
+          values: citys['浙江'],
+          className: 'column2',
+          defaultIndex: 2
+        }
+      ]
+    };
+  },
+  methods: {
+    onChange(picker, values) {
+      picker.setColumnValues(1, citys[values[0]]);
+    }
+  }
+};
+```
+
+### API
+
+| 参数 | 说明 | 类型 | 默认值 | 可选值 |
+|-----------|-----------|-----------|-------------|-------------|
+| columns | 对象数组，配置每一列显示的数据 | `Array` | `[]` | - |
+| showToolbar | 是否显示顶部栏 | `Boolean` | `false` | - |
+| title | 顶部栏标题 | `String` | `''` | - |
+| itemHeight | 选项高度 | `Number` | `44` | - |
+| visibileColumnCount | 可见的选项个数 | `Number` | `5` | - |
+| valueKey | 选项对象中，文字对应的 key | `String` | `text` | - |
+
+### Columns 数据结构
+当传入多列数据时，`columns`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`
+
+| key | 说明 |
+|-----------|-----------|
+| values | 列中对应的备选值 |
+| defaultIndex | 初始选中项的索引，默认为 0 |
+| className | 为对应列添加额外的`class` |
+
+### Picker 实例
+在`change`事件中，可以获取到`picker`实例，通过实例方法可以灵活控制 Picker 内容
+
+| 函数 | 说明 |
+|-----------|-----------|
+| getValues() | 获取所有列选中的值，返回一个数组 |
+| setValues(values) | 设置所有列选中的值 |
+| getIndexes() | 获取所有列选中值对应的索引，返回一个数组 |
+| setIndexes(indexes) | 设置所有列选中值对应的索引 |
+| getColumnValue(columnIndex) | 获取对应列选中的值 |
+| setColumnValue(columnIndex, value) | 设置对应列选中的值 |
+| getColumnIndex(columnIndex) | 获取对应列选中项的索引 |
+| setColumnIndex(columnIndex, optionIndex) | 设置对应列选中项的索引 |
+| getColumnValues(columnIndex) | 获取对应列中所有选项 |
+| setColumnValues(columnIndex, values) | 设置对应列中所有选项 |

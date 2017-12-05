@@ -50,10 +50,11 @@ field 控制参数
 | label | 标题 | String | | '' |
 | placeholder | 占位文字 | String | | '' |
 | value | 绑定表单输入值 | String | | |
-| startDate | 日期的最小可选值 | Date | | 十年前的 1 月 1 日 |
-| endDate | 日期的最大可选值 | Date | | 十年后的 12 月 31 日 |
-| startHour | 小时的最小可选值 | Number | | 0 |
-| endHour | 小时的最大可选值 | Number | | 23 |
+| minDate | 可选的最小日期 | `Date` | 十年前的 1 月 1 日 | - |
+| maxDate | 可选的最大日期 | `Date` | 十年后的 12 月 31 日 | - |
+| minHour | 可选的最小小时 | `Number` | `0` | - |
+| maxHour | 可选的最大小时 | `Number` | `23` | - |
+| visibileColumnCount | 每一列可见备选元素的个数 | `Number` | `5` | - |
 | placeholder | 占位内容 |String | | |
 | disableClear | 禁用 clear 按钮 | Booean | | false |
 | readonly | readonly |Boolean | | false |
