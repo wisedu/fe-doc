@@ -23,18 +23,13 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 
 `datetime-picker` 提供了两个供外部调用的方法：`open` 和 `close`，分别用于打开和关闭选择器。
 
-::: demo
 ```html
 <template>
   <mt-datetime-picker
-  v-model="currentDate"
-  type="datetime"
+  v-model="currentDate" type="datetime"
   ref="picker"
-  :minHour="minHour"
-  :maxHour="maxHour"
-  :minDate="minDate"
-  :maxDate="maxDate"
-/>
+  :minHour="minHour" :maxHour="maxHour"
+  :minDate="minDate" :maxDate="maxDate"/>
 </template>
 
 <script>
@@ -47,21 +42,14 @@ Vue.component(DatetimePicker.name, DatetimePicker);
         maxDate: new Date(2019, 10, 1),
         currentDate: new Date(2018, 0, 1)
       };
-    },
-    methods: {
-      openPicker() {
-        this.$refs.picker.open();
-      }
     }
   };
 </script>
 ```
-:::
 
 
 选择日期
 
-::: demo
 ```html
 <van-datetime-picker
   v-model="currentDate"
@@ -71,12 +59,10 @@ Vue.component(DatetimePicker.name, DatetimePicker);
   :minDate="minDate"
 />
 ```
-:::
 
 
 选择时间
 
-::: demo
 ```html
 <van-datetime-picker
   v-model="currentDate"
@@ -86,12 +72,10 @@ Vue.component(DatetimePicker.name, DatetimePicker);
   :minDate="minDate"
 />
 ```
-:::
 
 
 当点击确认按钮时会触发 `confirm` 事件，参数为当前 value 的值。
 
-::: demo
 ```html
 <mt-datetime-picker
   v-model="pickerVisible"
@@ -99,7 +83,6 @@ Vue.component(DatetimePicker.name, DatetimePicker);
   @confirm="handleConfirm">
 </mt-datetime-picker>
 ```
-:::
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
@@ -148,8 +131,8 @@ Vue.component(DatetimePicker.name, DatetimePicker);
       };
     },
     methods: {
-      openPicker() {
-        this.$refs.picker.open();
+      handleConfirm(){
+
       }
     }
   };

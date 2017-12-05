@@ -17,7 +17,6 @@ Vue.component(CellSwipe.name, CellSwipe);
 
 增加右滑动按钮
 
-::: demo
 ```html
 <mt-cell-swipe
   title="标题文字"
@@ -29,7 +28,6 @@ Vue.component(CellSwipe.name, CellSwipe);
     }
   ]"></mt-cell-swipe>
 ```
-:::
 
 `content` 可以是 HTML 或者纯文本。
 

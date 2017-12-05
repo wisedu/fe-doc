@@ -29,24 +29,24 @@ Vue.component(Image.name, Image);
 
 
 
-:::
+<div>定宽定高</div>
+
 ::: demo
 ```html
-<template>
-    <div>定宽定高</div>
-    <!--start
-      @name fixed-width-height
-      -->
-    <mt-image src="http://res.wisedu.com/fe_components/images/errorTip/no_search_result2.png" width="200px" height="200px"></mt-image>
-    <!--end-->
+<mt-image
+src="http://res.wisedu.com/fe_components/images/errorTip/no_search_result2.png"
+width="200px" height="200px"></mt-image>
+```
+:::
 
-    <div>图片100%自适应</div>
-    <!--start
-      @name normal
-      -->
-    <mt-image src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png"></mt-image>
-</template>
 
+<div>图片100%自适应</div>
+
+::: demo
+```html
+<mt-image
+src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png">
+</mt-image>
 ```
 :::
 

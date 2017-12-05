@@ -19,8 +19,10 @@ Vue.component(Checkbox.name, Checkbox);
 
 ::: demo
 ```html
-<mt-checkbox v-model="value1">复选框 1</mt-checkbox>
-<mt-checkbox v-model="value2" disabled>禁用的复选框</mt-checkbox>
+<mt-cell-group>
+  <mt-checkbox v-model="value1">复选框 1</mt-checkbox>
+  <mt-checkbox v-model="value2" disabled>禁用的复选框</mt-checkbox>
+</mt-cell-group>
 ```
 ```javascript
 export default {

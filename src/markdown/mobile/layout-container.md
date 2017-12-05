@@ -16,27 +16,21 @@ Vue.component(LayoutContainer.name, LayoutContainer);
 
 背景
 
-::: demo
 ```html
 <mt-layout-container background="gray">普通容器</mt-layout-container>
 ```
-:::
 
 外边距(与css的margin用法相同)
 
-::: demo
 ```html
 <mt-layout-container margin="10px">普通容器</mt-layout-container>
 ```
-:::
 
 内边距(与css的padding用法相同)
 
-::: demo
 ```html
 <mt-layout-container padding="10px">普通容器</mt-layout-container>
 ```
-:::
 
 
 绑定 click 事件

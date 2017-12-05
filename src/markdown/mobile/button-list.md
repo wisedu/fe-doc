@@ -17,7 +17,9 @@ Vue.component(ButtonList.name, ButtonList);
 单选按钮组
 ::: demo
 ```html
-<mt-button-list label="单选按钮组" :options="options" v-model="value" :display.sync="value_display"></mt-button-list>
+<mt-button-list label="单选按钮组" :options="options"
+v-model="value" :display.sync="value_display">
+</mt-button-list>
 <p>value: {{value}}</p>
 <p>display: {{value_display}}</p>
 ```
@@ -26,7 +28,9 @@ Vue.component(ButtonList.name, ButtonList);
 多选按钮组
 ::: demo
 ```html
-<mt-button-list label="多选按钮组" :multiple="true" :options="options" v-model="multiValue" :display.sync="multiValue_display"></mt-button-list>
+<mt-button-list label="多选按钮组" :multiple="true" :options="options"
+v-model="multiValue" :display.sync="multiValue_display">
+</mt-button-list>
 <p>value: {{multiValue}}</p>
 <p>display: {{multiValue_display}}</p>
 ```

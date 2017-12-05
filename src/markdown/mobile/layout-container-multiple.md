@@ -15,7 +15,6 @@ Vue.component(LayoutContainerMultiple.name, LayoutContainerMultiple);
 ## 例子
 
 
-::: demo
 ```html
 <mt-layout-container-multiple>
     <mt-layout-container-multiple-item style="width: 33.33%">左侧容器</mt-layout-container-multiple-item>
@@ -23,7 +22,6 @@ Vue.component(LayoutContainerMultiple.name, LayoutContainerMultiple);
     <mt-layout-container-multiple-item style="width: 33.33%">右侧容器</mt-layout-container-multiple-item>
 </mt-layout-container-multiple>
 ```
-:::
 
 
 ## API

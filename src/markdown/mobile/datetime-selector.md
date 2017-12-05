@@ -21,26 +21,31 @@ Vue.component(DatetimeSelector.name, DatetimeSelector);
 *  `date`: 日期选择器，可选择年、月、日，`value` 值为一个 `Date` 对象
 *  `time`: 时间选择器，可选择时、分，`value` 值为一个格式为 `HH:mm` 的字符串
 
-::: demo
 ```html
-<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2017-08-02 09:01:01"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" @confirm="conf" @cancel="can"></mt-datetime-selector>
-<mt-datetime-selector label="时间" placeholder="请输入时间" type="time"></mt-datetime-selector>
+<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2017-08-02 09:01:01">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" @confirm="conf" @cancel="can">
+</mt-datetime-selector>
+<mt-datetime-selector label="时间" placeholder="请输入时间" type="time">
+</mt-datetime-selector>
 ```
-:::
 
 field 控制参数
 
-::: demo
 ```html
-<mt-datetime-selector label="日期" placeholder="只读" type="date" :readonly="true"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="禁用" type="date" :disabled="true"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="没有清除按钮" type="date" :disable-clear="true"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="成功" type="date" state="success"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="错误" type="date" state="error"></mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="警告" type="date" state="warning"></mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="只读" type="date" :readonly="true">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="禁用" type="date" :disabled="true">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="没有清除按钮" type="date" :disable-clear="true">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="成功" type="date" state="success">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="错误" type="date" state="error">
+</mt-datetime-selector>
+<mt-datetime-selector label="日期" placeholder="警告" type="date" state="warning">
+</mt-datetime-selector>
 ```
-:::
 
 
 ## API
@@ -69,17 +74,3 @@ field 控制参数
 | cancel | 点击取消按钮时的回调函数 |  |
 | input | 选中值变化时触发，可以使用v-model双向绑定 | `变化后的值` |
 
-
-<script>
-import { Toast } from 'bh-mint-ui2';
-export default {
-  methods: {
-    conf(val){
-      Toast('提示信息' + val);
-    },
-    can(){
-      Toast('取消了');
-    }
-  }
-};
-</script>

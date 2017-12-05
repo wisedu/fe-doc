@@ -15,19 +15,15 @@ Vue.component(LayoutSpacing.name, LayoutSpacing);
 ## 例子
 背景
 
-::: demo
 ```html
 <mt-layout-spacing background="grey"></mt-layout-spacing>
 ```
-:::
 
 高度
 
-::: demo
 ```html
 <mt-layout-spacing height="20px"></mt-layout-spacing>
 ```
-:::
 
 
 ## API

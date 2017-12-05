@@ -19,16 +19,15 @@ Vue.component(FileList.name, FileList);
 `token` 属性为文件列表的token。
 
 `fileList` 属性表示文件列表数据，数组对象格式，每个对象有两个属性：
-*  `id`: 文件id，`id` 值为一个 `string` 
+*  `id`: 文件id，`id` 值为一个 `string`
 *  `name`: 文件名称，`name` 值为一个 `string`
 
 
-:::
 ::: demo
 ```html
 <template>
-  <mt-file-list 
-    :file-list="fileList" 
+  <mt-file-list
+    :file-list="fileList"
     label="这里是传进来的标题"
     @tokenChange="tokenChange">
   </mt-file-list>
@@ -132,7 +131,7 @@ export default {
   },
   methods: {
     tokenChange:function(){
-      
+
     }
     // getFileList() {
     //   axios.get('/mock/fileList.json').then(resp => {

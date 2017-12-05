@@ -22,39 +22,29 @@ Vue.component(Hr.name, Hr);
 
 
 默认
-::: demo
 ```html
 <mt-hr></mt-hr>
 ```
-:::
 
 粗的线
-::: demo
 ```html
 <mt-hr height="4px"></mt-hr>
 ```
-:::
 
 颜色primary
-::: demo
 ```html
 <mt-hr background="#06c1ae"></mt-hr>
 ```
-:::
 
 颜色warning
-::: demo
 ```html
 <mt-hr background="#ffb200"></mt-hr>
 ```
-:::
 
 颜色danger
-::: demo
 ```html
 <mt-hr background="#ef4f4f"></mt-hr>
 ```
-:::
 
 
 

@@ -23,7 +23,6 @@ Vue.component(IndexSection.name, IndexSection);
 
 ## 例子
 
-::: demo
 ```html
 <mt-index-list>
   <mt-index-section index="A">
@@ -42,19 +41,16 @@ Vue.component(IndexSection.name, IndexSection);
   </mt-index-section>
 </mt-index-list>
 ```
-:::
 
 `mt-index-section` 与右侧导航中的索引一一对应，`mt-index-section` 的 `index` 属性即为与其对应的索引的显示文本。`mt-index-section` 标签内可为任意自定义内容。
 
 当手指在右侧导航中滑动时，会在列表中间显示一个目前索引值的提示符。若不需要提示符，只需将 `show-indicator` 设为 `false`
 
-::: demo
 ```html
 <mt-index-list :show-indicator="false">
   ...
 </mt-index-list>
 ```
-:::
 
 ## API
 ### mt-index-list

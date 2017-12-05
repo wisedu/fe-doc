@@ -4,8 +4,10 @@
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
-    <div class="source">
-      <slot name="source"></slot>
+    <div :class="{'mobile-border': isShowFullPage}">
+      <div class="source" :class="{'mobile-fullheight': isShowFullPage}">
+        <slot name="source"></slot>
+      </div>
     </div>
     <div class="showdesc">
       <slot name="showdesc"></slot>
@@ -67,10 +69,19 @@
     }
 
     .source {
-      // padding: 24px;
       width: 375px;
       border-right: 1px solid #ddd;
       display: inline-block;
+    }
+    .mobile-fullheight {
+      height: 667px;
+      background-color:#F4F4F4;
+    }
+    .mobile-border{
+      background-color:#E4E4E4;
+      padding: 33px 25px;
+      width: 425px;
+      height: 733px;
     }
     .showdesc{
       display: inline-block;
@@ -214,7 +225,8 @@
       jsfiddle: Object,
       default() {
         return {};
-      }
+      },
+      type: String
     },
 
     methods: {
@@ -298,6 +310,9 @@
             this.$el.getElementsByClassName('highlight')[0].clientHeight + 20;
         }
         return this.$el.getElementsByClassName('highlight')[0].clientHeight;
+      },
+      isShowFullPage(){
+        return this.type === "project" || this.type === "template"
       }
     },
 
