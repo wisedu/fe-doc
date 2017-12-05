@@ -2,7 +2,7 @@
 <div>
   <template v-for="item in ceilsCompoonents">
     <h4 :key="item.id">编号：{{item.id}}</h4>
-    <demo-block  :jsfiddle="item" :key="item.id">
+    <demo-block :type="categoryType" :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
       <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->

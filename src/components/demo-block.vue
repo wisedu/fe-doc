@@ -74,7 +74,12 @@
       display: inline-block;
     }
     .mobile-fullheight {
+      background-image: url(../../static/mobile-title.png);
+      background-size:375px 65px;
+      background-repeat: no-repeat;
+      background-origin:padding-box;
       height: 667px;
+      padding-top: 65px;
       background-color:#F4F4F4;
     }
     .mobile-border{
