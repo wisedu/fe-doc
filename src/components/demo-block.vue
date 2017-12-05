@@ -74,6 +74,7 @@
       display: inline-block;
     }
     .mobile-fullheight {
+      box-shadow: grey 2px 2px 20px 1px;
       background-size:375px 65px;
       background-repeat: no-repeat;
       background-origin:padding-box;
