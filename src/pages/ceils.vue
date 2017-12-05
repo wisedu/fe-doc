@@ -9,10 +9,11 @@
     </demo-block>
   </template>
   <div v-if="categoryType === 'project'">
-    <button id="cp" data-clipboard-action="copy" data-clipboard-target="#pStyle">
-        拷贝到剪贴板
-    </button>
-    <pre v-highlightjs="projectStyle"><code class="css" id="pStyle"></code></pre>
+    <h3>项目样式，请复制到工程的样式文件中</h3>
+    <el-button id="cp" type="primary" data-clipboard-action="copy" data-clipboard-target="#pStyle">
+        拷贝到剪贴板 - 共{{rows}}行
+    </el-button>
+    <pre v-highlightjs="projectStyle" style="margin-top:12px;"><code class="css" id="pStyle"></code></pre>
   </div>
 </div>
 </template>
@@ -24,7 +25,8 @@ export default {
   data () {
     return {
       ceilsCompoonents: [],
-      projectStyle: ""
+      projectStyle: "",
+      rows: 0
     }
   },
   computed: {
@@ -66,6 +68,7 @@ export default {
           categoryId: this.categoryId
         }).then(({data: resp}) => {
           this.projectStyle = resp.data;
+          this.rows = resp.data.split("\n").length
         })
       }
     },
