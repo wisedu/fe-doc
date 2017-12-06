@@ -15,7 +15,7 @@
     "axios": "^0.17.1",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "babel-runtime": "^6.26.0",
-    "bh-mint-ui2": "^1.0.51",
+    "bh-mint-ui2": "^1.0.52",
     "cheerio": "^1.0.0-rc.2",
     "clipboard": "^1.7.1",
     "commondir": "^1.0.1",
