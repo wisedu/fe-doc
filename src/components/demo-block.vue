@@ -141,6 +141,7 @@
         max-height: none;
         border-radius: 0;
         padding-bottom: 50px;
+        background-color: #e6effb;
         // white-space: normal;
 
         &::before {

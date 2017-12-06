@@ -1,6 +1,6 @@
-# Mint UI 使用文档
+# BH Mint UI 2 使用文档
 
-本文将介绍 Mint UI 的安装方式和基本的用法。
+本文将介绍 BH Mint UI 2 的安装方式和基本的用法。
 
 ---------
 
@@ -9,24 +9,24 @@
 推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
 
 ```shell
-npm i mint-ui -S
+npm i bh-mint-ui2 -S
 ```
 
 ### CDN
-目前可以通过 [unpkg.com/mint-ui](https://unpkg.com/mint-ui/) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
 
-::: demo
+可以通过 [Vue全家桶](https://res.wisedu.com/bower_components/vue2) / [BH-MINT-UI2](https://res.wisedu.com/fe_components/mobile/MINT/) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
+
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/style.min.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<script src="https://res.wisedu.com/bower_components/vue2/vue.min.js"></script>
+<script src="https://res.wisedu.com/fe_components/mobile/MINT/index.js"></script>
 ```
-:::
 
 
 ### Hello world
-通过 CDN 的方式我们可以很容易地使用 Mint UI 写出一个 Hello world 页面。
+通过 CDN 的方式我们可以很容易地使用 BH Mint UI 2 写出一个 Hello world 页面。
 
 ::: demo
 ```html
@@ -35,7 +35,7 @@ npm i mint-ui -S
 <head>
   <meta charset="UTF-8">
   <!-- 引入样式 -->
-  <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+  <link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/style.min.css">
 </head>
 <body>
   <div id="app">
@@ -43,15 +43,15 @@ npm i mint-ui -S
   </div>
 </body>
   <!-- 先引入 Vue -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://res.wisedu.com/bower_components/vue2/vue.min.js"></script>
   <!-- 引入组件库 -->
-  <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+  <script src="https://res.wisedu.com/fe_components/mobile/MINT/index.js"></script>
   <script>
     new Vue({
       el: '#app',
       methods: {
         handleClick: function() {
-          this.$toast('Hello world!')
+          window.Vue.$toast('Hello world!')
         }
       }
     })
@@ -59,10 +59,9 @@ npm i mint-ui -S
 </html>
 ```
 :::
-<iframe width="100%" height="300" src="//jsfiddle.net/cinwell_li/Lr75y28t/1/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 
-如果是通过 npm 安装，并希望配合 webpack 使用，请阅读下一节：<router-link to="/zh-cn2/quickstart">快速上手</a>。
+如果是通过 npm 安装，并希望配合 webpack 使用，请继续阅读。
 
 <br>
 
@@ -81,11 +80,13 @@ npm i mint-ui -S
 ```
 <!-- ::: -->
 但是对于其他组件，还是需要添加 `.native` 修饰符。
+
 <script>
+  import { Toast } from 'bh-mint-ui2';
   export default {
     methods:{
       handleClick:function() {
-
+        Toast('Hello world!')
       },
       handleButtonClick:function(){
       }
@@ -94,13 +95,13 @@ npm i mint-ui -S
 </script>
 
 
-# 快速上手
+## Webpack 快速上手
 
-本节将介绍如何在项目中使用 Mint UI。
+本节将介绍如何在项目中使用 BH Mint UI 2。
 
 -----------
 
-## 使用 vue-cli
+### 使用 vue-cli
 
 ```bash
 npm install -g vue-cli
@@ -108,16 +109,16 @@ npm install -g vue-cli
 vue init webpack projectname
 ```
 
-## 引入 Mint UI
+### 引入 BH Mint UI 2
 
-你可以引入整个 Mint UI，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 Mint UI。
+你可以引入整个 BH Mint UI 2，或是根据需要仅引入部分组件。我们先介绍如何引入完整的 BH Mint UI 2。
 
-### 完整引入
+#### 完整引入
 
 在 main.js 中写入以下内容：
 ```javascript
 import Vue from 'vue'
-import MintUI from 'mint-ui'
+import MintUI from 'bh-mint-ui2'
 import 'mint-ui/lib/style.css'
 import App from './App.vue'
 
@@ -128,9 +129,9 @@ new Vue({
   components: { App }
 })
 ```
-以上代码便完成了 Mint UI 的引入。需要注意的是，样式文件需要单独引入。
+以上代码便完成了 BH Mint UI 2 的引入。需要注意的是，样式文件需要单独引入。
 
-### 按需引入
+#### 按需引入
 
 借助 [babel-plugin-component](https://github.com/QingWei-Li/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
 
@@ -148,7 +149,7 @@ npm install babel-plugin-component -D
   ],
   "plugins": [["component", [
     {
-      "libraryName": "mint-ui",
+      "libraryName": "bh-mint-ui2",
       "style": true
     }
   ]]]
@@ -159,7 +160,7 @@ npm install babel-plugin-component -D
 
 ```javascript
 import Vue from 'vue'
-import { Button, Cell } from 'mint-ui'
+import { Button, Cell } from 'bh-mint-ui2'
 import App from './App.vue'
 
 Vue.component(Button.name, Button)
@@ -175,7 +176,7 @@ new Vue({
 })
 ```
 
-## 开始使用
+### 开始使用
 
 至此，一个基于 Vue 和 Mint UI 的开发环境已经搭建完毕，现在就可以编写代码了。启动开发模式：
 
