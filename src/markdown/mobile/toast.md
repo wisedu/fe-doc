@@ -15,6 +15,9 @@ import { Toast } from 'mint-ui';
 
 ```javascript
 Toast('提示信息');
+
+//script直接引入的话
+Vue.$toast('提示信息');
 ```
 
 在调用 `Toast` 时传入一个对象即可配置更多选项

@@ -15,6 +15,9 @@ import { MessageBox } from 'mint-ui';
 
 ```javascript
 MessageBox('提示', '操作成功');
+
+//script直接引入的话
+Vue.$messagebox('提示', '操作成功');
 ```
 
 或者传入一个对象

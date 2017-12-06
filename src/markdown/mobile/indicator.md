@@ -15,6 +15,9 @@ import { Indicator } from 'mint-ui';
 
 ```javascript
 Indicator.open();
+
+//script直接引入的话
+Vue.$indicator.open();
 ```
 
 在加载图标下方显示文本
