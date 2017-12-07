@@ -12,8 +12,6 @@ Vue.component(Steps.name, Steps);
 
 #### 基础用法
 
-
-::: demo
 ```html
 <mt-steps direction="horizontal">
     <mt-step status="finish">买家下单</mt-step>
@@ -23,7 +21,7 @@ Vue.component(Steps.name, Steps);
 </mt-steps>
 
 ```
-:::
+
 
 
 #### 物流描述
@@ -32,7 +30,6 @@ Vue.component(Steps.name, Steps);
 通过`title`和`description`属性来定义物流描述信息
 
 
-::: demo
 ```html
 <mt-steps
   icon-class="steps-success"
@@ -45,15 +42,13 @@ Vue.component(Steps.name, Steps);
   <mt-step>交易完成</mt-step>
 </mt-steps>
 ```
-:::
+
 
 #### 竖向步骤条
 
 
 可以通过设置`direction`属性来改变步骤条的显示方式
 
-
-::: demo
 ```html
 <mt-steps direction="vertical">
     <mt-step>
@@ -70,7 +65,7 @@ Vue.component(Steps.name, Steps);
     </mt-step>
 </mt-steps>
 ```
-:::
+
 
 
 

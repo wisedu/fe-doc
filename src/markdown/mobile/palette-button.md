@@ -15,15 +15,15 @@ Vue.component(PaletteButton.name, PaletteButton);
 ## 例子
 
 基本用法
-::: demo
+
 ```html
-    <mt-palette-button content="+">
-      <div class="my-icon-button"></div>
-      <div class="my-icon-button"></div>
-      <div class="my-icon-button"></div>
-    </mt-palette-button>
+<mt-palette-button content="+">
+  <div class="my-icon-button"></div>
+  <div class="my-icon-button"></div>
+  <div class="my-icon-button"></div>
+</mt-palette-button>
 ```
-:::
+
 
 设置参数和事件，以及手动触发事件
 
@@ -39,17 +39,16 @@ Vue.component(PaletteButton.name, PaletteButton);
     }
 ```
 
-::: demo
+
 ```html
-    <mt-palette-button content="+" @expand="main_log('expand')" @expanded="main_log('expanded')" @collapse="main_log('collapse')"
-      direction="rt" class="pb" :radius="80" ref="target_1" mainButtonStyle="color:#fff;background-color:#26a2ff;"
-      style="left:30px;">
-      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(1)"></div>
-      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(2)"></div>
-      <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(3)"></div>
-    </mt-palette-button>
+<mt-palette-button content="+" @expand="main_log('expand')" @expanded="main_log('expanded')" @collapse="main_log('collapse')"
+  direction="rt" class="pb" :radius="80" ref="target_1" mainButtonStyle="color:#fff;background-color:#26a2ff;"
+  style="left:30px;">
+  <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(1)"></div>
+  <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(2)"></div>
+  <div class="my-icon-button indexicon icon-popup" @touchstart="sub_log(3)"></div>
+</mt-palette-button>
 ```
-:::
 
 
 ## 选项

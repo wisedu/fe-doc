@@ -23,7 +23,6 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 
 `cancel` 监听此event，当触发此事件时，需要收起下拉菜单
 
-::: demo
 ```html
 <template>
   <mt-dropdown-menus
@@ -46,57 +45,55 @@ Vue.component(DropdownMenus.name, DropdownMenus);
   };
 </script>
 ```
-:::
 
 下拉菜单允许自定义，下面展示一个实例
 
-::: demo
 ```html
 <template>
   <mt-dropdown-menus :options="options" @dropDown="getSelectedButtons" @cancel="cancel"> </mt-dropdown-menus>
-            <div v-if="isShowMenu" class="bh-ddm">
-                <mt-radio slot="menu" class="bh-radio-slot" v-if="type==='lv1'" align="right" type="hook" :options="menuDatas" v-model="sexValue">
-                </mt-radio>
-                <div slot="menu" v-if="type==='lv2'" class="bh-ddm-two">
-                    <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv2-container">
-                        <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="subMenuDatas" v-model="countryValue">
-                        </mt-radio>
-                    </div>
-                </div>
-                <div slot="menu" v-if="type==='lv3'" class="bh-ddm-three">
-                    <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv2-container">
-                        <mt-cell v-for=" item in subMenuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv3-container">
-                        <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="grandMenuDatas" v-model="trafficValue">
-                        </mt-radio>
-                    </div>
-                </div>
-                <div slot="menu" v-if="type==='filter'" class="bh-ddm-filter" :style="{'height':bodyHeight}">
-                    <div style="padding:0 20px;">
-                        <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas" v-model="multiValue" :display.sync="multiValue_display"></mt-button-list>
-                        <p>value: {{multiValue}}</p>
-                        <p>display: {{multiValue_display}}</p>
-                    </div>
-                    <div class="bh-ddm-filter-buttons">
-                        <div class="bh-ddm-filter-button" @click="resetFilter">
-                        重置
-                        </div>
-                        <div class="bh-ddm-filter-button" @click="sureFilter">
-                        确定
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div v-if="isShowMenu" class="bh-ddm">
+      <mt-radio slot="menu" class="bh-radio-slot" v-if="type==='lv1'" align="right" type="hook" :options="menuDatas" v-model="sexValue">
+      </mt-radio>
+      <div slot="menu" v-if="type==='lv2'" class="bh-ddm-two">
+          <div class="bh-ddm-lv1-container">
+              <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
+              </mt-cell>
+          </div>
+          <div class="bh-ddm-lv2-container">
+              <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="subMenuDatas" v-model="countryValue">
+              </mt-radio>
+          </div>
+      </div>
+      <div slot="menu" v-if="type==='lv3'" class="bh-ddm-three">
+          <div class="bh-ddm-lv1-container">
+              <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
+              </mt-cell>
+          </div>
+          <div class="bh-ddm-lv2-container">
+              <mt-cell v-for=" item in subMenuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected(item)">
+              </mt-cell>
+          </div>
+          <div class="bh-ddm-lv3-container">
+              <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="grandMenuDatas" v-model="trafficValue">
+              </mt-radio>
+          </div>
+      </div>
+      <div slot="menu" v-if="type==='filter'" class="bh-ddm-filter" :style="{'height':bodyHeight}">
+          <div style="padding:0 20px;">
+              <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas" v-model="multiValue" :display.sync="multiValue_display"></mt-button-list>
+              <p>value: {{multiValue}}</p>
+              <p>display: {{multiValue_display}}</p>
+          </div>
+          <div class="bh-ddm-filter-buttons">
+              <div class="bh-ddm-filter-button" @click="resetFilter">
+              重置
+              </div>
+              <div class="bh-ddm-filter-button" @click="sureFilter">
+              确定
+              </div>
+          </div>
+      </div>
+  </div>
 </template>
 
 <script>
@@ -422,7 +419,6 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 };
 </script>
 ```
-:::
 
 
 ## API

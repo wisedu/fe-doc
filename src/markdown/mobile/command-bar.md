@@ -14,7 +14,6 @@ Vue.component(CommandBar.name, CommandBar);
 
 ## 例子
 
-::: demo
 ```html
 <template>
   <mt-command-bar :buttons="buttons" :more-buttons="moreButtons"></mt-command-bar>
@@ -35,7 +34,6 @@ Vue.component(CommandBar.name, CommandBar);
   };
 </script>
 ```
-:::
 
 
 ## API

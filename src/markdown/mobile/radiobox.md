@@ -17,11 +17,12 @@ Vue.component(Radiobox.name, Radiobox);
 #### 基础用法
 通过`v-model`绑定 radiobox 的勾选状态，`提示：点击已经选中项的文字标题，可以取消选择`
 
-::: demo
+
 ```html
 <mt-radiobox v-model="value1">复选框 1</mt-radiobox>
 <mt-radiobox v-model="value2" disabled>禁用的复选框</mt-radiobox>
 ```
+
 ```javascript
 export default {
   data() {
@@ -32,13 +33,12 @@ export default {
   }
 };
 ```
-:::
+
 
 #### box-group
 
 需要与`mt-box-group`一起使用，在`mt-radio-group`通过`v-model`来绑定当前选中的值。
 
-::: demo
 ```html
 <mt-box-group v-model="value3">
     <mt-cell-group>
@@ -49,12 +49,10 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
 
 
 选择框右对齐
 
-::: demo
 ```html
 <mt-box-group v-model="value4" align="right">
     <mt-cell-group>
@@ -65,12 +63,11 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
+
 
 
 选中还可以组合其他内容在里面哦
 
-::: demo
 ```html
 <mt-box-group v-model="value5">
     <mt-cell-group>
@@ -83,7 +80,7 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
+
 
 
 ## Radiobox API

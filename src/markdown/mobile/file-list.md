@@ -23,7 +23,6 @@ Vue.component(FileList.name, FileList);
 *  `name`: 文件名称，`name` 值为一个 `string`
 
 
-::: demo
 ```html
 <template>
   <mt-file-list
@@ -43,7 +42,6 @@ Vue.component(FileList.name, FileList);
   };
 </script>
 ```
-:::
 
 
 ## API

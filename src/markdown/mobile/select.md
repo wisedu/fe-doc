@@ -15,25 +15,25 @@ Vue.component(Select.name, Select);
 ## 例子
 
 单选select
-::: demo
+
 ```html
 <mt-select label="单选" :options="singleSelectOptions" v-model="singleSelectValue" select-type="select" @selector-click="singleSelectClick">
 </mt-select>
 <p>{{singleSelectValue}}</p>
 ```
-:::
+
 
 多选select
-::: demo
+
 ```html
 <mt-select label="多选" :options="multiSelectOptions" v-model="multiSelectValue" select-type="multi-select" @selector-click="multiSelectClick">
 </mt-select>
 <p>{{multiSelectValue}}</p>
 ```
-:::
+
 
 自定义
-::: demo
+
 ```html
 <mt-select label="自定义选择" :options="customSelectOptions" v-model="customSelectValue" select-type="custom" @selector-click="customSelectClick">
   <template slot-scope="scope" slot="display">{{getDisplay(scope.value, scope.options)}}大法</template>
@@ -43,7 +43,7 @@ Vue.component(Select.name, Select);
 </mt-select>
 <p>{{multiSelectValue}}</p>
 ```
-:::
+
 
 
 ## API

@@ -5,7 +5,7 @@
       <div class="page-component"  v-if="!searchMode">
         <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
         <div style="display: flex;">
-          <div class="content">
+          <div class="content" :style="{'width':maxWidth}">
             <router-view></router-view>
           </div>
           <div v-if="!categoryId" class="phone" style="background-image: url(./static/component-image/phone.png);">
@@ -60,7 +60,8 @@ export default {
       componentsStyle: [],
       searchKey: '',
       searchMode: false,
-      searchResult: {}
+      searchResult: {},
+      maxWidth: (window.innerWidth - 240 - 407) + "px",
     }
   },
   computed: {

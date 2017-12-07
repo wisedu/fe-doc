@@ -17,7 +17,6 @@ Vue.component(Cell.name, Cell);
 
 将mt-cell-group组件看成一个容器即可
 
-::: demo
 ```html
 <mt-cell-group>
   <mt-cell title="标题文字"></mt-cell>
@@ -27,12 +26,11 @@ Vue.component(Cell.name, Cell);
   <mt-cell title="标题" label="描述信息" is-link></mt-cell>
 </mt-cell-group>
 ```
-:::
 
 
 带自定义图标
 如以上用法不能满足你的需求，可以使用对应的slot来自定义显示的内容
-::: demo
+
 ```html
 <mt-cell-group>
   <mt-cell title="标题文字">
@@ -41,11 +39,9 @@ Vue.component(Cell.name, Cell);
   </mt-cell>
 </mt-cell-group>
 ```
-:::
 
 自定义内容，监听cellClick事件
 
-::: demo
 ```html
 <mt-cell-group>
   <mt-cell title="标题文字" is-link to="click" @cellClick="cellClick">
@@ -53,7 +49,6 @@ Vue.component(Cell.name, Cell);
   </mt-cell>
 </mt-cell-group>
 ```
-:::
 
 
 

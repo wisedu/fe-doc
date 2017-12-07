@@ -16,38 +16,38 @@ Vue.component(Text.name, Text);
 
 
 默认
-::: demo
+
 ```html
 <mt-text type="default">默认文本</mt-text>
 ```
-:::
+
 
 
 字体大小
-::: demo
+
 ```html
 <mt-text size="24px">设置字体大小</mt-text>
 ```
-:::
+
 
 
 可换肤颜色
-::: demo
+
 ```html
 <mt-text type="primary">primary文本</mt-text>
 <mt-text type="warning">warning文本</mt-text>
 <mt-text type="danger">danger文本</mt-text>
 <mt-text type="grey">grey文本</mt-text>
 ```
-:::
+
 
 
 自定义颜色
-::: demo
+
 ```html
 <mt-text color="#dd8811">grey文本</mt-text>
 ```
-:::
+
 
 
 ## API

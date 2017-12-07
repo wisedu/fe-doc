@@ -16,15 +16,15 @@ Vue.component(Range.name, Range);
 
 将一个本地变量与 `range` 的 `value` 属性同步即可实现双向绑定
 
-::: demo
+
 ```html
 <mt-range v-model="rangeValue"></mt-range>
 ```
-:::
+
 
 更多的配置项
 
-::: demo
+
 ```html
 <mt-range
   v-model="rangeValue"
@@ -34,18 +34,17 @@ Vue.component(Range.name, Range);
   :bar-height="5">
 </mt-range>
 ```
-:::
+
 
 可在滑块两侧显示文字
 
-::: demo
 ```html
 <mt-range v-model="rangeValue">
   <div slot="start">0</div>
   <div slot="end">100</div>
 </mt-range>
 ```
-:::
+
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

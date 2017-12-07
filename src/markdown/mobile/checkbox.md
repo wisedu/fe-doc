@@ -17,7 +17,6 @@ Vue.component(Checkbox.name, Checkbox);
 #### 基础用法
 通过`v-model`绑定 checkbox 的勾选状态
 
-::: demo
 ```html
 <mt-cell-group>
   <mt-checkbox v-model="value1">复选框 1</mt-checkbox>
@@ -34,7 +33,6 @@ export default {
   }
 };
 ```
-:::
 
 #### box-group
 
@@ -42,7 +40,6 @@ export default {
 
 同时设置最大可选数2
 
-::: demo
 ```html
 <mt-box-group v-model="value3" :max="2">
     <mt-cell-group>
@@ -53,12 +50,10 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
 
 
 选择框右对齐
 
-::: demo
 ```html
 <mt-box-group v-model="value4" align="right">
     <mt-cell-group>
@@ -69,12 +64,10 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
 
 
 选中还可以组合其他内容在里面哦
 
-::: demo
 ```html
 <mt-box-group v-model="value5">
     <mt-cell-group>
@@ -87,7 +80,6 @@ export default {
     </mt-cell-group>
 </mt-box-group>
 ```
-:::
 
 
 ## Checkbox API

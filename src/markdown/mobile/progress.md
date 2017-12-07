@@ -16,22 +16,22 @@ Vue.component(Progress.name, Progress);
 
 传入 `value` 作为进度条的值。可自定义它的线宽
 
-::: demo
+
 ```html
 <mt-progress :value="20" :bar-height="5"></mt-progress>
 ```
-:::
+
 
 可在进度条两侧显示文字
 
-::: demo
+
 ```html
 <mt-progress :value="60">
   <div slot="start">0%</div>
   <div slot="end">100%</div>
 </mt-progress>
 ```
-:::
+
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

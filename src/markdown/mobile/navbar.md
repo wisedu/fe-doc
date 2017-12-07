@@ -16,7 +16,7 @@ Vue.component(TabItem.name, TabItem);
 ## 例子
 搭配 <router-link to="tab-container">tab-container</router-link> 组件使用
 
-::: demo
+
 ```html
 <mt-navbar v-model="selected">
   <mt-tab-item id="1">选项一</mt-tab-item>
@@ -37,7 +37,7 @@ Vue.component(TabItem.name, TabItem);
   </mt-tab-container-item>
 </mt-tab-container>
 ```
-:::
+
 
 ## API
 

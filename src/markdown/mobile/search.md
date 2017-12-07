@@ -15,14 +15,14 @@ Vue.component(Search.name, Search);
 ## 例子
 
 基础用法
-::: demo
+
 ```html
 <mt-search v-model="value"></mt-search>
 ```
-:::
+
 
 设置显示文字
-::: demo
+
 ```html
 <mt-search
   v-model="value"
@@ -30,17 +30,17 @@ Vue.component(Search.name, Search);
   placeholder="搜索">
 </mt-search>
 ```
-:::
+
 
 带搜索结果
-::: demo
+
 ```html
 <mt-search v-model="value" :result.sync="result"></mt-search>
 ```
-:::
+
 
 自定义搜索结果
-::: demo
+
 ```html
 <mt-search v-model="value">
   <mt-cell
@@ -51,7 +51,7 @@ Vue.component(Search.name, Search);
   </mt-cell>
 </mt-search>
 ```
-:::
+
 
 
 

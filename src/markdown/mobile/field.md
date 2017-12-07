@@ -15,7 +15,7 @@ Vue.component(Field.name, Field);
 ## 例子
 
 基础用法
-::: demo
+
 ```html
 <mt-cell-group>
   <mt-field label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
@@ -28,10 +28,10 @@ Vue.component(Field.name, Field);
   <mt-field label="自我介绍" placeholder="自我介绍" type="textarea" rows="4" v-model="introduction"></mt-field>
 </mt-cell-group>
 ```
-:::
+
 
 设置校验状态
-::: demo
+
 ```html
 <mt-cell-group>
   <mt-field label="邮箱" state="success" v-model="email"></mt-field>
@@ -39,18 +39,17 @@ Vue.component(Field.name, Field);
   <mt-field label="邮箱" state="warning" v-model="email"></mt-field>
 </mt-cell-group>
 ```
-:::
+
 
 自定义内容（例如添加验证码）
-::: demo
+
 ```html
 <mt-cell-group>
   <mt-field label="验证码" v-model="captcha">
-    <!-- <img src="../assets/100x100.png" height="45px" width="100px"> -->
+    <img src="../assets/100x100.png" height="45px" width="100px">
   </mt-field>
 </mt-cell-group>
 ```
-:::
 
 
 ## API

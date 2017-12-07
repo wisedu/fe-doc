@@ -15,15 +15,15 @@ Vue.component(Textarea.name, Textarea);
 ## 例子
 
 基础用法
-::: demo
+
 ```html
 <mt-textarea label="有标题" placeholder="全宽度" rows=3 maxlength=100 ></mt-textarea>
 <mt-textarea placeholder="全宽度" rows=3 maxlength=100 ></mt-textarea>
 ```
-:::
+
 
 设置校验状态
-::: demo
+
 ```html
 <mt-textarea label="success" placeholder="success" rows=3 maxlength=50 state="success"></mt-textarea>
 <mt-textarea label="error" placeholder="error" rows=3 maxlength=20 state="error"></mt-textarea>
@@ -33,7 +33,7 @@ Vue.component(Textarea.name, Textarea);
   <mt-icon type="icon-wifi"></mt-icon>
 </mt-textarea>
 ```
-:::
+
 
 
 

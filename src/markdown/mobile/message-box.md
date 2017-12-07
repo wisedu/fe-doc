@@ -34,11 +34,13 @@ MessageBox({
 ```javascript
 MessageBox.alert(message, title);
 ```
+
 ```javascript
 MessageBox.alert('操作成功').then(action => {
   ...
 });
 ```
+
 ```javascript
 MessageBox.confirm(message, title);
 ```

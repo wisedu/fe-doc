@@ -48,6 +48,7 @@ loadBottom() {
 ## 自定义 HTML 模板
 
 可以为列表顶部和底部的加载提示区域提供自定义的 HTML 模板
+
 ```html
 <template>
   <mt-loadmore :top-method="loadTop" @top-status-change="handleTopChange">
@@ -78,6 +79,7 @@ loadBottom() {
   };
 </script>
 ```
+
 比如需要配置列表顶部的 HTML，则需要为自定义 HTML 模板的最外层标签设置 `slot` 属性为 `top`，类名为 `mint-loadmore-top`。当用户滑动组件时，组件会有以下几个状态：
 *  `pull`：组件已经被按下，但按下的距离未达到 `topDistance`，此时释放不会触发 `top-method`，列表会回到初始位置
 *  `drop`：按下的距离不小于 `topDistance`，此时释放会触发 `top-method`

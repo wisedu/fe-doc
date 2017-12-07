@@ -21,8 +21,6 @@ Vue.component(SideNavbar.name, SideNavbar);
 `width` 属性为侧边导航的宽度。
 
 
-:::
-::: demo
 ```html
 <mt-side-navbar class="page-part" v-model="selected">
   <div slot="nav">
@@ -44,7 +42,7 @@ Vue.component(SideNavbar.name, SideNavbar);
 </mt-side-navbar>
 
 ```
-:::
+
 
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |

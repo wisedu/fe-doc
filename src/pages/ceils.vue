@@ -113,3 +113,18 @@ export default {
 </script>
 
 
+<style>
+.mint-navbar.is-fixed{
+    position: relative !important;
+}
+.mint-navbar .mint-tab-item.is-selected{
+    margin-bottom: 0 !important;
+}
+
+.mint-fixed-button{
+    position: absolute !important;
+}
+div[smile-category="FixedButton"] > .smile-classify-item-content{
+    min-height: 110px;
+}
+</style>

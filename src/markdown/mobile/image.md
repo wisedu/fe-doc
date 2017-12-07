@@ -31,24 +31,22 @@ Vue.component(Image.name, Image);
 
 <div>定宽定高</div>
 
-::: demo
 ```html
 <mt-image
 src="http://res.wisedu.com/fe_components/images/errorTip/no_search_result2.png"
 width="200px" height="200px"></mt-image>
 ```
-:::
 
 
 <div>图片100%自适应</div>
 
-::: demo
+
 ```html
 <mt-image
 src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png">
 </mt-image>
 ```
-:::
+
 
 
 ## API

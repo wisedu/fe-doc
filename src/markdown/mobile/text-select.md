@@ -16,7 +16,7 @@ Vue.component(TextSelect.name, TextSelect);
 
 `v-model` 属性为组件的绑定值。
 
-::: demo
+
 ```html
 <mt-text-select label="抄送人员" placeholder="请输入" rows="5" maxlength="100" :options="singleSelectOptions" v-model="singleSelectValue" @selector-click="singleSelectClick"></mt-text-select>
 ```
@@ -55,7 +55,7 @@ export default {
   }
 };
 ```
-:::
+
 
 field 控制参数
 

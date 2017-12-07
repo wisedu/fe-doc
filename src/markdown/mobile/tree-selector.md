@@ -15,20 +15,32 @@ Vue.component(TreeSelect.name, TreeSelect);
 ## 例子
 
 单选
-::: demo
+
 ```html
-<mt-tree-selector label="树形选择器" :options="options" v-model="value" placeholder="请选择" ></mt-tree-selector>
+<mt-tree-selector
+  label="树形选择器"
+  :options="options"
+  v-model="value"
+  placeholder="请选择" >
+</mt-tree-selector>
 <p>{{value}}</p>
 ```
-:::
+
 
 多选
-::: demo
+
 ```html
-<mt-tree-selector label="树形多选择器" :multiple="true" :options="options" v-model="multiValue" placeholder="请选择" @selector-click="loadMultiOptionsEmap"></mt-tree-selector>
+<mt-tree-selector
+  label="树形多选择器"
+  :multiple="true"
+  :options="options"
+  v-model="multiValue"
+  placeholder="请选择"
+  @selector-click="loadMultiOptionsEmap">
+</mt-tree-selector>
 <p>{{multiValue}}</p>
 ```
-:::
+
 
 
 ## API

@@ -34,11 +34,11 @@ Vue.component(LayoutContainer.name, LayoutContainer);
 
 
 绑定 click 事件
-::: demo
+
 ```html
 <mt-layout-container @click.native="handleClick">普通容器</mt-layout-container>
 ```
-:::
+
 
 ## API
 
