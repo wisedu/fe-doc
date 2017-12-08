@@ -4,14 +4,15 @@
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
-    <div :class="{'mobile-border': isShowFullPage}">
+    <div style="float:left" :class="{'mobile-border': isShowFullPage}">
       <div class="source" :class="{'mobile-fullheight': isShowFullPage}" :style="styleObject">
         <slot name="source"></slot>
       </div>
     </div>
-    <div class="showdesc">
+    <div class="showdesc" style="float:right;width: calc(100% - 425px);">
       <slot name="showdesc"></slot>
     </div>
+    <div style="clear:both;display:table;"></div>
     <div class="meta" ref="meta">
       <div class="description" v-if="$slots.default">
         <slot></slot>
@@ -87,9 +88,6 @@
       padding: 33px 25px;
       width: 425px;
       height: 733px;
-    }
-    .showdesc{
-      display: inline-block;
     }
 
     .meta {

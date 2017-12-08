@@ -5,6 +5,17 @@
     <demo-block :type="categoryType" :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+      <div slot="showdesc" v-if="categoryType === 'project'" style="text-align:left;padding:8px">
+        <div v-for="(category,key) in item.dom" :key="key">
+          {{key}}
+          <ul>
+            <li v-for="subitem in category" :key="subitem.desc">
+              {{subitem.desc}} <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
+              | <a :href="'#/mobile/' + subitem.name" v-if="key === '1.组件'">文档</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
     </demo-block>
   </template>
@@ -74,15 +85,17 @@ export default {
     },
     initComponents (ceilsInfo) {
       ceilsInfo.content.forEach(item => {
+        let dom = this.processDemoDOM(item.preview.dom);
         const jsfiddle = {
           html: item.run.html,
           sctipt: 'export default {}',
           style: item.run.style,
           name: 'c-' + item.showId,
-          id: item.showId
+          id: item.showId,
+          dom: dom
         }
         Vue.component('c-' + item.showId, {
-          template: '<div>' + item.run.html + '</div>',
+          template: '<div>' + item.preview.html + '</div>',
           data(){
             return item.run.data;
           }
@@ -91,6 +104,60 @@ export default {
 
         // this.ceilsCompoonents.push(item.id)
       })
+    },
+    processDemoDOM(preview_dom){
+      let datas = {};
+      if (preview_dom.component.length > 0) {
+        datas["1.组件"] = {}
+        for (let item of preview_dom.component) {
+          let name = item.name.replace(/([A-Z])/g,"-$1").toLowerCase();
+          if (name[0] === "-") name = name.slice(1);
+          if (datas["1.组件"][name] === undefined) {
+            datas["1.组件"][name] = {
+              name: name,
+              desc: item.desc,
+              guids: [item.guid]
+            }
+          } else {
+            datas["1.组件"][name].guids.push (item.guid)
+          }
+        }
+      }
+      if (preview_dom.style.length > 0) {
+        //样式 是组件的一部分，合并到组件数据中
+        datas["1.组件"] = datas["1.组件"] || {};
+        for (let item of preview_dom.style) {
+          let name = item.name.replace(/([A-Z])/g,"-$1").toLowerCase();
+          if (name[0] === "-") name = name.slice(1);
+          if (datas["1.组件"][name] === undefined) {
+            datas["1.组件"][name] = {
+              name: name,
+              desc: item.desc,
+              guids: [item.guid]
+            }
+          } else {
+            datas["1.组件"][name].guids.push (item.guid)
+          }
+        }
+      }
+      if (preview_dom.combination.length > 0) {
+        datas["2.组合"] = {}
+        for (let item of preview_dom.combination) {
+          if (datas["2.组合"][item.desc] === undefined) {
+            datas["2.组合"][item.desc] = {
+              desc: item.desc,
+              guids: [item.guid]
+            }
+          } else {
+            datas["2.组合"][item.desc].guids.push (item.guid)
+          }
+        }
+      }
+      // if (preview_dom.template.length > 0) {
+      //   datas["模板"] = preview_dom.template;
+      // }
+
+      return datas;
     },
     handleDownload (name) {
       const id = name.replace(/^c\-/, '')
