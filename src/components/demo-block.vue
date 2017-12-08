@@ -5,8 +5,10 @@
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
     <div style="float:left" :class="{'mobile-border': isShowFullPage}">
-      <div class="source" :class="{'mobile-fullheight': isShowFullPage}" :style="styleObject">
-        <slot name="source"></slot>
+      <div class="source" :style="styleObject">
+        <div style="overflow: auto;" :class="{'mobile-fullheight': isShowFullPage}">
+          <slot name="source"></slot>
+        </div>
       </div>
     </div>
     <div class="showdesc" style="float:right;width: calc(100% - 425px);">
@@ -73,15 +75,16 @@
       width: 375px;
       border-right: 1px solid #ddd;
       display: inline-block;
-    }
-    .mobile-fullheight {
       box-shadow: grey 2px 2px 20px 1px;
       background-size:375px 65px;
       background-repeat: no-repeat;
       background-origin:padding-box;
-      height: 667px;
-      padding-top: 65px;
       background-color:#F4F4F4;
+    }
+    .mobile-fullheight {
+      height: 602px;
+      width: 375px;
+      margin-top: 65px;
     }
     .mobile-border{
       background-color:#E4E4E4;
