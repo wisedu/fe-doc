@@ -1,7 +1,7 @@
 <template>
 <div>
-  <template v-for="item in ceilsCompoonents">
-    <h4 :key="item.id">编号：{{item.id}}</h4>
+  <template v-for="item in ceilsCompoonents" >
+    <h4 :id="item.id" :key="item.id">编号：{{item.id}}</h4>
     <demo-block :type="categoryType" :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
@@ -12,6 +12,7 @@
             <li v-for="subitem in category" :key="subitem.desc">
               {{subitem.desc}} <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
               | <a :href="'#/mobile/' + subitem.name" v-if="key === '1.组件'">文档</a>
+              <a :href="'#/mobile/ceils?type=combination&categoryId=' + subitem.id + '&showId=' + subitem.showId" v-if="key === '2.组合'">定义</a>
             </li>
           </ul>
         </div>
@@ -46,6 +47,9 @@ export default {
     },
     categoryType () {
       return this.$route.query.type || ''
+    },
+    showId() {
+      return this.$route.query.showId || ''
     }
   },
   watch: {
@@ -58,6 +62,7 @@ export default {
   },
   methods: {
     getCeilsInfo () {
+      let that = this;
       if (!this.categoryId) return
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         type: this.categoryType,
@@ -67,6 +72,11 @@ export default {
         if (resp.type === 'success') {
           this.ceilsInfo = resp.data
           this.initComponents(resp.data)
+          Vue.nextTick(function () {
+            if (that.showId !== "") {
+              document.querySelector("#" + that.showId).scrollIntoView()
+            }
+          })
         } else {
           alert('数据错误')
         }
@@ -143,13 +153,15 @@ export default {
       if (preview_dom.combination.length > 0) {
         datas["2.组合"] = {}
         for (let item of preview_dom.combination) {
-          if (datas["2.组合"][item.desc] === undefined) {
-            datas["2.组合"][item.desc] = {
-              desc: item.desc,
-              guids: [item.guid]
+          if (datas["2.组合"][item.name] === undefined) {
+            datas["2.组合"][item.name] = {
+              desc: item.name,
+              guids: [item.guid],
+              id: item.id,
+              showId: item.showId
             }
           } else {
-            datas["2.组合"][item.desc].guids.push (item.guid)
+            datas["2.组合"][item.name].guids.push (item.guid)
           }
         }
       }
