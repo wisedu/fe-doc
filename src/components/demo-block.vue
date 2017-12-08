@@ -5,7 +5,7 @@
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
     <div style="float:left" :class="{'mobile-border': isShowFullPage}">
-      <div class="source" :style="styleObject">
+      <div class="source" :style="styleObject" :class="{'mobile-shadow': isShowFullPage}">
         <div style="overflow: auto;" :class="{'mobile-fullheight': isShowFullPage}">
           <slot name="source"></slot>
         </div>
@@ -75,11 +75,13 @@
       width: 375px;
       border-right: 1px solid #ddd;
       display: inline-block;
-      box-shadow: grey 2px 2px 20px 1px;
       background-size:375px 65px;
       background-repeat: no-repeat;
       background-origin:padding-box;
       background-color:#F4F4F4;
+    }
+    .mobile-shadow{
+      box-shadow: grey 2px 2px 20px 1px;
     }
     .mobile-fullheight {
       height: 602px;
