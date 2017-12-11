@@ -6,7 +6,7 @@
     @mouseleave="hovering = false">
     <div style="float:left" :class="{'mobile-border': isShowFullPage}">
       <div class="source" :style="styleObject" :class="{'mobile-shadow': isShowFullPage}">
-        <div style="overflow: auto;" :class="{'mobile-fullheight': isShowFullPage}">
+        <div style="overflow: auto;position: relative;" :class="{'mobile-fullheight': isShowFullPage}">
           <slot name="source"></slot>
         </div>
       </div>
