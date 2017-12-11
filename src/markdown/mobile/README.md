@@ -19,6 +19,7 @@ npm i bh-mint-ui2 -S
 ```html
 <!-- 引入样式 -->
 <link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/style.min.css">
+<link rel="stylesheet" href="http://res.wisedu.com/bh_components/mobile/1.0.0/bh-lib.min.css">
 <!-- 引入组件库 -->
 <script src="https://res.wisedu.com/bower_components/vue2/vue.min.js"></script>
 <script src="https://res.wisedu.com/fe_components/mobile/MINT/index.js"></script>

@@ -105,11 +105,17 @@ export default {
           dom: dom
         }
         Vue.component('c-' + item.showId, {
-          template: '<div>' + item.preview.html + '</div>',
+          template: '<div>' + item.run.html + '</div>',
           data(){
             return item.run.data;
           }
         })
+        // Vue.component('c-' + item.showId + "_preview", {
+        //   template: '<div>' + item.preview.html + '</div>',
+        //   data(){
+        //     return item.preview.data;
+        //   }
+        // })
         this.ceilsCompoonents.push(jsfiddle)
 
         // this.ceilsCompoonents.push(item.id)
