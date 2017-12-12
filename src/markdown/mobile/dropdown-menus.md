@@ -52,16 +52,16 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 <template>
   <mt-dropdown-menus :options="options" @dropDown="getSelectedButtons" @cancel="cancel"> </mt-dropdown-menus>
   <div v-if="isShowMenu" class="bh-ddm">
-      <mt-radio slot="menu" class="bh-radio-slot" v-if="type==='lv1'" align="right" type="hook" :options="menuDatas" v-model="sexValue">
-      </mt-radio>
+      <mt-radiobox slot="menu" class="bh-radio-slot" v-if="type==='lv1'" align="right" type="hook" :options="menuDatas" v-model="sexValue">
+      </mt-radiobox>
       <div slot="menu" v-if="type==='lv2'" class="bh-ddm-two">
           <div class="bh-ddm-lv1-container">
               <mt-cell v-for=" item in menuDatas" :key="item.value" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
               </mt-cell>
           </div>
           <div class="bh-ddm-lv2-container">
-              <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="subMenuDatas" v-model="countryValue">
-              </mt-radio>
+              <mt-radiobox class="bh-radio-slot"  align="right" type="hook" :options="subMenuDatas" v-model="countryValue">
+              </mt-radiobox>
           </div>
       </div>
       <div slot="menu" v-if="type==='lv3'" class="bh-ddm-three">
@@ -74,8 +74,8 @@ Vue.component(DropdownMenus.name, DropdownMenus);
               </mt-cell>
           </div>
           <div class="bh-ddm-lv3-container">
-              <mt-radio class="bh-radio-slot"  align="right" type="hook" :options="grandMenuDatas" v-model="trafficValue">
-              </mt-radio>
+              <mt-radiobox class="bh-radio-slot"  align="right" type="hook" :options="grandMenuDatas" v-model="trafficValue">
+              </mt-radiobox>
           </div>
       </div>
       <div slot="menu" v-if="type==='filter'" class="bh-ddm-filter" :style="{'height':bodyHeight}">
