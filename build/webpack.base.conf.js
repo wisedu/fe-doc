@@ -27,7 +27,8 @@ function wrap(render) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    mobile: './src/mobile.js'
   },
   output: {
     path: config.build.assetsRoot,

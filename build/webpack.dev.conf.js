@@ -13,6 +13,10 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  entry: {
+    app: './src/main.js',
+    mobile: './src/mobile.js'
+  },
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },
@@ -29,7 +33,14 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      inject: true,
+      chunks: ['vendor','manifest','app']
+    }),
+    new HtmlWebpackPlugin({
+      filename: "mobile.html",
+      template: 'mobile.html',
+      inject: true,
+      chunks: ['vendor','manifest','mobile']
     }),
     new FriendlyErrorsPlugin()
   ]
