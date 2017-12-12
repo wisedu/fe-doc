@@ -12,7 +12,7 @@
           {{key}}
           <ul>
             <li v-for="subitem in category" :key="subitem.desc">
-              <span @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
+              <span style="cursor: pointer;" @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
                 {{subitem.desc}}
                 <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
                 | <router-link :to="subitem.name" v-if="key === '1.组件'">文档</router-link>
@@ -205,13 +205,15 @@ export default {
     overhandler(guids) {
       // console.log(guids)
       for (let i of guids) {
-        document.querySelector("[smile-guid='" + i +"']").classList.add("block_highline")
+        let ele = document.querySelector("[smile-guid='" + i +"']");
+        let top = ele.clientTop + ele.offsetTop;
+        let left = ele.clientLeft + ele.offsetLeft;
+        ele.insertAdjacentHTML("beforebegin", `<div class='block_highline' style="top:${top}px;left:${left}px;width:${ele.clientWidth}px;height:${ele.clientHeight}px;"></div>`)
       }
     },
     outhandler(guids) {
-      // console.log(guids)
-      for (let i of guids) {
-        document.querySelector("[smile-guid='" + i +"']").classList.remove("block_highline")
+      for (let i of document.querySelectorAll(".block_highline")){
+        i.parentNode.removeChild(i)
       }
     }
   },
@@ -242,7 +244,11 @@ div[smile-category="FixedButton"] > .smile-classify-item-content{
   float: right;
 }
 .block_highline {
-  border:0.5px #4A90E2 solid;
-  box-shadow: 2px 2px 4px 2px #666;
+  /* border:0.5px #4A90E2 solid; */
+  background-color: blue;
+  opacity: 0.2;
+  z-index: 999;
+  position: absolute;
+  /* box-shadow: 2px 2px 4px 2px #666; */
 }
 </style>

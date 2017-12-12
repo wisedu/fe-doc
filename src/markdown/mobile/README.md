@@ -5,6 +5,11 @@
 ---------
 
 
+## 鸣谢
+本组件库是基于 MintUI 更换部分 Vant 组件，加上自有开发的组件形成的移动组件库。
+
+感谢开源对大家的贡献，我们的组件库代码地址： [bh-mint-ui2](https://github.com/wisedu/bh-mint-ui2)
+
 ### npm 安装
 推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
 
@@ -18,7 +23,7 @@ npm i bh-mint-ui2 -S
 
 ```html
 <!-- 引入样式 -->
-<link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/style.min.css">
+<link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/cpdaily/style.min.css">
 <link rel="stylesheet" href="https://res.wisedu.com/bh_components/mobile/1.0.0/bh-lib.min.css">
 <!-- 引入组件库 -->
 <script src="https://res.wisedu.com/bower_components/vue2/vue.min.js"></script>
