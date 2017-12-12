@@ -52,6 +52,7 @@ import Home from './pages/home'
 import PcView from './pages/pc-view'
 import MobileView from './pages/mobile-view'
 import Ceils from './pages/ceils'
+import NotFoundComponent from './pages/NotFoundComponent'
 ${jsImport.join("\r\n")}
 
 Vue.use(Router)
@@ -93,9 +94,13 @@ function buildRouter(components) {
     "name": "home",
     "component": "@Home@",
     "path": "/"
+  },{
+    "component": "@NotFoundComponent@",
+    "path": "*"
   })
 
   return `const router = new Router({
+    mode: 'history',
     routes: ${JSON.stringify(routes).replace(/(\'|\")?@(\'|\")?/g, '')}
   })`
 }

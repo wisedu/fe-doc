@@ -325,7 +325,7 @@
       },
       isShowFullPage(){
         if (this.type === "project" || this.type === "template") {
-          this.styleObject.backgroundImage = "url(./static/mobile-title.p" + "ng)"
+          this.styleObject.backgroundImage = "url(/static/mobile-title.png)"
           return true;
         } else {
           this.styleObject.backgroundImage = ""

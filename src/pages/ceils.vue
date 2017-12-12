@@ -6,13 +6,18 @@
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
       <div slot="showdesc" v-if="categoryType === 'project'" style="text-align:left;padding:8px">
+        <div class="qrcode" :id="item.id"></div>
+        <h2 class="codeh2">页面结构</h2>
         <div v-for="(category,key) in item.dom" :key="key">
           {{key}}
           <ul>
             <li v-for="subitem in category" :key="subitem.desc">
-              {{subitem.desc}} <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
-              | <a :href="'#/mobile/' + subitem.name" v-if="key === '1.组件'">文档</a>
-              <a :href="'#/mobile/ceils?type=combination&categoryId=' + subitem.id + '&showId=' + subitem.showId" v-if="key === '2.组合'">定义</a>
+              <span @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
+                {{subitem.desc}}
+                <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
+                | <router-link :to="subitem.name" v-if="key === '1.组件'">文档</router-link>
+                <router-link :to="{path:'ceils', query:{type:'combination', categoryId: subitem.id,showId:subitem.showId}}" v-if="key === '2.组合'">定义</router-link>
+              </span>
             </li>
           </ul>
         </div>
@@ -73,6 +78,15 @@ export default {
           this.ceilsInfo = resp.data
           this.initComponents(resp.data)
           Vue.nextTick(function () {
+            let qrcodes = document.querySelectorAll(".qrcode");
+            for (let qr of qrcodes) {
+              new QRCode(qr, {
+                text: "https://res.wisedu.com/mobile.html?showId=" + qr.id,
+                width: 128,
+                height: 128,
+                correctLevel : QRCode.CorrectLevel.H
+              });
+            }
             if (that.showId !== "") {
               document.querySelector("#" + that.showId).scrollIntoView()
             }
@@ -105,7 +119,7 @@ export default {
           dom: dom
         }
         Vue.component('c-' + item.showId, {
-          template: '<div>' + item.run.html + '</div>',
+          template: '<div>' + item.preview.html + '</div>',
           data(){
             return item.run.data;
           }
@@ -187,6 +201,18 @@ export default {
           window.open(this.$SITE_URL + resp.path)
         }
       })
+    },
+    overhandler(guids) {
+      // console.log(guids)
+      for (let i of guids) {
+        document.querySelector("[smile-guid='" + i +"']").classList.add("block_highline")
+      }
+    },
+    outhandler(guids) {
+      // console.log(guids)
+      for (let i of guids) {
+        document.querySelector("[smile-guid='" + i +"']").classList.remove("block_highline")
+      }
     }
   },
   created () {
@@ -211,5 +237,12 @@ export default {
 }
 div[smile-category="FixedButton"] > .smile-classify-item-content{
     min-height: 110px;
+}
+.qrcode {
+  float: right;
+}
+.block_highline {
+  border:0.5px #4A90E2 solid;
+  box-shadow: 2px 2px 4px 2px #666;
 }
 </style>

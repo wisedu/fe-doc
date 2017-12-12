@@ -7,7 +7,7 @@
           <li :class="mobile_active">移动组件</li>
         </router-link>
         <router-link to="/pc">
-          <li :class="pc_active">PC组件</li>
+          <li :class="pc_active">响应式组件</li>
         </router-link>
         <!-- <li>资源下载</li> -->
       </ul>

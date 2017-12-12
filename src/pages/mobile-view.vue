@@ -8,7 +8,7 @@
           <div class="content" :style="{'width':maxWidth}">
             <router-view></router-view>
           </div>
-          <div v-if="!categoryId" class="phone" style="background-image: url(./static/component-image/phone.png);">
+          <div v-if="!categoryId" class="phone" style="background-image: url(/static/component-image/phone.png);">
             <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default {
       combination: {},
       template: {},
       project: {},
-      demoUrl: "./static/demo/index.html",
+      demoUrl: "/static/demo/index.html",
       active: "",
       componentsStyle: [],
       searchKey: '',
