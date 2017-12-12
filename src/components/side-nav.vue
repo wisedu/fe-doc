@@ -70,6 +70,7 @@ export default {
           let path = rs.filter(i => {return i.name === com_def.name + "Mobile"})
 
           if (path.length > 0) {
+            path[0].matched = true;
             let com_count = resp.data.data.count.filter(i => {return i.componentName === com_def.name});
 
             let com = {
@@ -85,6 +86,17 @@ export default {
             }
             group[key].push(com);
           }
+        }
+        group["未分类"] = [];
+        for (let item of rs.filter(i => i.matched !== true)) {
+          let com = {
+            desc: "",
+            comName: item.name.replace("Mobile", ""),
+            name: item.name,
+            count: "",
+            path: item.path
+          }
+          group["未分类"].push(com);
         }
 
         that.navs = group;
