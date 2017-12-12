@@ -81,7 +81,7 @@ export default {
             let qrcodes = document.querySelectorAll(".qrcode");
             for (let qr of qrcodes) {
               new QRCode(qr, {
-                text: "https://res.wisedu.com/mobile.html?showId=" + qr.id,
+                text: "http://res.wisedu.com/mobile.html?showid=" + qr.id,
                 width: 128,
                 height: 128,
                 correctLevel : QRCode.CorrectLevel.H
