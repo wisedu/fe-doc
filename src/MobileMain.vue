@@ -7,6 +7,7 @@
 <script>
 import Vue from 'vue'
 import axios from 'axios'
+import jsonp from 'jsonp'
 export default {
   name: "mobileMain",
   data(){
@@ -31,6 +32,7 @@ export default {
             }
           });
           that.page = 'c-' + showid;
+          jsonp('http://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
         } else {
           Vue.$toast('数据错误');
         }
