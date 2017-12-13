@@ -6,9 +6,7 @@ import App from './App'
 import DemoBlock from './components/demo-block'
 import 'highlight.js/styles/color-brewer.css'
 import VueHighlightJS from 'vue-highlightjs'
-
-
-
+import jsonp from 'jsonp'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
@@ -28,6 +26,12 @@ Vue.component('demo-block', DemoBlock)
 
 Vue.prototype.$SITE_URL = 'http://172.16.7.180:9900'
 // Vue.prototype.$SITE_URL = 'http://172.16.121.201:9900'
+
+
+Components.router.beforeEach((to, from, next) => {
+  jsonp('http://res.wisedu.com/statistics/res?' + to.fullPath, null, function (err, data) {});
+  next();
+})
 
 /* eslint-disable no-new */
 new Vue({
