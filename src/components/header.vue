@@ -3,13 +3,16 @@
     <div class="header-container">
       <img class="logo" src="../assets/logo.png" alt="">
       <ul class="list">
+        <li>
+          <a href="/forum"><el-badge value="hot" class="item">社区</el-badge></a>
+        </li>
         <router-link to="/mobile">
           <li :class="mobile_active">移动组件</li>
         </router-link>
         <router-link to="/pc">
           <li :class="pc_active">响应式组件</li>
         </router-link>
-        <!-- <li>资源下载</li> -->
+        <li><a href="http://res.wisedu.com/FS/docsite/">RES文档</a></li>
       </ul>
     </div>
   </div>
@@ -39,6 +42,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.el-badge.item{
+  display: inline;
+}
 .header-wrap {
   background: #062f49;
   height: 80px;

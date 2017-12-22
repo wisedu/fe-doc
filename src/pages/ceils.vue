@@ -4,7 +4,7 @@
     <h4 :id="item.id" :key="item.id">编号：{{item.id}}</h4>
     <demo-block :type="categoryType" :jsfiddle="item" :key="item.id">
       <component slot="source" :is="item.name"></component>
-      <pre slot="highlight" v-highlightjs><code class="html">{{item.html}}</code></pre>
+      <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
       <div slot="showdesc" v-if="categoryType === 'project'" style="text-align:left;padding:8px">
         <div class="qrcode" :id="item.id"></div>
         <h2 class="codeh2">页面结构</h2>
@@ -22,7 +22,10 @@
           </ul>
         </div>
       </div>
-      <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
+      <el-button slot="download" size="mini" class="copyCode" style="margin: 8px 12px;" type="success" :key="item.id" data-clipboard-action="copy" :data-clipboard-target="'#'+item.name">
+        复制代码 - 共{{item.html.split("\n").length}}行
+      </el-button>
+      <!-- @click="handleDownload(item.name)" -->
     </demo-block>
   </template>
   <div v-if="categoryType === 'project'">
@@ -221,6 +224,7 @@ export default {
     this.getCeilsInfo()
     this.getProjectInfo()
     new Clipboard('#cp');
+    new Clipboard('.copyCode');
   }
 }
 </script>

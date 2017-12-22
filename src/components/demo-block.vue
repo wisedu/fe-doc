@@ -14,6 +14,7 @@
     <div class="showdesc" style="float:right;width: calc(100% - 425px);">
       <slot name="showdesc"></slot>
     </div>
+    <slot name="download"></slot>
     <div style="clear:both;display:table;"></div>
     <div class="meta" ref="meta">
       <div class="description" v-if="$slots.default">
@@ -34,7 +35,6 @@
       <transition name="text-slide">
         <!-- <span v-show="hovering">{{ controlText }}</span> -->
       </transition>
-      <slot name="download"></slot>
       <!-- <el-tooltip effect="dark" :content="langConfig['tooltip-text']" placement="right">
         <transition name="text-slide">
           <el-button

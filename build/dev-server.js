@@ -26,7 +26,7 @@ const compiler = webpack(webpackConfig)
 
 const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
-  quiet: true
+  quiet: false
 })
 
 const hotMiddleware = require('webpack-hot-middleware')(compiler, {
@@ -83,6 +83,7 @@ console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
   portfinder.getPort((err, port) => {
     if (err) {
+      console.log(err)
       _reject(err)
     }
     process.env.PORT = port
