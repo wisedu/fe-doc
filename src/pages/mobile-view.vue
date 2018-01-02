@@ -120,7 +120,8 @@ export default {
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         categoryId: componentName,
         type: 'style',
-        getType: 'previewRun'
+        getType: 'previewRun',
+        view: true
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
           this.componentsStyle = resp.data.content.map(item => {

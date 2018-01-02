@@ -75,7 +75,8 @@ export default {
       axios.post(this.$SITE_URL + '/mobile/getClassifyItemsToShow', {
         type: this.categoryType,
         getType:"previewRun",
-        categoryId: this.categoryId
+        categoryId: this.categoryId,
+        view: true
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
           this.ceilsInfo = resp.data
