@@ -17,8 +17,8 @@
                 <span style="cursor: pointer;" @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
                   {{subitem.desc}}
                   <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
-                  | <router-link :to="subitem.name" v-if="key === '1.组件'">文档</router-link>
-                  <router-link :to="{path:'ceils', query:{type:'combination', categoryId: subitem.id,showId:subitem.showId}}" v-if="key === '2.组合'">定义</router-link>
+                  | <router-link :to="'mobile/' + subitem.name" v-if="key === '1.组件'">文档</router-link>
+                  <router-link :to="{path:'mobile/ceils', query:{type:'combination', categoryId: subitem.id,showId:subitem.showId}}" v-if="key === '2.组合'">定义</router-link>
                 </span>
               </li>
             </ul>

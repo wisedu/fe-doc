@@ -158,12 +158,12 @@ export default {
     this.getCeilsList('combination')
     this.getCeilsList('template')
     // this.getCeilsList('project')
-    let r = window.location.hash.substring(1).split("/");
-    if (r[1] === "mobile"){
+    let r = window.location.href.split("/");
+    if (r[r.length-2] === "mobile"){
       if (this.categoryId) {
         this.active = this.categoryId
       } else {
-        this.active = r[2]
+        this.active = r[r.length-1]
       }
     }
 
