@@ -51,6 +51,8 @@ import Router from 'vue-router'
 import Home from './pages/home'
 import PcView from './pages/pc-view'
 import MobileView from './pages/mobile-view'
+import MobileProjectList from './pages/mobile-projectlist'
+import MobileProject from './pages/mobile-project'
 import Ceils from './pages/ceils'
 import NotFoundComponent from './pages/NotFoundComponent'
 ${jsImport.join("\r\n")}
@@ -94,6 +96,14 @@ function buildRouter(components) {
     "name": "home",
     "component": "@Home@",
     "path": "/"
+  },{
+    "name": "mobile-project",
+    "component": "@MobileProject@",
+    "path": "/mobile-project"
+  },{
+    "name": "mobile-projectlist",
+    "component": "@MobileProjectList@",
+    "path": "/mobile-projectlist"
   },{
     "component": "@NotFoundComponent@",
     "path": "*"

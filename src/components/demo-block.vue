@@ -1,9 +1,10 @@
 <template>
   <div
-    class="demo-block" :style="{'max-width':maxWidth}"
+    class="demo-block"
     :class="[blockClass, { 'hover': hovering }]"
     @mouseenter="hovering = true"
     @mouseleave="hovering = false">
+    <slot name="title"></slot>
     <div style="float:left" :class="{'mobile-border': isShowFullPage}">
       <div class="source" :style="styleObject" :class="{'mobile-shadow': isShowFullPage}">
         <div style="overflow: auto;position: relative;" :class="{'mobile-fullheight': isShowFullPage}">
@@ -11,9 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="showdesc" style="float:right;width: calc(100% - 425px);">
-      <slot name="showdesc"></slot>
-    </div>
+    <slot name="showdesc"></slot>
     <slot name="download"></slot>
     <div style="clear:both;display:table;"></div>
     <div class="meta" ref="meta">
@@ -57,7 +56,7 @@
     border-radius: 3px;
     transition: .2s;
     position: relative;
-    margin-bottom: 24px;
+    margin: 0 24px 24px 0;
 
     &.hover {
       box-shadow: 0 0 8px 0 rgba(232, 237, 250, .6), 0 2px 4px 0 rgba(232, 237, 250, .5);
@@ -226,7 +225,6 @@
         isExpanded: false,
         fixedControl: false,
         scrollParent: null,
-        maxWidth: (window.innerWidth - 240 - 48) + "px",
         styleObject:{
 
         }

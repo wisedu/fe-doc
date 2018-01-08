@@ -4,10 +4,13 @@
       <img class="logo" src="../assets/logo.png" alt="">
       <ul class="list">
         <li>
-          <a href="/forum"><el-badge value="hot" class="item">社区</el-badge></a>
+          <a href="/forum"><el-badge value="new" class="item">社区</el-badge></a>
         </li>
         <router-link to="/mobile">
           <li :class="mobile_active">移动组件</li>
+        </router-link>
+        <router-link to="/mobile-projectlist">
+          <li :class="mobile_active">移动模板库</li>
         </router-link>
         <router-link to="/pc">
           <li :class="pc_active">响应式组件</li>

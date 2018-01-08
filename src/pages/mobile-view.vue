@@ -54,7 +54,7 @@ export default {
     return {
       combination: {},
       template: {},
-      project: {},
+      // project: {},
       demoUrl: "/static/demo/index.html",
       active: "",
       componentsStyle: [],
@@ -69,7 +69,7 @@ export default {
       return {
         combination: { items:this.combination, name:"Cells 组合" },
         template: { items:this.template, name:"Templates 模板" },
-        project: { items:this.project, name:"Project 项目" }
+        // project: { items:this.project, name:"Project 项目" }
       }
     },
     realDemoUrl (){
@@ -157,7 +157,7 @@ export default {
   created () {
     this.getCeilsList('combination')
     this.getCeilsList('template')
-    this.getCeilsList('project')
+    // this.getCeilsList('project')
     let r = window.location.hash.substring(1).split("/");
     if (r[1] === "mobile"){
       if (this.categoryId) {

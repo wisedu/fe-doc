@@ -343,4 +343,12 @@ textarea {
   margin-left: -24px;
 }
 
+.block_highline {
+  /* border:0.5px #4A90E2 solid; */
+  background-color: blue;
+  opacity: 0.2;
+  z-index: 999;
+  position: absolute;
+  /* box-shadow: 2px 2px 4px 2px #666; */
+}
 </style>
