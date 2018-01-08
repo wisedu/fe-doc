@@ -253,22 +253,12 @@ export default {
     content: '';
     clear: both;
     display: table;
-  }
-.mint-navbar.is-fixed{
-    position: relative !important;
-}
-.mint-navbar .mint-tab-item.is-selected{
-    margin-bottom: 0 !important;
-}
-
-.mint-fixed-button{
-    position: absolute !important;
 }
 div[smile-category="FixedButton"] > .smile-classify-item-content{
     min-height: 110px;
 }
 .qrcode {
-  margin: 4px;
+  margin-top: -8px;
 }
 h4 {
   margin-left: 24px;
@@ -280,5 +270,19 @@ h4 {
   padding: 12px;
   border: 1px solid #999;
   background-color: #fff;
+}
+</style>
+<style>
+.mint-navbar.is-fixed{
+    position: relative !important;
+}
+.mint-navbar .mint-tab-item.is-selected{
+    margin-bottom: 0 !important;
+}
+.mint-fixed-container {
+    position: absolute!important;
+}
+.mint-fixed-button{
+    position: absolute !important;
 }
 </style>
