@@ -59,15 +59,6 @@ export default {
           this.ceilsInfo = resp.data
           this.initComponents(resp.data)
           Vue.nextTick(function () {
-            let qrcodes = document.querySelectorAll(".qrcode");
-            for (let qr of qrcodes) {
-              new QRCode(qr, {
-                text: "http://res.wisedu.com/mobile_preview.html?showid=" + qr.id,
-                width: 128,
-                height: 128,
-                correctLevel : QRCode.CorrectLevel.H
-              });
-            }
             if (that.showId !== "") {
               document.querySelector("#" + that.showId).scrollIntoView()
             }
@@ -221,8 +212,5 @@ export default {
 }
 div[smile-category="FixedButton"] > .smile-classify-item-content{
     min-height: 110px;
-}
-.qrcode {
-  float: right;
 }
 </style>
