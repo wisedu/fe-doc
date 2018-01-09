@@ -7,7 +7,7 @@
   </ul>
   <div>
     <div class="projects">
-      <h3 id="pageIndex">页面</h3>
+      <h3 id="pageIndex">{{ceilsInfo.project.name}} 页面</h3>
       <template v-for="item in ceilsCompoonents">
         <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
           <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>
@@ -30,7 +30,7 @@
               </ul>
             </div>
           </div>
-          <el-button slot="download" size="mini" class="copyCode" style="margin: 8px 12px;" type="success" :key="item.id" data-clipboard-action="copy" :data-clipboard-target="'#'+item.name">
+          <el-button slot="download" size="mini" class="copyCode" style="margin: 8px 12px;" type="success" data-clipboard-action="copy" :data-clipboard-target="'#'+item.name">
             复制代码 - 共{{item.html.split("\n").length}}行
           </el-button>
           <!-- @click="handleDownload(item.name)" -->
@@ -56,7 +56,8 @@ export default {
     return {
       ceilsCompoonents: [],
       projectStyle: "",
-      rows: 0
+      rows: 0,
+      ceilsInfo: {project:{name:""}}
     }
   },
   computed: {
