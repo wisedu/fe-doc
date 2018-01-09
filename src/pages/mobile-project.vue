@@ -1,47 +1,49 @@
 <template>
 <div class="page-container">
-  <div class="projects">
-    <h3 id="pageIndex">页面</h3>
-    <template v-for="item in ceilsCompoonents">
-      <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
-        <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>
-        <component slot="source" :is="item.name"></component>
-        <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
-        <div slot="showdesc" style="float:left;padding:8px">
-          <div class="qrcode" :id="item.id"></div>
-          <h2 class="codeh2">页面结构</h2>
-          <div v-for="(category,key) in item.dom" :key="key">
-            {{key}}
-            <ul>
-              <li v-for="subitem in category" :key="subitem.desc">
-                <span style="cursor: pointer;" @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
-                  {{subitem.desc}}
-                  <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
-                  | <router-link :to="'mobile/' + subitem.name" v-if="key === '1.组件'">文档</router-link>
-                  <router-link :to="{path:'mobile/ceils', query:{type:'combination', categoryId: subitem.id,showId:subitem.showId}}" v-if="key === '2.组合'">定义</router-link>
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <el-button slot="download" size="mini" class="copyCode" style="margin: 8px 12px;" type="success" :key="item.id" data-clipboard-action="copy" :data-clipboard-target="'#'+item.name">
-          复制代码 - 共{{item.html.split("\n").length}}行
-        </el-button>
-        <!-- @click="handleDownload(item.name)" -->
-      </demo-block>
-    </template>
-  </div>
   <ul class="topbtn">
     <li>大纲</li>
     <li><a href="#pageIndex">页面</a></li>
     <li><a href="#styleIndex">项目样式</a></li>
   </ul>
   <div>
-    <h3 id="styleIndex">项目样式，请复制到工程的样式文件中</h3>
-    <el-button id="cp" type="primary" data-clipboard-action="copy" data-clipboard-target="#pStyle">
-        拷贝到剪贴板 - 共{{rows}}行
-    </el-button>
-    <pre v-highlightjs="projectStyle" style="margin-top:12px;"><code class="css" id="pStyle"></code></pre>
+    <div class="projects">
+      <h3 id="pageIndex">页面</h3>
+      <template v-for="item in ceilsCompoonents">
+        <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
+          <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>
+          <component slot="source" :is="item.name"></component>
+          <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
+          <div slot="showdesc" style="float:left;padding:8px">
+            <div class="qrcode" :id="item.id"></div>
+            <h2 class="codeh2">页面结构</h2>
+            <div v-for="(category,key) in item.dom" :key="key">
+              {{key}}
+              <ul>
+                <li v-for="subitem in category" :key="subitem.desc">
+                  <span style="cursor: pointer;" @mouseover="overhandler(subitem.guids)" @mouseout="outhandler(subitem.guids)">
+                    {{subitem.desc}}
+                    <el-tag size="mini" v-if="subitem.name">{{subitem.name}}</el-tag>
+                    | <router-link :to="'mobile/' + subitem.name" v-if="key === '1.组件'">文档</router-link>
+                    <router-link :to="{path:'mobile/ceils', query:{type:'combination', categoryId: subitem.id,showId:subitem.showId}}" v-if="key === '2.组合'">定义</router-link>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <el-button slot="download" size="mini" class="copyCode" style="margin: 8px 12px;" type="success" :key="item.id" data-clipboard-action="copy" :data-clipboard-target="'#'+item.name">
+            复制代码 - 共{{item.html.split("\n").length}}行
+          </el-button>
+          <!-- @click="handleDownload(item.name)" -->
+        </demo-block>
+      </template>
+    </div>
+    <div>
+      <h3 id="styleIndex">项目样式，请复制到工程的样式文件中</h3>
+      <el-button id="cp" type="primary" data-clipboard-action="copy" data-clipboard-target="#pStyle">
+          拷贝到剪贴板 - 共{{rows}}行
+      </el-button>
+      <pre v-highlightjs="projectStyle" style="margin-top:12px;"><code class="css" id="pStyle"></code></pre>
+    </div>
   </div>
 </div>
 </template>
@@ -265,11 +267,12 @@ h4 {
 }
 .topbtn{
   position: fixed;
-  top: 100px;
+  top: 108px;
   right: 36px;
-  padding: 12px;
-  border: 1px solid #999;
+  padding: 24px;
+  border-left: 1px solid #ddd;
   background-color: #fff;
+  z-index: 999;
 }
 </style>
 <style>
