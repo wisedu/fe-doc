@@ -26,24 +26,24 @@ Vue.component(Hr.name, Hr);
 <mt-hr></mt-hr>
 ```
 
-粗的线
+粗的线,带外边距
 ```html
-<mt-hr height="4px"></mt-hr>
+<mt-hr height="4px" margin="10px 0"></mt-hr>
 ```
 
 颜色primary
 ```html
-<mt-hr background="#06c1ae"></mt-hr>
+<mt-hr background="#52C7CA"></mt-hr>
 ```
 
 颜色warning
 ```html
-<mt-hr background="#ffb200"></mt-hr>
+<mt-hr background="#FFB950"></mt-hr>
 ```
 
 颜色danger
 ```html
-<mt-hr background="#ef4f4f"></mt-hr>
+<mt-hr background="#F26666"></mt-hr>
 ```
 
 
@@ -51,8 +51,8 @@ Vue.component(Hr.name, Hr);
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| height | 分割线的高度 | String | | '' |
+| height | 分割线的高度 | String | | '0.5px' |
 | margin | 分割线的外边距 | String | | '' |
-| background | 分割线的背景颜色 | String | | '' |
+| background | 分割线的背景颜色 | String | | '#E8E8E8' |
 
 
