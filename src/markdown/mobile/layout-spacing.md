@@ -36,7 +36,7 @@ Vue.component(LayoutSpacing.name, LayoutSpacing);
 
 ```html
 <mt-layout-spacing border="0.5px solid #52C7CA" :borderside="borderside"></mt-layout-spacing>
-
+```
 
 ## API
 
