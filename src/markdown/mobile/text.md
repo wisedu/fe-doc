@@ -18,7 +18,7 @@ Vue.component(Text.name, Text);
 默认
 
 ```html
-<mt-text type="default">默认文本</mt-text>
+<mt-text>默认文本</mt-text>
 ```
 
 
@@ -26,7 +26,7 @@ Vue.component(Text.name, Text);
 字体大小
 
 ```html
-<mt-text size="24px">设置字体大小</mt-text>
+<mt-text size="20px">20px</mt-text>
 ```
 
 
@@ -34,10 +34,18 @@ Vue.component(Text.name, Text);
 可换肤颜色
 
 ```html
+<mt-text type="grey">grey文本</mt-text>
 <mt-text type="primary">primary文本</mt-text>
 <mt-text type="warning">warning文本</mt-text>
 <mt-text type="danger">danger文本</mt-text>
-<mt-text type="grey">grey文本</mt-text>
+<mt-text type="white">white文本</mt-text>
+<mt-text type="red">red文本</mt-text>
+<mt-text type="orange">orange文本</mt-text>
+<mt-text type="yellow">yellow文本</mt-text>
+<mt-text type="green">green文本</mt-text>
+<mt-text type="blue">blue文本</mt-text>
+<mt-text type="indigo">indigo文本</mt-text>
+<mt-text type="purple">purple文本</mt-text>
 ```
 
 
@@ -45,7 +53,15 @@ Vue.component(Text.name, Text);
 自定义颜色
 
 ```html
-<mt-text color="#dd8811">grey文本</mt-text>
+<mt-text color="#F334AB">grey文本</mt-text>
+```
+
+
+
+自定义字体
+
+```html
+<mt-text size="20px">20px</mt-text>
 ```
 
 
@@ -53,9 +69,9 @@ Vue.component(Text.name, Text);
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| type | 可换肤颜色 | String | `default` `primary` `warning` `danger` `grey` | `default` |
-| color | 自定义颜色值| String | `#ddd` |  |
-| size | 尺寸 | String | `12px` |  |
+| type | 可换肤颜色 | String | `grey` `primary` `warning` `danger` `white` `red` `orange` `yellow` `green` `blue` `indigo` `purple`|  |
+| color | 自定义颜色 | String |  |  |
+| size | 尺寸 | String |  |  |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

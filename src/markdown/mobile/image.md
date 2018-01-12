@@ -20,8 +20,6 @@ Vue.component(Image.name, Image);
 
 `height` 属性为图片的高度。
 
-`watermark` 属性为图片是否需要水印。
-
 `top` 属性为图片距离顶部的距离。
 
 `left` 属性为图片距离左边的距离。
@@ -43,7 +41,7 @@ width="200px" height="200px"></mt-image>
 
 ```html
 <mt-image
-src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png">
+src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png" @click="handleClick">
 </mt-image>
 ```
 
@@ -55,7 +53,6 @@ src="http://res.wisedu.com/fe_components/images/errorTip/System_upgrade.png">
 | src | 图片的地址 | String | | '' |
 | width | 图片的宽度 | String | | '' |
 | height | 图片的高度 | String | | '' |
-| watermark | 图片是否需要水印 | Boolean | | false |
 | top | 图片的顶部位置 | String | | '' |
 | left | 图片的左侧位置 | String | | '' |
 

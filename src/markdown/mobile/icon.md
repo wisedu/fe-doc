@@ -19,17 +19,23 @@ Vue.component(icon.name, icon);
 
 ```html
 <mt-icon name="icon-pinglun"></mt-icon>
-<mt-icon name="icon-pinglun" size="24px"></mt-icon>
+<mt-icon name="icon-pinglun" size="30px"></mt-icon>
 ```
 
 
 
 `name` 是字体图标库的图标class。图标地址是：http://res.wisedu.com/fe_components/iconfont_mobile/demo_fontclass.html
 
+设置图标内边距
+
+```html
+<mt-icon name="icon-pinglun" padding="20px"></mt-icon>
+```
+
 设置图标颜色
 
 ```html
-<mt-icon name="icon-pinglun" color="green"></mt-icon>
+<mt-icon name="icon-pinglun" color="red"></mt-icon>
 ```
 
 
@@ -68,8 +74,8 @@ methods:{
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
 | name  |  图标样式   | String    |    |     |
-| fontsize | 图标大小 | String | | |
-| padding  | 图标间距 | String | | |
+| size | 图标大小 | String | | |
+| padding  | 图标内边距 | String | | |
 | color | 图标颜色 | String | | |
 | changecolor | 图标点击之后的颜色 | String | | |
 | animate | 图标点击时的动画效果 | String | | |
