@@ -3,7 +3,7 @@ import Mint from 'bh-mint-ui2'
 
 import MobileMain from './MobileMain'
 
-Vue.prototype.$SITE_URL = 'http://res.wisedu.com/designer'
+Vue.prototype.$SITE_URL = 'https://res.wisedu.com/designer'
 
 Vue.use(Mint)
 
