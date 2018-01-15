@@ -32,7 +32,7 @@ export default {
             }
           });
           that.page = 'c-' + showid;
-          jsonp('http://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
+          jsonp('https://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
         } else {
           Vue.$toast('数据错误');
         }

@@ -29,7 +29,7 @@ Vue.prototype.$SITE_URL = 'http://res.wisedu.com/designer'
 
 
 Components.router.beforeEach((to, from, next) => {
-  jsonp('http://res.wisedu.com/statistics/res?' + to.fullPath, null, function (err, data) {});
+  jsonp('https://res.wisedu.com/statistics/res?' + to.fullPath, null, function (err, data) {});
   next();
 })
 
