@@ -18,21 +18,20 @@ Vue.component(TabItem.name, TabItem);
 搭配 <router-link :to="{ path:'/' + $route.meta.language + '/tab-container' }">tab-container</router-link> 组件使用
 
 ```html
-<mt-tabbar v-model="selected">
-  <mt-tab-item id="外卖">
-    <img slot="icon" src="">
+<mt-tabbar v-model="selected" fixed>
+  <mt-tab-item id="外卖" icontype="home">
     外卖
   </mt-tab-item>
-  <mt-tab-item id="订单">
-    <img slot="icon" src="">
+  <mt-tab-item id="订单" icontype="lingdaorichengicon">
+    <mt-badge size="normal" padding="3px" color="red" slot="badge"></mt-badge>
     订单
   </mt-tab-item>
   <mt-tab-item id="发现">
-    <img slot="icon" src="">
+    <img slot="icon" src="../assets/100x100.png">
+    <mt-badge size="normal" padding="3px" color="red" slot="badge"></mt-badge>
     发现
   </mt-tab-item>
-  <mt-tab-item id="我的">
-    <img slot="icon" src="">
+  <mt-tab-item id="我的" icontype="wodezixun">
     我的
   </mt-tab-item>
 </mt-tabbar>
@@ -51,6 +50,7 @@ Vue.component(TabItem.name, TabItem);
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
 | id | 选中后的返回值 | * | |  |
+| icontype | 选用的字体图标名称 | String | 参看字体图标 |  |
 
 ## Slot
 
@@ -63,7 +63,8 @@ Vue.component(TabItem.name, TabItem);
 | name | 描述 |
 |------|--------|
 | - | 显示文字|
-|icon | icon 图标|
+|icon | icon 图标，用于插入图片（与icontype效果相同，两者可选其一）|
+|badge | badge 徽章，绝对定位（top:0,right:0）,可自定义样式修改 |
 
 
 
@@ -71,7 +72,7 @@ Vue.component(TabItem.name, TabItem);
   export default {
     data: function(){
       return {
-        selected:""
+        selected:"外卖"
       }
     },
     methods:{

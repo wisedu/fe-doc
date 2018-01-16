@@ -1,4 +1,4 @@
-# LayoutContainerMultiple
+# LayoutContainerMultiple(LayoutContainerMultipleItem)
 
 > 多列容器（或栅格容器）
 
@@ -17,13 +17,21 @@ Vue.component(LayoutContainerMultiple.name, LayoutContainerMultiple);
 
 ```html
 <mt-layout-container-multiple>
-    <mt-layout-container-multiple-item style="width: 33.33%">左侧容器</mt-layout-container-multiple-item>
-    <mt-layout-container-multiple-item style="width: 33.33%">中间容器</mt-layout-container-multiple-item>
-    <mt-layout-container-multiple-item style="width: 33.33%">右侧容器</mt-layout-container-multiple-item>
+    <mt-layout-container-multiple-item width="33.33%">左侧容器</mt-layout-container-multiple-item>
+    <mt-layout-container-multiple-item width="33.33%">中间容器</mt-layout-container-multiple-item>
+    <mt-layout-container-multiple-item width="33.33%">右侧容器</mt-layout-container-multiple-item>
 </mt-layout-container-multiple>
 ```
 
 
-## API
+## API(LayoutContainerMultipleItem)
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+|------|-------|---------|-------|--------|
+| width | 尺寸 | String |  |  |
+
+## Events(LayoutContainerMultipleItem)
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| click  | 点击时触发 | `原始dom事件`  |
 
 

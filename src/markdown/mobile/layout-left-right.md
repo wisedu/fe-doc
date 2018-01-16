@@ -1,4 +1,4 @@
-# LayoutLeftRight
+# LayoutLeftRight(LayoutLeftRightItem)
 
 > 左右双栏容器。
 
@@ -18,8 +18,8 @@ Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 
 ```html
 <mt-layout-left-right>
-  <mt-layout-left-right-item slot="left" position="left" percentage="30"><div class="aaa">左侧30%</div></mt-layout-left-right-item>
-  <mt-layout-left-right-item slot="right" position="right" percentage="70"><div class="bbb">右侧70%</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="left"  percentage="30"><div class="mt-bg-primary mt-color-white">左30%</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="right"  percentage="70"><div class="mt-bg-warning mt-color-white">右70%</div></mt-layout-left-right-item>
 </mt-layout-left-right>
 ```
 
@@ -27,8 +27,8 @@ Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 
 ```html
 <mt-layout-left-right>
-  <mt-layout-left-right-item slot="left" position="left" percentage="40px"><div>左侧40px</div></mt-layout-left-right-item>
-  <mt-layout-left-right-item slot="right" position="right" percentage="calc(100% - 40px)"><div>右侧动态变化</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="left"  percentage="60px"><div class="mt-bg-primary mt-color-white">左60px</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="right"  percentage="calc(100% - 40px)"><div class="mt-bg-warning mt-color-white">右(100%-40px)</div></mt-layout-left-right-item>
 </mt-layout-left-right>
 ```
 
@@ -38,7 +38,10 @@ Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 <mt-layout-left-right @click.native="handleClick">点击触发 handleClick</mt-layout-left-right>
 ```
 
-## API
+## API(LayoutLeftRightItem)
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+|------|-------|---------|-------|--------|
+| percentage | 容器宽度 | String |  |  |
 
 ## Slot
 | name | 描述 |

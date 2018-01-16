@@ -23,13 +23,13 @@ Vue.component(LayoutContainer.name, LayoutContainer);
 外边距(与css的margin用法相同)
 
 ```html
-<mt-layout-container margin="10px">普通容器</mt-layout-container>
+<mt-layout-container margin="10px" background="gray">普通容器</mt-layout-container>
 ```
 
 内边距(与css的padding用法相同)
 
 ```html
-<mt-layout-container padding="10px">普通容器</mt-layout-container>
+<mt-layout-container padding="10px" background="gray">普通容器</mt-layout-container>
 ```
 
 

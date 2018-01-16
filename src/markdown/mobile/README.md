@@ -22,7 +22,8 @@ npm i bh-mint-ui2 -S
 可以通过 [Vue全家桶](https://res.wisedu.com/bower_components/vue2) / [BH-MINT-UI2](https://res.wisedu.com/fe_components/mobile/MINT/) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
 
 ```html
-<!-- 引入样式 -->
+<!-- 引入样式 (注：换肤文件`skin.css`置于style.min.css之前)-->
+<link rel="stylesheet" href="https://res.wisedu.com/fe_components/skins/mint2.0/skin.css">
 <link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/cpdaily/style.min.css">
 <link rel="stylesheet" href="https://res.wisedu.com/bh_components/mobile/1.0.0/bh-lib.min.css">
 <!-- 引入组件库 -->
@@ -41,6 +42,7 @@ npm i bh-mint-ui2 -S
 <head>
   <meta charset="UTF-8">
   <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://res.wisedu.com/fe_components/skins/mint2.0/skin.css">
   <link rel="stylesheet" href="https://res.wisedu.com/fe_components/mobile/MINT/style.min.css">
 </head>
 <body>

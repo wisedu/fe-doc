@@ -13,7 +13,7 @@ Vue.component(Picker.name, Picker);
 #### 基础用法
 
 ```html
-<mt-picker :columns="columns" @change="onChange" />
+<mt-picker :columns="columns" showToolbar @confirm="onConfirm"/>
 ```
 
 ```javascript
@@ -23,17 +23,17 @@ export default {
       columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
     };
   },
-  onChange(picker, value, index) {
+  onConfirm(picker, value, index) {
     Toast(`当前值：${value}, 当前索引：${index}`);
   }
 };
 ```
 
-#### 禁用选项
+#### 禁用选项、展示顶部栏
 选项可以为对象结构，通过设置 disabled 来禁用该选项
 
 ```html
-<mt-picker :columns="columns" />
+<mt-picker :columns="columns" @cancel="onCancel" @confirm="onConfirm" :title="标题" showToolbar/>
 ```
 
 ```javascript
@@ -50,28 +50,49 @@ export default {
 };
 ```
 
-#### 展示顶部栏
+#### 多列联动1
 
 ```html
-<mt-picker
-  showToolbar
-  :title="标题"
-  :columns="columns"
-  @cancel="onCancel"
-  @confirm="onConfirm"
-/>
+<mt-picker :columns="column" :title="标题" showToolbar @confirm="onConfirm" @cancel="onCancel" :isInterrelated="true"/>
 ```
 
 ```javascript
 export default {
   data() {
     return {
-      columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
+      columns: [{
+        values:[
+          {text:'浙江',disabled:false,id:101,pid:-1}, 
+          {text:'福建',disabled:false,id:201,pid:-1},
+          {text:'江苏',disabled:false,id:301,pid:-1}],
+        className:'className1',
+        defaultIndex: 2
+      },{
+        values:[
+          {text:'杭州',disabled:false,pid:101,id:10101}, 
+          {text:'宁波',disabled:true,pid:101,id:10102},
+          {text:'温州',disabled:false,pid:101,id:10103},
+          {text:'嘉兴',disabled:false,pid:101,id:10104},
+          {text:'湖州',disabled:false,pid:101,id:10105},
+          {text:'福州',disabled:false,pid:201,id:20101}, 
+          {text:'厦门',disabled:false,pid:201,id:20102},
+          {text:'莆田',disabled:false,pid:201,id:20103},
+          {text:'三明',disabled:false,pid:201,id:20104},
+          {text:'泉州',disabled:false,pid:201,id:20105},
+          {text:'南京',disabled:false,pid:301,id:30101}, 
+          {text:'扬州',disabled:false,pid:301,id:30102},
+          {text:'无锡',disabled:false,pid:301,id:30103},
+          {text:'常州',disabled:false,pid:301,id:30104},
+          {text:'苏州',disabled:false,pid:301,id:30105}],
+        className:'className2',
+        defaultIndex: 2
+      }]
     }
   },
   methods: {
     onConfirm(value, index) {
-      Toast(`当前值：${value}, 当前索引：${index}`);
+      console.log(value,index);
+      //返回值（value）格式：[{text:'江苏',disabled:true,id:301,pid:-1}],{text:'无锡',disabled:false,pid:301,id:30103}]
     },
     onCancel() {
       Toast('取消');
@@ -80,7 +101,7 @@ export default {
 };
 ```
 
-#### 多列联动
+#### 多列联动2
 
 ```html
 <mt-picker :columns="columns" @change="onChange" />
@@ -110,6 +131,7 @@ export default {
   },
   methods: {
     onChange(picker, values) {
+      //设定自动链级
       picker.setColumnValues(1, citys[values[0]]);
     }
   }
@@ -122,10 +144,13 @@ export default {
 |-----------|-----------|-----------|-------------|-------------|
 | columns | 对象数组，配置每一列显示的数据 | `Array` | `[]` | - |
 | showToolbar | 是否显示顶部栏 | `Boolean` | `false` | - |
+| confirmText | 确定按钮文本 | `String` | `确定` | - |
+| cancelText | 取消按钮文本 | `String` | 默认'x' | - |
 | title | 顶部栏标题 | `String` | `''` | - |
 | itemHeight | 选项高度 | `Number` | `44` | - |
 | visibileColumnCount | 可见的选项个数 | `Number` | `5` | - |
 | valueKey | 选项对象中，文字对应的 key | `String` | `text` | - |
+| isInterrelated | 标识columns数据是否关联，该属性在’多列联动1’数据时使用，达到一二级数据的联动效果 | `Boolean` | `false` | - |
 
 ### Columns 数据结构
 当传入多列数据时，`columns`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`
@@ -137,7 +162,7 @@ export default {
 | className | 为对应列添加额外的`class` |
 
 ### Picker 实例
-在`change`事件中，可以获取到`picker`实例，通过实例方法可以灵活控制 Picker 内容
+在`change`事件中，可以获取到`picker`实例，通过实例方法可以灵活控制 Picker 内容；`isInterrelated=true`,暂不支持`change`事件
 
 | 函数 | 说明 |
 |-----------|-----------|

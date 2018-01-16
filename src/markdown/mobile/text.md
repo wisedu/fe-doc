@@ -69,7 +69,7 @@ Vue.component(Text.name, Text);
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| type | 可换肤颜色 | String | `grey` `primary` `warning` `danger` `white` `red` `orange` `yellow` `green` `blue` `indigo` `purple`|  |
+| type | 可换肤颜色 | String | `grey` `primary` `warning` `danger` `white` `red` `orange` `yellow` `green` `blue` `indigo` `purple`| `grey` |
 | color | 自定义颜色 | String |  |  |
 | size | 尺寸 | String |  |  |
 
