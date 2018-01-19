@@ -12,6 +12,7 @@ const express = require('express')
 const webpack = require('webpack')
 const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
+const skinTools = require('./skinTools')
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port
@@ -104,3 +105,10 @@ module.exports = {
     server.close()
   }
 }
+
+app.get('/createSkinCss', function(req, res) {
+  var text = req.query.text;
+  skinTools.createFile(text, function(data){
+    res.send({url: data})
+  })  
+});

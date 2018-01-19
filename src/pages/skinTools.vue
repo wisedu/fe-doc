@@ -1,0 +1,219 @@
+<template>
+<div class="skin-page">
+  <mt-cell-group title="皮肤主题色Theme">
+<!--     <mt-field :label="item.name" :placeholder="item.placeholder" @change="handleChange(item)" v-model="item.currentValue" v-for="(item,index) in themeColors" :key="index"><i class="skin-color-showbox" :style="{'background-color':item.backgroundColor}"></i></mt-field> -->
+
+ <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in themeColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
+  </mt-cell-group>
+  <mt-cell-group title="皮肤配色Match">
+ <!--    <mt-field :label="item.name" :placeholder="item.placeholder" @change="handleChange(item)" v-model="item.currentValue" v-for="(item,index) in matchColors" :key="index"><i class="skin-color-showbox" :style="{'background-color':item.backgroundColor}"></i></mt-field> -->
+ <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in matchColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
+  </mt-cell-group>
+  <div class="skin-submit">
+    <mt-button size="large" type="primary" @click.native="handleSubmit">生成皮肤文件</mt-button>
+  </div>
+</div>
+</template>
+<script>
+import {
+  Field,
+  Button
+} from 'bh-mint-ui2';
+import axios from 'axios';
+export default {
+  data(){
+    return{
+      themeColors:[
+        {
+          name:"Theme_Lv1：",
+          placeholder:"#52C7CA",
+          backgroundColor:"#52C7CA",
+          currentValue:null,
+          lessName:"@theme-lv1:"
+        },{
+          name:"Theme_Lv2：",
+          placeholder:"#52B5B7",
+          backgroundColor:"#52B5B7",
+          currentValue:null,
+          lessName:"@theme-lv2:"
+        },{
+          name:"Warning_Lv1：",
+          placeholder:"#FFB950",
+          backgroundColor:"#FFB950",
+          currentValue:null,
+          lessName:"@warning-lv1:"
+        },{
+          name:"Warning_Lv2：",
+          placeholder:"#E8AA4D",
+          backgroundColor:"#E8AA4D",
+          currentValue:null,
+          lessName:"@warning-lv2:"
+        },{
+          name:"Danger_Lv1：",
+          placeholder:"#F26666",
+          backgroundColor:"#D35A5A",
+          currentValue:null,
+          lessName:"@danger-lv1:"
+        },{
+          name:"Danger_Lv2：",
+          placeholder:"#E8AA4D",
+          backgroundColor:"#E8AA4D",
+          currentValue:null,
+          lessName:"@danger-lv2:"
+        },{
+          name:"Link：",
+          placeholder:"#52B5B7",
+          backgroundColor:"#52B5B7",
+          currentValue:null,
+          lessName:"@link:"
+        },{
+          name:"Grey_Lv1：",
+          placeholder:"#1E2329",
+          backgroundColor:"#1E2329",
+          currentValue:null,
+          lessName:"@grey-lv1:"
+        },{
+          name:"Grey_Lv2：",
+          placeholder:"#2F343B",
+          backgroundColor:"#2F343B",
+          currentValue:null,
+          lessName:"@grey-lv2:"
+        },{
+          name:"Grey_Lv3：",
+          placeholder:"#92969C",
+          backgroundColor:"#92969C",
+          currentValue:null,
+          lessName:"@grey-lv3:"
+        },{
+          name:"Grey_Lv4：",
+          placeholder:"#BDC0C5",
+          backgroundColor:"#BDC0C5",
+          currentValue:null,
+          lessName:"@grey-lv4:"
+        },{
+          name:"Grey_Lv5：",
+          placeholder:"#E8E8E8",
+          backgroundColor:"#E8E8E8",
+          currentValue:null,
+          lessName:"@grey-lv5:"
+        },{
+          name:"Grey_Lv6：",
+          placeholder:"#EFEFEF",
+          backgroundColor:"#EFEFEF",
+          currentValue:null,
+          lessName:"@grey-lv6:"
+        },{
+          name:"Bg_Lv1：",
+          placeholder:"#F4F4F4",
+          backgroundColor:"#F4F4F4",
+          currentValue:null,
+          lessName:"@bg-lv1:"
+        },{
+          name:"Bg_Lv2：",
+          placeholder:"#F9F9F9",
+          backgroundColor:"#F9F9F9",
+          currentValue:null,
+          lessName:"@bg-lv2:"
+        },{
+          name:"Bg_Lv3：",
+          placeholder:"#FFFFFF",
+          backgroundColor:"#FFFFFF",
+          currentValue:null,
+          lessName:"@bg-lv3:"
+        }
+      ],
+      matchColors:[
+        {
+          name:"Red：",
+          placeholder:"#F26666",
+          backgroundColor:"#F26666",
+          currentValue:null,
+          lessName:"@red:"
+        },{
+          name:"Orange：",
+          placeholder:"#FF7949",
+          backgroundColor:"#FF7949",
+          currentValue:null,
+          lessName:"@oranger:"
+        },{
+          name:"Yellow：",
+          placeholder:"#FFB950",
+          backgroundColor:"#FFB950",
+          currentValue:null,
+          lessName:"@yellow:"
+        },{
+          name:"Green：",
+          placeholder:"#A2D06B",
+          backgroundColor:"#A2D06B",
+          currentValue:null,
+          lessName:"@green:"
+        },{
+          name:"Blue：",
+          placeholder:"#4A90E2",
+          backgroundColor:"#4A90E2",
+          currentValue:null,
+          lessName:"@blue:"
+        },{
+          name:"Indigo：",
+          placeholder:"#52C7CA",
+          backgroundColor:"#52C7CA",
+          currentValue:null,
+          lessName:"@indigo:"
+        },{
+          name:"Purple：",
+          placeholder:"#D98BE8",
+          backgroundColor:"#D98BE8",
+          currentValue:null,
+          lessName:"@purple:"
+        }
+      ]
+    }
+  },
+  methods:{
+    handleChange(item){
+      this.$nextTick(function(){
+        item.backgroundColor=item.placeholder
+      })
+    },
+    handleSubmit(){
+      let colors = [];
+      let text = "";
+      this.themeColors.forEach((value) => {
+        colors.push(value.lessName+value.backgroundColor)
+      });
+      this.matchColors.forEach((value) => {
+        colors.push(value.lessName+value.backgroundColor)
+      });
+      text=colors.join(";")+";";
+
+      axios.get('/createSkinCss',{
+        "params":{"text":text}
+        }).then(resp => {
+        console.log(resp)
+      });
+
+    }
+  }
+}
+</script>
+<style>
+  .skin-color-showbox{
+    display:inline-block;
+    width:20px;
+    height:20px;
+  }
+  .skin-page .mint-field-core{
+    flex:0.1;
+  }
+  .skin-page .mint-field-clear i{
+    display: none;
+  }
+  .skin-page .mint-field-other{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  .skin-submit{
+    margin-top: 30px;
+  }
+</style>

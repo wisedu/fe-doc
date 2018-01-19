@@ -1,6 +1,8 @@
 <template>
   <div class="side-nav">
-
+    <router-link :to="{name: 'skinTools'}">
+      <div class="skinTools">换肤工具</div>
+    </router-link>
      <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
        <!-- <div class="search">
         <input type="text">
@@ -113,6 +115,12 @@ export default {
 .side-nav {
   width: 240px;
   // border-right: 1px solid #ddd;
+}
+.skinTools{
+  height:56px;
+  line-height:56px;
+  padding:0 20px;
+  cursor:pointer;
 }
 .el-menu-item-group__title{
   margin-top: 15px;

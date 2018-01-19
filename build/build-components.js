@@ -55,6 +55,7 @@ import MobileProjectList from './pages/mobile-projectlist'
 import MobileProject from './pages/mobile-project'
 import Ceils from './pages/ceils'
 import NotFoundComponent from './pages/NotFoundComponent'
+import skinTools from './pages/skinTools'
 ${jsImport.join("\r\n")}
 
 Vue.use(Router)
@@ -79,7 +80,7 @@ function buildRouter(components) {
       route = { path: '/' + item.route, component: '@' + item.route.replace(/^\w/, val => val.toUpperCase()) + 'View@', children: [] }
       routes.push(route)
     }
-    let ri = { name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute}
+    let ri = { name: item.vueClassName, component: '@' + item.vueClassName + '@', path: item.subRoute};
     if (item.subRoute === "README") {
       ri.path = "/";
     }
@@ -90,7 +91,11 @@ function buildRouter(components) {
     "name": "CeilsMobile",
     "component": '@Ceils@',
     "path": "ceils"
-  })
+  },{
+    "name": "skinTools",
+    "component": "@skinTools@",
+    "path": "skinTools"
+  });
 
   routes.push({
     "name": "home",
