@@ -110,5 +110,5 @@ app.get('/createSkinCss', function(req, res) {
   var text = req.query.text;
   skinTools.createFile(text, function(data){
     res.send({url: data})
-  })  
+  })
 });

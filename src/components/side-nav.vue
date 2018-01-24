@@ -1,7 +1,7 @@
 <template>
   <div class="side-nav">
     <router-link :to="{name: 'skinTools'}">
-      <div class="skinTools">换肤工具</div>
+      <div class="skinTools" :class="{isActive:skinactive}" @click="handleSkin">换肤工具</div>
     </router-link>
      <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
        <!-- <div class="search">
@@ -44,14 +44,20 @@ export default {
     return {
       routes: [],
       coms: [],
-      navs: []
+      navs: [],
+      skinactive:false
     };
   },
   computed: {
   },
   methods: {
+    handleSkin(){
+      this.skinactive=true;
+      this.$emit("navchange");
+    },
     handleCOMClick(id) {
-      this.$emit("navchange", id)
+      this.$emit("navchange", id);
+      this.skinactive=false;
     },
     handleMenuClick (id, type) {
       this.$router.push({
@@ -118,9 +124,14 @@ export default {
 }
 .skinTools{
   height:56px;
+  font-size:14px;
   line-height:56px;
   padding:0 20px;
   cursor:pointer;
+  color:#301333;
+}
+.isActive{
+  color:#409EFF;
 }
 .el-menu-item-group__title{
   margin-top: 15px;

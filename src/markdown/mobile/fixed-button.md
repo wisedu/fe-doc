@@ -94,19 +94,19 @@ Vue.component(FixedButton.name, FixedButton);
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| position | 浮动位置 | String | bottom-right, <br>bottom-left, <br>top-right, <br>top-left | bottom-right |
-| type | 显示样式 | String |  primary,<br> danger,<br> warning,<br> grey | primary |
-| size | 尺寸 | String |  |  |
-| borderRadius | 圆角 | String | | |
-| color | 内容颜色 | String | | |
-| background | 背景 | String | | |
-| width | 宽度 | String | | |
-| height | 高度 | String | | |
-| left | 距离左侧位置 | String | | |
-| right | 距离右侧位置 | String | | |
-| top | 距离顶部位置 | String | | |
-| buttom | 距离底部位置 | String | | |
-| contentmargintop | 内容距离按钮顶部位置 | String | | |
+| position | 浮动(fixed)位置 | String | bottom-right, <br>bottom-left, <br>top-right, <br>top-left | bottom-right(bottom:20px;right:16px) |
+| type | 显示样式 | String |  primary,<br> danger,<br> warning,<br> grey,<br>red,orange,yellow,green,blue,indigo,purple,white等 | primary |
+| size | 尺寸 | String |  | 18px |
+| borderRadius | 圆角 | String | | 50% |
+| color | 内容颜色 | String | | '' |
+| background | 背景 | String | | '' |
+| width | 宽度 | String | | 46px |
+| height | 高度 | String | | 46px |
+| left | 距离左侧位置 | String | | 16px |
+| right | 距离右侧位置 | String | | 16px |
+| top | 距离顶部位置 | String | | 20px |
+| buttom | 距离底部位置 | String | | 20px |
+| contentmargintop | 内容距离按钮顶部位置 | String | | '' |
 
 
 ## Events

@@ -10,19 +10,27 @@
  <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in matchColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
   </mt-cell-group>
   <div class="skin-submit">
-    <mt-button size="large" type="primary" @click.native="handleSubmit">生成皮肤文件</mt-button>
+    <mt-button size="large" type="primary" @click.native="handleSubmit" :disabled="disabled">
+      <mt-spinner color="#000" type="fading-circle" slot="icon" :size='20' v-if="spinner"></mt-spinner>{{confirmText}}
+    </mt-button>
   </div>
 </div>
 </template>
 <script>
 import {
   Field,
-  Button
+  Button,
+  MessageBox,
+  spinner
 } from 'bh-mint-ui2';
 import axios from 'axios';
+
 export default {
   data(){
     return{
+      spinner:false,
+      disabled:false,
+      confirmText:"生成皮肤文件",
       themeColors:[
         {
           name:"Theme_Lv1：",
@@ -186,12 +194,16 @@ export default {
       });
       text=colors.join(";")+";";
 
-      axios.get('/createSkinCss',{
-        "params":{"text":text}
-        }).then(resp => {
-        console.log(resp)
+      this.spinner=true;
+      this.disabled=true;
+      this.confirmText="皮肤生成中";
+      MessageBox.confirm('确定执行此操作?', '生成皮肤','',function(val){
+        // axios.get('/createSkinCss',{
+        //   "params":{"text":text}
+        //   }).then(resp => {
+        //   console.log(resp)
+        // });
       });
-
     }
   }
 }
@@ -216,4 +228,7 @@ export default {
   .skin-submit{
     margin-top: 30px;
   }
+
+
+
 </style>
