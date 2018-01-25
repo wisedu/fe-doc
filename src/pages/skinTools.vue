@@ -21,7 +21,8 @@ import {
   Field,
   Button,
   MessageBox,
-  spinner
+  spinner,
+  Toast
 } from 'bh-mint-ui2';
 import axios from 'axios';
 
@@ -193,17 +194,27 @@ export default {
         colors.push(value.lessName+value.backgroundColor)
       });
       text=colors.join(";")+";";
-
-      this.spinner=true;
-      this.disabled=true;
-      this.confirmText="皮肤生成中";
-      MessageBox.confirm('确定执行此操作?', '生成皮肤','',function(val){
-        // axios.get('/createSkinCss',{
-        //   "params":{"text":text}
-        //   }).then(resp => {
-        //   console.log(resp)
-        // });
-      });
+      MessageBox.confirm('确定执行此操作?', '生成皮肤','').then((val) =>{
+        console.log(val)
+        this.spinner=true;
+        this.disabled=true;
+        this.confirmText="皮肤生成中";
+        axios.get('http://172.16.7.180:9999/createSkinCss',{
+          "params":{"text":text}
+          }).then(resp => {
+          if(resp.status === 200){
+            let skinCss = resp.data.data;
+            this.spinner = false;
+            this.disabled = false;
+            Toast({
+              message: "皮肤文件已生成，请点击下载！"
+            });
+            console.log(skinCss);
+          }
+        }).catch(err =>{
+          console.log(err)
+        });
+      })
     }
   }
 }
