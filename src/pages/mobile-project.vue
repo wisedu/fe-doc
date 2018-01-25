@@ -11,11 +11,19 @@
       <template v-for="item in ceilsCompoonents">
         <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
           <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>
-          <component slot="source" :is="item.name"></component>
+          <component slot="source" :is="item.name" :ref="item.id"></component>
           <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
           <div slot="showdesc" style="float:left;padding:8px">
             <div class="qrcode" :id="item.id"></div>
-            <h2 class="codeh2">页面结构</h2>
+            <h3 class="codeh2" v-if="item.data !== undefined">页面状态</h3>
+            <div v-if="item.data !== undefined" v-for="(status,skey) in item.data" :key="skey">
+              <h4>{{skey}}</h4>
+              <el-radio-group size="mini" v-model="item.status" @change="handleChangeStatus(item.id, skey, item.status, item.data)">
+                <el-radio-button :label="statekey" v-for="(state,statekey) in status" :key="statekey">{{state.name}}</el-radio-button>
+              </el-radio-group>
+            </div>
+
+            <h3 class="codeh2">页面结构</h3>
             <div v-for="(category,key) in item.dom" :key="key">
               {{key}}
               <ul>
@@ -122,6 +130,21 @@ export default {
         })
       }
     },
+    handleChangeStatus(refid, status_name, value, data) {
+      let newdata = JSON.parse(JSON.stringify(data))
+      for (let status in newdata) {
+        if (status === status_name) {
+          for (let state in newdata[status]) {
+            if (state === value) {
+              newdata[status][state].show = true;
+            } else {
+              newdata[status][state].show = false;
+            }
+          }
+        }
+      }
+      this.$refs[refid][0].watch_status_data = [status_name, newdata[status_name]];
+    },
     initComponents (ceilsInfo) {
       ceilsInfo.content.forEach(item => {
         let dom = this.processDemoDOM(item.preview.dom);
@@ -131,12 +154,24 @@ export default {
           style: item.run.style,
           name: 'c-' + item.showId,
           id: item.showId,
-          dom: dom
+          dom: dom,
+          data: JSON.stringify(item.run.data) === "{}" ? undefined : item.run.data,
+          status: "state_0"
         }
         Vue.component('c-' + item.showId, {
           template: '<div>' + item.preview.html + '</div>',
           data(){
             return item.run.data;
+          },
+          computed:{
+            watch_status_data: {
+              set: function(val){
+                this[val[0]] = val[1];
+              },
+              get: function() {
+
+              }
+            }
           }
         })
         // Vue.component('c-' + item.showId + "_preview", {
