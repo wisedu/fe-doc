@@ -184,7 +184,20 @@ export default {
         item.backgroundColor=item.placeholder
       })
     },
+    getCookie(c_name){
+      if (document.cookie.length>0){
+        let c_start=document.cookie.indexOf(c_name + "=")
+        if (c_start!=-1){ 
+          c_start=c_start + c_name.length+1 
+          let c_end=document.cookie.indexOf(";",c_start)
+          if (c_end==-1) c_end=document.cookie.length
+          return unescape(document.cookie.substring(c_start,c_end))
+        } 
+      }
+      return ""
+    },
     handleSubmit(){
+      //获取页面的颜色
       let colors = [];
       let text = "";
       this.themeColors.forEach((value) => {
@@ -194,6 +207,14 @@ export default {
         colors.push(value.lessName+value.backgroundColor)
       });
       text=colors.join(";")+";";
+      //查询用户是否登录
+      // let uid = this.getCookie("uid");
+      // if(!uid){
+      //   window.location.pathname = "/forum/login";
+      // }
+      //生成皮肤文件
+      let phoneIframe = document.getElementById("phoneIframe").contentWindow.document;
+      let skinsEl = phoneIframe.getElementById("skins");
       MessageBox.confirm('确定执行此操作?', '生成皮肤','').then((val) =>{
         console.log(val)
         this.spinner=true;
@@ -202,14 +223,14 @@ export default {
         axios.get('http://172.16.7.180:9999/createSkinCss',{
           "params":{"text":text}
           }).then(resp => {
-          if(resp.status === 200){
-            let skinCss = resp.data.data;
+          if(resp.status === 200){         
             this.spinner = false;
             this.disabled = false;
             Toast({
               message: "皮肤文件已生成，请点击下载！"
             });
-            console.log(skinCss);
+            let skinCss = resp.data.data;
+            skinsEl.innerHTML = skinCss;
           }
         }).catch(err =>{
           console.log(err)

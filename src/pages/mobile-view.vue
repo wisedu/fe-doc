@@ -9,7 +9,7 @@
             <router-view></router-view>
           </div>
           <div v-if="!categoryId" class="phone" style="background-image: url(/static/component-image/phone.png);">
-            <iframe :src="realDemoUrl" frameborder="0" class="demo-page"></iframe>
+            <iframe :src="realDemoUrl" frameborder="0" class="demo-page" id="phoneIframe"></iframe>
           </div>
         </div>
         <!-- 组件样式展示 -->

@@ -14,7 +14,7 @@ Vue.component(DatetimeSelector.name, DatetimeSelector);
 
 ## 例子
 
-`v-model` 属性为组件的绑定值。
+`v-model` 属性为组件的绑定值，如："2018-12-31 12:00"。
 
 `type` 属性表示 `datetime-selector` 组件的类型，它有三个可能的值：
 *  `datetime`: 日期时间选择器，可选择年、月、日、时、分，`value` 值为一个 `Date` 对象
@@ -22,9 +22,9 @@ Vue.component(DatetimeSelector.name, DatetimeSelector);
 *  `time`: 时间选择器，可选择时、分，`value` 值为一个格式为 `HH:mm` 的字符串
 
 ```html
-<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2017-08-02 09:01:01">
+<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2018-12-02 12:01">
 </mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" @confirm="conf" @cancel="can">
+<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" value="2018-12-02" @confirm="conf" @cancel="can">
 </mt-datetime-selector>
 <mt-datetime-selector label="时间" placeholder="请输入时间" type="time">
 </mt-datetime-selector>
