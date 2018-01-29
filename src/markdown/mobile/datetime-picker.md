@@ -15,7 +15,7 @@ Vue.component(DatetimePicker.name, DatetimePicker);
 ## 例子
 
 `v-model` 属性为组件的绑定值，如：
-*  Date格式：currentDatenew Date(2018, 11, 31,12,00);
+*  Date格式：new Date(2018, 11, 31,12,00);
 *  字符串格式："2018-12-31 12:00"（推荐使用）;
 
 `type` 属性表示 `datetime-picker` 组件的类型，它有三个可能的值：

@@ -220,7 +220,7 @@ export default {
         this.spinner=true;
         this.disabled=true;
         this.confirmText="皮肤生成中";
-        axios.get('http://172.16.7.180:9999/createSkinCss',{
+        axios.get('http://res.wisedu.com/res-be/createSkinCss',{
           "params":{"text":text}
           }).then(resp => {
           if(resp.status === 200){         
