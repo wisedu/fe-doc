@@ -113,7 +113,6 @@ export default {
       })
     },
     navChanged (id){
-      // console.log(id);
       this.active = id;
     },
     getComponentsStyle (componentName) {

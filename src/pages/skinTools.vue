@@ -1,13 +1,10 @@
 <template>
 <div class="skin-page">
   <mt-cell-group title="皮肤主题色Theme">
-<!--     <mt-field :label="item.name" :placeholder="item.placeholder" @change="handleChange(item)" v-model="item.currentValue" v-for="(item,index) in themeColors" :key="index"><i class="skin-color-showbox" :style="{'background-color':item.backgroundColor}"></i></mt-field> -->
-
- <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in themeColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
+    <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in themeColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
   </mt-cell-group>
   <mt-cell-group title="皮肤配色Match">
- <!--    <mt-field :label="item.name" :placeholder="item.placeholder" @change="handleChange(item)" v-model="item.currentValue" v-for="(item,index) in matchColors" :key="index"><i class="skin-color-showbox" :style="{'background-color':item.backgroundColor}"></i></mt-field> -->
- <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in matchColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
+    <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in matchColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
   </mt-cell-group>
   <div class="skin-buttons">
     <mt-button size="large" type="primary" @click.native="handleSubmit" :disabled="disabled">
@@ -66,19 +63,19 @@ export default {
         },{
           name:"Danger_Lv1：",
           placeholder:"#F26666",
-          backgroundColor:"#D35A5A",
+          backgroundColor:"#F26666",
           currentValue:null,
           lessName:"@danger-lv1:"
         },{
           name:"Danger_Lv2：",
-          placeholder:"#E8AA4D",
-          backgroundColor:"#E8AA4D",
+          placeholder:"#D35A5A",
+          backgroundColor:"#D35A5A",
           currentValue:null,
           lessName:"@danger-lv2:"
         },{
           name:"Link：",
-          placeholder:"#52B5B7",
-          backgroundColor:"#52B5B7",
+          placeholder:"#4A90E2",
+          backgroundColor:"#4A90E2",
           currentValue:null,
           lessName:"@link:"
         },{
@@ -190,18 +187,6 @@ export default {
         item.backgroundColor=item.placeholder
       })
     },
-    getCookie(c_name){
-      if (document.cookie.length>0){
-        let c_start=document.cookie.indexOf(c_name + "=")
-        if (c_start!=-1){ 
-          c_start=c_start + c_name.length+1 
-          let c_end=document.cookie.indexOf(";",c_start)
-          if (c_end==-1) c_end=document.cookie.length
-          return unescape(document.cookie.substring(c_start,c_end))
-        } 
-      }
-      return ""
-    },
     handleSubmit(){
       //获取页面的颜色
       let colors = [];
@@ -213,11 +198,6 @@ export default {
         colors.push(value.lessName+value.backgroundColor)
       });
       text=colors.join(";")+";";
-      //查询用户是否登录
-      // let uid = this.getCookie("uid");
-      // if(!uid){
-      //   window.location.pathname = "/forum/login";
-      // }
       //生成皮肤文件
       let phoneIframe = document.getElementById("phoneIframe").contentWindow.document;
       let skinsEl = phoneIframe.getElementById("skins");
@@ -259,11 +239,10 @@ export default {
 }
 </script>
 <style>
-  .skin-color-showbox{
-    display:inline-block;
-    width:20px;
-    height:20px;
-  }
+ /* .skin-page .mint-cell-group{
+    float: left;
+    width: 50%;
+  }*/
   .skin-page .mint-field-core{
     flex:0.1;
   }
