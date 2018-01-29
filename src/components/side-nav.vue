@@ -53,7 +53,7 @@ export default {
   methods: {
     handleSkin(){
       this.skinactive=true;
-      this.$emit("navchange");
+      this.$emit("navchange",'');
     },
     handleCOMClick(id) {
       this.$emit("navchange", id);

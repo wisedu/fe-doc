@@ -9,10 +9,14 @@
  <!--    <mt-field :label="item.name" :placeholder="item.placeholder" @change="handleChange(item)" v-model="item.currentValue" v-for="(item,index) in matchColors" :key="index"><i class="skin-color-showbox" :style="{'background-color':item.backgroundColor}"></i></mt-field> -->
  <mt-field :label="item.name" @change="handleChange(item)" v-model="item.placeholder" v-for="(item,index) in matchColors" :key="index" type="color">{{item.backgroundColor}}</mt-field> 
   </mt-cell-group>
-  <div class="skin-submit">
+  <div class="skin-buttons">
     <mt-button size="large" type="primary" @click.native="handleSubmit" :disabled="disabled">
       <mt-spinner color="#000" type="fading-circle" slot="icon" :size='20' v-if="spinner"></mt-spinner>{{confirmText}}
     </mt-button>
+    <mt-button size="large" type="warning" @click.native="handleDownload" :disabled="disabled">下载皮肤文件</mt-button>
+<!--     <mt-progress :value="value" v-if="progressVisible" transition="progress-fade">
+      <div slot="end">{{ value }}%</div>
+    </mt-progress> -->
   </div>
 </div>
 </template>
@@ -22,7 +26,8 @@ import {
   Button,
   MessageBox,
   spinner,
-  Toast
+  Toast,
+  Progress
 } from 'bh-mint-ui2';
 import axios from 'axios';
 
@@ -32,6 +37,7 @@ export default {
       spinner:false,
       disabled:false,
       confirmText:"生成皮肤文件",
+      progressVisible:false,
       themeColors:[
         {
           name:"Theme_Lv1：",
@@ -216,7 +222,6 @@ export default {
       let phoneIframe = document.getElementById("phoneIframe").contentWindow.document;
       let skinsEl = phoneIframe.getElementById("skins");
       MessageBox.confirm('确定执行此操作?', '生成皮肤','').then((val) =>{
-        console.log(val)
         this.spinner=true;
         this.disabled=true;
         this.confirmText="皮肤生成中";
@@ -236,6 +241,19 @@ export default {
           console.log(err)
         });
       })
+    },
+    handleDownload() {
+      var url="http://res.wisedu.com/res-be/downloadSkinCss?dir=/home/projects/skin&name=skin.css"
+      var iframe = document.getElementById("downloadIframe");
+      if(iframe){
+        iframe.src = url;
+      }else{
+        iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = url;
+        iframe.id = "downloadIframe";
+        document.body.appendChild(iframe);
+      }
     }
   }
 }
@@ -257,10 +275,12 @@ export default {
     top: 15px;
     right: 20px;
   }
-  .skin-submit{
+  .skin-buttons{
     margin-top: 30px;
   }
-
+  .skin-buttons button{
+    margin: 10px auto;
+  }
 
 
 </style>
