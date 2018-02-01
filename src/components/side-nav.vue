@@ -65,13 +65,13 @@ export default {
     },
     handleSkin(){
       //查询用户是否登录
-      // let uid = this.getCookie("uid");
-      // if(!uid){
-      //   window.location.pathname = "/forum/login";
-      // }else{
+      let uid = this.getCookie("uid");
+      if(!uid){
+        window.location.pathname = "/forum/login";
+      }else{
         this.skinactive=true;
         this.$emit("navchange",'');
-      //}
+      }
     },
     handleCOMClick(id) {
       this.$emit("navchange", id);
