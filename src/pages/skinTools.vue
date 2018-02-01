@@ -245,15 +245,13 @@ export default {
       remarkText:null
     }
   },
-  beforeCreate(){
-    if(!this.uid) window.location.pathname = "/forum/login";
-  },
   created(){
     this.init();
   },
   methods:{
     init(){
       let _this=this;
+      console.log(this.uid);
       axios.get('http://res.wisedu.com/res-be/getSkinsCssHistory',{
         "params":{
           "uid": this.uid
