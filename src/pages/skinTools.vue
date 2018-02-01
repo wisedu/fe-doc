@@ -251,7 +251,6 @@ export default {
   methods:{
     init(){
       let _this=this;
-      console.log(this.uid);
       axios.get('http://res.wisedu.com/res-be/getSkinsCssHistory',{
         "params":{
           "uid": this.uid
@@ -415,8 +414,6 @@ export default {
   }
   .skin-page .mint-field-other{
     position: absolute;
-    top: 15px;
-    right: 20px;
   }
   .skin-buttons{
     margin: 30px auto;

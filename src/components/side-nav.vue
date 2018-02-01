@@ -66,7 +66,6 @@ export default {
     handleSkin(){
       //查询用户是否登录
       let uid = this.getCookie("uid");
-      console.log(uid);
       if(!uid){
         window.location.pathname = "/forum/login";
       }else{
