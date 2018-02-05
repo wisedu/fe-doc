@@ -15,7 +15,7 @@
         <router-link to="/pc">
           <li :class="pc_active">响应式组件</li>
         </router-link>
-        <li><a href="https://res.wisedu.com/FS/docsite/">RES文档</a></li>
+        <li><a href="http://res.wisedu.com/FS/docsite/">RES文档</a></li>
       </ul>
     </div>
   </div>
