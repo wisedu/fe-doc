@@ -29,7 +29,7 @@
       </router-link>
     </el-col>
     <el-col :span="6" :offset="1">
-      <a href="https://res.wisedu.com/FS/docsite/">
+      <a href="http://res.wisedu.com/FS/docsite/">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#ffb950' }">
           <div style="height:100px;padding:32px"><h2 style="color:white">RES 文档</h2></div>
           <div style="padding: 14px;background-color:white">
