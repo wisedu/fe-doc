@@ -81,6 +81,7 @@ Vue.component(Cell.name, Cell);
 | titlepaddingbottom | 自定义title下内边距 | String | | '' |
 | titlepaddingleft | 自定义title上左边距, | String | | '' |
 | titlepaddingright | 自定义title右内边距 | String | | '' |
+| required | 标注是否为必选项(*) | Boolean | | false |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

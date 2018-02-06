@@ -43,7 +43,7 @@ Vue.component(Textarea.name, Textarea);
 |------|-------|---------|-------|--------|
 | label| 标签 | String | | |
 | value| 绑定表单输入值 | String | | |
-| rows | 类型为 textarea 时可指定高度（显示行数）| Number | | |
+| rows | 类型为 textarea 时可指定高度（显示行数），当`heightAuto=true`功能失效 | Number | | |
 | maxlength | 最大填写的字数 | Number | |  |
 | placeholder | 占位内容 |String | | |
 | disableClear | 禁用 clear 按钮 | Booean | | false |
@@ -59,6 +59,8 @@ Vue.component(Textarea.name, Textarea);
 | areapaddingright | 右边内容距右边距 | String | `0px` | |
 | areapaddingbottom | 右边内容距下边距 | String | `0px` | |
 | areapaddingleft | 右边内容距左边距 | String | `0px` | |
+| heightAuto | 该属性当且仅当`type="textarea"`时有效，设置文本输入框（textarea）高度自适应。此时rows属性无效 | Boolean | | true |
+| required | 标注是否为必选项(*) | Boolean | | false |
 
 
 ## Slot

@@ -14,7 +14,7 @@
       <mt-spinner color="#000" type="fading-circle" slot="icon" :size='20' v-if="spinner"></mt-spinner>{{confirmText}}
     </mt-button>
   </div>
-  <table class="skin-history">
+  <table class="skin-history" v-if="historySkins.length>0">
     <thead>
       <tr>
         <th>皮肤备注信息</th>
@@ -248,8 +248,18 @@ export default {
   created(){
     this.init();
   },
+  mounted() {
+    window.addEventListener('scroll', this.scroll)
+  },
   methods:{
     init(){
+      this.$nextTick(function(){
+        let phone = document.getElementsByClassName("phone")[0];
+        phone.style.position="fixed";
+        phone.style.right="0px";
+        phone.style.top="192px";
+      });
+
       let _this=this;
       axios.get('http://res.wisedu.com/res-be/getSkinsCssHistory',{
         "params":{
@@ -280,7 +290,7 @@ export default {
       let type = "^#[0-9a-fA-F]{6}$";
       let reg = new RegExp(type);
       if(item.currentValue === ""){
-        item.isValid = false;
+        item.isValid = true;
         item.state = "";
         item.backgroundColor=item.placeholder;
       }else if(item.currentValue.match(reg) !== null){
@@ -298,23 +308,23 @@ export default {
       let colors = [];
       let text = "";
       let reset = false;
-      this.themeColors.forEach((value) => {
-        if(!value.isValid){
+      for (let key in this.themeColors){
+        if(!this.themeColors[key].isValid){
           reset = true;
-          Toast({message: value.name+"输入有误，请核实！"});
-          return;
+          Toast({message: this.themeColors[key].name+"输入有误，请核实！"});
+          break;
         }
-        colors.push(value.lessName+value.backgroundColor);
-      });
+        colors.push(this.themeColors[key].lessName+this.themeColors[key].backgroundColor);
+      }
       if(reset) return;
-      this.matchColors.forEach((value) => {
-        if(!value.isValid){
+      for (let key in this.matchColors){
+        if(!this.matchColors[key].isValid){
           reset = true;
-          Toast({message: value.name+"输入有误，请核实！"});
-          return;
+          Toast({message: this.matchColors[key].name+"输入有误，请核实！"});
+          break;
         }
-        colors.push(value.lessName+value.backgroundColor)
-      });
+        colors.push(this.matchColors[key].lessName+this.matchColors[key].backgroundColor);
+      }
       if(reset) return;
       if(!this.remarkText){
         Toast({message: "请输入备注信息！"});
@@ -397,15 +407,23 @@ export default {
         "s" : dateTimeObj.getSeconds(),                 //秒   
       };
       return O.Y+"-"+(O.M < 10 ? ('0' + O.M) : O.M)+"-"+( O.D< 10 ? ('0' + O.D) : O.D)+" "+(O.h < 10 ? ('0' + O.h) : O.h)+":"+(O.m < 10 ? ('0' + O.m) : O.m)+":"+(O.s < 10 ? ('0' + O.s) : O.s);
-    } 
-  }
+    },
+    scroll(){
+      console.log(document.getElementsByClassName('content')[0].offsetTop,document.documentElement.scrollTop )
+    }
+  },
+  destroyed(){
+    let phone = document.getElementsByClassName("phone")[0];
+      phone.style.position="";
+      phone.style.right="";
+      phone.style.top="";
+    }
 }
 </script>
 <style>
- /* .skin-page .mint-cell-group{
-    float: left;
-    width: 50%;
-  }*/
+  .skin-page {
+    margin-right: 430px;
+  }
   .skin-page .mint-field-clear{
     display: none;
   }
