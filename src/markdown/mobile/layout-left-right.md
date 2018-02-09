@@ -1,6 +1,6 @@
 # LayoutLeftRight(LayoutLeftRightItem)
 
-> 左右双栏容器。
+> 左右双栏容器（flex布局）。
 
 ------------
 
@@ -13,8 +13,17 @@ Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 ```
 
 ## 例子
+flex默认等分
 
-百分比设置
+```html
+<mt-layout-left-right>
+  <mt-layout-left-right-item slot="left"><div class="mt-bg-primary mt-color-white">左flex:1</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="right"><div class="mt-bg-warning mt-color-white">右flex:1</div></mt-layout-left-right-item>
+</mt-layout-left-right>
+```
+
+
+flex布局百分比设置
 
 ```html
 <mt-layout-left-right>
@@ -23,15 +32,23 @@ Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 </mt-layout-left-right>
 ```
 
-像素设置
+flex布局像素设置
 
 ```html
 <mt-layout-left-right>
-  <mt-layout-left-right-item slot="left"  percentage="60px"><div class="mt-bg-primary mt-color-white">左60px</div></mt-layout-left-right-item>
-  <mt-layout-left-right-item slot="right"  percentage="calc(100% - 40px)"><div class="mt-bg-warning mt-color-white">右(100%-40px)</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="left"  percentage="100px"><div class="mt-bg-primary mt-color-white">左60px</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="right"  percentage="calc(100% - 100px)"><div class="mt-bg-warning mt-color-white">右(100%-40px)</div></mt-layout-left-right-item>
 </mt-layout-left-right>
 ```
 
+flex左右布局子元素比例分配
+
+```html
+<mt-layout-left-right>
+  <mt-layout-left-right-item slot="left"  percentage="2"><div class="mt-bg-primary mt-color-white">左60px</div></mt-layout-left-right-item>
+  <mt-layout-left-right-item slot="right"  percentage="1"><div class="mt-bg-warning mt-color-white">右(100%-40px)</div></mt-layout-left-right-item>
+</mt-layout-left-right>
+```
 
 绑定 click 事件
 ```html
