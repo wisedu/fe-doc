@@ -36,7 +36,7 @@ import axios from 'axios';
 export default {
   props: {
     type: { default: "pc", type: String },
-    menuData: { type: Object, default: {} },
+    menuData: { type: Object, default: function(){ return {} } },
     active: String,
     defaultOpeneds: Array
   },
@@ -91,7 +91,25 @@ export default {
       let rs = this.routes.find(r => r.path.replace("/", "") === this.type).children.filter(i => i.path !== "/");
       axios.get(this.$SITE_URL + '/mobile/getAllComponents').then(function(resp) {
         let group = {}
-        for (let item of resp.data.data.components) {
+        let components = resp.data.data.components;
+        components.unshift({
+          component: {
+            desc: '表单',
+            name: 'EmapmForm',
+            count: 0,
+            categoryName: 'EmapComponents',
+            categoryDesc: '组件'
+          }
+        }, {
+          component:{
+              desc: '图片上传',
+              name: 'EmapmUploadImgs',
+              count: 0,
+              categoryName: 'EmapComponents',
+              categoryDesc: '组件'
+          }
+        });
+        for (let item of components) {
           let com_def = item.component;
           let path = rs.filter(i => {return i.name === com_def.name + "Mobile"})
 
@@ -124,7 +142,6 @@ export default {
           }
           group["未分类"].push(com);
         }
-
         that.navs = group;
       })
     }

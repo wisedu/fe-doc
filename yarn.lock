@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@types/node@*":
+  version "9.4.3"
+  resolved "http://registry.npm.taobao.org/@types/node/download/@types/node-9.4.3.tgz#121b21929abfa537f47099d1d0b21b337fe2c8a5"
+
 abab@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -935,16 +939,17 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bh-mint-ui2@0.9.32:
-  version "0.9.32"
-  resolved "https://registry.yarnpkg.com/bh-mint-ui2/-/bh-mint-ui2-0.9.32.tgz#e2abb104a934e43d82e236a5d8409875cc8c1055"
+bh-mint-ui2@^1.1.15:
+  version "1.1.15"
+  resolved "http://registry.npm.taobao.org/bh-mint-ui2/download/bh-mint-ui2-1.1.15.tgz#c49cc5c7ed8b7cc00922c759a9dd77ab5c56a6b9"
   dependencies:
     array-find-index "^1.0.2"
     axios "^0.16.2"
     babel-preset-es2015 "^6.24.1"
     element-theme-chalk "^2.0.1"
     raf.js "0.0.4"
-    vue-lazyload "^1.0.1"
+    vue "^2.5.9"
+    vue-lazyload "^1.1.4"
 
 big.js@^3.1.3:
   version "3.2.0"
@@ -1212,6 +1217,17 @@ cheerio@^0.20.0:
   optionalDependencies:
     jsdom "^7.0.2"
 
+cheerio@^1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "http://registry.npm.taobao.org/cheerio/download/cheerio-1.0.0-rc.2.tgz#4b9f53a81b27e4d5dac31c0ffd0cfa03cc6830db"
+  dependencies:
+    css-select "~1.2.0"
+    dom-serializer "~0.1.0"
+    entities "~1.1.1"
+    htmlparser2 "^3.9.1"
+    lodash "^4.15.0"
+    parse5 "^3.0.1"
+
 chokidar@^1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.7.0.tgz#798e689778151c8076b4b360e5edd28cda2bb468"
@@ -1436,7 +1452,7 @@ copy-webpack-plugin@^4.0.1:
     minimatch "^3.0.4"
     node-dir "^0.1.10"
 
-core-js@^2.4.0, core-js@^2.5.0:
+core-js@^2.4.0, core-js@^2.5.0, core-js@^2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
 
@@ -1654,7 +1670,7 @@ de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
 
-debug@2.6.9, debug@^2.1.1, debug@^2.2.0, debug@^2.6.8:
+debug@2.6.9, debug@^2.1.1, debug@^2.1.3, debug@^2.2.0, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -1827,6 +1843,16 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
+ejs-mate@^2.3.0:
+  version "2.3.0"
+  resolved "http://registry.npm.taobao.org/ejs-mate/download/ejs-mate-2.3.0.tgz#1b8b8fea7350d9482e9e4bbe625c4a97fd8d9bcf"
+  dependencies:
+    ejs "1.0.0"
+
+ejs@1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/ejs/download/ejs-1.0.0.tgz#c9c60a48a46ee452fb32a71c317b95e5aa1fcb3d"
+
 ejs@^2.5.6:
   version "2.5.7"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
@@ -1839,13 +1865,14 @@ element-theme-chalk@^2.0.1:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/element-theme-chalk/-/element-theme-chalk-2.0.5.tgz#77e9910dfbbe18957c2cfc7172d509295cde49d6"
 
-element-ui@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-2.0.3.tgz#d46ea49a38ef190094acf1dddc446c880d313a7f"
+element-ui@^2.0.7:
+  version "2.1.0"
+  resolved "http://registry.npm.taobao.org/element-ui/download/element-ui-2.1.0.tgz#eec860e3d3b131e61c2974a3e2b19a689d040f14"
   dependencies:
     async-validator "~1.8.1"
     babel-helper-vue-jsx-merge-props "^2.0.0"
     deepmerge "^1.2.0"
+    normalize-wheel "^1.0.1"
     throttle-debounce "^1.0.1"
 
 elliptic@^6.0.0:
@@ -1884,6 +1911,10 @@ entities@1.0:
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
+
+env@^0.0.2:
+  version "0.0.2"
+  resolved "http://registry.npm.taobao.org/env/download/env-0.0.2.tgz#50c19f307b129a45845b6b686df5b39dd40d1cf0"
 
 envify@^4.0.0:
   version "4.1.0"
@@ -2698,7 +2729,7 @@ html-webpack-plugin@^2.30.1:
     pretty-error "^2.0.2"
     toposort "^1.0.0"
 
-htmlparser2@^3.8.2:
+htmlparser2@^3.8.2, htmlparser2@^3.9.1:
   version "3.9.2"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.9.2.tgz#1bdf87acca0f3f9e53fa4fcceb0f4b4cbb00b338"
   dependencies:
@@ -3163,6 +3194,12 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
+jsonp@^0.2.1:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/jsonp/download/jsonp-0.2.1.tgz#a65b4fa0f10bda719a05441ea7b94c55f3e15bae"
+  dependencies:
+    debug "^2.1.3"
+
 jsonpointer@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/jsonpointer/-/jsonpointer-4.0.1.tgz#4fd92cb34e0e9db3c89c8622ecf51f9b978c6cb9"
@@ -3320,7 +3357,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.4:
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@~4.17.4:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -3362,7 +3399,7 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "https://registry.yarnpkg.com/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
-make-dir@^1.0.0:
+make-dir@^1.0.0, make-dir@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.1.0.tgz#19b4369fe48c116f53c2af95ad102c0e39e85d51"
   dependencies:
@@ -3492,11 +3529,11 @@ mime-types@^2.1.12, mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.17, 
   dependencies:
     mime-db "~1.30.0"
 
-mime@1.3.x:
+mime@1.3.x, mime@^1.3.4:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.3.6.tgz#591d84d3653a6b0b4a3b9df8de5aa8108e72e5e0"
 
-mime@1.4.1, mime@^1.3.4:
+mime@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
 
@@ -3709,6 +3746,10 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+normalize-wheel@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
+
 npm-run-path@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-2.0.2.tgz#35a9232dfa35d7067b4cb2ddf2357b1871536c5f"
@@ -3909,6 +3950,12 @@ parse-json@^2.2.0:
 parse5@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-1.5.1.tgz#9b7f3b0de32be78dc2401b17573ccaf0f6f59d94"
+
+parse5@^3.0.1:
+  version "3.0.3"
+  resolved "http://registry.npm.taobao.org/parse5/download/parse5-3.0.3.tgz#042f792ffdd36851551cf4e9e066b3874ab45b5c"
+  dependencies:
+    "@types/node" "*"
 
 parseurl@~1.3.2:
   version "1.3.2"
@@ -4992,11 +5039,7 @@ stackframe@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/stackframe/-/stackframe-1.0.4.tgz#357b24a992f9427cba6b545d96a14ed2cbca187b"
 
-"statuses@>= 1.3.1 < 2":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
-
-statuses@~1.3.1:
+"statuses@>= 1.3.1 < 2", statuses@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
 
@@ -5414,9 +5457,9 @@ vue-hot-reload-api@^2.2.0:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.2.3.tgz#43c8e5506d65a271d2571936d77253019fd3eb17"
 
-vue-lazyload@^1.0.1:
+vue-lazyload@^1.1.4:
   version "1.1.4"
-  resolved "https://registry.yarnpkg.com/vue-lazyload/-/vue-lazyload-1.1.4.tgz#94dbb3fcb047f147f37900c0e22ad4fd478e31c4"
+  resolved "http://registry.npm.taobao.org/vue-lazyload/download/vue-lazyload-1.1.4.tgz#94dbb3fcb047f147f37900c0e22ad4fd478e31c4"
 
 vue-loader@^13.3.0:
   version "13.5.0"
@@ -5456,9 +5499,9 @@ vue-style-loader@^3.0.0, vue-style-loader@^3.0.1:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.2:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.3.tgz#ab631b0694e211a6aaf0d800102b37836aae36a4"
+vue-template-compiler@^2.5.9:
+  version "2.5.13"
+  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.13.tgz#12a2aa0ecd6158ac5e5f14d294b0993f399c3d38"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -5467,9 +5510,9 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.5.2:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.3.tgz#e1a3b1f49b6e93e574ce040b95cbc873912fecc1"
+vue@^2.5.9:
+  version "2.5.13"
+  resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.13.tgz#95bd31e20efcf7a7f39239c9aa6787ce8cf578e1"
 
 watchpack@^1.4.0:
   version "1.4.0"
