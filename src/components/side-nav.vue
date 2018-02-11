@@ -19,6 +19,15 @@
           </router-link>
         </el-menu-item-group>
       </el-submenu>
+      <el-submenu index="emap-components">
+        <template slot="title">EmapComponents emap组件</template>
+        <router-link v-for="item in emapVms" :key="item.name" :to="{name: item.name}">
+          <el-menu-item :index="item.path" @click="handleCOMClick(item.path)">
+            <span>{{item.comName}} {{item.desc}}</span>
+            <span style="color:#FF4949">{{item.count}}</span>
+          </el-menu-item>
+        </router-link>
+      </el-submenu>
       <el-submenu v-for="(value, key) in menuData" :key="key" :index="key">
         <template slot="title">{{value.name}}</template>
         <el-menu-item-group v-for="item in value.items" :key="item.name">
@@ -45,6 +54,19 @@ export default {
       routes: [],
       coms: [],
       navs: [],
+      emapVms:[{
+        desc: "表单",
+        comName: 'EmapmForm',
+        name: 'EmapmFormMobile',
+        count: "",
+        path: 'emapm-form'
+      },{
+        desc: "图片上传",
+        comName: 'EmapmUploadImgs',
+        name: 'EmapmUploadImgsMobile',
+        count: "",
+        path: 'emapm-upload-imgs'
+      }],
       skinactive:false
     };
   },
@@ -92,23 +114,6 @@ export default {
       axios.get(this.$SITE_URL + '/mobile/getAllComponents').then(function(resp) {
         let group = {}
         let components = resp.data.data.components;
-        components.unshift({
-          component: {
-            desc: '表单',
-            name: 'EmapmForm',
-            count: 0,
-            categoryName: 'EmapComponents',
-            categoryDesc: '组件'
-          }
-        }, {
-          component:{
-              desc: '图片上传',
-              name: 'EmapmUploadImgs',
-              count: 0,
-              categoryName: 'EmapComponents',
-              categoryDesc: '组件'
-          }
-        });
         for (let item of components) {
           let com_def = item.component;
           let path = rs.filter(i => {return i.name === com_def.name + "Mobile"})

@@ -12,10 +12,11 @@
 ---- | ----
 emtextarea | 文本域
 emnumber | 数字
+emselect | 下拉(带搜索功能)
 emmulti-select | 多选下拉(有复选框)(带搜索功能)
 emmulti-select2 | 多选下拉(旧)(带搜索功能)
 emswitcher | 开关
-emdate-local | 开关
+emdate-local | 日期
 emdate-full | 日期及时间
 emradiolist | 单选组
 emuploadsingleimage | 单图片上传
@@ -51,6 +52,8 @@ emmulti-buttonlist | 多选按钮组
 ```
 
 ## API
+#### 表单
+
  名称 | 类型 | 是否必填 | 默认值 | 说明 
  ---- | ---- | ---- | ---- | ---- 
  model | Array | 是 | [] | emap模型 
@@ -59,6 +62,21 @@ emmulti-buttonlist | 多选按钮组
  customVm | Object | 否 | {} | 自定义的组件，用于替换表单里默认的显示类型组件 
 >customVm
 新增或替换模型xtpe对应的处理组件，详见下方<添加或替换组件>
+
+#### 模型JSON控制参数
+
+ 模型类型 | 名称 | 参数类型 | 默认值 | 说明 
+ ---- | ---- | ---- | ---- | ---- 
+ 下拉 | search | Boolean | true | 是否开启搜索功能 
+ 多选下拉(有复选框) | search | Boolean | true | 是否开启搜索功能 
+ 多选下拉(旧) | search | Boolean | true | 是否开启搜索功能 
+ 日期 | min | String | void | 日期范围最小值，例：1990-01-01
+ 日期 | max | String | void | 日期范围最大值，例：2999-01-01
+ 日期及时间 | min | String | void | 日期范围最小值，例：1990-01-01 00:00
+ 日期及时间 | max | String | void | 日期范围最大值，例：2999-01-01 00:00
+ 多图片上传 | limit | Number | 9 | 上传图片数 
+ 文本域/上传文件 | showTitle | Boolean | false | 是否展示标题
+
 
 ## Methods
  名称 | 参数 | 返回值 | 说明 
@@ -173,10 +191,10 @@ export default {
 ```javascript
 let jsonParam = parseParam(meta.JSONParam);
 meta.initParam = Object.assign({
-    hidden: meta.hidden || meta['form.hidden'],
-    readonly: readonly || meta.readonly || meta['form.readonly'],
-    placeholder: meta.placeholder || meta['form.placeholder'],
-    required: meta.required || meta['form.required'],
+    hidden: meta.hasOwnProperty('form.hidden') ? meta['form.hidden'] : meta.hidden,
+    readonly: readonly || (meta.hasOwnProperty('form.readonly') ? meta['form.readonly'] : meta.readonly),
+    placeholder: meta.hasOwnProperty('form.placeholder') ? meta['form.placeholder'] : meta.placeholder,
+    required: meta.hasOwnProperty('form.required') ? meta['form.required'] : meta.required,
     disabled: false
 }, jsonParam);
 ```
