@@ -3,7 +3,7 @@
     <div class="page-container">
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component"  v-if="!searchMode">
-        <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input>
+        <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input> <a href="#nodebb-comments">评论数：<label>{{comment_count}}</label></a>
         <div style="display: flex;">
           <div class="content" :style="{'width':maxWidth}">
             <router-view></router-view>
@@ -27,7 +27,7 @@
           </template>
         </div>
         <div style="padding:24px">
-          <Comments :pagename="'mobile-' + active" ></Comments>
+          <Comments :pagename="'mobile-' + active" @ready="commentReady"></Comments>
         </div>
       </div>
       <!-- search-result -->
@@ -66,6 +66,7 @@ export default {
       searchMode: false,
       searchResult: {},
       maxWidth: (window.innerWidth - 240 - 407) + "px",
+      comment_count: 0
     }
   },
   computed: {
@@ -158,6 +159,9 @@ export default {
           }
         }
       })
+    },
+    commentReady(counts) {
+      this.comment_count = counts;
     }
   },
   created () {

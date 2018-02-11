@@ -18,6 +18,7 @@ export default {
   },
   methods: {
     reload(val){
+      var that = this;
       var nbb = window.nbb = {};
       nbb.cid = 8;   // the category where to publish.
       nbb.url = "https://res.wisedu.com/forum";
@@ -25,10 +26,16 @@ export default {
       nbb.articleID = val;   // To get the unique article id, see explations below.
       nbb.articleTitle = val;                       // To get the article title, document.title is the default.
       nbb.commentElement = document.getElementById('nodebb-comments');  // Where you put the comments widget, "nodebb-comments" element is the default.
-
-      nbb.articleContent = function() {
-        return document.getElementById('nodebb-content').value; // Write a function to get the post content.
-      }
+      nbb.callback = function(counts){
+        var shown_count = 0;
+        if (counts !== null) {
+          shown_count = counts - 1;
+        }
+        that.$emit("ready", shown_count)
+      };
+      // nbb.articleContent = function() {
+      //   return document.getElementById('nodebb-content').value; // Write a function to get the post content.
+      // }
 
       blogComments2Common(this.$refs["nodebb-comments"], nbb);
     }
