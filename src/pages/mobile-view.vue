@@ -15,7 +15,7 @@
         <!-- 组件样式展示 -->
         <div class="components-style">
           <template v-for="item in componentsStyle">
-            <h4 :key="item.id">编号：{{item.showId}}</h4>
+            <h4 :key="item.showId">编号：{{item.showId}}</h4>
             <demo-block :key="item.id">
               <component slot="source" :is="'c-' + item.id"></component>
               <template slot="highlight">
@@ -25,6 +25,9 @@
               <!-- <el-button slot="download" size="mini" style="float: right;margin: 8px 12px;" type="success" @click="handleDownload(item.name)" :key="item.id">下载代码</el-button> -->
             </demo-block>
           </template>
+        </div>
+        <div style="padding:24px">
+          <Comments :pagename="'mobile-' + active" ></Comments>
         </div>
       </div>
       <!-- search-result -->
@@ -48,8 +51,9 @@
 import Vue from 'vue'
 import axios from 'axios'
 import MdSideNav from '../components/side-nav'
+import Comments from '../components/comments'
 export default {
-  components: { MdSideNav },
+  components: { MdSideNav, Comments },
   data () {
     return {
       combination: {},
