@@ -137,7 +137,7 @@ export default {
           }
         }
         group["未分类"] = [];
-        for (let item of rs.filter(i => i.matched !== true)) {
+        for (let item of rs.filter(i => i.matched !== true && !that.emapVms.some(t => {return i.name === t.name}))) {
           let com = {
             desc: "",
             comName: item.name.replace("Mobile", ""),

@@ -79,6 +79,9 @@ export default {
       return this.$route.query.categoryId || ''
     },
     categoryType () {
+      if (this.$route.path.indexOf('/mobile/emapm') > -1) {
+        return ['emap-components'];
+      }
       return this.$route.query.type ? [this.$route.query.type] : ['components']
     }
   },
