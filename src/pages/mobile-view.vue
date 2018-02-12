@@ -3,7 +3,7 @@
     <div class="page-container">
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component"  v-if="!searchMode">
-        <el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input> <a href="#nodebb-comments">评论数：<label>{{comment_count}}</label></a>
+        搜索：<el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input> | <a href="#nodebb-comments">评论数：<label>{{comment_count}}</label></a>
         <div style="display: flex;">
           <div class="content" :style="{'width':maxWidth}">
             <router-view></router-view>

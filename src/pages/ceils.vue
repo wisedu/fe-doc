@@ -1,7 +1,7 @@
 <template>
 <div>
-  <template v-for="item in ceilsCompoonents" >
-    <h4 :id="item.id" :key="item.id">编号：{{item.id}}</h4>
+  <template v-for="(item,index) in ceilsCompoonents" >
+    <h4 :id="item.id" :key="index">编号：{{item.id}}</h4>
     <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" :style="{'max-width':maxWidth}">
       <component slot="source" :is="item.name"></component>
       <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>

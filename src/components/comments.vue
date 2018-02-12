@@ -18,13 +18,17 @@ export default {
   },
   methods: {
     reload(val){
+      var path = val;
+      if (path.indexOf('#') !== -1) {
+        path = path.split('#')[0];
+      }
       var that = this;
       var nbb = window.nbb = {};
       nbb.cid = 8;   // the category where to publish.
       nbb.url = "https://res.wisedu.com/forum";
       nbb.blogger = 'res';   // the name to distingush with different blog, omit it to fallback to 'default'.
-      nbb.articleID = val;   // To get the unique article id, see explations below.
-      nbb.articleTitle = val;                       // To get the article title, document.title is the default.
+      nbb.articleID = path;   // To get the unique article id, see explations below.
+      nbb.articleTitle = path;                       // To get the article title, document.title is the default.
       nbb.commentElement = document.getElementById('nodebb-comments');  // Where you put the comments widget, "nodebb-comments" element is the default.
       nbb.callback = function(counts){
         var shown_count = 0;
