@@ -7,7 +7,12 @@
   </ul>
   <div>
     <div class="projects">
-      <h3 id="pageIndex">{{ceilsInfo.project.name}} 页面</h3>
+      <el-breadcrumb separator="/" style="margin: 24px 0">
+        <el-breadcrumb-item :to="{ path: '/' }"><h3 style="display: inline;">首页</h3></el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/mobile-projectlist' }"><h3 style="display: inline;">移动模板库</h3></el-breadcrumb-item>
+        <el-breadcrumb-item><h3 style="display: inline;" id="pageIndex">{{ceilsInfo.project.name}} 页面</h3></el-breadcrumb-item>
+      </el-breadcrumb>
+
       <template v-for="item in ceilsCompoonents">
         <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
           <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>

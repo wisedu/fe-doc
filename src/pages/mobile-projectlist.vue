@@ -1,5 +1,9 @@
 <template>
   <div class="page-container">
+    <el-breadcrumb separator="/" style="margin: 24px 0">
+      <el-breadcrumb-item :to="{ path: '/' }"><h3 style="display: inline;">首页</h3></el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/mobile-projectlist' }"><h3 style="display: inline;">移动模板库</h3></el-breadcrumb-item>
+    </el-breadcrumb>
     <div class="category" v-for="(category, key) of project" :key="key">
       <h3>{{category.name}}</h3>
       <div class="project" v-for="item of category.children" :key="item.id" @click="handleMenuClick(item.id)">
