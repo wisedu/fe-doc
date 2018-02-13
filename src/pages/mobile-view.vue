@@ -1,6 +1,10 @@
 <template>
 <div>
     <div class="page-container">
+      <!-- <el-breadcrumb separator="/" style="margin:4px 0 24px 0;width:100%;">
+        <el-breadcrumb-item :to="{ path: '/' }"><h3 style="display: inline;">首页</h3></el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/mobile' }"><h3 style="display: inline;">移动组件</h3></el-breadcrumb-item>
+      </el-breadcrumb> -->
       <md-side-nav type="mobile" :menu-data="menuData" :active="active" :default-openeds="categoryType" @navchange="navChanged"></md-side-nav>
       <div class="page-component"  v-if="!searchMode">
         搜索：<el-input class="page-search" @keyup.enter.native="handleSearch" v-model="searchKey"></el-input> | <a href="#nodebb-comments">评论数：<label>{{comment_count}}</label></a>

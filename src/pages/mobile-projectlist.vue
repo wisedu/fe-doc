@@ -5,7 +5,7 @@
       <el-breadcrumb-item :to="{ path: '/mobile-projectlist' }"><h3 style="display: inline;">移动模板库</h3></el-breadcrumb-item>
     </el-breadcrumb>
     <div class="category" v-for="(category, key) of project" :key="key">
-      <h3>{{category.name}}</h3>
+      <h4 style="font-size:18px">{{category.name}}</h4>
       <div class="project" v-for="item of category.children" :key="item.id" @click="handleMenuClick(item.id)">
         <div><img src="/static/folder.png"></div>
         <div>
