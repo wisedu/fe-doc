@@ -42,6 +42,7 @@
 </template>
 <script>
 import axios from 'axios';
+import componentsCategory from './componentsCategory.json';
 export default {
   props: {
     type: { default: "pc", type: String },
@@ -115,6 +116,7 @@ export default {
       axios.get(this.$SITE_URL + '/mobile/getAllComponents').then(function(resp) {
         let group = {}
         let components = resp.data.data.components;
+        components = components.concat(componentsCategory)
         for (let item of components) {
           let com_def = item.component;
           let path = rs.filter(i => {return i.name === com_def.name + "Mobile"})
