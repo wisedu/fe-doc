@@ -31,7 +31,10 @@
     <el-col :span="6" :offset="1">
       <a href="http://res.wisedu.com/FS/docsite/">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#ffb950' }">
-          <div style="height:100px;padding:32px"><h2 style="color:white">RES 文档</h2></div>
+          <div style="height:100px;padding:32px">
+            <h2 style="color:white">RES 文档</h2>
+            <a href="http://res.wisedu.com/FS/emap.crx" style="font-size:14px">下载：EMAP模型检查Chrome插件</a>
+          </div>
           <div style="padding: 14px;background-color:white">
             <span>PC组件文档</span>
             <div class="bottom clearfix">
