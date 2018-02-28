@@ -61,7 +61,7 @@ Vue.component(Textarea.name, Textarea);
 | areapaddingleft | 右边内容距左边距 | String | `0px` | |
 | heightAuto | 该属性当且仅当`type="textarea"`时有效，设置文本输入框（textarea）高度自适应。此时rows属性无效 | Boolean | | true |
 | required | 标注是否为必选项(*) | Boolean | | false |
-
+| direction | 该属性当且仅当`type="textarea"`时有效，用于设置textarea上下结构布局,默认水平结构 | String | `vertical` | - |
 
 ## Slot
 | name | 描述 |

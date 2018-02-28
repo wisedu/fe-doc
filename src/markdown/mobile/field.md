@@ -26,6 +26,7 @@ Vue.component(Field.name, Field);
   <mt-field label="数字" placeholder="请输入数字" type="number" v-model="number"></mt-field>
   <mt-field label="生日" placeholder="请输入生日" type="date" v-model="birthday"></mt-field>
   <mt-field label="自我介绍" placeholder="自我介绍" type="textarea" rows="4" v-model="introduction" required :heightAuto="false"></mt-field>
+  <mt-field label="自我介绍" placeholder="自我介绍" type="textarea" rows="4" required direction="vertical"></mt-field>
 </mt-cell-group>
 ```
 
@@ -68,6 +69,7 @@ Vue.component(Field.name, Field);
 | attr | 设置原生属性，例如 `:attr="{ maxlength: 10 }"` | Object | |
 | heightAuto | 该属性当且仅当`type="textarea"`时有效，设置文本输入框（textarea）高度自适应。此时rows属性无效 | Boolean | | true |
 | required | 标注是否为必选项(*) | Boolean | | false |
+| direction | 该属性当且仅当`type="textarea"`时有效，用于设置textarea上下结构布局,默认水平结构 | String | `vertical` | - |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

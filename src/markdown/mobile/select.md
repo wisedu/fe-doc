@@ -35,13 +35,13 @@ Vue.component(Select.name, Select);
 自定义
 
 ```html
-<mt-select label="自定义选择" :options="customSelectOptions" v-model="customSelectValue" select-type="custom" @selector-click="customSelectClick">
-  <template slot-scope="scope" slot="display">{{getDisplay(scope.value, scope.options)}}大法</template>
+<mt-select label="自定义选择" :options="yearSlot" v-model="value" select-type="custom">
+  <template slot-scope="scope" slot="display">{{scope.value}}</template>
   <template slot-scope="scope" slot="selector">
-    <mt-cell v-for="item in scope.options" :key="item.id" :class="{active: item.id === scope.value}" :title="item.name" @click.native.stop="selectClick(item)"></mt-cell>
+    <mt-cell v-for="item in scope.options" :key="item" :class="{active: item === scope.value}" :title="item" @click.native.stop="selectClick(item)" wrapperpaddingleft="20px"></mt-cell>
   </template>
 </mt-select>
-<p>{{multiSelectValue}}</p>
+<p>{{value}}</p>
 ```
 
 
@@ -53,6 +53,12 @@ Vue.component(Select.name, Select);
 | value | 字段绑定值 | String | - | - |
 | placeholder | 占位文字 | String | - | "请选择" |
 | options | 选项数据 | Array | - | [] |
+| select-type | select形式 | String | `select`,`multi-select`,`custom` | `select` |
+| titlewidth | 自定义title标签所占宽度 | String | | '' |
+| valueAlign | 设定value内容的对齐方式 | String | `flex-start`,`flex-end`,'center' |  |
+| readonly | 只读模式 | Boolean | | false |
+| disabled | 无效模式 | Boolean | | false |
+| required | 标注是否为必选项(*) | Boolean | | false |
 
 <script>
   export default {
@@ -104,6 +110,13 @@ Vue.component(Select.name, Select);
   }
 };
 </script>
+
+## Slot
+
+| name | 描述 |
+|------|--------|
+| display | 自定义select 获取值显示 |
+| selector | 自定义select 所有值的显示 |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

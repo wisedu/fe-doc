@@ -51,6 +51,12 @@ Vue.component(TreeSelect.name, TreeSelect);
 | placeholder | 占位文字 | String | - | "请选择" |
 | options | 选项数据 | Array | - | [] |
 | selectType | 选择器类型 | String | 'select','multi-select','custom' | 'select' |
+| readonly | 只读模式 | Boolean | | false |
+| disabled | 无效模式 | Boolean | | false |
+| required | 标注是否为必选项(*) | Boolean | | false |
+| displayType | 设置树中选中值的展示方式，默认展示最后一层选中数据；displayType=true时，展示所有数据 | Boolean | | false |
+| titlewidth | 自定义title标签所占宽度 | String | | '' |
+| valueAlign | 设定value内容的对齐方式 | String | `flex-start`,`flex-end`,'center' |  |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

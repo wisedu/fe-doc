@@ -37,6 +37,8 @@ Vue.component(Cell.name, Cell);
   </mt-cell>
   <mt-cell title="标题" label="描述信息" is-link></mt-cell>
   <mt-cell title="自定义高度60px" label="跳转到 https://bh-mint-ui2.github.io" is-link to="https://bh-mint-ui2.github.io" cellheight="60px"></mt-cell>
+  <mt-cell title="readonly状态" is-link value="内容" readonly></mt-cell>
+  <mt-cell title="disabled状态" is-link value="内容" disabled></mt-cell>
 </mt-cell-group>
 ```
 
@@ -82,6 +84,10 @@ Vue.component(Cell.name, Cell);
 | titlepaddingleft | 自定义title上左边距, | String | | '' |
 | titlepaddingright | 自定义title右内边距 | String | | '' |
 | required | 标注是否为必选项(*) | Boolean | | false |
+| titlewidth | 自定义title标签所占宽度 | String | | '' |
+| valueAlign | 设定value内容的对齐方式 | String | `flex-start`,`flex-end`,'center' |  |
+| readonly | 只读模式 | Boolean | | false |
+| disabled | 无效模式 | Boolean | | false |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |
