@@ -4,6 +4,7 @@
     <li>大纲</li>
     <li><a href="#pageIndex">页面</a></li>
     <li><a href="#styleIndex">项目样式</a></li>
+    <li><a v-if="ceilsInfo.zipPath" :href="ceilsInfo.zipPath"><el-badge value="(ง •̀_•́)ง" class="item">图片打包下载</el-badge></a></li>
   </ul>
   <div>
     <div class="projects">
@@ -103,7 +104,8 @@ export default {
         view: true
       }).then(({data: resp}) => {
         if (resp.type === 'success') {
-          this.ceilsInfo = resp.data
+          this.ceilsInfo = resp.data;
+          // this.ceilsInfo.zipPath
           this.initComponents(resp.data)
           Vue.nextTick(function () {
             let qrcodes = document.querySelectorAll(".qrcode");
