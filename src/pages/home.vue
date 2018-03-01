@@ -5,9 +5,12 @@
     <el-col :span="6" :offset="1">
       <router-link to="mobile">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#52c7ca' }">
-          <div style="height:100px;padding:32px"><h2 style="color:white">Mobile</h2></div>
+          <div style="height:80px;padding:32px"><h2 style="color:white">Mobile</h2></div>
           <div style="padding: 14px;background-color:white">
             <span>移动组件文档</span>
+            <p><a href="http://res.wisedu.com/mobile/skinTools">换肤工具</a></p>
+            <p><a href="http://res.wisedu.com/mobile/emapm-form">移动emapform</a></p>
+            <p><a href="http://res.wisedu.com/FS/docsite/mobile/mobile.html">移动开发示例</a></p>
             <div class="bottom clearfix">
               <time class="time"></time>
             </div>
@@ -18,7 +21,7 @@
     <el-col :span="6" :offset="1">
       <router-link to="pc">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#4a90e2' }">
-          <div style="height:100px;padding:32px"><h2 style="color:white">Responsive</h2></div>
+          <div style="height:80px;padding:32px"><h2 style="color:white">Responsive</h2></div>
           <div style="padding: 14px;background-color:white">
             <span>响应式组件</span>
             <div class="bottom clearfix">
@@ -31,12 +34,13 @@
     <el-col :span="6" :offset="1">
       <a href="http://res.wisedu.com/FS/docsite/">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#ffb950' }">
-          <div style="height:100px;padding:32px">
+          <div style="height:80px;padding:32px">
             <h2 style="color:white">RES 文档</h2>
-            <a href="http://res.wisedu.com/FS/emap.crx" style="font-size:14px">下载：EMAP模型检查Chrome插件</a>
           </div>
           <div style="padding: 14px;background-color:white">
             <span>PC组件文档</span>
+            <p><a href="http://emap.wisedu.com/res/sys/student_app1.2/*default/index.do" style="font-size:14px">示例：EMAP组件</a></p>
+            <p><a href="http://res.wisedu.com/FS/emap.crx" style="font-size:14px">下载：EMAP模型检查Chrome插件</a></p>
             <div class="bottom clearfix">
               <time class="time"></time>
             </div>
@@ -49,7 +53,7 @@
     <el-col :span="6" :offset="1">
       <router-link to="mobile-projectlist">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#4caf50' }">
-          <div style="height:200px;padding:32px"><h2 style="color:white">移动模板库</h2></div>
+          <div style="height:80px;padding:32px"><h2 style="color:white">移动模板库</h2></div>
           <div style="padding: 14px;background-color:white">
             <span>移动模板库</span>
             <div class="bottom clearfix">
