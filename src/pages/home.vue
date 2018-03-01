@@ -3,7 +3,7 @@
   <h1>设计开发资源库 - design to development</h1>
   <el-row>
     <el-col :span="6" :offset="1">
-      <router-link to="mobile">
+      <a href="mobile">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#52c7ca' }">
           <div style="height:80px;padding:32px"><h2 style="color:white">Mobile</h2></div>
           <div style="padding: 14px;background-color:white">
@@ -16,7 +16,7 @@
             </div>
           </div>
         </el-card>
-      </router-link>
+      </a>
     </el-col>
     <el-col :span="6" :offset="1">
       <router-link to="pc">
