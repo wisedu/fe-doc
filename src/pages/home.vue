@@ -93,4 +93,12 @@ export default {
 h1 {
   margin-bottom: 32px;
 }
+
+h1{ font-size:24px;}
+h2{ font-size:22px;}
+h3{ font-size:20px;}
+h4{ font-size:18px;}
+h5{ font-size:16px;}
+h6{ font-size:14px;}
+
 </style>
