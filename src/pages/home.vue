@@ -40,6 +40,7 @@
           <div style="padding: 14px;background-color:white">
             <span>PC组件文档</span>
             <p><a href="http://emap.wisedu.com/res/sys/student_app1.2/*default/index.do" style="font-size:14px">示例：EMAP组件</a></p>
+            <p><a href="http://res.wisedu.com/FS/student_app1.2.zip" style="font-size:14px">下载：EMAP组件示例源码</a></p>
             <p><a href="http://res.wisedu.com/FS/emap.crx" style="font-size:14px">下载：EMAP模型检查Chrome插件</a></p>
             <div class="bottom clearfix">
               <time class="time"></time>
