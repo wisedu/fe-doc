@@ -1,23 +1,32 @@
 # BH Mint UI 2 使用文档
 
-本文将介绍 BH Mint UI 2 的安装方式和基本的用法。
-
----------
-
+本文将介绍 独立使用 BH Mint UI 2 的安装方式和基本的用法。
 
 ## 鸣谢
 本组件库是基于 MintUI 更换部分 Vant 组件，加上自有开发的组件形成的移动组件库。
 
 感谢开源对大家的贡献，我们的组件库代码地址： [bh-mint-ui2](https://github.com/wisedu/bh-mint-ui2)
 
-### npm 安装
+
+---------
+
+## 阅读者请注意
+> * 你是 **金智教育移动框架** 使用者，想了解如何使用，[请点击这里](http://res.wisedu.com/FS/docsite/mobile/mobile.html)
+> * 如果你 **已有项目并且很有经验**，要与自己的框架做集成，可以继续浏览以下内容
+
+
+## 与自己的框架集成（非金智教育移动框架）
+
+如果要运行以下的例子，你必须已经有自己的vue项目
+
+### 方式1：npm 安装
 推荐使用 npm 的方式安装，它能更好地和 [webpack](https://webpack.js.org/) 打包工具配合使用。
 
 ```shell
 npm i bh-mint-ui2 -S
 ```
 
-### CDN
+### 方式2：CDN 集成到现有的首页
 
 可以通过 [Vue全家桶](https://res.wisedu.com/bower_components/vue2) / [BH-MINT-UI2](https://res.wisedu.com/fe_components/mobile/MINT/) 获取到最新版本的资源，在页面上引入 js 和 css 文件即可开始使用。
 
@@ -32,7 +41,7 @@ npm i bh-mint-ui2 -S
 ```
 
 
-### Hello world
+### 方式3：全新的页面中引用
 通过 CDN 的方式我们可以很容易地使用 BH Mint UI 2 写出一个 Hello world 页面。
 
 ::: demo
@@ -103,7 +112,7 @@ npm i bh-mint-ui2 -S
 </script>
 
 
-## Webpack 快速上手
+## 纯粹使用 Webpack 构建项目（非金智教育移动框架）
 
 本节将介绍如何在项目中使用 BH Mint UI 2。
 
