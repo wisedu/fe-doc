@@ -7,9 +7,9 @@
 ## 引入
 
 ```javascript
-import { TreeSelect } from 'mint-ui';
+import { TreeSelector } from 'bh-mint-ui2';
 
-Vue.component(TreeSelect.name, TreeSelect);
+Vue.component(TreeSelector.name, TreeSelector);
 ```
 
 ## 例子

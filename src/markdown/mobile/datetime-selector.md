@@ -22,12 +22,10 @@ Vue.component(DatetimeSelector.name, DatetimeSelector);
 *  `time`: 时间选择器，可选择时、分，`value` 值为一个格式为 `HH:mm` 的字符串
 
 ```html
-<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2018-12-02 12:01">
-</mt-datetime-selector>
-<mt-datetime-selector label="日期" placeholder="请输入生日" type="date" value="2018-12-02" @confirm="conf" @cancel="can">
-</mt-datetime-selector>
-<mt-datetime-selector label="时间" placeholder="请输入时间" type="time">
-</mt-datetime-selector>
+<mt-datetime-selector label="日期时间" placeholder="请输入发生时间" type="datetime" value="2018-08-02 11:12" disableClear :maxHour="20" required></mt-datetime-selector>
+<mt-datetime-selector label="日期(年月)" placeholder="请选择年月" type="dateym"  v-model="current1" :min-date="new Date(new Date().getFullYear() - 20, 0)" :max-date="new Date(new Date().getFullYear() + 20, 11)"></mt-datetime-selector>
+<mt-datetime-selector label="日期时间(年月日)" placeholder="限制日期选择区间" type="date" v-model="current2" :min-date="new Date(new Date().getFullYear() - 20, 0,1)" :max-date="new Date(new Date().getFullYear() + 20, 11,31)"></mt-datetime-selector>
+<mt-datetime-selector label="时间" placeholder="限制时间选择区间" type="time" :min-hour="10" :max-hour="15" ></mt-datetime-selector>
 ```
 
 field 控制参数
@@ -51,7 +49,7 @@ field 控制参数
 ## API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
-| type | 组件的类型 | String | 'datetime', 'date', 'time' | 'datetime' |
+| type | 组件的类型 | String | 'datetime', 'dateym', 'date', 'time' | 'datetime' |
 | label | 标题 | String | | '' |
 | placeholder | 占位文字 | String | | '' |
 | value | 绑定表单输入值 | String | | |
