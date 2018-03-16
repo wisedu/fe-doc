@@ -84,6 +84,7 @@ Vue.component(Steps.name, Steps);
 | description | 当前步骤描述 | `String` | - | - |
 | direction | 显示方向 | `String` | `horizontal` | `vertical` |
 | iconClass | 状态图标样式 | `String` | - | - |
+| padding-left | 垂直时，左侧区域 |`Number` | 150 |   |
 
 
 ### Step API
@@ -93,16 +94,11 @@ Vue.component(Steps.name, Steps);
 | status | 当前步骤状态 | `String` | - | `finish` `process` `error` |
 
 
-### Step Slot
-
-| 参数 | 说明 | 类型 | 默认值 | 可选值 |
-|-----------|-----------|-----------|-------------|-------------|
-| padding-left | 垂直时，左侧区域 |`Number` | 150 |   |
 
 
 如：
 ```html
-<mt-steps>
+<mt-steps :padding-left="100">
   <mt-step status="process">默认区域</mt-step>
   <mt-step status="finish">
       <label>默认区域</label>
