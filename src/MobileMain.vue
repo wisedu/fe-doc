@@ -17,26 +17,29 @@ export default {
   },
   methods: {
     getPageDefine(showid) {
+      // "https://res.wisedu.com/designer/mobile/simulation?id=" + showid
       let that = this;
       if (!showid) return
-      axios.post(this.$SITE_URL + '/mobile/getClassifyItemToShow', {
-        type: 'project',
-        showId: showid
-      }).then(({data: resp}) => {
-        if (resp.html !== undefined) {
+      // axios.post(this.$SITE_URL + '/mobile/getClassifyItemToShow', {
+      //   type: 'project',
+      //   showId: showid
+      // }).then(({data: resp}) => {
+      //   if (resp.html !== undefined) {
 
-          Vue.component('c-' + showid, {
-            template: '<div>' + resp.html + '</div>',
-            data(){
-              return resp.data;
-            }
-          });
-          that.page = 'c-' + showid;
-          jsonp('https://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
-        } else {
-          Vue.$toast('数据错误');
-        }
-      })
+      //     Vue.component('c-' + showid, {
+      //       template: '<div>' + resp.html + '</div>',
+      //       data(){
+      //         return resp.data;
+      //       }
+      //     });
+      //     that.page = 'c-' + showid;
+      //     jsonp('https://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
+      //   } else {
+      //     Vue.$toast('数据错误');
+      //   }
+      // })
+      jsonp('https://res.wisedu.com/statistics/res?mobile=' + showid, null, function (err, data) {});
+      window.location.href = "https://res.wisedu.com/designer/mobile/simulation?id=" + showid;
     },
     getParam(name) {
       var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");

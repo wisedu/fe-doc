@@ -20,7 +20,7 @@
           <component slot="source" :is="item.name" :ref="item.id"></component>
           <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
           <div slot="showdesc" style="float:left;padding:8px">
-            <div class="qrcode" :id="item.id"></div>
+            <div class="qrcode" :id="item.pageid"></div>
             <h3 class="codeh2" v-if="item.data !== undefined">页面状态</h3>
             <div v-if="item.data !== undefined" v-for="(status,skey) in item.data" :key="skey">
               <h4>{{skey}}</h4>
@@ -161,6 +161,7 @@ export default {
           style: item.run.style,
           name: 'c-' + item.showId,
           id: item.showId,
+          pageid: item.id,
           dom: dom,
           data: JSON.stringify(item.run.data) === "{}" ? undefined : item.run.data,
           status: "state_0"
