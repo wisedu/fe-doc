@@ -6,7 +6,7 @@
 ## 引入
 
 ```javascript
-import { Indicator } from 'mint-ui';
+import { Indicator } from 'bh-mint-ui2';
 ```
 
 ## 例子

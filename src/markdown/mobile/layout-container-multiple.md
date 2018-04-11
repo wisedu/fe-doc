@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { LayoutContainerMultiple } from 'mint-ui';
+import { LayoutContainerMultiple } from 'bh-mint-ui2';
 
 Vue.component(LayoutContainerMultiple.name, LayoutContainerMultiple);
 ```

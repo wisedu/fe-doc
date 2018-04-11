@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Checkbox } from 'mint-ui';
+import { Checkbox } from 'bh-mint-ui2';
 
 Vue.component(Checkbox.name, Checkbox);
 ```

@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { CommandBar } from 'mint-ui';
+import { CommandBar } from 'bh-mint-ui2';
 
 Vue.component(CommandBar.name, CommandBar);
 ```

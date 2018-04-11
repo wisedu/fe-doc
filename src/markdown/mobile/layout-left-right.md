@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { LayoutLeftRight } from 'mint-ui';
+import { LayoutLeftRight } from 'bh-mint-ui2';
 
 Vue.component(LayoutLeftRight.name, LayoutLeftRight);
 ```

@@ -2,7 +2,7 @@
 
 ### 使用指南
 ``` javascript
-import { Picker } from 'mint-ui';
+import { Picker } from 'bh-mint-ui2';
 
 Vue.component(Picker.name, Picker);
 ```

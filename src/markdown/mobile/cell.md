@@ -8,7 +8,7 @@
 ## 引入
 
 ```javascript
-import { Cell } from 'mint-ui';
+import { Cell } from 'bh-mint-ui2';
 
 Vue.component(Cell.name, Cell);
 ```

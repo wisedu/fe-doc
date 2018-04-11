@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { LayoutSpacing } from 'mint-ui';
+import { LayoutSpacing } from 'bh-mint-ui2';
 
 Vue.component(LayoutSpacing.name, LayoutSpacing);
 ```

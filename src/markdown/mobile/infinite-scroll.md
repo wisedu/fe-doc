@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { InfiniteScroll } from 'mint-ui';
+import { InfiniteScroll } from 'bh-mint-ui2';
 
 Vue.use(InfiniteScroll);
 ```

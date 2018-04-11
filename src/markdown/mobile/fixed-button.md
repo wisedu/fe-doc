@@ -23,7 +23,7 @@ div[smile-category="FixedButton"] > .smile-classify-item-content{
 ## 引入
 
 ```javascript
-import { FixedButton } from 'mint-ui';
+import { FixedButton } from 'bh-mint-ui2';
 
 Vue.component(FixedButton.name, FixedButton);
 ```

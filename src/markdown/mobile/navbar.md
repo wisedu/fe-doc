@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Navbar, TabItem } from 'mint-ui';
+import { Navbar, TabItem } from 'bh-mint-ui2';
 
 Vue.component(Navbar.name, Navbar);
 Vue.component(TabItem.name, TabItem);
@@ -19,15 +19,17 @@ Vue.component(TabItem.name, TabItem);
 
 ```html
 <mt-navbar v-model="selected">
-  <mt-tab-item id="1" componentname="navbar">
+  <mt-tab-item id="1"  badge="dot">
     选项一
-    <mt-badge size="normal" padding="3px" color="red" slot="badge"></mt-badge>
   </mt-tab-item>
-  <mt-tab-item id="2" componentname="navbar">选项二</mt-tab-item>
-  <mt-tab-item id="3" componentname="navbar">选项三</mt-tab-item>
-  <mt-tab-item id="4" componentname="navbar">选项四</mt-tab-item>
-  <mt-tab-item id="5" componentname="navbar">选项五</mt-tab-item>
-  <mt-tab-item id="6" componentname="navbar">选项六</mt-tab-item>
+  <mt-tab-item id="2" >
+    <mt-badge size="small" padding="3px" type="danger" slot="badge"></mt-badge>
+    选项二
+  </mt-tab-item>
+  <mt-tab-item id="3" >选项三</mt-tab-item>
+  <mt-tab-item id="4" >选项四</mt-tab-item>
+  <mt-tab-item id="5" >选项五</mt-tab-item>
+  <mt-tab-item id="6" >选项六</mt-tab-item>
 </mt-navbar>
 
 <!-- tab-container -->
@@ -65,7 +67,7 @@ Vue.component(TabItem.name, TabItem);
 |------|-------|---------|-------|--------|
 | id | 选中后的返回值 | * | |  |
 | icontype | 选用的字体图标名称 | String | 参看字体图标 |  |
-| componentname | 组件名称，匹配样式 | String | 必选（navbar） |  |
+| badge | 可选内置徽章类型 | String | `dot` | '' |
 
 ## Slot
 ### navbar
@@ -78,4 +80,4 @@ Vue.component(TabItem.name, TabItem);
 |------|--------|
 | - | 显示文字|
 |icon | icon 图标，用于插入图片（与icontype效果相同，两者可选其一）|
-|badge | badge 徽章，绝对定位（top:0,right:0）,可自定义样式修改 |
+|badge | badge 徽章,存在内置红点徽章(dot),也可自定义,但必要时需要对样式进行修改 |

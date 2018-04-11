@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { DatetimePicker } from 'mint-ui';
+import { DatetimePicker } from 'bh-mint-ui2';
 
 Vue.component(DatetimePicker.name, DatetimePicker);
 ```

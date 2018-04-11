@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { DropdownMenus } from 'mint-ui';
+import { DropdownMenus } from 'bh-mint-ui2';
 
 Vue.component(DropdownMenus.name, DropdownMenus);
 ```

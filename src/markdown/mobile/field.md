@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Field } from 'mint-ui';
+import { Field } from 'bh-mint-ui2';
 
 Vue.component(Field.name, Field);
 ```

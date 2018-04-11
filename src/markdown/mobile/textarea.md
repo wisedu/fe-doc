@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Textarea } from 'mint-ui';
+import { Textarea } from 'bh-mint-ui2';
 
 Vue.component(Textarea.name, Textarea);
 ```

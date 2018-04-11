@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Lazyload } from 'mint-ui';
+import { Lazyload } from 'bh-mint-ui2';
 
 Vue.use(Lazyload);
 ```

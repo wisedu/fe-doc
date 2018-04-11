@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { TextSelect } from 'mint-ui';
+import { TextSelect } from 'bh-mint-ui2';
 
 Vue.component(TextSelect.name, TextSelect);
 ```

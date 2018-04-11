@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Search } from 'mint-ui';
+import { Search } from 'bh-mint-ui2';
 
 Vue.component(Search.name, Search);
 ```

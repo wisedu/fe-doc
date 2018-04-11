@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { TabContainer, TabContainerItem } from 'mint-ui';
+import { TabContainer, TabContainerItem } from 'bh-mint-ui2';
 
 Vue.component(TabContainer.name, TabContainer);
 Vue.component(TabContainerItem.name, TabContainerItem);

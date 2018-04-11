@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Image } from 'mint-ui';
+import { Image } from 'bh-mint-ui2';
 
 Vue.component(Image.name, Image);
 ```

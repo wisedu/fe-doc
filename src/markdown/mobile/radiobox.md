@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Radiobox } from 'mint-ui';
+import { Radiobox } from 'bh-mint-ui2';
 
 Vue.component(Radiobox.name, Radiobox);
 ```

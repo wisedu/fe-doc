@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Switcher } from 'mint-ui';
+import { Switcher } from 'bh-mint-ui2';
 
 Vue.component(Switcher.name, Switcher);
 ```

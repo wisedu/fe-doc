@@ -8,7 +8,7 @@
 ## 引入
 
 ```javascript
-import { icon } from 'mint-ui';
+import { icon } from 'bh-mint-ui2';
 
 Vue.component(icon.name, icon);
 ```

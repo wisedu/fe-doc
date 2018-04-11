@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Actionsheet } from 'mint-ui';
+import { Actionsheet } from 'bh-mint-ui2';
 
 Vue.component(Actionsheet.name, Actionsheet);
 ```

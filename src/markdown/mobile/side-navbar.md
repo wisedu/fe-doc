@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { SideNavbar } from 'mint-ui';
+import { SideNavbar } from 'bh-mint-ui2';
 
 Vue.component(SideNavbar.name, SideNavbar);
 ```
@@ -24,9 +24,9 @@ Vue.component(SideNavbar.name, SideNavbar);
 ```html
 <mt-side-navbar v-model="selected"> 
   <div slot="nav">
-    <mt-tab-item id="1" componentname="sidenavbar">选项一</mt-tab-item>
-    <mt-tab-item id="2" componentname="sidenavbar">选项二</mt-tab-item>
-    <mt-tab-item id="3" componentname="sidenavbar">选项三</mt-tab-item>
+    <mt-tab-item id="1" >选项一</mt-tab-item>
+    <mt-tab-item id="2" >选项二</mt-tab-item>
+    <mt-tab-item id="3" >选项三</mt-tab-item>
   </div>
   <mt-tab-container v-model="selected" slot="content">
     <mt-tab-container-item id="1">
@@ -63,7 +63,6 @@ Vue.component(SideNavbar.name, SideNavbar);
 |------|-------|---------|-------|--------|
 | id | 选中后的返回值 | * | |  |
 | icontype | 选用的字体图标名称 | String | 参看字体图标 |  |
-| componentname | 组件名称,匹配样式 | String | 必选（sidenavbar） |  |
 
 
 ```javascript

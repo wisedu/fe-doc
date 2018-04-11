@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Switch } from 'mint-ui';
+import { Switch } from 'bh-mint-ui2';
 
 Vue.component(Switch.name, Switch);
 ```

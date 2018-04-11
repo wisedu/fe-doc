@@ -7,7 +7,7 @@
 ## 引入
 
 ```javascript
-import { Spinner } from 'mint-ui';
+import { Spinner } from 'bh-mint-ui2';
 
 Vue.component(Spinner.name, Spinner);
 ```
