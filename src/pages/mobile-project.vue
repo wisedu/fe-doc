@@ -18,7 +18,10 @@
         <demo-block :type="categoryType" :jsfiddle="item" :key="item.id" style="width:800px;float:left;">
           <h4 slot="title" :id="item.id" :key="item.id">编号：{{item.id}}</h4>
           <component slot="source" :is="item.name" :ref="item.id"></component>
-          <pre slot="highlight" v-highlightjs><code class="html" :id="item.name">{{item.html}}</code></pre>
+          <pre slot="highlight" v-highlightjs>
+            <code class="html" :id="item.name"><p>HTML:</p>{{item.html}}</code>
+            <code class="css"><p>CSS:</p>{{item.style}}</code>
+          </pre>
           <div slot="showdesc" style="float:left;padding:8px">
             <div class="qrcode" :id="item.pageid"></div>
             <h3 class="codeh2" v-if="item.data !== undefined">页面状态</h3>
