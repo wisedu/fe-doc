@@ -81,7 +81,39 @@ export default {
 </mt-box-group>
 ```
 
-
+横向布局（注：选项不多于三个）
+```html
+<mt-cell-group title="横向单选">
+  <mt-radiobox direction="horizon" name="性别" v-model="value" wrapperpaddingleft="0" :options="options"></mt-radiobox>
+  <mt-cell title="选中的项">{{ value }}</mt-cell>
+</mt-cell-group>
+```
+```javascript
+export default {
+  data() {
+    return {
+      value: "",
+    }
+  },
+  created() {
+    this.options = [
+      {
+        id:"1",
+        label:"男"
+      },
+      {
+        id:"2",
+        label:"女"
+      },
+      {
+        id:"3",
+        label:"禁用",
+        disabled: true
+      }
+    ]
+  }
+};
+```
 
 ## Radiobox API
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
@@ -89,7 +121,10 @@ export default {
 |name | 标识 Radiobox 名称 | string | | |
 |disabled | 是否禁用单选框 | Boolean | | false |
 |align| 复选框对其位置| String | left, right | left |
-
+|direction| 显示布局方式 | String | `vertical`, `horizon` | `vertical` |
+|options| 横向布局参数 | Array | - | [] |
+|required | 标注是否为必选项(*),仅在`direction='horizon'`有效 | Boolean | | false |
+|wrapperpaddingleft | 自定义cell左侧内边距,仅在`direction='horizon'`有效 | String | | '' |
 
 ## radiobox Events
 | 事件名称 | 说明 | 回调参数 |

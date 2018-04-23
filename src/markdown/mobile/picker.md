@@ -13,7 +13,7 @@ Vue.component(Picker.name, Picker);
 #### 基础用法
 
 ```html
-<mt-picker :columns="columns" showToolbar @confirm="onConfirm"/>
+<mt-picker :columns="columns"  @change="onChange"/>
 ```
 
 ```javascript
@@ -23,8 +23,8 @@ export default {
       columns: ['杭州', '宁波', '温州', '嘉兴', '湖州']
     };
   },
-  onConfirm(picker, value, index) {
-    Toast(`当前值：${value}, 当前索引：${index}`);
+  onChange(picker, values,column) {
+    Toast(`当前值：${value}, 当前索引：${column}`);
   }
 };
 ```
@@ -50,10 +50,10 @@ export default {
 };
 ```
 
-#### 多列联动1
+#### 两级非联动
 
 ```html
-<mt-picker :columns="column" :title="标题" showToolbar @confirm="onConfirm" @cancel="onCancel" :isInterrelated="true"/>
+<mt-picker :columns="column" :title="两级非联动" showToolbar @confirm="onConfirm" @cancel="onCancel" />
 ```
 
 ```javascript
@@ -101,41 +101,72 @@ export default {
 };
 ```
 
-#### 多列联动2
+#### 三级联动
 
 ```html
-<mt-picker :columns="columns" @change="onChange" />
+<div class="page-picker-wrapper">
+  <mt-picker :columns="column" :title="三级联动" showToolbar @confirm="onConfirm" @cancel="onCancel" :isInterrelated="true"/>
+</div>
 ```
 
 ```javascript
-const citys = {
-  '浙江': ['杭州', '宁波', '温州', '嘉兴', '湖州'],
-  '福建': ['福州', '厦门', '莆田', '三明', '泉州']
-};
-
-export default {
-  data() {
-    return {
-      columns: [
-        {
-          values: Object.keys(citys),
-          className: 'column1'
-        },
-        {
-          values: citys['浙江'],
-          className: 'column2',
-          defaultIndex: 2
-        }
-      ]
-    };
+column:[
+  {
+    values:[
+      {text:'浙江',disabled:false,id:101,pid:-1}, 
+      {text:'福建',disabled:false,id:201,pid:-1},
+      {text:'江苏',disabled:false,id:301,pid:-1}],
+    className:'className1',
+    defaultIndex: 1
+  },{
+    values:[
+      {text:'杭州',disabled:false,pid:101,id:10101}, 
+      {text:'宁波',disabled:true,pid:101,id:10102},
+      {text:'温州',disabled:false,pid:101,id:10103},
+      {text:'嘉兴',disabled:false,pid:101,id:10104},
+      {text:'湖州',disabled:false,pid:101,id:10105},
+      {text:'福州',disabled:false,pid:201,id:20101}, 
+      {text:'厦门',disabled:false,pid:201,id:20102},
+      {text:'莆田',disabled:false,pid:201,id:20103},
+      {text:'三明',disabled:false,pid:201,id:20104},
+      {text:'泉州',disabled:false,pid:201,id:20105},
+      {text:'南京',disabled:false,pid:301,id:30101}, 
+      {text:'扬州',disabled:false,pid:301,id:30102},
+      {text:'无锡',disabled:false,pid:301,id:30103},
+      {text:'常州',disabled:false,pid:301,id:30104},
+      {text:'苏州',disabled:false,pid:301,id:30105}],
+    className:'className2',
+    defaultIndex: 0
   },
-  methods: {
-    onChange(picker, values) {
-      //设定自动链级
-      picker.setColumnValues(1, citys[values[0]]);
-    }
+  {
+    values:[
+      {text:'上城区',disabled:false,pid:10101,id:101011},
+      {text:'下城区',disabled:false,pid:10101,id:101012},
+      {text:'西湖区',disabled:false,pid:10101,id:101013},
+      {text:'鼓楼区',disabled:false,pid:30101,id:301011},
+      {text:'玄武区',disabled:false,pid:30101,id:301012},
+      {text:'江宁区',disabled:false,pid:30101,id:301013},
+      {text:'邗江区',disabled:false,pid:30102,id:301021},
+      {text:'江都区',disabled:false,pid:30102,id:301022},
+      {text:'开发区',disabled:false,pid:30102,id:301023},
+      {text:'江阴市',disabled:false,pid:30103,id:301031},
+      {text:'宜兴市',disabled:false,pid:30103,id:301032},
+      {text:'锡山区',disabled:false,pid:30103,id:301033},
+      {text:'惠山区',disabled:false,pid:30103,id:301034},
+      {text:'钟楼区',disabled:false,pid:30104,id:301041},
+      {text:'武进区',disabled:false,pid:30104,id:301042},
+      {text:'溧阳区',disabled:false,pid:30104,id:301043},
+      {text:'姑苏区',disabled:false,pid:30105,id:301051},
+      {text:'相城区',disabled:false,pid:30105,id:301052},
+      {text:'吴江区',disabled:false,pid:30105,id:301053},
+      {text:'虎丘区',disabled:false,pid:30105,id:301054},
+      {text:'吴中区',disabled:false,pid:30105,id:301055},
+      {text:'常熟市',disabled:false,pid:30105,id:301056}
+    ],
+    className:'className3'
   }
-};
+]
+
 ```
 
 ### API
@@ -150,7 +181,7 @@ export default {
 | itemHeight | 选项高度 | `Number` | `44` | - |
 | visibileColumnCount | 可见的选项个数 | `Number` | `5` | - |
 | valueKey | 选项对象中，文字对应的 key | `String` | `text` | - |
-| isInterrelated | 标识columns数据是否关联，该属性在’多列联动1’数据时使用，达到一二级数据的联动效果 | `Boolean` | `false` | - |
+| isInterrelated | 标识columns数据是否关联，该属性在’多列联动1’数据时使用，达到多级数据的联动效果 | `Boolean` | `false` | - |
 
 ### Columns 数据结构
 当传入多列数据时，`columns`为一个对象数组，数组中的每一个对象配置每一列，每一列有以下`key`
