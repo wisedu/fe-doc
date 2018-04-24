@@ -21,9 +21,9 @@
     <el-col :span="6" :offset="1">
       <router-link to="pc">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#4a90e2' }">
-          <div style="height:80px;padding:32px"><h2 style="color:white">Responsive</h2></div>
+          <div style="height:80px;padding:32px"><h2 style="color:white">Iview</h2></div>
           <div style="padding: 14px;background-color:white">
-            <span>响应式组件</span>
+            <span>iview文档</span>
             <div class="bottom clearfix">
               <time class="time"></time>
             </div>

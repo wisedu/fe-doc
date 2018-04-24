@@ -12,10 +12,12 @@
         <router-link to="/mobile-projectlist">
           <li :class="mobile_active">移动模板库</li>
         </router-link>
-        <router-link to="/pc">
+<!--         <router-link to="/pc">
           <li :class="pc_active">响应式组件</li>
+        </router-link> -->
+        <router-link to="/pc">
+          <li :class="pc_active">iview文档</li>
         </router-link>
-        <li><a href="http://res.wisedu.com/iview/">iview文档</a></li>
         <li><a href="http://res.wisedu.com/FS/docsite/">RES文档</a></li>
       </ul>
     </div>
