@@ -56,6 +56,7 @@ import MobileProject from './pages/mobile-project'
 import Ceils from './pages/ceils'
 import NotFoundComponent from './pages/NotFoundComponent'
 import skinTools from './pages/skinTools'
+import Portals from './pages/portals'
 ${jsImport.join("\r\n")}
 
 Vue.use(Router)
@@ -109,6 +110,10 @@ function buildRouter(components) {
     "name": "mobile-projectlist",
     "component": "@MobileProjectList@",
     "path": "/mobile-projectlist"
+  },{
+    "name": "portals",
+    "component": "@Portals@",
+    "path": "/portals"
   },{
     "component": "@NotFoundComponent@",
     "path": "*"

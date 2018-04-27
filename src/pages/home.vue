@@ -66,6 +66,17 @@
       </router-link>
     </el-col>
     <el-col :span="6" :offset="1">
+      <router-link to="portals">
+        <el-card :body-style="{ padding: '0px', backgroundColor:'#4a90e2' }">
+          <div style="height:80px;padding:32px"><h2 style="color:white">OA首页</h2></div>
+          <div style="padding: 14px;background-color:white">
+            <span>OA首页文档</span>
+            <div class="bottom clearfix">
+              <time class="time"></time>
+            </div>
+          </div>
+        </el-card>
+      </router-link>
     </el-col>
     <el-col :span="6" :offset="1">
     </el-col>
