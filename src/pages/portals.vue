@@ -154,6 +154,7 @@
       <div class="m-b-24">
         <h2>开发卡片、内置应用配置</h2>
         <div>下载开发环境，操作说明请按 README.md 进行操作</div>
+        <div>公共接口请查看 API.md </div>
         <a href="http://res.wisedu.com/FS/portals/portals.zip">下载</a>
       </div>
 
