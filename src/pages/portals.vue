@@ -13,7 +13,7 @@
                 <template v-for="color in colors">
                   <template v-for="index in color.count">
                     <div>
-                      <div class="tg-br-white" :class="getClassName(color.name, index, colorType.name, colorType.handle)">{{getClassName(color.name, index, colorType.name, colorType.handle)}}</div>
+                      <div :class="getClassName(color.name, index, colorType.name, colorType.handle)">{{getClassName(color.name, index, colorType.name, colorType.handle)}}</div>
                     </div>
                   </template>
                 </template>
@@ -132,10 +132,10 @@
               <pre>
                   <code class="lang-html">
                     <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row"</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-6 tg-col-560-6"</span>&gt;</span> 1 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-6 tg-col-560-6"</span>&gt;</span> 2 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-3 tg-col-560-hide"</span>&gt;</span> 3 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-hide"</span>&gt;</span> 4 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-6 tg-col-560-6 tg-bg-primary-1"</span>&gt;</span> 1 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-3 tg-col-560-6 tg-bg-success-1"</span>&gt;</span> 2 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-3 tg-col-560-hide tg-bg-danger-1"</span>&gt;</span> 3 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-3 tg-col-1136-hide tg-bg-warning-1"</span>&gt;</span> 4 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
                   </code>
               </pre>
@@ -144,6 +144,178 @@
 
           </div>
 
+        </div>
+      </div>
+
+
+
+      <div>
+        <h2>居中</h2>
+        <div>
+
+          <div>
+            <h3  class="float-left m-r-16">文字居中</h3>
+            <div>
+                <pre>
+                    <code class="lang-html">
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-text-center"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    </code>
+                </pre>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="float-left m-r-16">容器居中<span style="color: red;">（注：需对容器设置宽度才能生效）</span></h3>
+            <div>
+                <pre>
+                    <code class="lang-html">
+                      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-container-center"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"width:300px;"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                    </code>
+                </pre>
+            </div>
+          </div>
+
+          <div>
+            <h3>栅格居中<span style="color: red;">（注：下面的居中，仅在栅格上生效，不兼容IE9，IE9的表现形式为居上居左）</span></h3>
+            <div>
+              <div>
+                <h3  class="float-left m-r-16">该行下的所有列垂直水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row tg-row-center"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+
+
+              <div>
+                <h3  class="float-left m-r-16">该行下的所有列垂直居中</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row tg-row-center-v"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+
+
+              <div>
+                <h3  class="float-left m-r-16">该行下的所有列水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row tg-row-center-h"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+
+
+              <div>
+                <h3  class="float-left m-r-16">对列单独设置垂直水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6 tg-col-center"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+
+
+              <div>
+                <h3  class="float-left m-r-16">对列单独设置垂直居中</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6 tg-col-center-v"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+
+
+              <div>
+                <h3  class="float-left m-r-16">对列单独设置水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div>
+                  <pre>
+                      <code class="lang-html">
+                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-row"</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6 tg-col-center-h"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"tg-col-6"</span>&gt;</span> 内容 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+                      </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="m-b-24">
+        <h2>字体</h2>
+        <div>
+
+        </div>
+      </div>
+
+
+      <div class="m-b-24">
+        <h2>边距</h2>
+        <div v-for="type in mp.type"  class="m-b-24">
+          <h3>{{type.text}}</h3>
+          <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td v-for="direct in mp.direct">{{direct.name}}</td>
+                </tr>
+                <tr v-for="step in (mp.max / mp.step)">
+                  <td>{{step * mp.step}}px</td>
+                  <td v-for="direct in mp.direct">{{getMPClass(type.name, step * mp.step, direct.ab)}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="m-b-24">
+        <h2>其他常用样式</h2>
+        <div>
+          <table class="utils-class">
+            <tbody>
+            <tr><td>左浮动</td><td>tg-left</td></tr>
+            <tr><td>右浮动</td><td>tg-right</td></tr>
+            <tr><td>清除浮动</td><td>tg-clear</td></tr>
+            <tr><td>仅清除子节点浮动</td><td>tg-clear-child</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -169,6 +341,21 @@
   .m-b-24{
     margin-bottom: 24px;
   }
+
+  .m-r-16{
+    margin-right: 16px;
+  }
+
+  .float-left{
+    float: left;
+  }
+
+  .clear:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+
   .portals-colors{
     background-color: #fff;
   }
@@ -216,18 +403,25 @@
   .portals-grid .tg-row > div{
     border: 1px solid #ddd;
   }
+
+  [class*="tg-br-h"]{
+    border: 1px solid #fff;
+  }
+
+  .utils-class tr > td:nth-child(1){
+    width: 200px;
+  }
 </style>
 <script>
   export default {
     data () {
       return {
         colors: [
-          {name: "primary", count: 2},
-          {name: "secondary", count: 2},
-          {name: "success", count: 2},
-          {name: "warning", count: 2},
-          {name: "danger", count: 2},
-          {name: "grey", count: 5},
+          {name: "primary", count: 4},
+          {name: "success", count: 4},
+          {name: "warning", count: 4},
+          {name: "danger", count: 4},
+          {name: "grey", count: 6},
           {name: "white", count: 1},
           {name: "transparent", count: 1},
         ],
@@ -239,7 +433,22 @@
           {name: 'br', handle: '', text: '边框'},
           {name: 'br', handle: 'h', text: 'hover时的边框'}
         ],
-        classPrefix: 'tg'
+        classPrefix: 'tg',
+        mp: {
+          step: 4,
+          max: 32,
+          direct: [
+            {name: '所有的', ab: ''},
+            {name: '上边距', ab: 't'},
+            {name: '下边距', ab: 'b'},
+            {name: '左边距', ab: 'l'},
+            {name: '右边距', ab: 'r'}
+          ],
+          type: [
+            {name: 'm', text: '外边距'},
+            {name: 'p', text: '内边距'}
+          ]
+        }
       }
     },
     methods: {
@@ -250,7 +459,10 @@
         if(name === 'white' || name === 'transparent'){
             index = '';
         }
-        return `${this.classPrefix}${position}${handle}-${name}${index}`;
+
+        let className = `${this.classPrefix}${position}${handle}-${name}${index}`;
+
+        return className;
       },
       getSingleBorderClassName: function (name, index, isDom) {
         index = `-${index}`;
@@ -268,6 +480,10 @@
             }
         }
         return _class;
+      },
+      getMPClass: function (type, step, ab) {
+        ab = ab ? `-${ab}` : '';
+        return `${this.classPrefix}-${type}${ab}-${step}`;
       }
     }
   }
