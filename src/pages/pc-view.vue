@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="page-container">
-      <md-side-nav type="pc"></md-side-nav>
+      <md-side-nav type="pc" default-openeds="components"></md-side-nav>
       <div class="page-component">
         <div class="content">
           <router-view></router-view>
