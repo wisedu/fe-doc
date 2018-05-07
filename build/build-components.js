@@ -49,7 +49,8 @@ components.forEach(item => {
 let template = `import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/home'
-import PcView from './pages/iview-view'
+import PcView from './pages/pc-view'
+import IView from './pages/iview-view'
 import MobileView from './pages/mobile-view'
 import MobileProjectList from './pages/mobile-projectlist'
 import MobileProject from './pages/mobile-project'
@@ -110,6 +111,10 @@ function buildRouter(components) {
     "name": "mobile-projectlist",
     "component": "@MobileProjectList@",
     "path": "/mobile-projectlist"
+  },{
+    "name": "iview",
+    "component": "@IView@",
+    "path": "/iview"
   },{
     "name": "portals",
     "component": "@Portals@",
