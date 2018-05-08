@@ -32,7 +32,7 @@ Vue.component(TreeSelector.name, TreeSelector);
 ```html
 <mt-tree-selector
   label="树形多选择器"
-  :multiple="true"
+  multiple
   :options="options"
   v-model="multiValue"
   placeholder="请选择"
@@ -41,6 +41,20 @@ Vue.component(TreeSelector.name, TreeSelector);
 <p>{{multiValue}}</p>
 ```
 
+多选(父级可选)
+
+```html
+<mt-tree-selector
+  label="树形多选择器"
+  :options="options"
+  v-model="multiValue"
+  placeholder="请选择"
+  multiple
+  parentSelectable
+  @selector-click="loadMultiOptionsEmap">
+</mt-tree-selector>
+<p>{{multiValue}}</p>
+```
 
 
 ## API
@@ -50,13 +64,14 @@ Vue.component(TreeSelector.name, TreeSelector);
 | value | 字段绑定值 | String | - | - |
 | placeholder | 占位文字 | String | - | "请选择" |
 | options | 选项数据 | Array | - | [] |
-| selectType | 选择器类型 | String | 'select','multi-select','custom' | 'select' |
 | readonly | 只读模式 | Boolean | | false |
 | disabled | 无效模式 | Boolean | | false |
 | required | 标注是否为必选项(*) | Boolean | | false |
 | displayType | 设置树中选中值的展示方式，默认展示最后一层选中数据；displayType=true时，展示所有数据 | Boolean | | false |
 | titlewidth | 自定义title标签所占宽度 | String | | '' |
 | valueAlign | 设定value内容的对齐方式 | String | `flex-start`,`flex-end`,'center' |  |
+| multiple | 是否多选 | Boolean | `true`,`false` | `false` |
+| parentSelectable | 多选模式下，设定父级是否可选 | Boolean | `true`,`false` | `false` |
 
 ## Events
 | 事件名称 | 说明 | 回调参数 |

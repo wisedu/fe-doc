@@ -8,9 +8,10 @@
 <script>
 import MdHeader from './components/header'
 import PcView from './pages/pc-view'
+import IView from './pages/iview-view'
 export default {
   name: "app",
-  components: { MdHeader, PcView }
+  components: { MdHeader, PcView, IView }
 };
 </script>
 
