@@ -29,7 +29,7 @@ Vue.component(DropdownMenus.name, DropdownMenus);
     :options="options"
     @dropDown="getSelectedButtons"
     @cancel="cancel">
-    <div v-if="isShowMenu" slot="menu">需要展示的自定义内容</div>
+    <div v-if="isShowMenu" slot="menu">需要展示的自定义内容1</div>
   </mt-dropdown-menus>
 </template>
 
