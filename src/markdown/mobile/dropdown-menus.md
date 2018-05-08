@@ -29,11 +29,19 @@ Vue.component(DropdownMenus.name, DropdownMenus);
     :options="options"
     @dropDown="getSelectedButtons"
     @cancel="cancel">
+    <div v-if="isShowMenu" slot="menu">需要展示的自定义内容</div>
   </mt-dropdown-menus>
 </template>
 
 <script>
   export default {
+    data() {
+      return {
+        //结合使用的数据
+        isShowMenu: false,
+        options:[]
+      }
+    }
     methods: {
       getSelectedButtons(param) {
         console.log(param)
@@ -52,176 +60,125 @@ Vue.component(DropdownMenus.name, DropdownMenus);
 <template>
   <div class="page-part part-height">
           <h2>一级下拉菜单</h2>
-          <mt-dropdown-menus :options="options1" @dropDown="getSelectedButtons1" @cancel="cancel1"></mt-dropdown-menus>
-          <div v-if="isShowMenu1" class="bh-ddm">
-              <mt-box-group v-model="sexValue1" align="right" slot="menu">
-                <mt-cell-group>
-                    <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in menuDatas1" :key="item.value">
-                        {{item.label}}
-                    </mt-radiobox>
-                </mt-cell-group>
-              </mt-box-group>
-          </div>
+          <mt-dropdown-menus :options="options1" @dropDown="getSelectedButtons1" @cancel="cancel1">
+            <mt-box-group v-if="isShowMenu1" v-model="sexValue1" align="right" slot="menu">
+              <mt-cell-group>
+                  <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in menuDatas1" :key="item.value">
+                      {{item.label}}
+                  </mt-radiobox>
+              </mt-cell-group>
+            </mt-box-group>
+          </mt-dropdown-menus>
         </div>
         <div class="page-part part-height">
           <h2>二级下拉菜单</h2>
-          <mt-dropdown-menus :options="options2" @dropDown="getSelectedButtons2" @cancel="cancel2"></mt-dropdown-menus>
-          <div v-if="isShowMenu2" class="bh-ddm">
-              <mt-side-navbar slot="menu" class="bh-ddm-sideNavbar" v-model="lv2Selected2">
-                  <div slot="nav">
-                    <mt-tab-item id="4">全部国家</mt-tab-item>
-                    <mt-tab-item id="1">选项一</mt-tab-item>
-                    <mt-tab-item id="2">选项二</mt-tab-item>
-                    <mt-tab-item id="3">选项三</mt-tab-item>
-                  </div>
-                  <mt-tab-container v-model="lv2Selected2" slot="content">
-                    <mt-tab-container-item id="4">
-                      <mt-cell :title="'国家'" :id="'countryAll'" arrowdefined is-link to="click" @cellClick="cellClick2">
-                        <i slot="arrowdefined" class="icon"></i>
-                      </mt-cell>
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="1">
-                      <mt-cell v-for="n in 10" :title="'内容 ' + n" arrowdefined :id="n" is-link to="click" @cellClick="cellClick2">
-                          <i slot="arrowdefined" class="icon"></i>
-                      </mt-cell>
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="2">
-                      <mt-cell v-for="n in 4" :title="'测试 ' + n" arrowdefined :aria-invalid="n" is-link to="click" @cellClick="cellClick2">
-                        <i slot="arrowdefined" class="icon"></i>
-                      </mt-cell>
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="3">
-                      <mt-cell v-for="n in 6" :title="'选项 ' + n" arrowdefined :id="n" is-link to="click" @cellClick="cellClick2">
-                          <i slot="arrowdefined" class="icon"></i>
-                      </mt-cell>
-                    </mt-tab-container-item>
-                  </mt-tab-container>
-                </mt-side-navbar>
-          </div>
+          <mt-dropdown-menus :options="options2" @dropDown="getSelectedButtons2" @cancel="cancel2">
+            <mt-side-navbar v-if="isShowMenu2" slot="menu" class="bh-ddm-sideNavbar" v-model="lv2Selected2">
+              <div slot="nav">
+                <mt-tab-item id="4">全部国家</mt-tab-item>
+                <mt-tab-item id="1">选项一</mt-tab-item>
+                <mt-tab-item id="2">选项二</mt-tab-item>
+                <mt-tab-item id="3">选项三</mt-tab-item>
+              </div>
+              <mt-tab-container v-model="lv2Selected2" slot="content">
+                <mt-tab-container-item id="4">
+                  <mt-cell :title="'国家'" :id="'countryAll'" arrowdefined is-link to="click" @cellClick="cellClick2">
+                    <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="1">
+                  <mt-cell v-for="n in 10" :title="'内容 ' + n" arrowdefined :id="n" is-link to="click" @cellClick="cellClick2">
+                      <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="2">
+                  <mt-cell v-for="n in 4" :title="'测试 ' + n" arrowdefined :aria-invalid="n" is-link to="click" @cellClick="cellClick2">
+                    <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
+                </mt-tab-container-item>
+                <mt-tab-container-item id="3">
+                  <mt-cell v-for="n in 6" :title="'选项 ' + n" arrowdefined :id="n" is-link to="click" @cellClick="cellClick2">
+                      <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
+                </mt-tab-container-item>
+              </mt-tab-container>
+            </mt-side-navbar>
+          </mt-dropdown-menus>
         </div>
         <div class="page-part part-height">
           <h2>三级下拉菜单</h2>
-          <mt-dropdown-menus :options="options3" @dropDown="getSelectedButtons3" @cancel="cancel3"></mt-dropdown-menus>
-          <div v-if="isShowMenu3" class="bh-ddm">
-              <div slot="menu" class="bh-ddm-three">
-                <div class="bh-ddm-lv1-container">
-                    <mt-cell v-for=" item in menuDatas3" :title="item.label" arrowdefined is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected3(item)">
-                         <i slot="arrowdefined" class="icon"></i>
-                    </mt-cell>
-                </div>
-                <div class="bh-ddm-lv2-container">
-                    <mt-cell v-for=" item in subMenuDatas3" :title="item.label" arrowdefined is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected3(item)">
-                        <i slot="arrowdefined" class="icon"></i>
-                    </mt-cell>
-                </div>
-                <div class="bh-ddm-lv3-container">
-                  <mt-box-group v-model="trafficValue3" align="right" slot="menu">
-                    <mt-cell-group>
-                        <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in grandMenuDatas3" :key="item.value">
-                            {{item.label}}
-                        </mt-radiobox>
-                    </mt-cell-group>
-                  </mt-box-group>
-                </div>
-            </div>
-          </div>
-        </div>
-        <div class="page-part part-height">
-          <h2>下拉条件过滤</h2>
-          <mt-dropdown-menus :options="options4" @dropDown="getSelectedButtons4" @cancel="cancel4"></mt-dropdown-menus>
-          <div v-if="isShowMenu4" class="bh-ddm">
-              <div slot="menu" class="bh-ddm-filter" :style="{'height':bodyHeight1}">
-                <div style="padding:0 20px;">
-                    <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas4" v-model="multiValue1" :display.sync="multiValue_display1"></mt-button-list>
-                    <p>value: {{multiValue1}}</p>
-                    <p>display: {{multiValue_display1}}</p>
-                </div>
-                <div class="bh-ddm-filter-buttons">
-                    <div class="bh-ddm-filter-button" @click="resetFilter1">
-                    重置
-                    </div>
-                    <div class="bh-ddm-filter-button" @click="sureFilter1">
-                    确定
-                    </div>
-                </div>
+          <mt-dropdown-menus :options="options3" @dropDown="getSelectedButtons3" @cancel="cancel3">
+            <div v-if="isShowMenu3" slot="menu" class="bh-ddm-three">
+              <div class="bh-ddm-lv1-container">
+                  <mt-cell v-for=" item in menuDatas3" :title="item.label" arrowdefined is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected3(item)">
+                      <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
               </div>
-          </div>
-        </div>
-        <div class="page-part part-height">
-            <h2>四种类型结合使用</h2>
-            <mt-dropdown-menus :options="options" @dropDown="getSelectedButtons" @cancel="cancel"> </mt-dropdown-menus>
-            <div v-if="isShowMenu" class="bh-ddm">
-                <mt-box-group v-model="sexValue" align="right" slot="menu" v-if="type==='lv1'">
+              <div class="bh-ddm-lv2-container">
+                  <mt-cell v-for=" item in subMenuDatas3" :title="item.label" arrowdefined is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected3(item)">
+                      <i slot="arrowdefined" class="icon"></i>
+                  </mt-cell>
+              </div>
+              <div class="bh-ddm-lv3-container">
+                <mt-box-group v-model="trafficValue3" align="right" slot="menu">
                   <mt-cell-group>
-                      <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in menuDatas" :key="item.value">
+                      <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in grandMenuDatas3" :key="item.value">
                           {{item.label}}
                       </mt-radiobox>
                   </mt-cell-group>
-              </mt-box-group>
-                <mt-side-navbar slot="menu" v-if="type==='lv2'" class="bh-ddm-sideNavbar" v-model="lv2Selected">
-                  <div slot="nav">
-                    <mt-tab-item id="4">全部国家</mt-tab-item>
-                    <mt-tab-item id="1">选项一</mt-tab-item>
-                    <mt-tab-item id="2">选项二</mt-tab-item>
-                    <mt-tab-item id="3">选项三</mt-tab-item>
-                  </div>
-                  <mt-tab-container v-model="lv2Selected" slot="content">
-                    <mt-tab-container-item id="4">
-                      <mt-cell :title="'国家'" :id="'countryAll'"  is-link to="click" @cellClick="cellClick" />
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="1">
-                      <mt-cell v-for="n in 10" :title="'内容 ' + n"   :id="n" is-link to="click" @cellClick="cellClick">
-                        <i slot="arrowdefined" class="icon"></i>
-                      </mt-cell>
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="2">
-                      <mt-cell v-for="n in 4" :title="'测试 ' + n" :aria-invalid="n" is-link to="click" @cellClick="cellClick"/>
-                    </mt-tab-container-item>
-                    <mt-tab-container-item id="3">
-                      <mt-cell v-for="n in 6" :title="'选项 ' + n" :id="n" is-link to="click" @cellClick="cellClick"/>
-                    </mt-tab-container-item>
-                  </mt-tab-container>
-                </mt-side-navbar>
-                <!-- <div slot="menu" v-if="type==='lv2'" class="bh-ddm-two">
-                    <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv2-container">
-                        <mt-radiobox class="bh-radio-slot"  align="right" type="hook" :options="subMenuDatas" v-model="countryValue">
-                        </mt-radiobox>
-                    </div>
-                </div> -->
-                <div slot="menu" v-if="type==='lv3'" class="bh-ddm-three">
-                    <div class="bh-ddm-lv1-container">
-                        <mt-cell v-for=" item in menuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv1-item" :class="{'bh-ddm-lv1-item-selected':item.active}" @cellClick="setSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv2-container">
-                        <mt-cell v-for=" item in subMenuDatas" :title="item.label" is-link :to="'click'" class="bh-ddm-lv2-item" :class="{'bh-ddm-lv2-item-selected':item.active}" @cellClick="setSubSelected(item)">
-                        </mt-cell>
-                    </div>
-                    <div class="bh-ddm-lv3-container">
-                        <mt-radiobox class="bh-radio-slot"  align="right" type="hook" :options="grandMenuDatas" v-model="trafficValue">
-                        </mt-radiobox>
-                    </div>
-                </div>
-                <div slot="menu" v-if="type==='filter'" class="bh-ddm-filter" :style="{'height':bodyHeight}">
-                    <div style="padding:0 20px;">
-                        <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas" v-model="multiValue" :display.sync="multiValue_displaymultiValue_display"></mt-button-list>
-                        <p>value: {{multiValue}}</p>
-                        <p>display: {{multiValue_display}}</p>
-                    </div>
-                    <div class="bh-ddm-filter-buttons">
-                        <div class="bh-ddm-filter-button" @click="resetFilter">
-                        重置
-                        </div>
-                        <div class="bh-ddm-filter-button" @click="sureFilter">
-                        确定
-                        </div>
-                    </div>
-                </div>
+                </mt-box-group>
+              </div>
             </div>
+          </mt-dropdown-menus>
+        </div>
+        <div class="page-part part-height">
+          <h2>下拉条件过滤</h2>
+          <mt-dropdown-menus :options="options4" @dropDown="getSelectedButtons4" @cancel="cancel4">
+            <div v-if="isShowMenu4" slot="menu" class="bh-ddm-filter" :style="{'height':bodyHeight1}">
+              <div style="padding:0 20px;">
+                  <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas4" v-model="multiValue1" :display.sync="multiValue_display1"></mt-button-list>
+                  <p>value: {{multiValue1}}</p>
+                  <p>display: {{multiValue_display1}}</p>
+              </div>
+              <div class="bh-ddm-filter-buttons">
+                  <div class="bh-ddm-filter-button" @click="resetFilter1">
+                  重置
+                  </div>
+                  <div class="bh-ddm-filter-button" @click="sureFilter1">
+                  确定
+                  </div>
+              </div>
+            </div>
+          </mt-dropdown-menus>
+        </div>
+        <div class="page-part part-height">
+            <h2>两种类型结合使用</h2>
+            <mt-dropdown-menus :options="options" @dropDown="getSelectedButtons" @cancel="cancel">
+              <div v-if="isShowMenu" slot="menu">
+                  <mt-box-group  v-if="type==='lv1'" v-model="sexValue" align="right">
+                    <mt-cell-group>
+                        <mt-radiobox :name="item.value" :disabled="item.disabled" type="hook" v-for="item in menuDatas" :key="item.value">
+                            {{item.label}}
+                        </mt-radiobox>
+                    </mt-cell-group>
+                  </div>
+                  <div v-if="type==='filter'" class="bh-ddm-filter" :style="{'height':bodyHeight}">
+                      <div style="padding:0 20px;">
+                          <mt-button-list label="频率" :multiple="true" :plain="false" :options="filterMenuDatas" v-model="multiValue" :display.sync="multiValue_displaymultiValue_display"></mt-button-list>
+                          <p>value: {{multiValue}}</p>
+                          <p>display: {{multiValue_display}}</p>
+                      </div>
+                      <div class="bh-ddm-filter-buttons">
+                          <div class="bh-ddm-filter-button" @click="resetFilter">
+                          重置
+                          </div>
+                          <div class="bh-ddm-filter-button" @click="sureFilter">
+                          确定
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </mt-dropdown-menus>
         </div>
 </template>
 
