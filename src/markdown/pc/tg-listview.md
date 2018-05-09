@@ -4,8 +4,10 @@
 
 #### 基本用法
 
+该组件支持三种模式：列表、栅格、平铺
+
 ```html
-<tg-listview :datasource="datasource" :page-size="20" bordered pagination>
+<tg-listview :datasource="datasource" :page-size="20" bordered pagination autoReadyDataBind>
   <template slot="itemTemplate" slot-scope="props">
     项模板
   </template>
@@ -24,7 +26,7 @@
 ![文字列表](/static/md/listview-list.png)
 
 ```html
-<tg-listview :datasource="ds" bordered>
+<tg-listview :datasource="ds" bordered autoReadyDataBind>
     <template slot="itemTemplate" slot-scope="props">
         <tg-div class="tg-col-6">
             <tg-text class="tg-primary-1">数据内容{{props.data}}</tg-text>
@@ -47,7 +49,7 @@
 ![卡片列表](/static/md/listview-card.png)
 
 ```html
-<tg-listview :datasource="ds" :grid="{gutter: 16, column: 3}">
+<tg-listview :datasource="ds" :grid="{gutter: 16, column: 3}" autoReadyDataBind>
     <template slot="itemTemplate" slot-scope="props">
         <Card style="width:100%">
             <p slot="title">
@@ -62,22 +64,56 @@
 </tg-listview>
 ```
 
-#### 图标列表
+#### 平铺模式 - 图标列表
 
-## API
+![图标列表](/static/md/listview-icon.png)
+
+```html
+<tg-listview :datasource="ds" :grid="{gutter: 40}" @ready="init">
+    <template slot="itemTemplate" slot-scope="props">
+        <tg-div>
+            <Icon type="stop" size="107"></Icon>
+        </tg-div>
+        <tg-div class="tg-text-center">
+            <tg-text class="tg-primary-1">主标题{{props.data}}</tg-text>
+        </tg-div>
+    </template>
+</tg-listview>
+```
+这里在标签上设置了 **@ready事件** ，可以手动调用数据加载的方法
+```js
+{
+  methods:{
+      init(inst){
+          inst.DataBind();
+          // inst.DataBind({param1:"1"});
+      }
+  }
+}
+```
+
+### 属性
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
 | size | 尺寸 | String | 'small','default','large' | 'default' |
 | grid | 排列方式，横向 或 纵向 | Object | {gutter: 16, column: 3} |  |
 | bordered | 是否显示边框 | Boolean | | false |
-| datasource | 数据源 | DataSource | | |
 | pagination | 是否显示分页按钮 | Boolean | | false |
-| pageSize | 分页大小 | Number |  | 10 |
 | itemTemplate | 显示项模板 | Slot |  | {data:[], index:0} |
 | pagerTemplate | 分页模板 | Slot |  |  |
 | emptyTemplate | 无数据模板 | Slot |  |  |
+| datasource | 数据源 | DataSource | | |
+| pageSize | 分页大小 | Number |  | 10 |
+| autoReadyDataBind | 组件ready事件时，自动执行数据绑定 | Boolean | | false |
 
-## Events
+### Methods
+| 方法名称 | 说明 | 参数 |
+|---------- |-------- |---------- |
+| DataBind  | 执行findAll查询数据 | `{查询参数1:1,查询参数2:2}`  |
+| SetData  | 直接设置数据，适用于自行获取的数据 | `{rows:[{字段1:1,字段2:2},{字段1:1,字段2:2}]}`  |
+| LoadMore  | 触发加载更多，根据`pageSize`获取数据 | 无  |
+
+### Events
 | 事件名称 | 说明 | 回调参数 |
 |---------- |-------- |---------- |
-| click  | 点击项后触发 | `项`,`顺序值`,`原始dom事件`  |
+| ready  | 组件加载完成，主要用于手动做数据绑定 | 组件实例 inst  |

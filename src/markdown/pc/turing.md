@@ -1,6 +1,6 @@
 ## turing 数据适配组件
 
-### 示例
+### 代码调用示例
 
 ```js
 
@@ -14,7 +14,7 @@ var testDS = window.turing.DataSource.get("hqjxjzlbgsj");
 exports.DataSource.ready(function() {
 		//数据集已经准备完毕，启动页面js
 })
- *  /
+ */
 
 emapDS.execute({url:"http://res.wisedu.com/fe_components/mock/table.json", method:"get"}).then(function(result){
   console.log(result)
@@ -31,3 +31,6 @@ testDS.findAll().then(function(result){
 });
 
 ```
+
+
+### 组件中使用
