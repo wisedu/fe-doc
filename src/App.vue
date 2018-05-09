@@ -77,9 +77,9 @@ a {
 }
 
 code {
-  background-color: #f9fafc;
+  background-color: rgba(230, 162, 60, 0.2);
   padding: 0 4px;
-  border: 1px solid #eaeefb;
+  border: 1px solid rgba(230, 162, 60, 0.5);
   border-radius: 4px;
 }
 

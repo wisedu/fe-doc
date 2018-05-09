@@ -7,7 +7,7 @@
       <el-submenu index="important">
         <template slot="title">置顶文档</template>
         <template v-if="type === 'mobile'">
-          <router-link v-for="item in emapVms" :key="item.name" :to="{name: item.name}">
+          <router-link v-for="item in mobileVms" :key="item.name" :to="{name: item.name}">
             <el-menu-item :index="item.path" @click="handleCOMClick(item.path)">
               <span>{{item.comName}} {{item.desc}}</span>
               <span style="color:#FF4949">{{item.count}}</span>
@@ -20,9 +20,10 @@
           </router-link>
         </template>
         <template v-if="type === 'pc'">
-          <router-link :to="{name: 'portals'}">
-            <el-menu-item index="portals" @click="handleCOMClick('portals')">
-              <span>CSS样式</span>
+          <router-link v-for="item in pcVms" :key="item.name" :to="{name: item.name}">
+            <el-menu-item :index="item.path" @click="handleCOMClick(item.path)">
+              <span>{{item.comName}} {{item.desc}}</span>
+              <span style="color:#FF4949">{{item.count}}</span>
             </el-menu-item>
           </router-link>
         </template>
@@ -66,7 +67,7 @@ export default {
       routes: [],
       coms: [],
       navs: [],
-      emapVms:[{
+      mobileVms:[{
         desc: "表单",
         comName: 'EmapmForm',
         name: 'EmapmFormMobile',
@@ -78,6 +79,25 @@ export default {
         name: 'EmapmUploadImgsMobile',
         count: "",
         path: 'emapm-upload-imgs'
+      }],
+      pcVms:[{
+        desc: "CSS样式",
+        comName: '',
+        name: 'portals',
+        count: "",
+        path: 'portals'
+      },{
+        desc: "页面数据绑定",
+        comName: 'DataBind',
+        name: 'TgDatabindPc',
+        count: "",
+        path: 'tg-databind'
+      },{
+        desc: "数据适配组件",
+        comName: 'DataSource',
+        name: 'TgDatasourcePc',
+        count: "",
+        path: 'tg-datasource'
       }],
       skinactive:false
     };
@@ -151,7 +171,7 @@ export default {
           }
         }
         group["未分类"] = [];
-        for (let item of rs.filter(i => i.matched !== true && !that.emapVms.some(t => {return i.name === t.name}))) {
+        for (let item of rs.filter(i => i.matched !== true && !that.mobileVms.some(t => {return i.name === t.name}))) {
           let com = {
             desc: "",
             comName: item.name.replace("Mobile", ""),
@@ -163,11 +183,31 @@ export default {
         }
         that.navs = group;
       })
+    },
+    getCategoriesPC(){
+      let that = this;
+      let group = {"未分类":[]}
+      let rs = this.routes.find(r => r.path.replace("/", "") === this.type).children.filter(i => i.path !== "/");
+      for (let item of rs.filter(i => i.matched !== true && !that.pcVms.some(t => {return i.name === t.name}))) {
+          let com = {
+            desc: "",
+            comName: item.name.replace("Pc", "").replace(/^\S/g,function(s){return s.toLowerCase();}).replace(/([A-Z])/g,"-$1").toLowerCase(),
+            name: item.name,
+            count: "",
+            path: item.path
+          }
+          group["未分类"].push(com);
+      }
+      that.navs = group;
     }
   },
   created() {
     this.routes = this.$router.options.routes;
-    this.getCategories();
+    if (this.type === "mobile") {
+      this.getCategories();
+    } else if (this.type === "pc") {
+      this.getCategoriesPC();
+    }
   }
 };
 </script>
