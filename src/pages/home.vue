@@ -19,17 +19,20 @@
       </a>
     </el-col>
     <el-col :span="6" :offset="1">
-      <router-link to="pc">
+      <a href="pc">
         <el-card :body-style="{ padding: '0px', backgroundColor:'#4a90e2' }">
-          <div style="height:80px;padding:32px"><h2 style="color:white">Iview</h2></div>
+          <div style="height:80px;padding:32px"><h2 style="color:white">PC组件</h2></div>
           <div style="padding: 14px;background-color:white">
-            <span>iview文档</span>
+            <p><a href="http://res.wisedu.com/iview">iview文档</a></p>
+            <p><a href="http://res.wisedu.com/pc/portals">PC样式CSS</a></p>
+            <p><a href="http://res.wisedu.com/pc/turing">Turning数据适配组件</a></p>
+            <p><a href="http://res.wisedu.com/pc/tg-listview">tg-listview组件</a></p>
             <div class="bottom clearfix">
               <time class="time"></time>
             </div>
           </div>
         </el-card>
-      </router-link>
+      </a>
     </el-col>
     <el-col :span="6" :offset="1">
       <a href="http://res.wisedu.com/FS/docsite/">
@@ -66,17 +69,6 @@
       </router-link>
     </el-col>
     <el-col :span="6" :offset="1">
-      <router-link to="portals">
-        <el-card :body-style="{ padding: '0px', backgroundColor:'#4a90e2' }">
-          <div style="height:80px;padding:32px"><h2 style="color:white">OA首页</h2></div>
-          <div style="padding: 14px;background-color:white">
-            <span>OA首页文档</span>
-            <div class="bottom clearfix">
-              <time class="time"></time>
-            </div>
-          </div>
-        </el-card>
-      </router-link>
     </el-col>
     <el-col :span="6" :offset="1">
     </el-col>
