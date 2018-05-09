@@ -4,11 +4,11 @@
     <div style="padding: 0 0 48px 48px;background-color: #fff;">
       <!--颜色-->
       <div>
-        <h2 class="m-b-24">颜色</h2>
+        <div class="m-b-24 tg-h2">颜色</div>
         <div class="portals-colors">
           <template v-for="colorType in colorTypes">
             <div class="portals-colors-block">
-              <h3>{{colorType.text}}</h3>
+              <div class="tg-h3">{{colorType.text}}</div>
               <div class="portals-colors-container">
                 <template v-for="color in colors">
                   <template v-for="index in color.count">
@@ -22,7 +22,7 @@
           </template>
 
           <div class="portals-colors-block">
-            <h3>上下左右边框</h3>
+            <div class="tg-h3">上下左右边框</div>
             <div class="portals-colors-container">
               <template v-for="color in colors">
                 <template v-for="index in color.count">
@@ -41,14 +41,14 @@
 
       <!--栅格-->
       <div class="m-b-24">
-        <h2 class="m-b-24">栅格</h2>
+        <div class="m-b-24 tg-h2">栅格</div>
         <div class="portals-grid">
-          <h4>使用方式与bootstrap一致</h4>
-          <h4>系统会自动分为最多12列</h4>
-          <h4>使用单一的一组 .tg-col-* 栅格类，就可以创建一个基本的栅格系统，所有“列（column）必须放在 ” .tg-row 内。</h4>
+          <div class="tg-h4">使用方式与bootstrap一致</div>
+          <div class="tg-h4">系统会自动分为最多12列</div>
+          <div class="tg-h4">使用单一的一组 .tg-col-* 栅格类，就可以创建一个基本的栅格系统，所有“列（column）必须放在 ” .tg-row 内。</div>
           <div>
             <div>
-              <h5>通用栅格</h5>
+              <div class="tg-h5">通用栅格</div>
 
               <div>
                 <div class="tg-row">
@@ -109,13 +109,13 @@
             </div>
 
             <div>
-              <h5>多卡片尺寸适配</h5>
+              <div class="tg-h5">多卡片尺寸适配</div>
               <img class="logo" src="../assets/card-grid.png" alt="">
-              <h5>希望在1712px宽度的卡片上使用，则栅格类为 .tg-col-1712-*</h5>
-              <h5>希望在1136px宽度的卡片上使用，则栅格类为 .tg-col-1136-*</h5>
-              <h5>希望在560px宽度的卡片上使用，则栅格类为 .tg-col-560-*</h5>
-              <h5>希望在368px宽度的卡片上使用，则栅格类为 .tg-col-368-*</h5>
-              <h5 class="m-b-24">希望在某个宽度的卡片上隐藏列，可在该列上添加隐藏样式类 .tg-col-*-hide，如希望在小于等于1136px的卡片上隐藏列 .tg-col-1136-hide</h5>
+              <div class="tg-h5">希望在1712px宽度的卡片上使用，则栅格类为 .tg-col-1712-*</div>
+              <div class="tg-h5">希望在1136px宽度的卡片上使用，则栅格类为 .tg-col-1136-*</div>
+              <div class="tg-h5">希望在560px宽度的卡片上使用，则栅格类为 .tg-col-560-*</div>
+              <div class="tg-h5">希望在368px宽度的卡片上使用，则栅格类为 .tg-col-368-*</div>
+              <div class="m-b-24 tg-h5">希望在某个宽度的卡片上隐藏列，可在该列上添加隐藏样式类 .tg-col-*-hide，如希望在小于等于1136px的卡片上隐藏列 .tg-col-1136-hide</div>
 
               <div class="m-b-24">
                 下面的这个例子可以通过拖动浏览器进行查看，出现的效果如上图所示<br>
@@ -150,11 +150,11 @@
 
 
       <div>
-        <h2>居中</h2>
+        <div class="tg-h2">居中</div>
         <div>
 
           <div>
-            <h3  class="float-left m-r-16">文字居中</h3>
+            <div  class="float-left m-r-16 tg-h3">文字居中</div>
             <div>
                 <pre>
                     <code class="lang-html">
@@ -165,7 +165,7 @@
           </div>
 
           <div>
-            <h3 class="float-left m-r-16">容器居中<span style="color: red;">（注：需对容器设置宽度才能生效）</span></h3>
+            <div class="float-left m-r-16 tg-h3">容器居中<span style="color: red;">（注：需对容器设置宽度才能生效）</span></div>
             <div>
                 <pre>
                     <code class="lang-html">
@@ -176,10 +176,10 @@
           </div>
 
           <div>
-            <h3>栅格居中<span style="color: red;">（注：下面的居中，仅在栅格上生效，不兼容IE9，IE9的表现形式为居上居左）</span></h3>
+            <div class="tg-h3">栅格居中<span style="color: red;">（注：下面的居中，仅在栅格上生效，不兼容IE9，IE9的表现形式为居上居左）</span></div>
             <div>
               <div>
-                <h3  class="float-left m-r-16">该行下的所有列垂直水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div  class="float-left m-r-16 tg-h3">该行下的所有列垂直水平居中（水平居中仅对内容为文本时生效）</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -194,7 +194,7 @@
 
 
               <div>
-                <h3  class="float-left m-r-16">该行下的所有列垂直居中</h3>
+                <div  class="float-left m-r-16 tg-h3">该行下的所有列垂直居中</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -209,7 +209,7 @@
 
 
               <div>
-                <h3  class="float-left m-r-16">该行下的所有列水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div  class="float-left m-r-16 tg-h3">该行下的所有列水平居中（水平居中仅对内容为文本时生效）</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -224,7 +224,7 @@
 
 
               <div>
-                <h3  class="float-left m-r-16">对列单独设置垂直水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div  class="float-left m-r-16 tg-h3">对列单独设置垂直水平居中（水平居中仅对内容为文本时生效）</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -239,7 +239,7 @@
 
 
               <div>
-                <h3  class="float-left m-r-16">对列单独设置垂直居中</h3>
+                <div  class="float-left m-r-16 tg-h3">对列单独设置垂直居中</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -254,7 +254,7 @@
 
 
               <div>
-                <h3  class="float-left m-r-16">对列单独设置水平居中（水平居中仅对内容为文本时生效）</h3>
+                <div  class="float-left m-r-16 tg-h3">对列单独设置水平居中（水平居中仅对内容为文本时生效）</div>
                 <div>
                   <pre>
                       <code class="lang-html">
@@ -276,7 +276,7 @@
 
 
       <div class="m-b-24">
-        <h2>字体</h2>
+        <div class="tg-h2">字体</div>
         <div>
 
         </div>
@@ -284,9 +284,9 @@
 
 
       <div class="m-b-24">
-        <h2>边距</h2>
+        <div class="tg-h2">边距</div>
         <div v-for="type in mp.type"  class="m-b-24">
-          <h3>{{type.text}}</h3>
+          <div class="tg-h3">{{type.text}}</div>
           <div>
             <table>
               <tbody>
@@ -306,7 +306,7 @@
 
 
       <div class="m-b-24">
-        <h2>其他常用样式</h2>
+        <div class="tg-h2">其他常用样式</div>
         <div>
           <table class="utils-class">
             <tbody>
@@ -324,7 +324,7 @@
 
       <!--开发卡片、内置应用配置-->
       <div class="m-b-24">
-        <h2>开发卡片、内置应用配置</h2>
+        <div class="tg-h2">开发卡片、内置应用配置</div>
         <div>下载开发环境，操作说明请按 README.md 进行操作</div>
         <div>公共接口请查看 API.md </div>
         <a href="http://res.wisedu.com/FS/portals/portals.zip">下载</a>
