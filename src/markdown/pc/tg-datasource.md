@@ -3,9 +3,9 @@
 ### 代码调用示例
 
 #### 1、 在页面定义数据集
-定义的数据集，可以取页面模型中所有的定义，缓存到本地以便调用。
+定义的数据集，取页面模型中所有的定义，缓存到本地以便调用。
 参数 `hqjxjzlbgsj` 是这个模型集合中作为默认模型的名称
-参数 `pageMeta` 是模型集合，可以从EMAP页面模型获取
+参数 `pageMeta` 是模型集合，从EMAP页面模型获取
 参数 `{userid:"aa"}` 是默认模型的查询动作所带的参数。即：findAll 方法的默认参数，自动存储在 actions.find.params 中
 
 ```js
@@ -24,6 +24,9 @@ window.turing.DataSource.ready(function() {
 ```
 
 #### 3、 <span style="color:red">***</span> 业务代码获取并执行获取数据
+
+DataSource.get 方法是从本地缓存获取DataSource对象的引用，不会再次发送请求和构造对象，没有性能消耗
+
 ```js
 var testDS = window.turing.DataSource.get("hqjxjzlbgsj");
 //读取默认模型（hqjxjzlbgsj）的取数据地址
