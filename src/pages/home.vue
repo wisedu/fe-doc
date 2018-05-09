@@ -25,7 +25,7 @@
           <div style="padding: 14px;background-color:white">
             <p><a href="http://res.wisedu.com/iview">iview文档</a></p>
             <p><a href="http://res.wisedu.com/pc/portals">PC样式CSS</a></p>
-            <p><a href="http://res.wisedu.com/pc/turing">Turning数据适配组件</a></p>
+            <p><a href="http://res.wisedu.com/pc/tg-datasource">数据适配组件</a></p>
             <p><a href="http://res.wisedu.com/pc/tg-listview">tg-listview组件</a></p>
             <div class="bottom clearfix">
               <time class="time"></time>
