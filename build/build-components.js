@@ -99,6 +99,12 @@ function buildRouter(components) {
     "path": "skinTools"
   });
 
+  routes.find(r => r.path.replace('/', '') === 'pc').children.push({
+    "name": "portals",
+    "component": "@Portals@",
+    "path": "portals"
+  });
+
   routes.push({
     "name": "home",
     "component": "@Home@",
@@ -115,10 +121,6 @@ function buildRouter(components) {
     "name": "iview",
     "component": "@IView@",
     "path": "/iview"
-  },{
-    "name": "portals",
-    "component": "@Portals@",
-    "path": "/portals"
   },{
     "component": "@NotFoundComponent@",
     "path": "*"

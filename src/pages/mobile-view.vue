@@ -89,9 +89,9 @@ export default {
     },
     categoryType () {
       if (this.$route.path.indexOf('/mobile/emapm') > -1) {
-        return ['emap-components'];
+        return ['important'];
       }
-      return this.$route.query.type ? [this.$route.query.type] : ['components']
+      return this.$route.query.type ? [this.$route.query.type] : ['components','important']
     }
   },
   methods: {

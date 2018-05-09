@@ -1,12 +1,32 @@
 <template>
   <div class="side-nav">
-    <router-link :to="{name: 'skinTools'}">
-      <div class="skinTools" :class="{isActive:skinactive}" @click="handleSkin">换肤工具</div>
-    </router-link>
      <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
        <!-- <div class="search">
         <input type="text">
       </div>   -->
+      <el-submenu index="important">
+        <template slot="title">置顶文档</template>
+        <template v-if="type === 'mobile'">
+          <router-link v-for="item in emapVms" :key="item.name" :to="{name: item.name}">
+            <el-menu-item :index="item.path" @click="handleCOMClick(item.path)">
+              <span>{{item.comName}} {{item.desc}}</span>
+              <span style="color:#FF4949">{{item.count}}</span>
+            </el-menu-item>
+          </router-link>
+          <router-link :to="{name: 'skinTools'}">
+            <el-menu-item index="skinTools" @click="handleSkin">
+              <span>换肤工具</span>
+            </el-menu-item>
+          </router-link>
+        </template>
+        <template v-if="type === 'pc'">
+          <router-link :to="{name: 'portals'}">
+            <el-menu-item index="portals" @click="handleCOMClick('portals')">
+              <span>CSS样式</span>
+            </el-menu-item>
+          </router-link>
+        </template>
+      </el-submenu>
       <el-submenu index="components">
         <template slot="title">Components 组件</template>
         <el-menu-item-group v-for="(cate, key) in navs" :key="key">
@@ -18,15 +38,6 @@
             </el-menu-item>
           </router-link>
         </el-menu-item-group>
-      </el-submenu>
-      <el-submenu index="emap-components">
-        <template slot="title">EmapComponents emap组件</template>
-        <router-link v-for="item in emapVms" :key="item.name" :to="{name: item.name}">
-          <el-menu-item :index="item.path" @click="handleCOMClick(item.path)">
-            <span>{{item.comName}} {{item.desc}}</span>
-            <span style="color:#FF4949">{{item.count}}</span>
-          </el-menu-item>
-        </router-link>
       </el-submenu>
       <el-submenu v-for="(value, key) in menuData" :key="key" :index="key">
         <template slot="title">{{value.name}}</template>
