@@ -6,8 +6,10 @@
 
 该组件支持三种模式：列表、栅格、平铺
 
+datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在组件的 ready 事件后触发
+
 ```html
-<tg-listview :datasource="datasource" :page-size="20" bordered pagination autoReadyDataBind>
+<tg-listview :datas="[{a:1,b:2},{a:11,b:22}]" :page-size="20" bordered pagination>
   <template slot="itemTemplate" slot-scope="props">
     项模板
   </template>
@@ -19,6 +21,7 @@
   </template>
 </tg-listview>
 ```
+
 ---
 
 #### 列表模式 - 文字列表
@@ -95,6 +98,7 @@
 ### 属性
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
+| datas | 静态数据 | Array | [] |  |
 | size | 尺寸 | String | 'small','default','large' | 'default' |
 | grid | 排列方式，横向 或 纵向 | Object | {gutter: 16, column: 3} |  |
 | bordered | 是否显示边框 | Boolean | | false |
