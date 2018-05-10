@@ -6,10 +6,10 @@
 
 该组件支持三种模式：列表、栅格、平铺
 
-datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在组件的 ready 事件后触发
+datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在组件的 ready 事件后
 
 ```html
-<tg-listview :datas="[{a:1,b:2},{a:11,b:22}]" :page-size="20" bordered pagination>
+<tg-listview :datas="[{a:1,b:2},{a:11,b:22}]" bordered>
   <template slot="itemTemplate" slot-scope="props">
     项模板
   </template>
@@ -29,7 +29,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 ![文字列表](/static/md/listview-list.png)
 
 ```html
-<tg-listview :datasource="ds" bordered autoReadyDataBind>
+<tg-listview :datasource="ds" bordered autoReadyDataBind pagination :page-size="20">
     <template slot="itemTemplate" slot-scope="props">
         <tg-div class="tg-col-6">
             <tg-text class="tg-primary-1">数据内容{{props.data}}</tg-text>
