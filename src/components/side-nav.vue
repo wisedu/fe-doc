@@ -98,6 +98,18 @@ export default {
         name: 'TgDatasourcePc',
         count: "",
         path: 'tg-datasource'
+      },{
+        desc: "OA首页开发环境配置",
+        comName: '',
+        name: 'PortalsDevPc',
+        count: "",
+        path: 'portals-dev'
+      },{
+        desc: "OA首页开发API",
+        comName: '',
+        name: 'PortalsApiPc',
+        count: "",
+        path: 'portals-api'
       }],
       skinactive:false
     };
