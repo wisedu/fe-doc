@@ -1,6 +1,6 @@
 ## DataAdapter 数据适配组件
 
-虽然下面满篇都是 DataSource，但是我想告诉你的是，这是使用 Adapter 来操作 DataSource 的方式。
+虽然下面满篇都是 DataSourceManager，但是我想告诉你的是，这是使用 DataAdapter 来操作 DataSource 的方式。
 而 DataSource 本身仅仅就是一个结构化数据。
 
 ### 代码调用示例
@@ -12,8 +12,8 @@
 参数 `{userid:"aa"}` 是默认模型的查询动作所带的参数。即：findAll 方法的默认参数，自动存储在 actions.find.params 中
 
 ```js
-var hqjxjzlbgsj = new window.turing.DataSource("hqjxjzlbgsj", pageMeta, {userid:"aa"});
-window.turing.DataSource.set(hqjxjzlbgsj);
+var hqjxjzlbgsj = new window["tg-turing"].DataSourceManager("hqjxjzlbgsj", pageMeta, {userid:"aa"});
+window["tg-turing"].DataSourceManager.set(hqjxjzlbgsj);
 ```
 
 #### 2、 框架运行时，初始化数据集。
@@ -21,17 +21,17 @@ window.turing.DataSource.set(hqjxjzlbgsj);
 这个步骤一般你不会关心，由框架代理完成
 
 ```js
-window.turing.DataSource.ready(function() {
+window["tg-turing"].DataSourceManager.ready(function() {
   //数据集已经准备完毕，启动页面js
 })
 ```
 
 #### 3、 <span style="color:red">***</span> 业务代码获取并执行获取数据
 
-DataSource.get 方法是从本地缓存获取DataSource对象的引用，不会再次发送请求和构造对象，没有性能消耗
+DataSourceManager.get 方法是从本地缓存获取DataSource对象的引用，不会再次发送请求和构造对象，没有性能消耗
 
 ```js
-var testDS = window.turing.DataSource.get("hqjxjzlbgsj");
+var testDS = window["tg-turing"].DataSourceManager.get("hqjxjzlbgsj");
 //读取默认模型（hqjxjzlbgsj）的取数据地址
 testDS.findAll({"参数1":"1"}).then(function(result){
   console.log(result)
@@ -56,12 +56,12 @@ emapDS.execute({url:"http://res.wisedu.com/fe_components/mock/table.json", metho
 
 也有两种方式：
 
-1、 利用 DataSource 组件进行数据请求
+1、 利用 DataAdapter 组件进行数据请求
 
 使用该方法，如果url是相对路径，会自动拼装 `window.apiPath` 的前缀，形成完整路径发送数据请求
 
 ```js
-var ds = window.turing.DataAdapterFactory.create();
+var ds = window["tg-turing"].DataAdapterFactory.create();
 ds.execute({url:"http://res.wisedu.com/fe_components/mock/table.json", method:"get", params:{}}).then(function(result){
   console.log(result)
   debugger
@@ -71,12 +71,12 @@ ds.execute({url:"http://res.wisedu.com/fe_components/mock/table.json", method:"g
 2、 使用 axios 进行数据请求
 
 ```js
-window.turing.axios.get(url, {params: params}).then(function(result){
+window["tg-turing"].axios.get(url, {params: params}).then(function(result){
   console.log(result)
   debugger
 });
 
-window.turing.axios.post(url, params).then(function(result){
+window["tg-turing"].axios.post(url, params).then(function(result){
   console.log(result)
   debugger
 });
@@ -97,10 +97,10 @@ DataSource 是数据结果，而我们所操作的对象实际上是 DataAdapter
 
 ```js
 //refresh 调用示例
-var inst = window.turing.DataAdapterFactory.create(pageMeta, name, findParams);
+var inst = window["tg-turing"].DataAdapterFactory.create(pageMeta, name, findParams);
 
 //load 调用示例
-var inst = window.turing.DataAdapterFactory.create();
+var inst = window["tg-turing"].DataAdapterFactory.create();
 inst.load(url, name, findParams)
 ```
 
@@ -149,7 +149,7 @@ console.log(testDS.actions)
 示例代码
 
 ```js
-var inst = window.turing.DataAdapterFactory.create();
+var inst = window["tg-turing"].DataAdapterFactory.create();
 inst.onLoad = function(meta){
   //做处理
   return meta;

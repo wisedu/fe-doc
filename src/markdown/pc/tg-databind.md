@@ -17,8 +17,8 @@
 如果数据加载需要带有参数，需要在初始化 DataSource 的时候将参数带入。如：
 
 ```js
-var hqjxjzlbgsj = new window.turing.DataSource("hqjxjzlbgsj", pageMeta, {userid:"aa"});
-window.turing.DataSource.set(hqjxjzlbgsj);
+var hqjxjzlbgsj = new window.["tg-turing"].DataSourceManager("hqjxjzlbgsj", pageMeta, {userid:"aa"});
+window.["tg-turing"].DataSourceManager.set(hqjxjzlbgsj);
 ```
 
 
