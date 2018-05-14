@@ -112,7 +112,7 @@ export default {
         path: 'tg-databind'
       },{
         desc: "数据适配组件",
-        comName: 'DataSource',
+        comName: 'DataAdapter',
         name: 'TgDatasourcePc',
         count: "",
         path: 'tg-datasource'

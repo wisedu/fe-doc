@@ -1,4 +1,7 @@
-## DataSource 数据适配组件
+## DataAdapter 数据适配组件
+
+虽然下面满篇都是 DataSource，但是我想告诉你的是，这是使用 Adapter 来操作 DataSource 的方式。
+而 DataSource 本身仅仅就是一个结构化数据。
 
 ### 代码调用示例
 
