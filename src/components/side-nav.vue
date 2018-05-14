@@ -87,6 +87,24 @@ export default {
         count: "",
         path: 'portals'
       },{
+        desc: "CSS样式-字体",
+        comName: '',
+        name: 'CssFontPc',
+        count: "",
+        path: 'css-font'
+      },{
+        desc: "CSS样式-居中",
+        comName: '',
+        name: 'CssCenterPc',
+        count: "",
+        path: 'css-center'
+      },{
+        desc: "CSS样式-常用",
+        comName: '',
+        name: 'CssUtilsPc',
+        count: "",
+        path: 'css-utils'
+      },{
         desc: "页面数据绑定",
         comName: 'DataBind',
         name: 'TgDatabindPc',
