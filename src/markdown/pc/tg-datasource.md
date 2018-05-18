@@ -3,6 +3,8 @@
 虽然下面满篇都是 DataSourceManager，但是我想告诉你的是，这是使用 DataAdapter 来操作 DataSource 的方式。
 而 DataSource 本身仅仅就是一个结构化数据。
 
+> 底层使用的是 tg-turing，[说明文档](https://github.com/wisedu/turing)
+
 ### 代码调用示例
 
 #### 1、 在页面定义数据集

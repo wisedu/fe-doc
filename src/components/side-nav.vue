@@ -87,19 +87,7 @@ export default {
         count: "",
         path: 'portals'
       },{
-        desc: "CSS样式-字体",
-        comName: '',
-        name: 'CssFontPc',
-        count: "",
-        path: 'css-font'
-      },{
-        desc: "CSS样式-居中",
-        comName: '',
-        name: 'CssCenterPc',
-        count: "",
-        path: 'css-center'
-      },{
-        desc: "CSS样式-常用",
+        desc: "CSS样式-字体/居中/常用",
         comName: '',
         name: 'CssUtilsPc',
         count: "",
