@@ -83,6 +83,13 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
     </template>
 </tg-listview>
 ```
+
+如果要精确控制边距，可以给gutter设置字符串，定义为padding属性
+```html
+<tg-listview :datasource="ds" :grid="{gutter: '10px 20px'}" @ready="init">
+  ...
+</tg-listview>
+```
 这里在标签上设置了 **@ready事件** ，可以手动调用数据加载的方法
 ```js
 {
@@ -100,7 +107,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 |------|-------|---------|-------|--------|
 | datas | 静态数据 | Array | [] |  |
 | size | 尺寸 | String | 'small','default','large' | 'default' |
-| grid | 排列方式，横向 或 纵向 | Object | {gutter: 16, column: 3} |  |
+| grid | 排列方式，横向 或 纵向 | Object | {gutter: 16, column: 3} / {gutter: '10px 20px'} |  |
 | bordered | 是否显示边框 | Boolean | | false |
 | pagination | 是否显示分页按钮 | Boolean | | false |
 | itemTemplate | 显示项模板 | Slot |  | {data:[], index:0} |
