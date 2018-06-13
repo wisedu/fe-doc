@@ -68,6 +68,12 @@ export default {
       coms: [],
       navs: [],
       mobileVms:[{
+        desc: "快速上手",
+        comName: '',
+        name: 'EmapmInitMobile',
+        count: "",
+        path: 'emapm-init'
+      },{
         desc: "表单",
         comName: 'EmapmForm',
         name: 'EmapmFormMobile',
