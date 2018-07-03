@@ -18,7 +18,7 @@ Vue.component(TabItem.name, TabItem);
 
 
 ```html
-<mt-navbar v-model="selected">
+<mt-navbar v-model="selected" @change="change">
   <mt-tab-item id="1"  badge="dot">
     选项一
   </mt-tab-item>
@@ -50,6 +50,29 @@ Vue.component(TabItem.name, TabItem);
     </mt-cell-group>
   </mt-tab-container-item>
 </mt-tab-container>
+<script>
+  export default {
+    data() {
+      return {
+        selected: '1'
+      };
+    },
+    methods: {
+      change: function(val){
+        // val 为当前选中值，即v-model的value值
+      }
+    }
+  };
+</script>
+
+```
+
+```javascript
+methods: {
+  change: function(val){
+    // val 为当前选中值，即v-model的value值
+  }
+}
 ```
 
 
@@ -61,6 +84,11 @@ Vue.component(TabItem.name, TabItem);
 |------|-------|---------|-------|--------|
 | fixed | 固定在页面顶部 | Boolean | | false |
 | value | 返回当前选中的 tab-item 的 id | * | |  |
+
+## Events
+| 事件名称 | 说明 | 回调参数 |
+|------|-------|---------|
+|change | 当前选中的tab索引id | `v-model`值 |
 
 ### tab-item
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
