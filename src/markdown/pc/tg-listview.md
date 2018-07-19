@@ -29,7 +29,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 ![文字列表](/static/md/listview-list.png)
 
 ```html
-<tg-listview :datasource="ds" bordered autoReadyDataBind pagination :page-size="20">
+<tg-listview :data-adapter="da" bordered autoReadyDataBind pagination :page-size="20">
     <template slot="itemTemplate" slot-scope="props">
         <tg-div class="tg-col-6">
             <tg-text class="tg-primary-1">数据内容{{props.data}}</tg-text>
@@ -52,7 +52,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 ![卡片列表](/static/md/listview-card.png)
 
 ```html
-<tg-listview :datasource="ds" :grid="{gutter: 16, column: 3}" autoReadyDataBind>
+<tg-listview :data-adapter="da" :grid="{gutter: 16, column: 3}" autoReadyDataBind>
     <template slot="itemTemplate" slot-scope="props">
         <Card style="width:100%">
             <p slot="title">
@@ -72,7 +72,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 ![图标列表](/static/md/listview-icon.png)
 
 ```html
-<tg-listview :datasource="ds" :grid="{gutter: 40}" @ready="init">
+<tg-listview :data-adapter="da" :grid="{gutter: 40}" @ready="init">
     <template slot="itemTemplate" slot-scope="props">
         <tg-div>
             <Icon type="stop" size="107"></Icon>
@@ -86,7 +86,7 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 
 如果要精确控制边距，可以给gutter设置字符串，定义为padding属性
 ```html
-<tg-listview :datasource="ds" :grid="{gutter: '10px 20px'}" @ready="init">
+<tg-listview :data-adapter="da" :grid="{gutter: '10px 20px'}" @ready="init">
   ...
 </tg-listview>
 ```
@@ -94,9 +94,9 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 ```js
 {
   methods:{
-      init(inst){
-          inst.DataBind();
-          // inst.DataBind({param1:"1"});
+      init(list){
+          list.DataBind();
+          // list.DataBind({param1:"1"});
       }
   }
 }
@@ -113,14 +113,14 @@ datas 属性支持静态数据传入，与 autoReadyDataBind 属性互斥，在�
 | itemTemplate | 显示项模板 | Slot |  | {data:[], index:0} |
 | pagerTemplate | 分页模板 | Slot |  |  |
 | emptyTemplate | 无数据模板 | Slot |  |  |
-| datasource | 数据源 | DataSource | | |
+| dataAdapter | 数据源 | DataAdapter | | |
 | pageSize | 分页大小 | Number |  | 10 |
 | autoReadyDataBind | 组件ready事件时，自动执行数据绑定 | Boolean | | false |
 
 ### Methods
 | 方法名称 | 说明 | 参数 |
 |---------- |-------- |---------- |
-| DataBind  | 执行findAll查询数据 | `{查询参数1:1,查询参数2:2}`  |
+| DataBind  | 执行findAll查询数据 | `{index:1,size:10}`,callback  |
 | SetData  | 直接设置数据，适用于自行获取的数据 | `{rows:[{字段1:1,字段2:2},{字段1:1,字段2:2}]}`  |
 | LoadMore  | 触发加载更多，根据`pageSize`获取数据 | 无  |
 

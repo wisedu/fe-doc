@@ -72,6 +72,8 @@ const PortalsDevPc = resolve => require(['./markdown/pc/portals-dev.md'], resolv
 const TgDatabindPc = resolve => require(['./markdown/pc/tg-databind.md'], resolve)
 const TgDatasourcePc = resolve => require(['./markdown/pc/tg-datasource.md'], resolve)
 const TgDivPc = resolve => require(['./markdown/pc/tg-div.md'], resolve)
+const TgFormPc = resolve => require(['./markdown/pc/tg-form.md'], resolve)
+const TgGridviewPc = resolve => require(['./markdown/pc/tg-gridview.md'], resolve)
 const TgLinkbuttonPc = resolve => require(['./markdown/pc/tg-linkbutton.md'], resolve)
 const TgListviewPc = resolve => require(['./markdown/pc/tg-listview.md'], resolve)
 
@@ -80,447 +82,76 @@ Vue.use(Router)
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
     Vue.component('README-mobile', READMEMobile);
-    Vue.component('action-sheet-mobile', ActionSheetMobile);
-    Vue.component('badge-mobile', BadgeMobile);
-    Vue.component('button-list-mobile', ButtonListMobile);
-    Vue.component('button-mobile', ButtonMobile);
-    Vue.component('cell-swipe-mobile', CellSwipeMobile);
-    Vue.component('cell-mobile', CellMobile);
-    Vue.component('checkbox-mobile', CheckboxMobile);
-    Vue.component('command-bar-mobile', CommandBarMobile);
-    Vue.component('datetime-picker-mobile', DatetimePickerMobile);
-    Vue.component('datetime-selector-mobile', DatetimeSelectorMobile);
-    Vue.component('dropdown-menus-mobile', DropdownMenusMobile);
-    Vue.component('emapm-form-mobile', EmapmFormMobile);
-    Vue.component('emapm-init-mobile', EmapmInitMobile);
-    Vue.component('emapm-upload-imgs-mobile', EmapmUploadImgsMobile);
-    Vue.component('field-mobile', FieldMobile);
-    Vue.component('file-list-mobile', FileListMobile);
-    Vue.component('fixed-button-mobile', FixedButtonMobile);
-    Vue.component('header-mobile', HeaderMobile);
-    Vue.component('hr-mobile', HrMobile);
-    Vue.component('icon-mobile', IconMobile);
-    Vue.component('image-mobile', ImageMobile);
-    Vue.component('index-list-mobile', IndexListMobile);
-    Vue.component('indicator-mobile', IndicatorMobile);
-    Vue.component('infinite-scroll-mobile', InfiniteScrollMobile);
-    Vue.component('layout-container-multiple-mobile', LayoutContainerMultipleMobile);
-    Vue.component('layout-container-mobile', LayoutContainerMobile);
-    Vue.component('layout-left-right-mobile', LayoutLeftRightMobile);
-    Vue.component('layout-spacing-mobile', LayoutSpacingMobile);
-    Vue.component('lazyload-mobile', LazyloadMobile);
-    Vue.component('loadmore-mobile', LoadmoreMobile);
-    Vue.component('message-box-mobile', MessageBoxMobile);
-    Vue.component('navbar-mobile', NavbarMobile);
-    Vue.component('palette-button-mobile', PaletteButtonMobile);
-    Vue.component('picker-mobile', PickerMobile);
-    Vue.component('popup-mobile', PopupMobile);
-    Vue.component('progress-mobile', ProgressMobile);
-    Vue.component('pull-down-mobile', PullDownMobile);
-    Vue.component('pull-up-mobile', PullUpMobile);
-    Vue.component('radiobox-mobile', RadioboxMobile);
-    Vue.component('range-mobile', RangeMobile);
-    Vue.component('search-mobile', SearchMobile);
-    Vue.component('select-mobile', SelectMobile);
-    Vue.component('side-navbar-mobile', SideNavbarMobile);
-    Vue.component('spinner-mobile', SpinnerMobile);
-    Vue.component('steps-mobile', StepsMobile);
-    Vue.component('swipe-mobile', SwipeMobile);
-    Vue.component('switch-mobile', SwitchMobile);
-    Vue.component('switcher-mobile', SwitcherMobile);
-    Vue.component('tab-container-mobile', TabContainerMobile);
-    Vue.component('tabbar-mobile', TabbarMobile);
-    Vue.component('text-select-mobile', TextSelectMobile);
-    Vue.component('text-mobile', TextMobile);
-    Vue.component('textarea-mobile', TextareaMobile);
-    Vue.component('toast-mobile', ToastMobile);
-    Vue.component('tree-selector-mobile', TreeSelectorMobile);
-    Vue.component('css-utils-pc', CssUtilsPc);
-    Vue.component('portals-api-pc', PortalsApiPc);
-    Vue.component('portals-dev-pc', PortalsDevPc);
-    Vue.component('tg-databind-pc', TgDatabindPc);
-    Vue.component('tg-datasource-pc', TgDatasourcePc);
-    Vue.component('tg-div-pc', TgDivPc);
-    Vue.component('tg-linkbutton-pc', TgLinkbuttonPc);
-    Vue.component('tg-listview-pc', TgListviewPc);
+Vue.component('action-sheet-mobile', ActionSheetMobile);
+Vue.component('badge-mobile', BadgeMobile);
+Vue.component('button-list-mobile', ButtonListMobile);
+Vue.component('button-mobile', ButtonMobile);
+Vue.component('cell-swipe-mobile', CellSwipeMobile);
+Vue.component('cell-mobile', CellMobile);
+Vue.component('checkbox-mobile', CheckboxMobile);
+Vue.component('command-bar-mobile', CommandBarMobile);
+Vue.component('datetime-picker-mobile', DatetimePickerMobile);
+Vue.component('datetime-selector-mobile', DatetimeSelectorMobile);
+Vue.component('dropdown-menus-mobile', DropdownMenusMobile);
+Vue.component('emapm-form-mobile', EmapmFormMobile);
+Vue.component('emapm-init-mobile', EmapmInitMobile);
+Vue.component('emapm-upload-imgs-mobile', EmapmUploadImgsMobile);
+Vue.component('field-mobile', FieldMobile);
+Vue.component('file-list-mobile', FileListMobile);
+Vue.component('fixed-button-mobile', FixedButtonMobile);
+Vue.component('header-mobile', HeaderMobile);
+Vue.component('hr-mobile', HrMobile);
+Vue.component('icon-mobile', IconMobile);
+Vue.component('image-mobile', ImageMobile);
+Vue.component('index-list-mobile', IndexListMobile);
+Vue.component('indicator-mobile', IndicatorMobile);
+Vue.component('infinite-scroll-mobile', InfiniteScrollMobile);
+Vue.component('layout-container-multiple-mobile', LayoutContainerMultipleMobile);
+Vue.component('layout-container-mobile', LayoutContainerMobile);
+Vue.component('layout-left-right-mobile', LayoutLeftRightMobile);
+Vue.component('layout-spacing-mobile', LayoutSpacingMobile);
+Vue.component('lazyload-mobile', LazyloadMobile);
+Vue.component('loadmore-mobile', LoadmoreMobile);
+Vue.component('message-box-mobile', MessageBoxMobile);
+Vue.component('navbar-mobile', NavbarMobile);
+Vue.component('palette-button-mobile', PaletteButtonMobile);
+Vue.component('picker-mobile', PickerMobile);
+Vue.component('popup-mobile', PopupMobile);
+Vue.component('progress-mobile', ProgressMobile);
+Vue.component('pull-down-mobile', PullDownMobile);
+Vue.component('pull-up-mobile', PullUpMobile);
+Vue.component('radiobox-mobile', RadioboxMobile);
+Vue.component('range-mobile', RangeMobile);
+Vue.component('search-mobile', SearchMobile);
+Vue.component('select-mobile', SelectMobile);
+Vue.component('side-navbar-mobile', SideNavbarMobile);
+Vue.component('spinner-mobile', SpinnerMobile);
+Vue.component('steps-mobile', StepsMobile);
+Vue.component('swipe-mobile', SwipeMobile);
+Vue.component('switch-mobile', SwitchMobile);
+Vue.component('switcher-mobile', SwitcherMobile);
+Vue.component('tab-container-mobile', TabContainerMobile);
+Vue.component('tabbar-mobile', TabbarMobile);
+Vue.component('text-select-mobile', TextSelectMobile);
+Vue.component('text-mobile', TextMobile);
+Vue.component('textarea-mobile', TextareaMobile);
+Vue.component('toast-mobile', ToastMobile);
+Vue.component('tree-selector-mobile', TreeSelectorMobile);
+Vue.component('css-utils-pc', CssUtilsPc);
+Vue.component('portals-api-pc', PortalsApiPc);
+Vue.component('portals-dev-pc', PortalsDevPc);
+Vue.component('tg-databind-pc', TgDatabindPc);
+Vue.component('tg-datasource-pc', TgDatasourcePc);
+Vue.component('tg-div-pc', TgDivPc);
+Vue.component('tg-form-pc', TgFormPc);
+Vue.component('tg-gridview-pc', TgGridviewPc);
+Vue.component('tg-linkbutton-pc', TgLinkbuttonPc);
+Vue.component('tg-listview-pc', TgListviewPc);
 };
 
 const router = new Router({
     mode: 'history',
-    routes: [
-        {
-            "path": "/mobile",
-            "component": MobileView,
-            "children":
-                [
-                    {
-                        "name": "READMEMobile",
-                        "component": READMEMobile,
-                        "path": "/"
-                    },
-                    {
-                        "name": "ActionSheetMobile",
-                        "component": ActionSheetMobile,
-                        "path": "action-sheet"
-                    },
-                    {
-                        "name": "BadgeMobile",
-                        "component": BadgeMobile,
-                        "path": "badge"
-                    },
-                    {
-                        "name": "ButtonListMobile",
-                        "component": ButtonListMobile,
-                        "path": "button-list"
-                    },
-                    {
-                        "name": "ButtonMobile",
-                        "component": ButtonMobile,
-                        "path": "button"
-                    },
-                    {
-                        "name": "CellSwipeMobile",
-                        "component": CellSwipeMobile,
-                        "path": "cell-swipe"
-                    },
-                    {
-                        "name": "CellMobile",
-                        "component": CellMobile,
-                        "path": "cell"
-                    },
-                    {
-                        "name": "CheckboxMobile",
-                        "component": CheckboxMobile,
-                        "path": "checkbox"
-                    },
-                    {
-                        "name": "CommandBarMobile",
-                        "component": CommandBarMobile,
-                        "path": "command-bar"
-                    },
-                    {
-                        "name": "DatetimePickerMobile",
-                        "component": DatetimePickerMobile,
-                        "path": "datetime-picker"
-                    },
-                    {
-                        "name": "DatetimeSelectorMobile",
-                        "component": DatetimeSelectorMobile,
-                        "path": "datetime-selector"
-                    },
-                    {
-                        "name": "DropdownMenusMobile",
-                        "component": DropdownMenusMobile,
-                        "path": "dropdown-menus"
-                    },
-                    {
-                        "name": "EmapmFormMobile",
-                        "component": EmapmFormMobile,
-                        "path": "emapm-form"
-                    },
-                    {
-                        "name": "EmapmInitMobile",
-                        "component": EmapmInitMobile,
-                        "path": "emapm-init"
-                    },
-                    {
-                        "name": "EmapmUploadImgsMobile",
-                        "component": EmapmUploadImgsMobile,
-                        "path": "emapm-upload-imgs"
-                    },
-                    {
-                        "name": "FieldMobile",
-                        "component": FieldMobile,
-                        "path": "field"
-                    },
-                    {
-                        "name": "FileListMobile",
-                        "component": FileListMobile,
-                        "path": "file-list"
-                    },
-                    {
-                        "name": "FixedButtonMobile",
-                        "component": FixedButtonMobile,
-                        "path": "fixed-button"
-                    },
-                    {
-                        "name": "HeaderMobile",
-                        "component": HeaderMobile,
-                        "path": "header"
-                    },
-                    {
-                        "name": "HrMobile",
-                        "component": HrMobile,
-                        "path": "hr"
-                    },
-                    {
-                        "name": "IconMobile",
-                        "component": IconMobile,
-                        "path": "icon"
-                    },
-                    {
-                        "name": "ImageMobile",
-                        "component": ImageMobile,
-                        "path": "image"
-                    },
-                    {
-                        "name": "IndexListMobile",
-                        "component": IndexListMobile,
-                        "path": "index-list"
-                    },
-                    {
-                        "name": "IndicatorMobile",
-                        "component": IndicatorMobile,
-                        "path": "indicator"
-                    },
-                    {
-                        "name": "InfiniteScrollMobile",
-                        "component": InfiniteScrollMobile,
-                        "path": "infinite-scroll"
-                    },
-                    {
-                        "name": "LayoutContainerMultipleMobile",
-                        "component": LayoutContainerMultipleMobile,
-                        "path": "layout-container-multiple"
-                    },
-                    {
-                        "name": "LayoutContainerMobile",
-                        "component": LayoutContainerMobile,
-                        "path": "layout-container"
-                    },
-                    {
-                        "name": "LayoutLeftRightMobile",
-                        "component": LayoutLeftRightMobile,
-                        "path": "layout-left-right"
-                    },
-                    {
-                        "name": "LayoutSpacingMobile",
-                        "component": LayoutSpacingMobile,
-                        "path": "layout-spacing"
-                    },
-                    {
-                        "name": "LazyloadMobile",
-                        "component": LazyloadMobile,
-                        "path": "lazyload"
-                    },
-                    {
-                        "name": "LoadmoreMobile",
-                        "component": LoadmoreMobile,
-                        "path": "loadmore"
-                    },
-                    {
-                        "name": "MessageBoxMobile",
-                        "component": MessageBoxMobile,
-                        "path": "message-box"
-                    },
-                    {
-                        "name": "NavbarMobile",
-                        "component": NavbarMobile,
-                        "path": "navbar"
-                    },
-                    {
-                        "name": "PaletteButtonMobile",
-                        "component": PaletteButtonMobile,
-                        "path": "palette-button"
-                    },
-                    {
-                        "name": "PickerMobile",
-                        "component": PickerMobile,
-                        "path": "picker"
-                    }, {
-                        "name": "PopupMobile",
-                        "component": PopupMobile,
-                        "path": "popup"
-                    },
-                    {
-                        "name": "ProgressMobile",
-                        "component": ProgressMobile,
-                        "path": "progress"
-                    },
-                    {
-                        "name": "PullDownMobile",
-                        "component": PullDownMobile,
-                        "path": "pull-down"
-                    },
-                    {
-                        "name": "PullUpMobile",
-                        "component": PullUpMobile,
-                        "path": "pull-up"
-                    },
-                    {
-                        "name": "RadioboxMobile",
-                        "component": RadioboxMobile,
-                        "path": "radiobox"
-                    },
-                    {
-                        "name": "RangeMobile",
-                        "component": RangeMobile,
-                        "path": "range"
-                    },
-                    {
-                        "name": "SearchMobile",
-                        "component": SearchMobile,
-                        "path": "search"
-                    },
-                    {
-                        "name": "SelectMobile",
-                        "component": SelectMobile,
-                        "path": "select"
-                    },
-                    {
-                        "name": "SideNavbarMobile",
-                        "component": SideNavbarMobile,
-                        "path": "side-navbar"
-                    },
-                    {
-                        "name": "SpinnerMobile",
-                        "component": SpinnerMobile,
-                        "path": "spinner"
-                    },
-                    {
-                        "name": "StepsMobile",
-                        "component": StepsMobile,
-                        "path": "steps"
-                    },
-                    {
-                        "name": "SwipeMobile",
-                        "component": SwipeMobile,
-                        "path": "swipe"
-                    },
-                    {
-                        "name": "SwitchMobile",
-                        "component": SwitchMobile,
-                        "path": "switch"
-                    },
-                    {
-                        "name": "SwitcherMobile",
-                        "component": SwitcherMobile,
-                        "path": "switcher"
-                    },
-                    {
-                        "name": "TabContainerMobile",
-                        "component": TabContainerMobile,
-                        "path": "tab-container"
-                    },
-                    {
-                        "name": "TabbarMobile",
-                        "component": TabbarMobile,
-                        "path": "tabbar"
-                    },
-                    {
-                        "name": "TextSelectMobile",
-                        "component": TextSelectMobile,
-                        "path": "text-select"
-                    },
-                    {
-                        "name": "TextMobile",
-                        "component": TextMobile,
-                        "path": "text"
-                    },
-                    {
-                        "name": "TextareaMobile",
-                        "component": TextareaMobile,
-                        "path": "textarea"
-                    },
-                    {
-                        "name": "ToastMobile",
-                        "component": ToastMobile,
-                        "path": "toast"
-                    },
-                    {
-                        "name": "TreeSelectorMobile",
-                        "component": TreeSelectorMobile,
-                        "path": "tree-selector"
-                    },
-                    {
-                        "name": "CeilsMobile",
-                        "component": Ceils,
-                        "path": "ceils"
-                    },
-                    {
-                        "name": "skinTools",
-                        "component": skinTools,
-                        "path": "skinTools"
-                    }
-                ]
-        },
-        {
-            "path": "/pc",
-            "component": PcView,
-            "children":
-                [
-                    {
-                        "name": "CssUtilsPc",
-                        "component": CssUtilsPc,
-                        "path": "css-utils"
-                    },
-                    {
-                        "name": "PortalsApiPc",
-                        "component": PortalsApiPc,
-                        "path": "portals-api"
-                    },
-                    {
-                        "name": "PortalsDevPc",
-                        "component": PortalsDevPc,
-                        "path": "portals-dev"
-                    },
-                    {
-                        "name": "TgDatabindPc",
-                        "component": TgDatabindPc,
-                        "path": "tg-databind"
-                    },
-                    {
-                        "name": "TgDatasourcePc",
-                        "component": TgDatasourcePc,
-                        "path": "tg-datasource"
-                    },
-                    {
-                        "name": "TgDivPc",
-                        "component": TgDivPc,
-                        "path": "tg-div"
-                    },
-                    {
-                        "name": "TgLinkbuttonPc",
-                        "component": TgLinkbuttonPc,
-                        "path": "tg-linkbutton"
-                    },
-                    {
-                        "name": "TgListviewPc",
-                        "component": TgListviewPc,
-                        "path": "tg-listview"
-                    },
-                    {
-                        "name": "portals",
-                        "component": Portals,
-                        "path": "portals"
-                    }
-                ]
-        },
-        {
-            "name": "home",
-            "component": Home,
-            "path": "/"
-        },
-        {
-            "name": "mobile-project",
-            "component": MobileProject,
-            "path": "/mobile-project"
-        },
-        {
-            "name": "mobile-projectlist",
-            "component": MobileProjectList,
-            "path": "/mobile-projectlist"
-        },
-        {
-            "name": "iview",
-            "component": IView,
-            "path": "/iview"
-        },
-        {
-            "component": NotFoundComponent,
-            "path": "*"
-        }
-    ]
-})
+    routes: [{"path":"/mobile","component":MobileView,"children":[{"name":"READMEMobile","component":READMEMobile,"path":"/"},{"name":"ActionSheetMobile","component":ActionSheetMobile,"path":"action-sheet"},{"name":"BadgeMobile","component":BadgeMobile,"path":"badge"},{"name":"ButtonListMobile","component":ButtonListMobile,"path":"button-list"},{"name":"ButtonMobile","component":ButtonMobile,"path":"button"},{"name":"CellSwipeMobile","component":CellSwipeMobile,"path":"cell-swipe"},{"name":"CellMobile","component":CellMobile,"path":"cell"},{"name":"CheckboxMobile","component":CheckboxMobile,"path":"checkbox"},{"name":"CommandBarMobile","component":CommandBarMobile,"path":"command-bar"},{"name":"DatetimePickerMobile","component":DatetimePickerMobile,"path":"datetime-picker"},{"name":"DatetimeSelectorMobile","component":DatetimeSelectorMobile,"path":"datetime-selector"},{"name":"DropdownMenusMobile","component":DropdownMenusMobile,"path":"dropdown-menus"},{"name":"EmapmFormMobile","component":EmapmFormMobile,"path":"emapm-form"},{"name":"EmapmInitMobile","component":EmapmInitMobile,"path":"emapm-init"},{"name":"EmapmUploadImgsMobile","component":EmapmUploadImgsMobile,"path":"emapm-upload-imgs"},{"name":"FieldMobile","component":FieldMobile,"path":"field"},{"name":"FileListMobile","component":FileListMobile,"path":"file-list"},{"name":"FixedButtonMobile","component":FixedButtonMobile,"path":"fixed-button"},{"name":"HeaderMobile","component":HeaderMobile,"path":"header"},{"name":"HrMobile","component":HrMobile,"path":"hr"},{"name":"IconMobile","component":IconMobile,"path":"icon"},{"name":"ImageMobile","component":ImageMobile,"path":"image"},{"name":"IndexListMobile","component":IndexListMobile,"path":"index-list"},{"name":"IndicatorMobile","component":IndicatorMobile,"path":"indicator"},{"name":"InfiniteScrollMobile","component":InfiniteScrollMobile,"path":"infinite-scroll"},{"name":"LayoutContainerMultipleMobile","component":LayoutContainerMultipleMobile,"path":"layout-container-multiple"},{"name":"LayoutContainerMobile","component":LayoutContainerMobile,"path":"layout-container"},{"name":"LayoutLeftRightMobile","component":LayoutLeftRightMobile,"path":"layout-left-right"},{"name":"LayoutSpacingMobile","component":LayoutSpacingMobile,"path":"layout-spacing"},{"name":"LazyloadMobile","component":LazyloadMobile,"path":"lazyload"},{"name":"LoadmoreMobile","component":LoadmoreMobile,"path":"loadmore"},{"name":"MessageBoxMobile","component":MessageBoxMobile,"path":"message-box"},{"name":"NavbarMobile","component":NavbarMobile,"path":"navbar"},{"name":"PaletteButtonMobile","component":PaletteButtonMobile,"path":"palette-button"},{"name":"PickerMobile","component":PickerMobile,"path":"picker"},{"name":"PopupMobile","component":PopupMobile,"path":"popup"},{"name":"ProgressMobile","component":ProgressMobile,"path":"progress"},{"name":"PullDownMobile","component":PullDownMobile,"path":"pull-down"},{"name":"PullUpMobile","component":PullUpMobile,"path":"pull-up"},{"name":"RadioboxMobile","component":RadioboxMobile,"path":"radiobox"},{"name":"RangeMobile","component":RangeMobile,"path":"range"},{"name":"SearchMobile","component":SearchMobile,"path":"search"},{"name":"SelectMobile","component":SelectMobile,"path":"select"},{"name":"SideNavbarMobile","component":SideNavbarMobile,"path":"side-navbar"},{"name":"SpinnerMobile","component":SpinnerMobile,"path":"spinner"},{"name":"StepsMobile","component":StepsMobile,"path":"steps"},{"name":"SwipeMobile","component":SwipeMobile,"path":"swipe"},{"name":"SwitchMobile","component":SwitchMobile,"path":"switch"},{"name":"SwitcherMobile","component":SwitcherMobile,"path":"switcher"},{"name":"TabContainerMobile","component":TabContainerMobile,"path":"tab-container"},{"name":"TabbarMobile","component":TabbarMobile,"path":"tabbar"},{"name":"TextSelectMobile","component":TextSelectMobile,"path":"text-select"},{"name":"TextMobile","component":TextMobile,"path":"text"},{"name":"TextareaMobile","component":TextareaMobile,"path":"textarea"},{"name":"ToastMobile","component":ToastMobile,"path":"toast"},{"name":"TreeSelectorMobile","component":TreeSelectorMobile,"path":"tree-selector"},{"name":"CeilsMobile","component":Ceils,"path":"ceils"},{"name":"skinTools","component":skinTools,"path":"skinTools"}]},{"path":"/pc","component":PcView,"children":[{"name":"CssUtilsPc","component":CssUtilsPc,"path":"css-utils"},{"name":"PortalsApiPc","component":PortalsApiPc,"path":"portals-api"},{"name":"PortalsDevPc","component":PortalsDevPc,"path":"portals-dev"},{"name":"TgDatabindPc","component":TgDatabindPc,"path":"tg-databind"},{"name":"TgDatasourcePc","component":TgDatasourcePc,"path":"tg-datasource"},{"name":"TgDivPc","component":TgDivPc,"path":"tg-div"},{"name":"TgFormPc","component":TgFormPc,"path":"tg-form"},{"name":"TgGridviewPc","component":TgGridviewPc,"path":"tg-gridview"},{"name":"TgLinkbuttonPc","component":TgLinkbuttonPc,"path":"tg-linkbutton"},{"name":"TgListviewPc","component":TgListviewPc,"path":"tg-listview"},{"name":"portals","component":Portals,"path":"portals"}]},{"name":"home","component":Home,"path":"/"},{"name":"mobile-project","component":MobileProject,"path":"/mobile-project"},{"name":"mobile-projectlist","component":MobileProjectList,"path":"/mobile-projectlist"},{"name":"iview","component":IView,"path":"/iview"},{"component":NotFoundComponent,"path":"*"}]
+  })
 
-export default { install, router }
+export default {install, router}
