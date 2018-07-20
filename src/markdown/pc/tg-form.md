@@ -111,6 +111,116 @@ let fields = [
 </tg-form>
 ```
 
+
+### 组件的全局默认参数
+
+es5 运行时修改，需要在入口JS初始化时设置，以保证全局默认值在tg-form初始化之前就生效
+
+```js
+window["tg-turing"].defaults.antd.form["date"].format = "yyyy-MM-dd"
+```
+
+es6 需要在入口index.js中，注册组件库的同时，进行全局默认值设置
+
+```js
+import tgTuring from 'tg-turing';
+Vue.use(tgTuring);
+window["tg-turing"] = tgTuring;
+import tgTuringAntd from 'tg-turing-antd';
+Vue.use(tgTuringAntd);
+tgTuringAntd.defaults.antd.form["date"].format = "yyyy-MM-dd"
+```
+
+组件及默认值清单：
+
+```js
+> window["tg-turing"].defaults.antd.form
+
+{
+    "static": {name:"antd-fc-static"},
+    "text": {name:"antd-fc-text"},
+    "textarea": {name:"antd-fc-textarea"},
+    "date": {name:"antd-fc-date"},
+    "date-range": {name:"antd-fc-date-range"},
+    "date-local": {name:"antd-fc-date"},
+    "date-full": {name:"antd-fc-date"},
+    "select": {name:"antd-fc-select"},
+    "multi-select": {name:"antd-fc-select", multiple:true},
+    "buttonlist": {name:"antd-fc-buttonlist"},
+    "number-range":{name:"antd-fc-number-range"},
+    "number":{name:"antd-fc-number"},
+    "uploadfile":{name:"antd-fc-uploadfile"},
+    "tree":{name:"antd-fc-tree"},
+    "autocomplete":{name:"antd-fc-autocomplete"},
+    "selecttable":{name:"antd-fc-autocomplete"},
+    "radiolist":{name:"antd-fc-radiolist"},
+    "checkboxlist":{name:"antd-fc-checkboxlist"},
+    "switcher":{name:"antd-fc-switcher"}
+}
+```
+
+### 如何在项目中全局更换现有 xtype 的组件
+
+在项目中将内置的组件跟换为自有的组件
+
+* 定义自己的组件，通过 Vue.Components 注册到全局
+* 修改 组件的全局默认参数，将原有的 xtype 对应的实现组件名称，更换为自有的组件
+* 名称必须一致
+
+```js
+Vue.component('my-component-name', { /* ... */ })
+
+window["tg-turing"].defaults.antd.form["date"].name = "my-component-name";
+
+```
+
+
+### 如何增加一个 xtype，接入 tg-form
+
+新增一个 xtype 与上一种操作方式一致，区别在于新增一种 type
+
+```js
+Vue.component('my-component-name', { /* ... */ })
+
+window["tg-turing"].defaults.antd.form["newxtype"].name = "my-component-name";
+```
+
+
+### 接入的组件可以利用的接口
+
+tg-form 会传递一系列参数，需要继承自 tg-turing.ConnectItem 类
+
+
+es6语法
+
+```html
+<template>
+    <FormItem :label="caption" :prop="name" :label-width="params.labelWidth" v-if="formReadonly !== true">
+        <DatePicker :value="value" type="date" :placeholder="placeholder" style="width:100%" @on-change="onChange" transfer></DatePicker>
+    </FormItem>
+    <antd-fc-static v-else :caption="caption" :prop="name" :value="value"></antd-fc-static>
+</template>
+<script>
+import {ConnectItem} from 'tg-turing'
+export default {
+    name:"antd-fc-date",
+    extends: ConnectItem,
+    methods:{
+        onChange(value) {
+            let label = value;
+            this.$emit("on-item-change", this.name, value, label, this.model)
+            this.$emit("input", value)
+        }
+    }
+}
+</script>
+```
+
+ConnectItem 定义详见 文档接下来的章节：ConnectItem 每个xtype组件的标准属性
+
+
+
+
 ### 标准属性
 
 | 属性 | 描述 | 数据类型 | 默认值 |
@@ -191,3 +301,30 @@ format：日期、数字、金额，或字符串格式化，因效率一般通�
 |---------- |-------- |---------- |
 | on-value-change  | 表单项的数据变化时触发 | name, value, display, model, formValue  |
 | input  | 支持v-model | formValue |
+
+
+
+### ConnectItem 每个xtype组件的标准属性
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 |
+|------|-------|---------|-------|--------|
+| name | 字段名 | String | | 必填 |
+| xtype | 显示组件类型 | String | | static |
+| value | 字段值 | Object |  | null |
+| display | 字段显示文本。select等字典型组件会显示文本 | Object |  | null |
+| placeholder | 文本占位符 | String | |  |
+| readonly | 字段内容只读 | Boolean | | false |
+| options | 可选项 | Array<label:String, value:String> |  | 空 |
+| formReadonly | 只读表单 | Boolean | | false |
+| required | 必填 | Boolean | | false |
+| disabled | 禁用 | Boolean | | false |
+| model | 字段模型 | Object | | {} |
+| params | 对应 model.params | Object | |  |
+
+### Events
+
+| 事件名称 | 说明 | 回调参数 |
+|---------- |-------- |---------- |
+| on-item-change  | 值变化时触发 | name, value, display, model  |
+| input  | 支持v-model | value |
+
