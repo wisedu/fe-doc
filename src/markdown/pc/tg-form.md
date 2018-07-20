@@ -282,7 +282,7 @@ format：日期、数字、金额，或字符串格式化，因效率一般通�
 | column | 每行显示字段数量 | Number | | 4 |
 | labelWidth | 字段前的标签宽度 | Number | | 100 |
 | readonly | 只读表单 | Boolean | | false |
-| displayFieldFormat | 字典翻译列的后缀 | String | `_DISPLAY` | 空 |
+| displayFieldFormat | 字典翻译列的后缀，可全局配置window["tg-turing"].defaults.displayFieldFormat | String | `_DISPLAY` | 空 |
 | before | 表单开头追加项 | Slot |  |  |
 | after | 表单最后追加项 | Slot |  |  |
 | 动态：字段名 | 可以替换某个字段 | Slot |  |  |
