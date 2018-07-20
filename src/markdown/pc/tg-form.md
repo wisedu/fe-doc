@@ -20,7 +20,7 @@
 <tg-form :fields="fields" v-model="formData" :column="2" :readonly="true"></tg-form>
 ```
 
-#### 平铺表单格式
+#### 平铺表单数据格式
 
 ```js
 let fields = [
@@ -40,7 +40,7 @@ let fields = [
 </Modal>
 ```
 
-### 分组表单格式
+#### 分组表单数据格式
 
 ```js
 let fields = [
