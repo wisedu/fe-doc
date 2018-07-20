@@ -1,6 +1,8 @@
 ## tg-gridview
 
-### 例子
+### 搜索 + 工具栏 + 列表
+
+
 
 #### 外部传递数据
 
@@ -113,3 +115,6 @@
 })(window.turingform, window["tg-turing"]);
 
 ```
+### 仅 grid
+
+
