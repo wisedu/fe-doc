@@ -18,10 +18,12 @@ export default {
     data(){
         return {
             header:{
+                appName:"应用的名字",
                 activeName:"B",
                 logo:"http://my.wisedu.com/new/portal/custom/img/logo/logo-mini.png",
                 userImage:"http://my.wisedu.com/portal/img/icon/user-role-teacher.png",
                 userName:"qiyu",
+                logoutUrl: "",
                 menu:[{
                     name:"A",
                     icon:"ios-people",
@@ -65,11 +67,13 @@ export default {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 |------|-------|---------|-------|--------|
+| appName | 应用的名字 | String |  |  |
 | menu | 菜单数据 | Array | `[{"name":"A","icon":"ios-people","url":"http://www.baidu.com"},{"name":"D","url":"","icon":"stats-bars","items":[{"name":"DD","icon":"settings","url":""}]}]` |  |
 | logo | logo url地址 | String |  |  |
 | userImage | 用户头像url | String |  |  |
 | userName | 用户名称 | String |  |  |
-| dropMenu | 下拉菜单 | Array | `[{name:"退出",url:"http://www.baidu.com",callback: function() {alert("退出");}}]` |  |
+| logoutUrl | 登出地址 | String |  |  |
+| dropMenu | 下拉菜单 | Array | `[{id:"role1",text:"角色1",active:"true"}]` |  |
 | navPath | 导航路径，层级以数组顺序决定 | Array | `[{"name":"应用","icon":"ios-people","url":"http://www.baidu.com"},{"name":"菜单","url":"http://www.baidu.com"},{"name":"页面","url":"http://www.baidu.com"}]` |  |
 | header | 整个头部插槽 | Slot |  |  |
 | logo | logo 插槽 | Slot |  |  |
