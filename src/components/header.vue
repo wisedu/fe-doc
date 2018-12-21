@@ -3,10 +3,7 @@
     <div class="header-container">
       <img class="logo" src="../assets/logo.png" alt="">
       <ul class="list">
-        <li>
-          <a href="/forum"><el-badge value="new" class="item">社区</el-badge></a>
-        </li>
-        <router-link to="/mobile">
+        <!-- <router-link to="/mobile">
           <li :class="mobile_active">移动组件</li>
         </router-link>
         <router-link to="/mobile-projectlist">
@@ -17,8 +14,22 @@
         </router-link>
         <router-link to="/iview">
           <li :class="pc_active">iview文档</li>
+        </router-link> -->
+        <li>
+          <a href="//res.wisedu.com/"><span>首页</span></a>
+        </li>
+        <li>
+          <a href="//res.wisedu.com/FS/docsite2x/"><span>组件库2.x</span></a>
+        </li>
+        <li>
+          <a href="//res.wisedu.com/FS/docsite/"><span>组件库1.x</span></a>
+        </li>
+        <router-link to="/mobile-projectlist">
+          <li :class="mobile_active"><span>模板库</span></li>
         </router-link>
-        <li><a href="http://res.wisedu.com/FS/docsite/">RES文档</a></li>
+        <li>
+          <a href="/forum"><span>论坛</span></a>
+        </li>
       </ul>
     </div>
   </div>
@@ -59,7 +70,9 @@ export default {
   margin-bottom: 24px;
 }
 .header-container {
-  width: 1176px;
+  max-width: 1400px;
+  min-width: 800px;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -75,9 +88,13 @@ export default {
     height: 100%;
 
     & li {
-      padding: 0 16px;
+      padding: 0 24px;
       height: 100%;
       line-height: 80px;
+
+      & span {
+        font-size: 16px;
+      }
     }
   }
 
