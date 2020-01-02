@@ -1,5 +1,5 @@
 <template>
-  <div class="header-container">
+<!--   <div class="header-container">
     <h1><img class="logo" src="../assets/logo.png" alt=""></h1>
     <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" default-active="/">
       <el-menu-item index="/">首页</el-menu-item>
@@ -8,8 +8,8 @@
       <el-menu-item index="/mobile-projectlist">模板库</el-menu-item>
       <el-menu-item index="/forum">论坛</el-menu-item>
     </el-menu>
-  </div>
-<!--   <div class="header-wrap">
+  </div> -->
+  <div class="header-wrap">
     <div class="header-container">
       <h1>
         <img class="logo" src="../assets/logo.png" alt="">
@@ -32,7 +32,7 @@
         </li>
       </ul>
     </div>
-  </div> -->
+  </div>
 </template>
 <script>
 export default {
@@ -103,9 +103,11 @@ export default {
 .router-link-active {
   border-bottom: 4px solid #3892FF;
 }
-.el-menu--horizontal>.el-menu-item {
-  line-height: 80px;
-  height: 80px;
+.el-menu--horizontal {
+  & .el-menu-item {
+    line-height: 80px;
+    height: 80px;
+  }
 }
 </style>
 
