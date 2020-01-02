@@ -1,20 +1,20 @@
 <template>
-  <div class="header-wrap">
+  <div class="header-container">
+    <h1><img class="logo" src="../assets/logo.png" alt=""></h1>
+    <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" default-active="/">
+      <el-menu-item index="/">首页</el-menu-item>
+      <el-menu-item index="//res.wisedu.com/FS/docsite2x/">组件库2.x</el-menu-item>
+      <el-menu-item index="/FS/docsite/">组件库1.x</el-menu-item>
+      <el-menu-item index="/mobile-projectlist">模板库</el-menu-item>
+      <el-menu-item index="/forum">论坛</el-menu-item>
+    </el-menu>
+  </div>
+<!--   <div class="header-wrap">
     <div class="header-container">
-      <img class="logo" src="../assets/logo.png" alt="">
+      <h1>
+        <img class="logo" src="../assets/logo.png" alt="">
+      </h1>
       <ul class="list">
-        <!-- <router-link to="/mobile">
-          <li :class="mobile_active">移动组件</li>
-        </router-link>
-        <router-link to="/mobile-projectlist">
-          <li :class="mobile_active">移动模板库</li>
-        </router-link>
-        <router-link to="/pc">
-          <li :class="pc_active">PC组件</li>
-        </router-link>
-        <router-link to="/iview">
-          <li :class="pc_active">iview文档</li>
-        </router-link> -->
         <li>
           <a href="//res.wisedu.com/"><span>首页</span></a>
         </li>
@@ -32,7 +32,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 export default {
@@ -63,11 +63,8 @@ export default {
   display: inline;
 }
 .header-wrap {
-  background: #062f49;
-  height: 80px;
   display: flex;
   justify-content: center;
-  margin-bottom: 24px;
 }
 .header-container {
   max-width: 1400px;
@@ -77,6 +74,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto; 
   & .logo {
     height: 50px;
   }
@@ -104,6 +102,10 @@ export default {
 }
 .router-link-active {
   border-bottom: 4px solid #3892FF;
+}
+.el-menu--horizontal>.el-menu-item {
+  line-height: 80px;
+  height: 80px;
 }
 </style>
 

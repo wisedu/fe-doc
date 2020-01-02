@@ -1,7 +1,13 @@
 <template>
   <div id="app" class="">
-    <md-header></md-header>
-    <div class="container"><router-view></router-view></div>
+    <el-container>
+      <el-header height="80px" style="background-color: #062f49;margin-bottom: 24px;">
+        <md-header></md-header>
+      </el-header>
+      <el-main class="container">
+        <router-view></router-view>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
@@ -21,18 +27,12 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
-}
 
 html,
 body {
   margin: 0;
   padding: 0;
+  background-color: #FFFFFF;
   height: 100%;
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", SimSun, sans-serif;
@@ -41,10 +41,14 @@ body {
 
   &.is-component {
     overflow: hidden;
-  }
+  } 
 }
 
 #app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
   height: 100%;
 
   @when component {
