@@ -10,7 +10,9 @@
         <a href="//res.wisedu.com/FS/docsite/"><span>组件库1.x</span></a>
       </el-menu-item>
       <el-menu-item index="/mobile-projectlist">模板库</el-menu-item>
-      <el-menu-item index="/forum">论坛</el-menu-item>
+      <el-menu-item>
+        <a href="/forum"><span>论坛</span></a>
+      </el-menu-item>
     </el-menu>
   </div>
 <!--   <div class="header-wrap">
