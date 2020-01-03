@@ -409,7 +409,11 @@ export default {
       return O.Y+"-"+(O.M < 10 ? ('0' + O.M) : O.M)+"-"+( O.D< 10 ? ('0' + O.D) : O.D)+" "+(O.h < 10 ? ('0' + O.h) : O.h)+":"+(O.m < 10 ? ('0' + O.m) : O.m)+":"+(O.s < 10 ? ('0' + O.s) : O.s);
     },
     scroll(){
-      console.log(document.getElementsByClassName('content')[0].offsetTop,document.documentElement.scrollTop )
+      if(document.documentElement.scrollTop < 172) {
+        document.getElementsByClassName('phone')[0].style.top = 192 - document.documentElement.scrollTop + "px"
+      }else{
+        document.getElementsByClassName('phone')[0].style.top = "20px"
+      }
     }
   },
   destroyed(){

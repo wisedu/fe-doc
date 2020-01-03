@@ -1,9 +1,6 @@
 <template>
   <div class="side-nav">
-     <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
-       <!-- <div class="search">
-        <input type="text">
-      </div>   -->
+    <el-menu :default-active="active" :default-openeds="defaultOpeneds" class="el-menu-vertical-demo">
       <el-submenu index="important">
         <template slot="title">置顶文档</template>
         <template v-if="type === 'mobile'">
