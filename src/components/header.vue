@@ -1,15 +1,15 @@
 <template>
-<!--   <div class="header-container">
+  <div class="header-container">
     <h1><img class="logo" src="../assets/logo.png" alt=""></h1>
-    <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" default-active="/">
+    <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" :default-active="default_ctive" @select="selectHandle">
       <el-menu-item index="/">首页</el-menu-item>
-      <el-menu-item index="//res.wisedu.com/FS/docsite2x/">组件库2.x</el-menu-item>
-      <el-menu-item index="/FS/docsite/">组件库1.x</el-menu-item>
+      <el-menu-item index="/FS/docsite2x">组件库2.x</el-menu-item>
+      <el-menu-item index="/FS/docsite">组件库1.x</el-menu-item>
       <el-menu-item index="/mobile-projectlist">模板库</el-menu-item>
       <el-menu-item index="/forum">论坛</el-menu-item>
     </el-menu>
-  </div> -->
-  <div class="header-wrap">
+  </div>
+<!--   <div class="header-wrap">
     <div class="header-container">
       <h1>
         <img class="logo" src="../assets/logo.png" alt="">
@@ -32,14 +32,15 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 export default {
   data(){
     return {
-      mobile_active:"active",
-      pc_active:""
+      // mobile_active:"active",
+      // pc_active:"",
+      default_ctive: "/"
     }
   },
   mounted() {
@@ -47,13 +48,29 @@ export default {
   },
   methods: {
     changeStatus() {
-      if (window.location.hash.indexOf("mobile") > -1) {
-        this.mobile_active = "active"
-        this.pc_active = ""
-      } else {
-        this.mobile_active = ""
-        this.pc_active = "active"
+      var routerPath = ["/","/FS/docsite2x","/FS/docsite","/mobile-projectlist","/forum"];
+      this.default_ctive = routerPath.indexOf(window.location.pathname)>-1 ?  window.location.pathname : '/';
+      // if (window.location.hash.indexOf("mobile") > -1) {
+      //   this.mobile_active = "active"
+      //   this.pc_active = ""
+      // } else {
+      //   this.mobile_active = ""
+      //   this.pc_active = "active"
+      // }
+    },
+    selectHandle(index, indexPath) {
+      switch(index) {
+        case "/FS/docsite2x":
+          window.location.href = "http://res.wisedu.com/FS/docsite2x/";
+          break;
+        case "/FS/docsite": 
+          window.location.href = "http://res.wisedu.com/FS/docsite/";
+          break;
+        case "/forum": 
+          window.location.href = "http://res.wisedu.com/forum";
+          break;
       }
+
     }
   }
 }
