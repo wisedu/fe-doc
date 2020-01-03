@@ -1,10 +1,14 @@
 <template>
   <div class="header-container">
     <h1><img class="logo" src="../assets/logo.png" alt=""></h1>
-    <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" :default-active="default_ctive" @select="selectHandle">
+    <el-menu mode="horizontal" router background-color="#062f49" text-color="#FFFFFF" active-text-color="rgb(255, 208, 75)" class="header-menu" :default-active="default_ctive">
       <el-menu-item index="/">首页</el-menu-item>
-      <el-menu-item index="/FS/docsite2x">组件库2.x</el-menu-item>
-      <el-menu-item index="/FS/docsite">组件库1.x</el-menu-item>
+      <el-menu-item>
+        <a href="//res.wisedu.com/FS/docsite2x/"><span>组件库2.x</span></a>
+      </el-menu-item>
+      <el-menu-item>
+        <a href="//res.wisedu.com/FS/docsite/"><span>组件库1.x</span></a>
+      </el-menu-item>
       <el-menu-item index="/mobile-projectlist">模板库</el-menu-item>
       <el-menu-item index="/forum">论坛</el-menu-item>
     </el-menu>
@@ -57,20 +61,6 @@ export default {
       //   this.mobile_active = ""
       //   this.pc_active = "active"
       // }
-    },
-    selectHandle(index, indexPath) {
-      switch(index) {
-        case "/FS/docsite2x":
-          window.location.href = "http://res.wisedu.com/FS/docsite2x/";
-          break;
-        case "/FS/docsite": 
-          window.location.href = "http://res.wisedu.com/FS/docsite/";
-          break;
-        case "/forum": 
-          window.location.href = "http://res.wisedu.com/forum";
-          break;
-      }
-
     }
   }
 }
@@ -120,7 +110,7 @@ export default {
 .router-link-active {
   border-bottom: 4px solid #3892FF;
 }
-.el-menu--horizontal {
+.el-menu--horizontal.header-menu {
   & .el-menu-item {
     line-height: 80px;
     height: 80px;
