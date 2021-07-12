@@ -167,7 +167,7 @@ export default {
       let rs = this.routes.find(r => r.path.replace("/", "") === this.type).children.filter(i => i.path !== "/");
       axios.get(this.$SITE_URL + '/mobile/getAllComponents').then(function(resp) {
         let group = {}
-        let components = resp.data.data.components;
+        let components = resp.data.data.components || resp.data.data.count;
         components = components.concat(componentsCategory)
         for (let item of components) {
           let com_def = item.component;
